@@ -21,7 +21,7 @@ const server = http.createServer(function(req, res)
 server.listen(port, hostname, function() {
     if (port == null || port == "") {
         port = 8000;
-        hostname = wwwHostname;
+        //hostname = wwwHostname;
     }
     console.log('Server running at http://'+ hostname + ':' + port + '/');
 });
