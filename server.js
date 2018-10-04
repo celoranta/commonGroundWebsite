@@ -5,9 +5,11 @@
 
 const http = require('http');
 const https = requre('https');
+var port = process.env.PORT;
+
 
 const hostname = "https://common-ground-website.herokuapp.com/";
-const port = 80;
+
 
 const server = http.createServer(function(req, res) 
 {
@@ -17,5 +19,8 @@ const server = http.createServer(function(req, res)
 });
 
 server.listen(port, hostname, function() {
+    if (port == null || port == "") {
+        port = 8000;
+    }
     console.log('Server running at http://'+ hostname + ':' + port + '/');
 });
