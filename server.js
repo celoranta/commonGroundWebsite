@@ -5,8 +5,8 @@
 
 const http = require('http');
 
-const hostname = '127.0.0.1';
-const port = 3000;
+const hostname = "https://common-ground-website.herokuapp.com/";
+const port = 80;
 
 const server = http.createServer(function(req, res) 
 {
