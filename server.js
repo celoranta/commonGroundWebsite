@@ -9,7 +9,6 @@ var port = process.env.PORT || 8000;
 // const path = require('path')
 
 var hostname = "localhost";
-//const wwwHostname = "https://common-ground-website.herokuapp.com/";
 
 const server = http.createServer(function(req, res) 
 {
@@ -21,19 +20,9 @@ const server = http.createServer(function(req, res)
 server.listen(port, hostname, function() {
     if (port == null || port == "") {
         port = 8000;
-        //hostname = wwwHostname;
     }
     console.log('Server running at http://'+ hostname + ':' + port + '/');
 });
-
-
-// express()
-//   .use(express.static(path.join(__dirname, 'public')))
-//   .set('views', path.join(__dirname, 'views'))
-//   .set('view engine', 'ejs')
-//   .get('/', (req, res) => res.render('pages/index'))
-//   .listen(PORT, () => console.log(`Listening on ${ port }`))
-
 
 
 
