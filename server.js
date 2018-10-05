@@ -14,7 +14,8 @@ const server = http.createServer(function(req, res)
 {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello World\n');
+    res.end('Common Ground\n');
+    res.end('Classic Rock | Motown | Alternative | Country\n');
 });
 
 server.listen(port, hostname, function() {
