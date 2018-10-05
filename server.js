@@ -14,8 +14,7 @@ const server = http.createServer(function(req, res)
 {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    res.end('Common Ground\n');
-    res.end('Classic Rock | Motown | Alternative | Country\n');
+    res.end('Common Ground\n Classic Rock | Motown | Alternative | Country\n Vancouver, BC\n');
 });
 
 server.listen(port, hostname, function() {
