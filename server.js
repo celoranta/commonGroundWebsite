@@ -1,20 +1,29 @@
-/*server.js*/
 
-//As per https://codeburst.io/getting-started-with-node-js-a-beginners-guide-b03e25bca71b
-
-
+const fs = require('fs');
 const http = require('http');
+const url = require('url');
 var port = process.env.PORT || 8000;
+var hostname = "localhost";
+
 // const express = require('express');
 // const path = require('path')
 
-var hostname = "localhost";
 
 const server = http.createServer(function(req, res) 
 {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Common Ground\nClassic Rock | Motown | Alternative | Country\nVancouver, BC\n');
+    var q = url.parse(req.url, true);
+    var filename = "." + q.pathname;
+
+    fs.readFile(filename, function(err, data) {
+        if (err) {
+            res.writeHead(404, {'Content-Type': 'text/html'});
+            return res.end("404 Not Found");
+          } 
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.write(data);
+        res.end();
+      });
+
 });
 
 server.listen(port, hostname, function() {
