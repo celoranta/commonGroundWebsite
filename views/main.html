@@ -1,27 +1,10 @@
-<!-- <!DOCTYPE html>
-<html>
-    <head>
-        <!-- <meta charset='UTF-8'> -->
-        <!-- <link href="/css/style.css" rel="stylesheet" type="text/css"> 
-        </head>
-<body>
-<h1>Common Ground</h1>
-<h3>Classic Covers</h3>
-<h4>Vancouver, BC</h4>
-<p></p>
-<p>Classic Rock | Motown | Alternative | Country</p>
-<a href="../backend-main.html">Backend</a>
-<br>
-</body>
-</html>  -->
-
 <!DOCTYPE html>
 <html>
 <title>Common Ground | BC Cover Band</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/google-lato.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 body {font-family: "Lato", sans-serif}
@@ -36,15 +19,17 @@ body {font-family: "Lato", sans-serif}
     <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
     <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BAND</a>
     <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SHOWS</a>
+    <a href="#songs" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SONGS</a>
+    <a href="#press" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PRESS KIT</a>
     <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
-    <div class="w3-dropdown-hover w3-hide-small">
+    <!-- <div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
         <a href="#" class="w3-bar-item w3-button">Merchandise</a>
         <a href="#" class="w3-bar-item w3-button">Extras</a>
         <a href="#" class="w3-bar-item w3-button">Media</a>
       </div>
-    </div>
+    </div> -->
     <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
   </div>
 </div>
@@ -62,21 +47,21 @@ body {font-family: "Lato", sans-serif}
 
   <!-- Automatic Slideshow Images -->
   <div class="mySlides w3-display-container w3-center">
-    <img src="/images/eagles.jpg" style="width:100%">
+    <img src="/images/eagles16x9.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>Los Angeles</h3>
       <p><b>We've been around forever!</b></p>   
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
-    <img src="/images/van_halen.jpeg" style="width:100%">
+    <img src="/images/van_halen16x9.jpeg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>New York</h3>
       <p><b>Look how fast Lorne can play!</b></p>    
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
-    <img src="/images/zep.jpg" style="width:100%">
+    <img src="/images/zep16x9.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>Chicago</h3>
       <p><b>Ok, I admit this probably isn't us.</b></p>    
@@ -87,41 +72,42 @@ body {font-family: "Lato", sans-serif}
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
     <h2 class="w3-wide">COMMON GROUND</h2>
     <p class="w3-opacity"><i>Classic Covers</i></p>
-    <p class="w3-justify">Common Ground specializes in well-known danceable tunes from 1965 to 2018, 
-        performed with infectious groove and three-part harmony.  
-        Bringing to bear a century’s worth of combined gigging experience, 
-        we strive to make your guests’ time with you special... 
-        and to keep them on the dance floor all night.
-        <div class="w3-row w3-padding-32">
-      <div class="w3-third">
-        <p>Lorne Baron</p>
-        <img src="/images/lorne_hat.PNG" class="w3-round w3-margin-bottom" alt="Lorne Baron" style="width:60%">
-        <p>Guitar, Vocals</p>
+    <p class="w3-justify">Common Ground specializes in well-known danceable tunes from 1965 to 2018,
+      performed with infectious groove and three-part harmony.
+      Bringing to bear a century’s worth of combined gigging experience,
+      we strive to make your guests’ time with you special...
+      and to keep them on the dance floor all night.
+      <div class="w3-row w3-padding-32">
+        <div class="w3-third">
+          <p>Lorne Baron</p>
+          <img src="/images/lorne_hat.PNG" class="w3-round w3-margin-bottom" alt="Lorne Baron" style="width:60%">
+          <p>Guitar, Vocals</p>
+        </div>
+        <div class="w3-third">
+          <p>Brad Ross</p>
+          <img src="/images/brad_lebowsky.jpg" class="w3-round w3-margin-bottom" alt="Brad Ross" style="width:60%">
+          <p>Drums, Vocals</p>
+        </div>
+        <div class="w3-third">
+          <p>Chris Eloranta</p>
+          <img src="/images/chris_grin.jpg" class="w3-round" alt="Chris Eloranta" style="width:60%">
+          <p>Bass, Vocals</p>
+        </div>
       </div>
-      <div class="w3-third">
-        <p>Brad Ross</p>
-        <img src="/images/brad_lebowsky.jpg" class="w3-round w3-margin-bottom" alt="Brad Ross" style="width:60%">
-        <p>Drums, Vocals</p>
-      </div>
-      <div class="w3-third">
-        <p>Chris Eloranta</p>
-        <img src="/images/chris_grin.jpg" class="w3-round" alt="Chris Eloranta" style="width:60%">
-        <p>Bass, Vocals</p>
-      </div>
-    </div>
   </div>
 
-  <!-- The Tour Section -->
+  <!-- The Shows Section -->
   <div class="w3-black" id="tour">
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
       <h2 class="w3-wide w3-center">SHOW DATES</h2>
-      <p class="w3-opacity w3-center"><i>Come see us Live!</i></p><br>
+      <p class="w3-opacity w3-center"><i>Party with us Live!</i></p><br>
 
-      <!-- <ul class="w3-ul w3-border w3-white w3-text-grey">
-        <li class="w3-padding">September <span class="w3-tag w3-red w3-margin-left">Sold out</span></li>
-        <li class="w3-padding">October <span class="w3-tag w3-red w3-margin-left">Sold out</span></li>
-        <li class="w3-padding">November <span class="w3-badge w3-right w3-margin-right">3</span></li>
-      </ul> -->
+      <ul class="w3-ul w3-border w3-white w3-text-grey">
+        <li class="w3-padding">October <span class="w3-tag w3-margin-left">Full Calendar</span><span class="w3-badge w3-right w3-margin-right">2</span></li>
+        <li class="w3-padding">November <span class="w3-tag w3-green w3-margin-left">Booking Now</span><span class="w3-badge w3-right w3-margin-right">0</span></li>
+        <li class="w3-padding">December <span class="w3-tag w3-green w3-margin-left">Booking Now</span><span class="w3-badge w3-right w3-margin-right">0</span></li>
+       <!-- <li class="w3-padding">November <span class="w3-badge w3-right w3-margin-right">3</span></li> -->
+      </ul> 
 
       <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
         <div class="w3-third w3-margin-bottom">
@@ -154,6 +140,50 @@ body {font-family: "Lato", sans-serif}
       </div>
     </div>
   </div>
+
+    <!-- The Songs Section -->
+    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="songs">
+      <h2 class="w3-wide">SONGS</h2>
+      <!-- <p class="w3-opacity"><i>Classic Rock  |  Country  |  Alternative  |  Motown</i></p> -->
+      <p class="w3-justify"><i>Common Ground is not a genre band.  If it moves your feet, we want to play it.  
+        Wilson Pickett?  Luke Bryant?  Daft Punk?  Taylor Swift?  No problem.</i></p>
+      <div class="w3-row w3-padding-32">
+        <div class="w3-quarter">
+          <p><i>Classic Rock</i></p>
+          <p>Mustang Sally<br/>
+            Brown Eyed Girl</p>
+        </div>
+        <div class="w3-quarter">
+          <p><i>Country</i></p>
+          <p>
+            Springsteen<br/>
+            Boys Round Here<br/>
+        </p>
+        </div>
+        <div class="w3-quarter">
+          <p><i>Alternative</i></p>
+          <p>
+            Learn to Fly<br/>
+            One Headlight<br/>
+        </p>
+        </div>
+        <div class="w3-quarter">
+          <p><i>Motown</i></p>
+          <p>
+            Mustang Sally<br/>
+            I Heard it Through the Grapevine<br/>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Press Kit Section -->
+    <div class="w3-black" id="press">
+      <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+        <h2 class="w3-wide w3-center">PRESS KIT</h2>
+        
+      </div>
+    </div>
 
   <!-- Ticket Modal -->
   <div id="ticketModal" class="w3-modal">
