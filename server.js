@@ -1,39 +1,34 @@
 
 const fs = require('fs');
-const http = require('http');
 const url = require('url');
+const express = require('express');
 //const mysql = require('mysql');
+// const path = require('path')
 
 var port = process.env.PORT || 8000;
 var hostname = "localhost";
+var app = express();
 
-// const express = require('express');
-// const path = require('path')
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/views'));
 
-const server = http.createServer(function(req, res) 
-{
-    var q = url.parse(req.url, true);
-    var filename = "." + q.pathname;
-    fs.readFile(filename, function(err, data) {
-        if (err) {
-            res.writeHead(404, {'Content-Type': 'text/html'});
-            return res.end("404 Not Found");
-          } 
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        res.write(data);
-        res.write(q.pathname);
-        res.end();
-      });
+app.get('/', (request, response) => {
+        var q = url.parse(request.url, true);
+        var filename = "." + q.pathname;
+        fs.readFile(filename, function(err, data) {
+            if (err) {
+                res.writeHead(404, {'Content-Type': 'text/html'});
+                return res.end("404 Not Found");
+              } 
+            response.writeHead(200, {'Content-Type': 'text/html'});
+            response.write(data);
+            response.write(q.pathname);
+            response.end();
+          });
+
 });
 
-server.listen(port, hostname, function() {
-    if (port == null || port == "") {
-        port = 8000;
-    }
-    console.log('Server running at http://'+ hostname + ':' + port + '/');
-});
-
-
+app.listen(port);
 
 
 
