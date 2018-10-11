@@ -1,34 +1,46 @@
 
+//Include frameworks
 const fs = require('fs');
 const url = require('url');
 const express = require('express');
+const path = require('path')
 //const mysql = require('mysql');
-// const path = require('path')
 
-var port = process.env.PORT || 8000;
-var hostname = "localhost";
+//Instantiate managers
 var app = express();
 
-app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + '/views'));
+//Assign variables
+var httpPort = process.env.PORT || 8000;
+var hostname = "localhost";
 
-app.get('/', (request, response) => {
-        var q = url.parse(request.url, true);
-        var filename = "." + q.pathname;
-        fs.readFile(filename, function(err, data) {
-            if (err) {
-                response.writeHead(404, {'Content-Type': 'text/html'});
-                return res.end("404 Not Found");
-              } 
-            response.writeHead(200, {'Content-Type': 'text/html'});
-            response.write(data);
-            response.write(q.pathname);
-            response.end();
-          });
+//Create filepaths
+var homePage = path.join(__dirname + '/views/main.html');
+var backPage = path.join(__dirname + '/views/backend-main.html')
+var publicFolder = path.join(__dirname + '/public');
 
+//Static Routes
+app.use(express.static(publicFolder));
+
+//Standard Routes
+app.get('/', (req, res) => {
+  res.sendFile(homePage);
 });
 
-app.listen(port);
+app.get('/backend', (req, res) => {
+  res.sendFile(backPage);
+});
+
+// 404
+app.use(function(req, res, next) {
+  return res.status(404).send({ message: 'Route'+req.url+' Not found.' });
+});
+
+// 500 - Any server error
+app.use(function(err, req, res, next) {
+  return res.status(500).send({ error: err });
+});
+
+app.listen(httpPort);
 
 
 
