@@ -16,6 +16,7 @@ var hostname = "localhost";
 //Create filepaths
 var homePage = path.join(__dirname + '/views/main.html');
 var backPage = path.join(__dirname + '/views/backend-main.html')
+//var defaultImage = path.join(__dirname + '/images/rockHand.png')
 var publicFolder = path.join(__dirname + '/public');
 
 //Static Routes
