@@ -1,1 +1,1 @@
-document.getElementById("contact-location").innerHTML = "Adelaide, AU";
+//document.getElementById("contact-location").innerHTML = "Adelaide, AU";
