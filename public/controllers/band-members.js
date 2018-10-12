@@ -17,9 +17,8 @@ function commaCat() {
 };
 
 
-function createMemberBio() {
-    bandMember = arguments[0]
-    //create headshot image div
+function constructMemberBio() {
+    var bandMember = arguments[0];
     var headshotBlock = document.createElement('img');
     headshotBlock.setAttribute('src', bandMember.headShots[0]);
     headshotBlock.setAttribute('class', "w3-round w3-margin-bottom"  );
@@ -32,7 +31,7 @@ function createMemberBio() {
     
     //create instrument paragraph div
     var instrumentsBlock = document.createElement('p');
-    instrumentsBlock.innerHTML = bandMember.instrumentsString();
+    instrumentsBlock.innerHTML = bandMember.instrList();
     
     //create wrapper div
     var wrapperDiv = document.createElement( 'div' );
@@ -86,41 +85,8 @@ i = 0;
 for (i = 0; i < bandMembers.length; i++) {
     console.log(i);
     var bandMember = bandMembers[i];
-    // var memberString = "band-member-" + i + "-";
-    // var nameString = memberString + "name";
-    // var headshotString = memberString + "headshot";
-    // var instrumentsString = memberString + "instruments";
-
-    // document.getElementById(nameString).innerHTML = bandMembers[i].fullName();
-    // document.getElementById(headshotString).setAttribute('src', bandMembers[i].headShots[0]);
-    // document.getElementById(instrumentsString).innerHTML = bandMembers[i].instrList();
-
-    var headshotBlock = document.createElement('img');
-    headshotBlock.setAttribute('src', bandMember.headShots[0]);
-    headshotBlock.setAttribute('class', "w3-round w3-margin-bottom"  );
-    headshotBlock.setAttribute('alt', bandMember.givenName);
-    headshotBlock.setAttribute('style', "width:60%");
-     
-    //create name paragraph div
-    var nameBlock = document.createElement('p');
-    nameBlock.innerHTML = bandMember.fullName();
-    
-    //create instrument paragraph div
-    var instrumentsBlock = document.createElement('p');
-    instrumentsBlock.innerHTML = bandMember.instrList();
-    
-    //create wrapper div
-    var wrapperDiv = document.createElement( 'div' );
-    wrapperDiv.setAttribute('class', 'w3-third');
-    
-    //nest divs
-    wrapperDiv.appendChild(nameBlock);
-    wrapperDiv.appendChild(headshotBlock);
-    wrapperDiv.appendChild(instrumentsBlock);
-
-    //query for parent div
+    var wrapperDiv = constructMemberBio(bandMember);
     var container_block = document.getElementById('band-roster');
-
     container_block.appendChild( wrapperDiv );
 }
 
