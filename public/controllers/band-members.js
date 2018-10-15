@@ -79,6 +79,17 @@ const lorneBaron = {
     }
 };
 
+// const cheekyMonkey = {
+//     givenName: 'Cheeky',
+//     surname: 'Monkey',
+//     instruments: ['Kazoo', 'Nose Flute'],
+//     headShots: ["/images/rockHand.png"],
+//     fullName: function() {return spaceCat(this)},
+//     instrList: function() {
+//         return commaCat(this.instruments);
+//     }
+// };
+
 const bandMembers = [lorneBaron, bradRoss, chrisEloranta];
 
 i = 0;
