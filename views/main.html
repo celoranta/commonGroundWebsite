@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Common Ground | BC Cover Band</title>
+<title id="main-page-title"> | </title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/w3.css">
@@ -11,7 +11,6 @@ body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
 </style>
 <body>
-
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
@@ -47,13 +46,6 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-content" style="max-width:2000px;margin-top:46px">
 
   <!-- Automatic Slideshow Images -->
-  <!-- <div class="mySlides w3-display-container w3-center">
-    <img id="band-video" src="/images/Common Ground Promo .mp4" style="width:100%">
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>Los Angeles</h3>
-      <p><b>We've been around forever!</b></p>   
-    </div>
-  </div> -->
   <div class="mySlides w3-display-container w3-center">
     <img id="lorne-photo" src="/images/bandshots_16x9_bw/Band1BW.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
@@ -79,17 +71,15 @@ body {font-family: "Lato", sans-serif}
 
   <!-- The Band Section -->
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
-    <h2 class="w3-wide">COMMON GROUND</h2>
-    <p class="w3-opacity"><i>Classic Covers</i></p>
-    <p class="w3-justify">Common Ground specializes in well-known danceable tunes from 1965 to 2018,
-      performed with infectious groove and three-part harmony.
-      Bringing to bear a century’s worth of combined gigging experience,
-      we strive to make your guests’ time with you special...
-      and to keep them on the dance floor all night.
+    <h2 id="band-name-header" class="w3-wide">band name</h2>
+    <p id="band-description-subheader" class="w3-opacity"><i>short description</i></p>
+    <p id="band-blurb" class="w3-justify">blurb</p>
       <div id="band-roster" class="w3-row w3-padding-32">
       </div>
   </div>
+  <script src="/controllers/band.js"></script>
   <script src="/controllers/band-members.js"></script>
+
 
   <!-- The Shows Section -->
   <div class="w3-black" id="tour">
