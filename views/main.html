@@ -11,6 +11,7 @@ body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
 </style>
 <body>
+
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
@@ -80,157 +81,108 @@ body {font-family: "Lato", sans-serif}
   <script src="/controllers/band.js"></script>
   <script src="/controllers/band-members.js"></script>
 
-
   <!-- The Shows Section -->
   <div class="w3-black" id="tour">
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-      <h2 class="w3-wide w3-center">SHOW DATES</h2>
-      <p class="w3-opacity w3-center"><i>Party with us Live!</i></p><br>
-
-      <ul class="w3-ul w3-border w3-white w3-text-grey">
-        <li class="w3-padding">October <span class="w3-tag w3-margin-left">Full Calendar</span><span class="w3-badge w3-right w3-margin-right">2</span></li>
-        <li class="w3-padding">November <span class="w3-tag w3-green w3-margin-left">Booking Now</span><span class="w3-badge w3-right w3-margin-right">0</span></li>
-        <li class="w3-padding">December <span class="w3-tag w3-green w3-margin-left">Booking Now</span><span class="w3-badge w3-right w3-margin-right">0</span></li>
-       <!-- <li class="w3-padding">November <span class="w3-badge w3-right w3-margin-right">3</span></li> -->
+      <h2 id="shows-header" class="w3-wide w3-center">shows-header</h2>
+      <p id="shows-blurb" class="w3-opacity w3-center"><i>shows-blurb</i></p><br>
+      <ul id="shows-by-month" class="w3-ul w3-border w3-white w3-text-grey">
       </ul> 
-      <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
-
-        <div class="w3-third w3-margin-bottom">
-          <img src="/images/admiral.jpg" alt="Admiral Pub" style="width:100%" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
-            <p><b>The Admiral Pub, Burnaby BC</b></p>
-            <p class="w3-opacity">Thu 25 Oct 2018</p>
-            <p>Jam Night, Hosted by Common Ground</p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Request Songs</button>
-          </div>
-        </div>
-
-        <div class="w3-third w3-margin-bottom">
-          <img src="/images/admiral.jpg" alt="Admiral Pub" style="width:100%" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
-            <p><b>The Admiral Pub, Burnaby BC</b></p>
-            <p class="w3-opacity">Fri 26 Oct, 2018</p>
-            <p>Three sets of danceable Common Ground covers</p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Request Songs</button>
-          </div>
-        </div>
-
-        <div class="w3-third w3-margin-bottom">
-          <img src="/images/admiral.jpg" alt="TBD" style="width:100%" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
-            <p><b>The Admiral Pub, Burnaby BC</b></p>
-            <p class="w3-opacity">Sat 04 Jan, 2019</p>
-            <p>Jam Night, Hosted by Common Ground</p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Request Songs</button>
-          </div>
-        </div>
-
-        <div class="w3-third w3-margin-bottom">
-          <img src="/images/admiral.jpg" alt="TBD" style="width:100%" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
-            <p><b>The Admiral Pub, Burnaby BC</b></p>
-            <p class="w3-opacity">Sat 05 Jan, 2019</p>
-            <p>Three sets of danceable Common Ground covers</p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Request Songs</button>
-          </div>
-        </div>
-        
+      <div id="scheduled-shows" class="w3-row-padding w3-padding-32" style="margin:0 -16px">        
       </div>
     </div>
   </div>
+  <script src="/controllers/shows.js"></script>
 
-    <!-- The Songs Section -->
-    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="songs">
-      <h2 class="w3-wide">SONGS</h2>
-      <!-- <p class="w3-opacity"><i>Classic Rock  |  Country  |  Alternative  |  Motown</i></p> -->
-      <p class="w3-justify"><i>Common Ground is not a genre band.  If it moves your feet, we want to play it.  
-        Wilson Pickett?  Luke Bryant?  Daft Punk?  Taylor Swift?  No problem.</i></p>
-      <div class="w3-row w3-padding-32">
-        <div class="w3-quarter">
-          <p><i>Classic Rock</i></p>
-          <p>Mustang Sally<br/>
-            Brown Eyed Girl</p>
-        </div>
-        <div class="w3-quarter">
-          <p><i>Country</i></p>
-          <p>
-            Springsteen<br/>
-            Boys Round Here<br/>
-        </p>
-        </div>
-        <div class="w3-quarter">
-          <p><i>Alternative</i></p>
-          <p>
-            Learn to Fly<br/>
-            One Headlight<br/>
-        </p>
-        </div>
-        <div class="w3-quarter">
-          <p><i>Motown</i></p>
-          <p>
-            Mustang Sally<br/>
-            I Heard it Through the Grapevine<br/>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- The Press Kit Section -->
-    <div class="w3-black" id="press">
-      <!-- <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-        <h2 class="w3-wide w3-center">PRESS KIT</h2>
-        
-      </div>
-    </div> -->
-
-  <!-- Ticket Modal -->
-  <div id="ticketModal" class="w3-modal">
-    <div class="w3-modal-content w3-animate-top w3-card-4">
-      <header class="w3-container w3-teal w3-center w3-padding-32"> 
-        <span onclick="document.getElementById('ticketModal').style.display='none'" 
-       class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
-        <h2 class="w3-wide"><i class="fa fa-suitcase w3-margin-right"></i>Request a Song</h2>
-      </header>
-      <div class="w3-container">
-       <br> <!-- <p><label><i class="fa fa-shopping-cart"></i> Tickets, $15 per person</label></p> -->
-        <input class="w3-input w3-border" type="text" placeholder="Song Name?">
-        <!-- <p><label><i class="fa fa-user"></i> Send To</label></p> -->
-        <input class="w3-input w3-border" type="text" placeholder="As performed by?">
-        <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right">Tip the Band? <i class="fa fa-check"></i></button>
-        <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Close <i class="fa fa-remove"></i></button>
-        <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
-      </div>
-    </div>
-  </div>
-
-  <!-- The Contact Section -->
-
-  <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
-    <h2 class="w3-wide w3-center">CONTACT</h2>
-    <p class="w3-opacity w3-center"><i>Fan? Drop a note!</i></p>
+  <!-- The Songs Section -->
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="songs">
+    <h2 class="w3-wide">SONGS</h2>
+    <!-- <p class="w3-opacity"><i>Classic Rock  |  Country  |  Alternative  |  Motown</i></p> -->
+    <p class="w3-justify"><i>Common Ground is not a genre band.  If it moves your feet, we want to play it.  
+      Wilson Pickett?  Luke Bryant?  Daft Punk?  Taylor Swift?  No problem.</i></p>
     <div class="w3-row w3-padding-32">
-      <div class="w3-col m6 w3-large w3-margin-bottom">
-        <i class="fa fa-map-marker" style="width:30px"></i> Vancouver, BC<br>
-        <i class="fa fa-phone" style="width:30px"></i> Phone: +1 604-657-5677<br>
-        <a class="fa fa-envelope" style="width:30px" href="mailto:band@commongroundband.ca">band@commongroundband.ca</a>.<br> 
+      <div class="w3-quarter">
+        <p><i>Classic Rock</i></p>
+        <p>Mustang Sally<br/>
+          Brown Eyed Girl</p>
       </div>
-      <div class="w3-col m6">
-        <form action="/action_page.php" target="_blank">
-          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-            <div class="w3-half">
-              <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
-            </div>
-            <div class="w3-half">
-              <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
-            </div>
-          </div>
-          <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-          <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
-        </form>
+      <div class="w3-quarter">
+        <p><i>Country</i></p>
+        <p>
+          Springsteen<br/>
+          Boys Round Here<br/>
+      </p>
+      </div>
+      <div class="w3-quarter">
+        <p><i>Alternative</i></p>
+        <p>
+          Learn to Fly<br/>
+          One Headlight<br/>
+      </p>
+      </div>
+      <div class="w3-quarter">
+        <p><i>Motown</i></p>
+        <p>
+          Mustang Sally<br/>
+          I Heard it Through the Grapevine<br/>
+        </p>
       </div>
     </div>
   </div>
 
+  <!-- The Press Kit Section -->
+  <div class="w3-black" id="press">
+    <!-- <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+      <h2 class="w3-wide w3-center">PRESS KIT</h2>
+    </div>
+  </div> -->
+
+<!-- Ticket Modal -->
+<div id="ticketModal" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-teal w3-center w3-padding-32"> 
+      <span onclick="document.getElementById('ticketModal').style.display='none'" 
+      class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
+      <h2 class="w3-wide"><i class="fa fa-suitcase w3-margin-right"></i>Request a Song</h2>
+    </header>
+    <div class="w3-container">
+      <br> <!-- <p><label><i class="fa fa-shopping-cart"></i> Tickets, $15 per person</label></p> -->
+      <input class="w3-input w3-border" type="text" placeholder="Song Name?">
+      <!-- <p><label><i class="fa fa-user"></i> Send To</label></p> -->
+      <input class="w3-input w3-border" type="text" placeholder="As performed by?">
+      <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right">Tip the Band? <i class="fa fa-check"></i></button>
+      <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Close <i class="fa fa-remove"></i></button>
+      <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- The Contact Section -->
+<div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+  <h2 class="w3-wide w3-center">CONTACT</h2>
+  <p class="w3-opacity w3-center"><i>Fan? Drop a note!</i></p>
+  <div class="w3-row w3-padding-32">
+    <div class="w3-col m6 w3-large w3-margin-bottom">
+      <i class="fa fa-map-marker" style="width:30px"></i> Vancouver, BC<br>
+      <i class="fa fa-phone" style="width:30px"></i> Phone: +1 604-657-5677<br>
+      <a class="fa fa-envelope" style="width:30px" href="mailto:band@commongroundband.ca">band@commongroundband.ca</a>.<br> 
+    </div>
+    <div class="w3-col m6">
+      <form action="/action_page.php" target="_blank">
+        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+          </div>
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+          </div>
+        </div>
+        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+        <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
+      </form>
+    </div>
+  </div>
+</div>
 
 <!-- End Page Content -->
 </div>
@@ -306,5 +258,3 @@ window.onclick = function(event) {
 </script>
 </body>
 </html>
-
-

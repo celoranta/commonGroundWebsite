@@ -90,7 +90,7 @@ const lorneBaron = {
 //     }
 // };
 
-const bandMembers = [lorneBaron, bradRoss, chrisEloranta, cheekyMonkey];
+const bandMembers = [lorneBaron, bradRoss, chrisEloranta];
 
 i = 0;
 for (i = 0; i < bandMembers.length; i++) {
