@@ -67,6 +67,8 @@ function constructShowPromo() {
     nameBlock.innerHTML = venueString.bold();
 
     //create showdate paragraph div
+    const weekdayInt = show.date.getDay();
+    ///Stopped Here
     var dateDiv = document.createElement('p');
     dateDiv.setAttribute('class' , 'w3-opacity')
     dateDiv.innerHTML = show.date;
@@ -98,7 +100,7 @@ const admiralPub_20181025 = {
     city: 'Burnaby, BC',
     blurb: "Jam Night, Hosted by Common Ground",
     venueImage: '/images/admiral.jpg',
-    date: "Thurs 25 Oct 2018",
+    date: 'October 25, 2018 23:15:30 PST',
     private: "false",
     confirmed: "true"
 };
@@ -108,7 +110,7 @@ const admiralPub_20181026 = {
     city: 'Burnaby, BC',
     blurb: "Three sets of danceable Common Ground covers",
     venueImage: '/images/admiral.jpg',
-    date: "Fri 26 Oct 2018",
+    date: 'October 26, 2018 23:15:30 PST',
     private: "false",
     confirmed: "true"
 };
@@ -118,7 +120,7 @@ const admiralPub_20180104 = {
     city: 'Burnaby, BC',
     blurb: "Three sets of danceable Common Ground covers",
     venueImage: '/images/admiral.jpg',
-    date: "Fri 04 Jan 2019",
+    date: 'Jan 04, 2019 23:15:30 PST',
     private: "false",
     confirmed: "true"
 };
@@ -128,7 +130,7 @@ const admiralPub_20180105 = {
     city: 'Burnaby, BC',
     blurb: "Three sets of danceable Common Ground covers",
     venueImage: '/images/admiral.jpg',
-    date: "Sat 05 Jan 2019",
+    date: 'Jan 05, 2019 23:15:30 PST',
     private: "false",
     confirmed: "true"
 };
