@@ -133,7 +133,7 @@ uniqueGenres.forEach(function(genre){
 var marquees = document.getElementsByClassName("genre-song-marquee");
 var marquee = marquees[0];
 var genreCount = genresWithSongs.length;
-i=0;
+var i=0;
 var n=0;
 for(i=0; i < genreCount; i++){
     const genreObject = genresWithSongs[i];
