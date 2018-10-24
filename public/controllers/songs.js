@@ -114,7 +114,7 @@ document.getElementById('songs-blurb').innerHTML = songsBlurb.italics();
 var genreArrays = new Array;
 for(var o in songs) {
     genreArrays.push(songs[o].genreTags);
-}
+};
 var genres = (genreArrays.flat([1])); 
 var uniqueGenres = genres.filter( onlyUnique );
 
