@@ -1,9 +1,8 @@
 /*Overide Carousel Aspect Ratio*/
-.carousel img {
-    height: 100px;
-    width: 100px;
-    object-fit: contain;
-}
+.img {
+    object-fit: cover;
+    overflow: hidden;
+        }
 
 .container {
     margin: 0.75em auto;
