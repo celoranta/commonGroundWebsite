@@ -3,11 +3,14 @@
 const fs = require('fs');
 const url = require('url');
 const express = require('express');
-const path = require('path')
+const path = require('path');
+const jsdom = require("jsdom");
 //const mysql = require('mysql');
 
 //Instantiate managers
 var app = express();
+
+
 
 //Assign variables
 var httpPort = process.env.PORT || 8000;
@@ -42,6 +45,7 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(httpPort);
+
 
 
 

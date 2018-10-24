@@ -1,0 +1,92 @@
+
+
+.container {
+    margin: 0.75em auto;
+    overflow: hidden;
+    /*
+    position: relative;
+    box-sizing: border-box;  */
+    height: 5vh;
+}
+
+.song-container {
+    overflow: hidden;
+    margin-top: 0;
+}
+
+.songs-lists {
+    padding-top: 0;
+}
+
+.genre-header {
+    margin-top: 1vh;
+    margin-bottom: 0;
+    text-transform: capitalize;
+    text-decoration: underline;
+    text-emphasis: strong;
+}
+
+
+/*Override pause when hovering*/
+.marquee:hover {
+    animation-play-state: running;
+}
+
+/* Override space at the top of scrolling area */
+@keyframes marquee {
+    0%   { top:   0em }
+    100% { top: -19em }
+}
+
+/*replace the above with this:
+http://jsfiddle.net/roine/TCJT4/
+http://jsfiddle.net/etj74mnh/
+*/
+
+.default-position{
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+
+.slider{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+    margin:0;
+}
+
+.slider-edge{
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    display:block;
+    content:'';
+    background:linear-gradient( rgba(255,0,0,0), rgba(255,0,0,0), white); 
+
+    z-index:100;
+}
+
+
+.slider-ul{
+    position:relative;
+    overflow:hidden;
+    height:50%;
+    margin:0;
+}
+
+.slider-li{
+    position:absolute;
+    list-style:none;
+    display:block;
+    padding:0 50px;
+}
+
+.song-swimlane{
+    overflow: hidden;
+}

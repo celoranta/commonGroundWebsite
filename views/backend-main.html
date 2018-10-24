@@ -1,8 +1,23 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/marquee.css"> 
+        </head>   
 <body>
 <h1>Backend</h1>
 <p>landing page</p>
 </body>
 <a href="/">Main Page</a>
+<div class="microsoft container">
+        <p class="marquee">This is supposed to be some sort of scrolling text.  I dunno.  I'm not seeing it scroll.  Not yet, anyway. </p>
+    </div>
+    <!-- <button class="toggle">Toggle Beautification</button> -->
+    <!-- <p class="vanity">
+        <a href="https://twitter.com/jonathansampson">@jonathansampson</a> of 
+        <a href="https://twitter.com/appendTo">@appendTo</a>
+    </p> -->
+    <script>
+    $(".toggle").on("click", function () {
+            $(".container").toggleClass("microsoft");
+        });</script>
 </html>

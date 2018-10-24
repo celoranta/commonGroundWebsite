@@ -16,7 +16,7 @@ const bandNameHeader = document.getElementById("band-name-header");
 bandNameHeader.innerHTML = bandNameUppercase;
 
 const bandDescriptionSubheader = document.getElementById("band-description-subheader");
-bandDescriptionSubheader.innerHTML = bandShortestDescription;
+bandDescriptionSubheader.innerHTML = bandShortestDescription.italics();
 
 const bandBlurb = document.getElementById("band-blurb");
 bandBlurb.innerHTML = bandBlurbString;

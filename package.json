@@ -5,6 +5,8 @@
   "main": "server.js",
   "dependencies": {
     "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "jsdom": "^12.2.0",
     "mysql": "^2.16.0"
   },
   "devDependencies": {},

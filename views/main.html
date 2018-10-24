@@ -6,10 +6,14 @@
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="css/google-lato.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/marquee.css">
+<link rel="stylesheet" type="text/css" href="css/custom-css.css"> 
+
 <style>
 body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
 </style>
+
 <body>
 
 <!-- Navbar -->
@@ -95,40 +99,28 @@ body {font-family: "Lato", sans-serif}
   <script src="/controllers/shows.js"></script>
 
   <!-- The Songs Section -->
+
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="songs">
-    <h2 class="w3-wide">SONGS</h2>
-    <!-- <p class="w3-opacity"><i>Classic Rock  |  Country  |  Alternative  |  Motown</i></p> -->
-    <p class="w3-justify"><i>Common Ground is not a genre band.  If it moves your feet, we want to play it.  
-      Wilson Pickett?  Luke Bryant?  Daft Punk?  Taylor Swift?  No problem.</i></p>
-    <div class="w3-row w3-padding-32">
-      <div class="w3-quarter">
-        <p><i>Classic Rock</i></p>
-        <p>Mustang Sally<br/>
-          Brown Eyed Girl</p>
-      </div>
-      <div class="w3-quarter">
-        <p><i>Country</i></p>
-        <p>
-          Springsteen<br/>
-          Boys Round Here<br/>
-      </p>
-      </div>
-      <div class="w3-quarter">
-        <p><i>Alternative</i></p>
-        <p>
-          Learn to Fly<br/>
-          One Headlight<br/>
-      </p>
-      </div>
-      <div class="w3-quarter">
-        <p><i>Motown</i></p>
-        <p>
-          Mustang Sally<br/>
-          I Heard it Through the Grapevine<br/>
-        </p>
+    <h2 id="songs-header"class="w3-wide">header</h2>
+    <p id="songs-blurb" class="w3-justify">blurb</p>
+    <div id="songs-lists" class="w3-row w3-padding-32">
+    <div class="w3-third song-swimlane">
+        <div class="genre-song-marquee"class="w3-row w3-padding-32">      
+          </div>
+    </div>
+    <div class="w3-third song-swimlane">
+        <div class="genre-song-marquee"class="w3-row w3-padding-32">      
+          </div>
+    </div>
+    <div class="w3-third song-swimlane">
+        <div class="genre-song-marquee"class="w3-row w3-padding-32">      
+          </div>
       </div>
     </div>
   </div>
+  <script src="/controllers/songs.js"></script>
+
+
 
   <!-- The Press Kit Section -->
   <div class="w3-black" id="press">
@@ -255,6 +247,8 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+// parseData(document.body);
 </script>
 </body>
 </html>
+
