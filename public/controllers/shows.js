@@ -3,7 +3,7 @@ const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Frida
 const showsHeader = "SHOW DATES";
 const showsBlurb = "Party with us Live!";
 const monthQtyToShow = 3;
-const maxShowsPerMonth = 3;
+const maxShowsPerMonth = 2;
 
 const admiralPub_20181025 = {
     venue: 'The Admiral Pub',
@@ -56,9 +56,10 @@ return months[monthNum];
 function constructMonthlyShowListItemDiv(item, showQty) {
 
 var status = "Book us Now";
-
+var buttonColor = 'w3-green';
 if (showQty >= maxShowsPerMonth) {
     status = "Full Calendar";
+    buttonColor = 'w3-black';
    // statusClass = "w3-badge w3-right w3-margin-right"
 }
 
@@ -67,9 +68,25 @@ itemDiv.setAttribute('class', 'w3-padding');
 itemDiv.innerHTML = monthString(item);
 
 var itemSpan1 = document.createElement('span');
-itemSpan1.setAttribute('class', 'w3-tag');
-itemSpan1.className += ' w3-margin-left';
-itemSpan1.innerHTML = status;
+
+var bookUs = document.createElement('a');
+bookUs.setAttribute('class', 'w3-tag');
+bookUs.className += ' w3-margin-left';
+bookUs.innerHTML = status;
+bookUs.setAttribute('href', "#contact")
+bookUs.className += ' w3-button';
+
+if (status != 'Full Calendar'){
+    bookUs.className+=' ' + buttonColor;
+}
+// itemSpan1.setAttribute('class', 'w3-tag');
+// itemSpan1.className += ' w3-margin-left';
+// itemSpan1.innerHTML = status;
+// itemSpan1.setAttribute('href', "#contact")
+// itemSpan1.className += ' w3-button';
+// if (status != 'Full Calendar'){
+//     itemSpan1.className+=' ' + buttonColor;
+// }
 
 var itemSpan2 = document.createElement('span');
 itemSpan2.setAttribute('class', 'w3-badge');
@@ -78,6 +95,7 @@ itemSpan2.className += ' w3-margin-right';
 itemSpan2.innerHTML = showQty;
 
 //nest divs
+itemSpan1.appendChild(bookUs);
 itemDiv.appendChild(itemSpan1);
 itemDiv.appendChild(itemSpan2);
 

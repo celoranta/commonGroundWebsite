@@ -39,7 +39,7 @@ var songs = [
 {title: 'Summer of 69',  genreTags : [   'anthems', 'heartland rock']},
 {title: 'Listen to the Music',  genreTags : ['roots rock']},
 {title: 'I Wish',  genreTags: ['soul', 'motown']},
-{title: 'Learn to Fly', genreTags: [ 'alternative', 'alt-rock']},
+{title: 'Learn to Fly', genreTags: [ 'alternative']},
 {title: 'Cold Shot', genreTags: ['blues' ]},
 {title: 'Fast as You', genreTags: ['country']},
 {title: 'Blue On Black', genreTags: ['blues rock' ]},
@@ -68,7 +68,7 @@ var songs = [
 {title: 'My Kind of Night', genreTags: ['country']}
 ]
 
-const minimumSongQty = 0;
+const minimumSongQty = 2;
 const songsHeader = "SONGS";
 const songsBlurb = "Common Ground is not a genre band.  " +
 "If it moves your feet, we play it. Wilson Pickett?  Luke Bryant?  Daft Punk?  " +
@@ -143,7 +143,7 @@ for(i=0; i < genreCount; i++){
     const genreObject = genresWithSongs[i];
     const songCount = genreObject.songs.length;
 
-    if (songCount > minimumSongQty) {
+    if (songCount >= minimumSongQty) {
         var marquee = marquees[n%3]
         n++;
     var genreSongDiv = constructGenreSongDiv(genreObject.genre, genreObject.songs);
@@ -152,5 +152,5 @@ for(i=0; i < genreCount; i++){
 };
 
 
-//Look into FLEXBOX
+//Look into FLEXBOX for evenly distributed dynamic columns?
 //https://codepen.io/klamping/pen/YXwgBY?editors=110
