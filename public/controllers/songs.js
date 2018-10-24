@@ -83,6 +83,14 @@ function checkSongGenre(song) {
   song.genre == 'motown';
 }
 
+Object.defineProperty(Array.prototype, 'flat', {
+    value: function(depth = 1) {
+      return this.reduce(function (flat, toFlatten) {
+        return flat.concat((Array.isArray(toFlatten) && (depth-1)) ? toFlatten.flat(depth-1) : toFlatten);
+      }, []);
+    }
+});
+
 function constructGenreSongDiv(genre, songs) {
     var minorMarquee = document.createElement('div');
     var genreHeader = document.createElement('h6');
