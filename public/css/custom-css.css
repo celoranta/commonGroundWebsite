@@ -14,9 +14,12 @@
     margin-top: 0;
 }
 
-
 .songs-lists {
     padding-top: 0;
+}
+
+.song-swimlane{
+    overflow: hidden;
 }
 
 .genre-header {
@@ -90,10 +93,6 @@ http://jsfiddle.net/etj74mnh/
     list-style:none;
     display:block;
     padding:0 50px;
-}
-
-.song-swimlane{
-    overflow: hidden;
 }
 
 

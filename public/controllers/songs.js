@@ -85,16 +85,12 @@ function checkSongGenre(song) {
 
 function constructGenreSongDiv(genre, songs) {
     var minorMarquee = document.createElement('div');
-    
-    //minorMarquee.className += 'w3-quarter';
-    //minorMarquee.setAttribute('class', 'marquee');
-
     var genreHeader = document.createElement('h6');
-    genreHeader.innerHTML = genre.italics();
-    genreHeader.setAttribute('class', 'genre-header');
-
     var songContainer = document.createElement('div');
     var songList = document.createElement('p');
+
+    genreHeader.innerHTML = genre.italics();
+    genreHeader.setAttribute('class', 'genre-header');
 
     songList.className+="song-container";
     if (Array.isArray(songs)){
