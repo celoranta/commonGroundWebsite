@@ -1,11 +1,12 @@
-const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const weekdays = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 
 const showsHeader = "SHOW DATES";
 const showsBlurb = "Party with us Live!";
 const monthQtyToShow = 3;
 const maxShowsPerMonth = 2;
 
-const admiralPub_20181025 = {
+const showList = [
+{
     venue: 'The Admiral Pub',
     city: 'Burnaby, BC',
     blurb: "Jam Night, Hosted by Common Ground",
@@ -13,9 +14,9 @@ const admiralPub_20181025 = {
     date: 'October 25, 2018 19:30:00 PDT',
     private: "false",
     confirmed: "true"
-};
+},
 
-const admiralPub_20181026 = {
+{
     venue: 'The Admiral Pub',
     city: 'Burnaby, BC',
     blurb: "Three sets of danceable Common Ground covers",
@@ -23,9 +24,9 @@ const admiralPub_20181026 = {
     date: 'October 26, 2018 20:00:00 PDT',
     private: "false",
     confirmed: "true"
-};
+},
 
-const admiralPub_20180104 = {
+{
     venue: 'The Admiral Pub',
     city: 'Burnaby, BC',
     blurb: "Three sets of danceable Common Ground covers",
@@ -33,9 +34,9 @@ const admiralPub_20180104 = {
     date: 'Jan 04, 2019 20:00:00 PST',
     private: "false",
     confirmed: "true"
-};
+},
 
-const admiralPub_20180105 = {
+{
     venue: 'The Admiral Pub',
     city: 'Burnaby, BC',
     blurb: "Three sets of danceable Common Ground covers",
@@ -43,15 +44,36 @@ const admiralPub_20180105 = {
     date: 'Jan 05, 2019 20:00:00 PST',
     private: "false",
     confirmed: "true"
-};
+},
+];
 
-const showList = [admiralPub_20181025, admiralPub_20181026, admiralPub_20180104, admiralPub_20180105];
+
+Number.prototype.pad = function(size) {
+    var s = String(this);
+    while (s.length < (size || 2)) {s = "0" + s;}
+    return s;
+  }
 
 function monthString() {
     var monthNum =  arguments[0];
-var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 return months[monthNum];
 };
+
+function prettyDateString(dt){
+    // var dt = new Date("July 21, 1983 15:15:00 CST");
+    var hm = dt.getHours(); // hours military
+    var mix = dt.getMinutes();
+    var wd = dt.getDay();
+    var d = dt.getDate()
+    var y = dt.getFullYear();
+    var mo = dt.getMonth();
+    var amPm = hm > 11 ? "pm" : "am";
+    var h = hm%11;
+    var mi = mix.pad(2);
+    var dateString = h + ":" + mi + amPm + " on " + weekdays[wd] + ", " + monthString(mo) + " " + d + ", " + y;
+    return dateString;
+    }
 
 function constructMonthlyShowListItemDiv(item, showQty) {
 
@@ -137,16 +159,9 @@ function constructShowPromo() {
 
     //create showdate paragraph div
     var showDateUTC = new Date(show.date);
+    var showDate = prettyDateString(showDateUTC);
+    // var showDate = showDateUTC.toLocaleString('en-US', { timeZone: 'America/Vancouver' });
 
-    var showDate = showDateUTC.toLocaleString('en-US', { timeZone: 'America/Vancouver' });
-
-
-    // const weekdayInt = showDate.getDay();
-    // const monthInt = showDate.getMonth();
-    // const monthDay = showDate.getDate();
-    // const showYear = showDate.getFullYear();
-    // const monthStr = monthString(monthInt);
-    // const weekdayString = weekdays[weekdayInt];
     var dateDiv = document.createElement('p');
     dateDiv.setAttribute('class' , 'w3-opacity')
     dateDiv.innerHTML = showDate;
