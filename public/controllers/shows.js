@@ -133,18 +133,24 @@ function constructShowPromo() {
     var venueString = show.venue + ", " + show.city;
     nameBlock.innerHTML = venueString.bold();
 
+
+
     //create showdate paragraph div
-    var showDate = new Date(show.date);
-    showDate.setHours(showDate.getHours() - 8);
-    const weekdayInt = showDate.getDay();
-    const monthInt = showDate.getMonth();
-    const monthDay = showDate.getDate();
-    const showYear = showDate.getFullYear();
-    const monthStr = monthString(monthInt);
-    const weekdayString = weekdays[weekdayInt];
+    var showDateUTC = new Date(show.date);
+
+    var showDate = showDateUTC.toLocaleString('en-US', { timeZone: 'America/Vancouver' });
+
+
+    // const weekdayInt = showDate.getDay();
+    // const monthInt = showDate.getMonth();
+    // const monthDay = showDate.getDate();
+    // const showYear = showDate.getFullYear();
+    // const monthStr = monthString(monthInt);
+    // const weekdayString = weekdays[weekdayInt];
     var dateDiv = document.createElement('p');
     dateDiv.setAttribute('class' , 'w3-opacity')
-    dateDiv.innerHTML = weekdayString + " " + monthStr + " " + monthDay + " " + showYear;
+    dateDiv.innerHTML = showDate;
+    // dateDiv.innerHTML = weekdayString + " " + monthStr + " " + monthDay + " " + showYear;
 
     //create  blurb paragraph div
     var blurbDiv = document.createElement('p');
