@@ -69,7 +69,7 @@ var songs = [
 {title: 'My Kind of Night', genreTags: ['country']}
 ]
 
-const minimumSongQty = 2;
+const minimumSongQty = 4;
 const songsHeader = "SONGS";
 const songsBlurb = "Common Ground is not a genre band.  " +
 "If it moves your feet, we play it. Wilson Pickett?  Luke Bryant?  Daft Punk?  " +
@@ -93,28 +93,52 @@ Object.defineProperty(Array.prototype, 'flat', {
 });
 
 function constructGenreSongDiv(genre, songs) {
+    var marqueeContainer = document.createElement('div');
     var minorMarquee = document.createElement('div');
     var genreHeader = document.createElement('h6');
-    var songContainer = document.createElement('div');
-    var songList = document.createElement('p');
+    var songList = document.createElement('ul');
+    var songListContainer = document.createElement('div');
 
     genreHeader.innerHTML = genre.italics();
     genreHeader.setAttribute('class', 'genre-header');
+    marqueeContainer.setAttribute('class', 'genre-song-marquee')
+    songListContainer.setAttribute('class', 'songlist-container');
 
-    songList.className+="song-container";
+    songList.className+="song-container slideContainer";
     if (Array.isArray(songs)){
         var i = 0;
         for (i=0; i <= 0; i++){
     songs.forEach(function(song){
-        songList.innerHTML+=song.title + "<br>";
+        var songItem = document.createElement('li');
+        songItem.setAttribute('class', 'slideItem')
+        songItem.innerHTML = song.title;
+        songList.appendChild(songItem);
+        songListContainer.appendChild(songList);
+        // songList.innerHTML+=song.title + "<br>";
     });
     };
     };
-    songContainer.appendChild(songList);
+    //songList.appendChild(songList);
     minorMarquee.appendChild(genreHeader);
-    minorMarquee.appendChild(songContainer);
+    minorMarquee.appendChild(songListContainer);
+    
     return minorMarquee;
 }
+
+{/* <ul class="slideContainer" >
+<li class="slideItem" >
+        The Rolling Stones - Miss You
+</li>
+<li class="slideItem">
+        Elvis Costello - Pump it Up
+</li>
+<li class="slideItem">
+        Bryan Adams - Summer of '69'
+</li>
+<li class="slideItem">
+        Neil Young - Rockin' in the Free World
+</li>
+</ul> */}
 
 //Body
 document.getElementById('songs-header').innerHTML = songsHeader;
@@ -139,24 +163,24 @@ uniqueGenres.forEach(function(genre){
     genresWithSongs.push({genre : genre , songs :  songsInGenre});
 });
 
-var marquees = document.getElementsByClassName("genre-song-marquee");
-var marquee = marquees[0];
+var marquees = document.getElementsByClassName("song-swimlane");
+//var marquee = marquees[0];
 var genreCount = genresWithSongs.length;
 var i=0;
 var n=0;
 for(i=0; i < genreCount; i++){
     const genreObject = genresWithSongs[i];
     const songCount = genreObject.songs.length;
-
     if (songCount >= minimumSongQty) {
         var marquee = marquees[n%3]
         n++;
-    var genreSongDiv = constructGenreSongDiv(genreObject.genre, genreObject.songs);
-    marquee.appendChild(genreSongDiv);
-    }
+       var genreSongDiv = constructGenreSongDiv(genreObject.genre, genreObject.songs);
+        //genreSongDiv
+        marquee.appendChild(genreSongDiv);
+    };
 };
 
-// polyfill
+// polyfill --- Amimate Scrolling Lists
 window.requestAnimationFrame = (function(){
   return  window.requestAnimationFrame       ||
           window.webkitRequestAnimationFrame ||

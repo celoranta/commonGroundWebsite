@@ -102,3 +102,61 @@ http://jsfiddle.net/etj74mnh/
     margin-right:auto;
     display: table;
   }
+
+
+
+.slideContainer {
+    overflow: hidden;
+}
+
+.songlist-container {
+    overflow: hidden;
+    height: 5em;
+    text-align: center;
+
+}
+
+.genre-song-marquee {
+    overflow: hidden;
+    height: 10em;
+}
+
+.genre-song-swimlane {
+    overflow: hidden;
+    height: 30em;
+}
+
+
+
+.slider{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+    margin:0;
+    background-color:rgb(209,206,255);
+    text-align: center;
+    vertical-align: center;
+}
+.edge{
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    position:absolute;
+    width:100%;
+    display:block;
+}
+
+ul{
+
+    overflow:hidden;
+    height:1000%;
+    margin:0;
+}
+li{
+    list-style:none;
+    display:block;
+    padding:0.25vh 0px;
+
+    text-align: center;
+}
