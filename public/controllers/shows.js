@@ -11,7 +11,7 @@ const showList = [
     city: 'Burnaby, BC',
     blurb: "Jam Night, Hosted by Common Ground",
     venueImage: '/images/admiral.jpg',
-    date: 'October 25, 2018 19:30:00 PDT',
+    date: 'October 25, 2018 18:30:00 PDT', //faked for daylight savings
     private: "false",
     confirmed: "true"
 },
@@ -21,7 +21,7 @@ const showList = [
     city: 'Burnaby, BC',
     blurb: "Three sets of danceable Common Ground covers",
     venueImage: '/images/admiral.jpg',
-    date: 'October 26, 2018 20:00:00 PDT',
+    date: 'October 26, 2018 19:00:00 PDT', //faked for daylight savings
     private: "false",
     confirmed: "true"
 },
@@ -31,7 +31,7 @@ const showList = [
     city: 'Burnaby, BC',
     blurb: "Three sets of danceable Common Ground covers",
     venueImage: '/images/admiral.jpg',
-    date: 'Jan 04, 2019 20:00:00 PST',
+    date: 'Jan 04, 2019 19:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
 },
@@ -41,7 +41,7 @@ const showList = [
     city: 'Burnaby, BC',
     blurb: "Three sets of danceable Common Ground covers",
     venueImage: '/images/admiral.jpg',
-    date: 'Jan 05, 2019 20:00:00 PST',
+    date: 'Jan 05, 2019 19:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
 },
