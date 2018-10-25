@@ -49,3 +49,37 @@
 .microsoft:before, .microsoft::before {
     top: 0;
 } 
+
+
+
+
+.slider{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+    margin:0;
+    background-color:rgb(209,206,255);
+    text-align: center;
+}
+.edge{
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    position:absolute;
+    width:100%;
+    display:block;
+}
+
+
+ul{
+
+    overflow:hidden;
+    height:1000%;
+    margin:0;
+}
+li{
+    list-style:none;
+    display:block;
+    padding:0.25vh 0px;
+}

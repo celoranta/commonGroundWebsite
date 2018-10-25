@@ -29,6 +29,7 @@
 // }
 //Data
 
+
 var songs = [
 {title: 'Springsteen' , genreTags: ['country']},
 {title: 'Mustang Sally' , genreTags: ['motown']},
@@ -154,6 +155,26 @@ for(i=0; i < genreCount; i++){
     marquee.appendChild(genreSongDiv);
     }
 };
+
+// polyfill
+window.requestAnimationFrame = (function(){
+  return  window.requestAnimationFrame       ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame    ||
+          function( callback ){
+            window.setTimeout(callback, 1000 / 60);
+          };
+})();
+
+var speed = 1000;
+(function currencySlide(){
+    var currencyPairHeight = $('.slideItem:first-child').outerHeight();
+    $(".slideContainer").animate({marginTop:-currencyPairHeight},speed, 'linear', function(){
+                $(this).css({marginTop:0}).find("li:last").after($(this).find("li:first"));
+        });
+        requestAnimationFrame(currencySlide);
+})();
+
 
 
 //Look into FLEXBOX for evenly distributed dynamic columns?
