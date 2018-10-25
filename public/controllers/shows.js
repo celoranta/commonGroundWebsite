@@ -159,8 +159,8 @@ function constructShowPromo() {
 
     //create showdate paragraph div
     var showDateUTC = new Date(show.date);
-    var showDate = prettyDateString(showDateUTC);
-    // var showDate = showDateUTC.toLocaleString('en-US', { timeZone: 'America/Vancouver' });
+    //var showDate = prettyDateString(showDateUTC);
+    var showDate = showDateUTC.toLocaleString('en-US', { timeZone: 'America/Vancouver' });
 
     var dateDiv = document.createElement('p');
     dateDiv.setAttribute('class' , 'w3-opacity')
