@@ -134,7 +134,8 @@ function constructShowPromo() {
     nameBlock.innerHTML = venueString.bold();
 
     //create showdate paragraph div
-    const showDate = new Date(show.date);
+    var showDate = new Date(show.date);
+    showDate.setHours(showDate.getHours() - 8);
     const weekdayInt = showDate.getDay();
     const monthInt = showDate.getMonth();
     const monthDay = showDate.getDate();
