@@ -10,7 +10,7 @@ const admiralPub_20181025 = {
     city: 'Burnaby, BC',
     blurb: "Jam Night, Hosted by Common Ground",
     venueImage: '/images/admiral.jpg',
-    date: 'October 25, 2018 23:15:30 PST',
+    date: 'October 25, 2018 19:30:00 PST',
     private: "false",
     confirmed: "true"
 };
@@ -20,7 +20,7 @@ const admiralPub_20181026 = {
     city: 'Burnaby, BC',
     blurb: "Three sets of danceable Common Ground covers",
     venueImage: '/images/admiral.jpg',
-    date: 'October 26, 2018 23:15:30 PST',
+    date: 'October 26, 2018 20:00:00 PST',
     private: "false",
     confirmed: "true"
 };
