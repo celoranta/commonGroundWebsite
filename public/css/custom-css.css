@@ -103,17 +103,33 @@ http://jsfiddle.net/etj74mnh/
     display: table;
   }
 
-
-
 .slideContainer {
     overflow: hidden;
 }
 
 .songlist-container {
     overflow: hidden;
-    height: 5em;
-    text-align: center;
 
+    text-align: center;
+    position: relative;
+}
+
+.fader {
+    background-image: linear-gradient(white, transparent);
+    z-index: 500;
+    position: absolute;
+    height: 1em;
+    width: 100%;
+    top: 0px;
+}
+
+.bottom-fader {
+    background-image: linear-gradient(transparent, white);
+    z-index: 500;
+    position: absolute;
+    height: 1.5em;
+    width: 100%;
+    bottom: -1px;
 }
 
 .genre-song-marquee {
@@ -126,7 +142,9 @@ http://jsfiddle.net/etj74mnh/
     height: 30em;
 }
 
-
+.minor-marquee {
+    padding-bottom: 1em;
+}
 
 .slider{
     width:100%;
@@ -147,13 +165,14 @@ http://jsfiddle.net/etj74mnh/
     display:block;
 }
 
-ul{
+ul {
 
     overflow:hidden;
-    height:1000%;
+    /* height:150%; */
     margin:0;
+    padding-left: 0;
 }
-li{
+li {
     list-style:none;
     display:block;
     padding:0.25vh 0px;

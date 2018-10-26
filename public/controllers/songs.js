@@ -1,3 +1,47 @@
+/*! getEmPixels  | Author: Tyson Matanich (http://matanich.com), 2013 | License: MIT */
+(function (document, documentElement) {
+    // Enable strict mode
+    "use strict";
+
+    // Form the style on the fly to result in smaller minified file
+    var important = "!important;";
+    var style = "position:absolute" + important + "visibility:hidden" + important + "width:1em" + important + "font-size:1em" + important + "padding:0" + important;
+
+    window.getEmPixels = function (element) {
+
+        var extraBody;
+
+        if (!element) {
+            // Emulate the documentElement to get rem value (documentElement does not work in IE6-7)
+            element = extraBody = document.createElement("body");
+            extraBody.style.cssText = "font-size:1em" + important;
+            documentElement.insertBefore(extraBody, document.body);
+        }
+
+        // Create and style a test element
+        var testElement = document.createElement("i");
+        testElement.style.cssText = style;
+        element.appendChild(testElement);
+
+        // Get the client width of the test element
+        var value = testElement.clientWidth;
+
+        if (extraBody) {
+            // Remove the extra body element
+            documentElement.removeChild(extraBody);
+        }
+        else {
+            // Remove the test element
+            element.removeChild(testElement);
+        }
+
+        // Return the em value in pixels
+        return value;
+    };
+}(document, document.documentElement));
+
+
+
 // const song = {
 //     title: 'default',
 //     //ISWC: 'default',
@@ -69,7 +113,7 @@ var songs = [
 {title: 'My Kind of Night', genreTags: ['country']}
 ]
 
-const minimumSongQty = 4;
+const minimumSongQty = 2;
 const songsHeader = "SONGS";
 const songsBlurb = "Common Ground is not a genre band.  " +
 "If it moves your feet, we play it. Wilson Pickett?  Luke Bryant?  Daft Punk?  " +
@@ -98,47 +142,52 @@ function constructGenreSongDiv(genre, songs) {
     var genreHeader = document.createElement('h6');
     var songList = document.createElement('ul');
     var songListContainer = document.createElement('div');
-
+    var topFader = document.createElement('div');
+    var bottomFader = document.createElement('div');
     genreHeader.innerHTML = genre.italics();
     genreHeader.setAttribute('class', 'genre-header');
     marqueeContainer.setAttribute('class', 'genre-song-marquee')
     songListContainer.setAttribute('class', 'songlist-container');
+    minorMarquee.setAttribute('class', 'minor-marquee');
+    topFader.setAttribute('class', 'fader');
+    bottomFader.setAttribute('class', 'bottom-fader');
+    songList.setAttribute('class', 'slider-list');
 
-    songList.className+="song-container slideContainer";
+    songList.className+=" song-container slideContainer";
     if (Array.isArray(songs)){
         var i = 0;
         for (i=0; i <= 0; i++){
     songs.forEach(function(song){
         var songItem = document.createElement('li');
+        songItem.setAttribute('class', 'slider-list-item');
         songItem.setAttribute('class', 'slideItem')
         songItem.innerHTML = song.title;
         songList.appendChild(songItem);
+     
         songListContainer.appendChild(songList);
+        songListContainer.appendChild(topFader);
+        songListContainer.appendChild(bottomFader);
+
+        //songListContainer.innerHTML = " "; //to allow for use of em sizing in css
+        
         // songList.innerHTML+=song.title + "<br>";
     });
     };
     };
     //songList.appendChild(songList);
+
+    var listHeight = songs.length;
+    console.log("List Height:" + listHeight);
+    songListContainer.setAttribute('style',"height:" + (listHeight) + "em");
+
     minorMarquee.appendChild(genreHeader);
+
     minorMarquee.appendChild(songListContainer);
-    
+
+
     return minorMarquee;
 }
 
-{/* <ul class="slideContainer" >
-<li class="slideItem" >
-        The Rolling Stones - Miss You
-</li>
-<li class="slideItem">
-        Elvis Costello - Pump it Up
-</li>
-<li class="slideItem">
-        Bryan Adams - Summer of '69'
-</li>
-<li class="slideItem">
-        Neil Young - Rockin' in the Free World
-</li>
-</ul> */}
 
 //Body
 document.getElementById('songs-header').innerHTML = songsHeader;
@@ -150,7 +199,6 @@ for(var o in songs) {
 };
 var genres = (genreArrays.flat([1])); 
 var uniqueGenres = genres.filter( onlyUnique );
-
 var genresWithSongs = [];
 uniqueGenres.forEach(function(genre){
     var songsInGenre = [];
@@ -165,6 +213,7 @@ uniqueGenres.forEach(function(genre){
 
 var marquees = document.getElementsByClassName("song-swimlane");
 //var marquee = marquees[0];
+console.log("Song swimlanes: " + marquees.length)
 var genreCount = genresWithSongs.length;
 var i=0;
 var n=0;
@@ -190,13 +239,13 @@ window.requestAnimationFrame = (function(){
           };
 })();
 
-var speed = 1000;
-(function currencySlide(){
-    var currencyPairHeight = $('.slideItem:first-child').outerHeight();
-    $(".slideContainer").animate({marginTop:-currencyPairHeight},speed, 'linear', function(){
+var speed = 2000;
+(function songSlide(){
+    var listItemHeight = $('.slideItem:first-child').outerHeight();
+    $(".slideContainer").animate({marginTop:-listItemHeight},speed, 'linear', function(){
                 $(this).css({marginTop:0}).find("li:last").after($(this).find("li:first"));
         });
-        requestAnimationFrame(currencySlide);
+        requestAnimationFrame(songSlide);
 })();
 
 

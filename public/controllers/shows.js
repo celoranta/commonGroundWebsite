@@ -1,3 +1,4 @@
+
 const weekdays = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 
 const showsHeader = "SHOW DATES";
