@@ -4,6 +4,10 @@
     overflow: hidden;
         }
 
+        .w3-bar {
+            z-index: 500 !important;
+        }
+
 .container {
     margin: 0.75em auto;
     overflow: hidden;
@@ -116,7 +120,7 @@ http://jsfiddle.net/etj74mnh/
 
 .fader {
     background-image: linear-gradient(white, rgba(255,255,255,0));
-    z-index: 500;
+    z-index: 0.5;
     position: absolute;
     height: 1em;
     width: 100%;
@@ -125,7 +129,7 @@ http://jsfiddle.net/etj74mnh/
 
 .bottom-fader {
     background-image: linear-gradient(rgba(255,255,255,0), white);
-    z-index: 500;
+    z-index: 0.5;
     position: absolute;
     height: 1em;
     width: 100%;
@@ -143,7 +147,7 @@ http://jsfiddle.net/etj74mnh/
 }
 
 .minor-marquee {
-    padding-bottom: 1em;
+    padding-bottom: 0.5em;
 }
 
 .slider{
