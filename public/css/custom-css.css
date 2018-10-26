@@ -87,19 +87,25 @@ http://jsfiddle.net/etj74mnh/
     z-index:100;
 }
 
-.slider-ul{
+.slider-list .slider-ul{
     position:relative;
     overflow:hidden;
     height:50%;
     margin:0;
+
+    overflow:hidden;
+    /* height:150%; */
+    margin:0;
+    padding-left: 0;
+    padding-inline-start: 0px !important;
 }
 
-.slider-li{
+/* .slider-li{
     position:absolute;
     list-style:none;
     display:block;
     padding:0 50px;
-}
+} */
 
 .float-center {        
     margin-left:auto;
@@ -169,17 +175,17 @@ http://jsfiddle.net/etj74mnh/
     display:block;
 }
 
+.slideContainer{
+    padding-left: 0;
+    padding-inline-start: 0px !important;
+}
 ul {
 
-    overflow:hidden;
-    /* height:150%; */
-    margin:0;
-    padding-left: 0;
+
 }
-li {
+.slider-list-item {
     list-style:none;
     display:block;
     padding:0.25vh 0px;
-
     text-align: center;
 }

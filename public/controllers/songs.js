@@ -153,6 +153,7 @@ function constructGenreSongDiv(genre, songs) {
     bottomFader.setAttribute('class', 'bottom-fader');
     songList.setAttribute('class', 'slider-list');
 
+
     songList.className+=" song-container slideContainer";
     if (Array.isArray(songs)){
         var i = 0;
@@ -160,7 +161,8 @@ function constructGenreSongDiv(genre, songs) {
     songs.forEach(function(song){
         var songItem = document.createElement('li');
         songItem.setAttribute('class', 'slider-list-item');
-        songItem.setAttribute('class', 'slideItem')
+        songItem.className+=' slideItem';
+        //songItem.setAttribute('class', 'slideItem')
         songItem.innerHTML = song.title;
         songList.appendChild(songItem);
      
