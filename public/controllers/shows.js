@@ -5,17 +5,18 @@ const showsHeader = "SHOW DATES";
 const showsBlurb = "Party with us Live!";
 const monthQtyToShow = 3;
 const maxShowsPerMonth = 2;
+const showPromoRemovalDelayHours = 12;
 
 const showList = [
-// {
-//     venue: 'The Admiral Pub',
-//     city: 'Burnaby, BC',
-//     blurb: "Jam Night, Hosted by Common Ground",
-//     venueImage: '/images/admiral.jpg',
-//     date: 'October 25, 2018 19:30:00 PDT', //faked for daylight savings
-//     private: "false",
-//     confirmed: "true"
-// },
+{
+    venue: 'The Admiral Pub',
+    city: 'Burnaby, BC',
+    blurb: "Jam Night, Hosted by Common Ground",
+    venueImage: '/images/admiral.jpg',
+    date: 'October 25, 2018 19:30:00 PDT', //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+},
 
 {
     venue: 'The Admiral Pub',
@@ -234,11 +235,16 @@ for (i = 0; i < monthsShownList.length; i++) {
 // Show promo panels
     //filter master showlist for advertized shows
 var showsToPromo = [];
+
 i = 0;
 for (i = 0; i < showList.length; i++) {
     const show = showList[i];
+    const showDate = new Date(show.date);
+    const showEnd = showDate.setHours(showDate.getHours()+showPromoRemovalDelayHours);
     const today = new Date();
-    if (show.private == "false" && show.confirmed == "true") {
+    const dateCompareResult = (showEnd > today );
+    //If show is public, confirmed, and not more than 'x' hours in the past, promo it.
+    if (show.private == "false" && show.confirmed == "true" && dateCompareResult) {
         showsToPromo.push(show);
     }
 }
