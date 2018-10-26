@@ -6,6 +6,7 @@ const express = require('express');
 const path = require('path');
 const bodyparser = require('body-parser');
 const nodemailer = require('nodemailer');
+require('dotenv').config();
 
 //Instantiate managers
 var app = express();
@@ -40,8 +41,8 @@ app.post('', function (req, res) {
   var smtpTrans = nodemailer.createTransport({
     service: "Outlook365", // no need to set host or port etc.
     auth: {
-        user: 'info@commongroundband.ca',
-        pass: '6Pcs1$RxB'
+        user: process.env.OUTLOOK_USER,
+        pass: process.env.OUTLOOK_PASS
     }
   });
   console.log('nodemailer creation routine ended');
