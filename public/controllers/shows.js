@@ -7,15 +7,15 @@ const monthQtyToShow = 3;
 const maxShowsPerMonth = 2;
 
 const showList = [
-{
-    venue: 'The Admiral Pub',
-    city: 'Burnaby, BC',
-    blurb: "Jam Night, Hosted by Common Ground",
-    venueImage: '/images/admiral.jpg',
-    date: 'October 25, 2018 19:30:00 PDT', //faked for daylight savings
-    private: "false",
-    confirmed: "true"
-},
+// {
+//     venue: 'The Admiral Pub',
+//     city: 'Burnaby, BC',
+//     blurb: "Jam Night, Hosted by Common Ground",
+//     venueImage: '/images/admiral.jpg',
+//     date: 'October 25, 2018 19:30:00 PDT', //faked for daylight savings
+//     private: "false",
+//     confirmed: "true"
+// },
 
 {
     venue: 'The Admiral Pub',
@@ -78,7 +78,7 @@ function prettyDateString(dt){
 
 function constructMonthlyShowListItemDiv(item, showQty) {
 
-var status = "Book us Now";
+var status = "Book Common Ground";
 var buttonColor = 'w3-green';
 if (showQty >= maxShowsPerMonth) {
     status = "Full Calendar";
@@ -237,6 +237,7 @@ var showsToPromo = [];
 i = 0;
 for (i = 0; i < showList.length; i++) {
     const show = showList[i];
+    const today = new Date();
     if (show.private == "false" && show.confirmed == "true") {
         showsToPromo.push(show);
     }
