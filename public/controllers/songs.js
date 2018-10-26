@@ -116,7 +116,7 @@ var songs = [
 const minimumSongQty = 2;
 const songsHeader = "SONGS";
 const songsBlurb = "Common Ground is not a genre band.  " +
-"If it moves your feet, we play it. Wilson Pickett?  Luke Bryant?  Daft Punk?  " +
+"If it moves your feet, Common Ground plays it. Wilson Pickett?  Luke Bryant?  Daft Punk?  " +
 "Taylor Swift?  No problem."
 
 //Functions
