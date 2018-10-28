@@ -113,7 +113,7 @@ var songs = [
 {title: 'My Kind of Night', genreTags: ['country']}
 ]
 
-const minimumSongQty = 2;
+const minimumSongQty = 0;
 const songsHeader = "SONGS";
 const songsBlurb = "Common Ground is not a genre band.  " +
 "If it moves your feet, Common Ground plays it. Wilson Pickett?  Luke Bryant?  Daft Punk?  " +
