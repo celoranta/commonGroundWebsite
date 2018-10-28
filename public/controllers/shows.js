@@ -3,7 +3,7 @@ const weekdays = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 
 const showsHeader = "SHOW DATES";
 const showsBlurb = "Party with Common Ground Live!";
-const monthQtyToShow = 3;
+const monthQtyToShow = 4;
 const maxShowsPerMonth = 2;
 const showPromoRemovalDelayHours = 12;
 
@@ -13,7 +13,7 @@ const showList = [
     city: 'Burnaby, BC',
     blurb: "Jam Night, Hosted by Common Ground",
     venueImage: '/images/admiral.jpg',
-    date: 'October 25, 2018 19:30:00 PDT', //faked for daylight savings
+    date: 'October 25, 2018 19:30:00 PDT', 
     private: "false",
     confirmed: "true"
 },
@@ -23,7 +23,7 @@ const showList = [
     city: 'Burnaby, BC',
     blurb: "Three sets of danceable Common Ground covers",
     venueImage: '/images/admiral.jpg',
-    date: 'October 26, 2018 20:00:00 PDT', //faked for daylight savings
+    date: 'October 26, 2018 20:00:00 PDT', 
     private: "false",
     confirmed: "true"
 },
@@ -33,7 +33,7 @@ const showList = [
     city: 'Burnaby, BC',
     blurb: "Three sets of danceable Common Ground covers",
     venueImage: '/images/admiral.jpg',
-    date: 'Jan 04, 2019 20:00:00 PST',  //faked for daylight savings
+    date: 'Jan 04, 2019 20:00:00 PST',  
     private: "false",
     confirmed: "true"
 },
@@ -45,6 +45,15 @@ const showList = [
     venueImage: '/images/admiral.jpg',
     date: 'Jan 05, 2019 20:00:00 PST',  //faked for daylight savings
     private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'Private Wedding',
+    city: 'Kelowna, BC',
+    blurb: "Private Wedding Reception",
+    venueImage: '',
+    date: 'Aug 24, 2019 20:00:00 PST',  //faked for daylight savings
+    private: "true",
     confirmed: "true"
 },
 ];
@@ -214,7 +223,8 @@ document.getElementById('shows-blurb').innerHTML = showsBlurb.italics();
 var thisDate = new Date();
 var monthsShownList = [thisDate];
 i = 0;
-for (i = 1; i < monthQtyToShow; i++) {
+monthQtyMaxed = monthQtyToShow > 12 ? 12 : monthQtyToShow;
+for (i = 1; i < monthQtyMaxed; i++) {
     var newMonthDate = new Date();
     newMonthDate.setMonth(thisDate.getMonth()+i);
     monthsShownList.push(newMonthDate);
