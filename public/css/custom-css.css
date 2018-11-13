@@ -8,14 +8,11 @@
             z-index: 500 !important;
         }
 
-.container {
+/* .container {
     margin: 0.75em auto;
     overflow: hidden;
-    /*
-    position: relative;
-    box-sizing: border-box;  */
     height: 5vh;
-}
+} */
 
 .song-container {
     overflow: hidden;
@@ -179,10 +176,7 @@ http://jsfiddle.net/etj74mnh/
     padding-left: 0;
     padding-inline-start: 0px !important;
 }
-ul {
 
-
-}
 .slider-list-item {
     list-style:none;
     display:block;

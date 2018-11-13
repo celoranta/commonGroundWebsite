@@ -241,7 +241,7 @@ window.requestAnimationFrame = (function(){
           };
 })();
 
-var speed = 2000;
+var speed = 2500;
 (function songSlide(){
     var listItemHeight = $('.slideItem:first-child').outerHeight();
     $(".slideContainer").animate({marginTop:-listItemHeight},speed, 'linear', function(){
