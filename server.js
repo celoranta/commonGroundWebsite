@@ -6,6 +6,7 @@ const express = require('express');
 const path = require('path');
 const bodyparser = require('body-parser');
 const nodemailer = require('nodemailer');
+
 require('dotenv').config();
 
 //Instantiate managers
@@ -21,6 +22,7 @@ var homePage = path.join(__dirname + '/views/main.html');
 var backPage = path.join(__dirname + '/views/backend-main.html');
 var temperror = path.join(__dirname + '/views/temp-error.html');
 var tempsuccess = path.join(__dirname + '/views/temp-success.html');
+var slideshowBackend = path.join(__dirname + '/views/slideshow-backend.html');
 
 //Static Routes
 app.use(express.static(publicFolder));
@@ -33,6 +35,9 @@ app.get('/', (req, res) => {
 });
 app.get('/backend', (req, res) => {
   res.sendFile(backPage);
+});
+app.get('/slideshow-backend', (req, res) => {
+  res.sendFile(slideshowBackend);
 });
 
 // POST route from contact form

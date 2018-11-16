@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<title id="slideshow-backend-title"> | </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/google-lato.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/custom-css.css"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.min.css" />
+<script 
+  src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.min.js">
+</script>
+
+
+<style>
+body {font-family: "Lato", sans-serif}
+</style>
+
+<body>
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div class="w3-bar w3-black w3-card">
+      <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+      <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BAND</a>
+      <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SHOWS</a>
+      <a href="#songs" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SONGS</a>
+      <!-- <a href="#press" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PRESS KIT</a> -->
+      <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+      <!-- <div class="w3-dropdown-hover w3-hide-small">
+        <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a href="#" class="w3-bar-item w3-button">Merchandise</a>
+          <a href="#" class="w3-bar-item w3-button">Extras</a>
+          <a href="#" class="w3-bar-item w3-button">Media</a>
+        </div>
+      </div> -->
+      <!-- <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a> -->
+    </div>
+  </div>
+
+  <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+  <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+    <a href="#band" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BAND</a>
+    <a href="#tour" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SHOWS</a>
+    <a href="#songs" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SONGS</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
+    <!-- <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MERCH</a> -->
+  </div>
+
+  <!-- Page content -->
+  <div class="w3-content" style="max-width:2000px;margin-top:46px">
+    <div id="slide-entries"></div>
+    <div id="croppie-test"></div>
+  </div>
+
+  <!--Use ajax to get all the slide images as items in a javascript script
+  for every returned image, run the croppie-embed.js script -->
+  
+ 
+    <script>
+    var slidesRequest = new XMLHttpRequest();
+    slidesRequest.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var responseContent = this.content;
+        var jsonObject = JSON.parse(this.responseText);
+        const imageObjects = jsonObject.images;
+        for (i = 0; i < imageObjects.length; i++) {
+          var imageObject = imageObjects[i];
+          const imageUrl = imageObject.source;
+          var wrapperDiv = document.createElement( 'div' );
+          var slideSourceImage = document.createElement('img');
+          slideSourceImage.setAttribute('class', "w3-round w3-margin-bottom");
+          slideSourceImage.setAttribute('style', "width:40%");
+          slideSourceImage.setAttribute('src', imageUrl);
+          wrapperDiv.setAttribute('class', 'w3-full');
+          wrapperDiv.appendChild(slideSourceImage);
+          var container_block = document.getElementById('slide-entries');
+          container_block.appendChild(wrapperDiv);
+        }
+      }
+};
+    slidesRequest.open("GET", "/controllers/slideshow.json", true);
+    slidesRequest.send();
+    </script>
+  
+  <script src="/controllers/croppie-embed.js"></script>
+
+  <script>
+      // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+      } else { 
+          x.className = x.className.replace(" w3-show", "");
+      }
+    }
+  </script>
+</body>
+</html>
+

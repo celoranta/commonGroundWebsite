@@ -1,0 +1,91 @@
+{"images" : 
+[
+    {
+        "source" : "/images/slides/band1.jpg",
+        "venue" : "The Admiral Pub",
+        "date" : "October 25, 2018 19:30:00 PDT" 
+    },
+    {
+        "source": "/images/slides/band2.jpg",
+        "venue": "The Admiral Pub",
+        "date": "October 25, 2018 19:30:00 PDT" 
+    },
+    {
+        "source": "/images/slides/band2.jpg",
+        "venue": "The Admiral Pub",
+        "date": "October 25, 2018 19:30:00 PDT"
+    },   
+    {
+        "source": "/images/slides/band3.jpg",
+        "venue": "The Admiral Pub",
+        "date": "October 25, 2018 19:30:00 PDT" 
+    },
+    {
+        "source": "/images/slides/brad1.jpg",
+        "venue": "The Admiral Pub",
+        "date": "October 25, 2018 19:30:00 PDT" 
+    },
+    {
+        "source": "/images/slides/brad2.jpg",
+        "venue": "The Admiral Pub",
+        "date": "October 25, 2018 19:30:00 PDT" 
+    },
+    {
+        "source": "/images/slides/brad3.jpg",
+        "venue": "The Admiral Pub",
+        "date": "October 25, 2018 19:30:00 PDT" 
+    },
+    {
+        "source": "/images/slides/brad4.jpg",
+        "venue": "The Admiral Pub",
+        "date": "October 25, 2018 19:30:00 PDT" 
+    },
+    {
+        "source": "/images/slides/bradchris1.jpg",
+        "venue": "The Admiral Pub",
+        "date": "October 25, 2018 19:30:00 PDT" 
+    },
+    {
+        "source": "/images/slides/bradchris2.jpg",
+        "venue": "The Admiral Pub",
+        "date": "October 25, 2018 19:30:00 PDT" 
+    },
+    {
+        "source": "/images/slides/bradchris3.jpg",
+        "venue": "The Admiral Pub",
+        "date": "October 25, 2018 19:30:00 PDT" 
+    },
+    {
+        "source": "/images/slides/chris1.jpg",
+        "venue": "The Admiral Pub",
+        "date": "October 25, 2018 19:30:00 PDT"
+    },
+    {
+        "source": "/images/slides/chris2.jpg",
+        "venue": "The Admiral Pub",
+        "date": "October 25, 2018 19:30:00 PDT" 
+    },
+    {
+        "source": "/images/slides/chris3.jpg",
+        "venue": "The Admiral Pub",
+        "date": "October 25, 2018 19:30:00 PDT" 
+    },
+    {
+        "source": "/images/slides/lorne1.jpg",
+        "venue": "The Admiral Pub",
+        "date": "October 25, 2018 19:30:00 PDT" 
+    },
+    {
+        "source": "/images/slides/lorne2.jpg",
+        "venue": "The Admiral Pub",
+        "date": "October 25, 2018 19:30:00 PDT" 
+    },
+    {
+        "source": "/images/slides/lorne3.jpg",
+        "venue": "The Admiral Pub",
+        "date": "October 25, 2018 19:30:00 PDT" 
+    }
+
+]
+
+}
