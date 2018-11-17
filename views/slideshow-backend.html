@@ -9,116 +9,42 @@
 <link rel="stylesheet" type="text/css" href="css/custom-css.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.min.css" />
 <link rel="stylesheet" href="css/modal-form.css">
-
-<!-- for modal as per pen -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/custom-table.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://foliotek.github.io/Croppie/croppie.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- end pen modal dependencies -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.5.1/croppie.min.js">
-</script>
-
-
-<style>
-  body {font-family: "Lato", sans-serif}
-table {
-    font-family: "Lato", sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-    /* height: 200px; */
-}
-
-
-/* tr:nth-child(even) {
-    background-color: #dddddd;
-} */
-</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.5.1/croppie.min.js"></script>
 
 <body>
-  <!-- Navbar -->
-  <div class="w3-top">
-    <div class="w3-bar w3-black w3-card">
-      <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)"
-        onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-      <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-      <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BAND</a>
-      <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SHOWS</a>
-      <a href="#songs" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SONGS</a>
-      <!-- <a href="#press" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PRESS KIT</a> -->
-      <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
-      <!-- <div class="w3-dropdown-hover w3-hide-small">
-        <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
-        <div class="w3-dropdown-content w3-bar-block w3-card-4">
-          <a href="#" class="w3-bar-item w3-button">Merchandise</a>
-          <a href="#" class="w3-bar-item w3-button">Extras</a>
-          <a href="#" class="w3-bar-item w3-button">Media</a>
-        </div>
-      </div> -->
-      <!-- <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a> -->
-    </div>
-  </div>
-
-  <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
-  <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-    <a href="#band" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BAND</a>
-    <a href="#tour" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SHOWS</a>
-    <a href="#songs" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SONGS</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
-    <!-- <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MERCH</a> -->
-  </div>
-
-  <!-- Page content -->
   <div class="w3-content" style="max-width:2000px;margin-top:46px;overflow-x:auto">
-
     <table id="slide-photos" class="table">
       <tr>
         <th>Photo</th>
-        <!-- <th>Photo2</th> -->
         <th>Display?</th>
         <th>Resolution</th>
         <th>Edit</th>
       </tr>
     </table>
-    <!-- <div id="croppie-test"></div> -->
   </div>
 
-  <!-- <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <label class="cabinet center-block">
-          <figure>
-            <img src="" class="gambar img-responsive img-thumbnail" id="item-img-output" />
-            <figcaption><i class="fa fa-camera"></i></figcaption>
-          </figure>
-          <input type="file" class="item-img file center-block" name="file_photo" />
-        </label>
-      </div>
-    </div>
-  </div> -->
-
+  <!-- Modal -->
   <div class="modal fade" id="cropImagePop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content" style="width:100%">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">
-            <?=multiLanguage( "Edit Foto" , "Edit Photo" )?>
+          Drag and Zoom to Crop Photo
           </h4>
         </div>
+
         <div class="modal-body">
           <div id="upload-demo" class="center-block">
-            <img id="modal-image" src="/images/rockHand.png" style="max-width:100%; max-height:100%">
           </div>
         </div>
+
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button type="button" id="cropImageBtn" class="btn btn-primary">Crop</button>
@@ -127,12 +53,8 @@ td, th {
     </div>
   </div>
 
-
-
   <!--Use ajax to get all the slide images as items in a javascript script
   for every returned image, run the croppie-embed.js script -->
-
-
   <script>
     var slidesRequest = new XMLHttpRequest();
     slidesRequest.onreadystatechange = function () {
@@ -152,56 +74,11 @@ td, th {
           slideSourceImage.style.maxHeight = '100%'
           slideSourceImage.style.maxWidth = '400px';
           slideSourceImage.style.verticalAlign = 'center';
-          //cropEmbed(imageUrl);
+          imageId = 'item-img-output-' + i;
+          slideSourceImage.setAttribute('id', imageId);
           slideSourceImage.setAttribute('src', imageUrl);
           photoDiv.appendChild(slideSourceImage);
           wrapperDiv.appendChild(photoDiv);
-
-          //Photo2 Cell
-          //Build Table Cell Element
-            const photo2Div = document.createElement('td');
-            //Build Container Element
-            const containerDiv = document.createElement('div');
-            containerDiv.className="container"
-            //Build Row Element
-            const rowDiv = document.createElement('div');
-            rowDiv.className="row"
-            //Build Column Element
-            const columnDiv = document.createElement('div'); 
-            columnDiv.className = ("col-xs-12");
-            //Build Label Element
-            const labelDiv = document.createElement("label");
-            labelDiv.className = "cabinet center-block"
-            //Build Figure Element
-            const figureDiv = document.createElement("figure");
-              //Build Image Element
-              const imageDiv = document.createElement("img");
-              imageDiv.setAttribute('src', imageUrl);
-              imageDiv.className = 'gambar img-responsive img-thumbnail';
-              imageId = 'item-img-output-' + i;
-              imageDiv.setAttribute('id', imageId);
-              imageDiv.style.maxHeight = '100%'
-          imageDiv.style.maxWidth = '400px';
-          imageDiv.style.verticalAlign = 'center';
-              //Build FigCaption Element
-              // const figCaptionDiv = document.createElement('figcaption');
-              // figCaptionDiv.className = "fa fa-camera";
-              // figCaptionDiv.style.fontStyle = 'italic'
-            //Build Input Element
-            const inputDiv = document.createElement("div");
-            // inputDiv.setAttribute('type', 'file');
-            // inputDiv.setAttribute('name', "file_photo");
-            inputDiv.className = "item-img file center-block";
-            //Assemble All
-            photo2Div.appendChild(containerDiv);
-            containerDiv.appendChild(rowDiv);
-            rowDiv.appendChild(columnDiv);
-            columnDiv.appendChild(labelDiv);
-            figureDiv.appendChild(imageDiv);
-            // figureDiv.appendChild(figCaptionDiv);
-            labelDiv.appendChild(figureDiv);
-            labelDiv.appendChild(inputDiv);
-            //wrapperDiv.appendChild(photo2Div);
 
           //Active Status Cell
           var activeDiv = document.createElement('td');
@@ -211,7 +88,7 @@ td, th {
           wrapperDiv.appendChild(activeDiv);
 
           //Resolution cell
-          const resolution = imageSize(imageDiv);
+          const resolution = imageSize(slideSourceImage);
           const resDiv = document.createElement('td');
           const resReport = document.createElement('div');
           resReport.innerHTML = resolution;
@@ -226,17 +103,15 @@ td, th {
           editButton.setAttribute('id', buttonName)
           const functionString = "modalPop(" + imageUrl + ")"
 
-          editButton.onclick = function() {modalPop(imageUrl) };
+          editButton.onclick = function () { modalPop(imageUrl) };
           editButton.className = "w3-button w3-green";
           editButtonDiv.appendChild(editButton);
           wrapperDiv.appendChild(editButtonDiv);
           var container_block = document.getElementById('slide-photos');
           container_block.appendChild(wrapperDiv);
-
         }
       }
     };
-
     slidesRequest.open("GET", "/controllers/slideshow.json", true);
     slidesRequest.send();
   </script>
@@ -247,8 +122,14 @@ td, th {
     var viewPortWidth = 16 * sizeFactor;
     var viewPortHeight = 9 * sizeFactor;
     var tempFilename;
-    function modalPop(imgUrl) {
 
+    $("#cropImagePop").on('hidden.bs.modal', function () {
+      $('#upload-demo').empty();
+      //$('.croppie-container').remove();
+    });
+
+    function modalPop(imgUrl, imageId) {
+      var imageTargetId = "#" + imageId;
       $('.upload-demo').addClass('ready');
       $('#cropImagePop').modal('show');
       $("#cropImagePop").on('shown.bs.modal', function () {
@@ -256,14 +137,13 @@ td, th {
           url: imgUrl
         });
       });
-      //$('#modal-image').attr('src', imgUrl);
 
-      var iId = "modal-image";
-      const imageIdTag = "#" + iId;
+      var iId = "upload-demo";
+      const iIdTag = "#" + iId;
       var boundaryPadding = 100;
       var viewPortWidth = 380;
       var viewPortHeight = 216;
-      $uploadCrop = $(imageIdTag).croppie({
+      $uploadCrop = $(iIdTag).croppie({
         enforceBoundary: true,
         enableOrientation: true,
         showZoomer: true,
@@ -276,20 +156,17 @@ td, th {
           width: viewPortWidth,
           height: viewPortHeight,
         }
-
       });
 
       $uploadCrop.croppie('bind', {
         url: imgUrl
       })
-
     };
 
     $('.item-img').on('change', function () {
       iId = $(this).data('id');
       tempFilename = $(this).val();
       $('#cancelCropBtn').data('id', iId)
-      // readFile(this);
     });
 
     $('#cropImageBtn').on('click', function (ev) {
@@ -297,30 +174,23 @@ td, th {
         type: 'base64',
         format: 'jpeg',
         size: { width: viewPortWidth, height: viewPortHeight }
-      }).then(function (resp) {
-        $('#item-img-output-0').attr('src', resp);
+      }).then(function (resp, imageTargetId) {
+        $(imageTargetId).attr('src', resp);
         $uploadCrop.croppie('destroy');
-        $('#uploadDemo').empty();
         $('#cropImagePop').modal('hide');
       });
-      //Remove this instance of Croppie when done
-      $uploadCrop.croppie('destroy');
     });
-
   </script>
-
-<script>
-    function imageSize(element)
-    {
-      var width=element.naturalWidth;
-      var height=element.naturalHeight;
+  
+  <script>
+    function imageSize(element) {
+      var width = element.naturalWidth;
+      var height = element.naturalHeight;
       var resString = width + " x " + height;
       return resString;
     }
-    </script>
-
-  <script src="/controllers/croppie-embed.js"></script>
-
+  </script>
+  
   <script>
     // Used to toggle the menu on small screens when clicking on the menu button
     function myFunction() {
@@ -332,6 +202,6 @@ td, th {
       }
     }
   </script>
-</body>
-
-</html>
+  </body>
+  
+  </html>
