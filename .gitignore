@@ -59,3 +59,8 @@ typings/
 
 # next.js build output
 .next
+ #nodemon config file
+nodemon.json
+
+# google API keys
+googleApiCredentials.json

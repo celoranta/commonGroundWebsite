@@ -35,16 +35,11 @@
       <div class="modal-content" style="width:100%">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">
-          Drag and Zoom to Crop Photo
-          </h4>
+          <h4 class="modal-title" id="myModalLabel">Drag and Zoom to Crop Photo</h4>
         </div>
-
         <div class="modal-body">
-          <div id="upload-demo" class="center-block">
-          </div>
+          <div id="upload-demo" class="center-block"></div>
         </div>
-
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button type="button" id="cropImageBtn" class="btn btn-primary">Crop</button>
@@ -53,16 +48,17 @@
     </div>
   </div>
 
-  <!--Use ajax to get all the slide images as items in a javascript script
-  for every returned image, run the croppie-embed.js script -->
+  <!--Use ajax to get all the slide images -->
   <script>
+
+    var imageId;
     var slidesRequest = new XMLHttpRequest();
     slidesRequest.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         var responseContent = this.content;
         var jsonObject = JSON.parse(this.responseText);
         const imageObjects = jsonObject.images;
-        for (i = 0; i < imageObjects.length; i++) {
+        for (let i = 0; i < imageObjects.length; i++) {
           var imageObject = imageObjects[i];
           const imageUrl = imageObject.source;
           var wrapperDiv = document.createElement('tr');
@@ -74,7 +70,7 @@
           slideSourceImage.style.maxHeight = '100%'
           slideSourceImage.style.maxWidth = '400px';
           slideSourceImage.style.verticalAlign = 'center';
-          imageId = 'item-img-output-' + i;
+          let imageId = 'item-img-output-' + i;
           slideSourceImage.setAttribute('id', imageId);
           slideSourceImage.setAttribute('src', imageUrl);
           photoDiv.appendChild(slideSourceImage);
@@ -89,9 +85,13 @@
 
           //Resolution cell
           const resolution = imageSize(slideSourceImage);
+          const height = resolution.height;
+          const width = resolution.width;
+          const size = height * width;
+          const resolutionStr = "" + (size / 1000000).toFixed(2) + "MP (" + width + " x " + height + ")";
           const resDiv = document.createElement('td');
           const resReport = document.createElement('div');
-          resReport.innerHTML = resolution;
+          resReport.innerHTML = resolutionStr;
           resDiv.appendChild(resReport);
           wrapperDiv.appendChild(resDiv);
 
@@ -101,13 +101,16 @@
           var editButton = document.createElement('BUTTON');
           editButton.innerHTML = "Edit";
           editButton.setAttribute('id', buttonName)
-          const functionString = "modalPop(" + imageUrl + ")"
-
-          editButton.onclick = function () { modalPop(imageUrl) };
+          editButton.onclick = function () { modalPop(imageUrl, imageId) };
           editButton.className = "w3-button w3-green";
           editButtonDiv.appendChild(editButton);
           wrapperDiv.appendChild(editButtonDiv);
           var container_block = document.getElementById('slide-photos');
+
+          function handleClick(cb) {
+            display("Clicked, new value = " + cb.checked);
+          }
+
           container_block.appendChild(wrapperDiv);
         }
       }
@@ -121,28 +124,45 @@
     var boundaryPadding = 100;
     var viewPortWidth = 16 * sizeFactor;
     var viewPortHeight = 9 * sizeFactor;
-    var tempFilename;
+    var tempFilename, selectedImage, imageTargetId;
 
     $("#cropImagePop").on('hidden.bs.modal', function () {
       $('#upload-demo').empty();
-      //$('.croppie-container').remove();
+    });
+
+    $("#cropImagePop").on('shown.bs.modal', function () {
+      $uploadCrop.croppie('bind', { url: selectedImage });
+      //console.log(imageTargetId);
+    });
+
+    $('#cropImageBtn').on('click', function (imageTargetId) {
+      let target = imageTargetId;
+      $cropData = $uploadCrop.croppie('get');
+      window.alert(JSON.stringify($cropData));
+      var resp = $uploadCrop.croppie('result', {
+        type: 'base64',
+        format: 'jpeg',
+        size: { width: viewPortWidth, height: viewPortHeight }
+      }).then(function (resp, target) {
+        window.alert("It's happening now " + resp);
+        $(imageTargetId).attr('src', resp);
+        console.log(imageTargetId.src);
+        $('#cropImagePop').modal('hide');
+      });
     });
 
     function modalPop(imgUrl, imageId) {
-      var imageTargetId = "#" + imageId;
+      imageTargetId = "#" + imageId;
+      console.log(imageId, imgUrl);
+      //imgUrl should probably be queried from imageID
+      //let imgUrl = $(imageTargetId).attr('src');
+      selectedImage = imgUrl;
       $('.upload-demo').addClass('ready');
       $('#cropImagePop').modal('show');
-      $("#cropImagePop").on('shown.bs.modal', function () {
-        $uploadCrop.croppie('bind', {
-          url: imgUrl
-        });
-      });
+
 
       var iId = "upload-demo";
       const iIdTag = "#" + iId;
-      var boundaryPadding = 100;
-      var viewPortWidth = 380;
-      var viewPortHeight = 216;
       $uploadCrop = $(iIdTag).croppie({
         enforceBoundary: true,
         enableOrientation: true,
@@ -158,39 +178,23 @@
         }
       });
 
-      $uploadCrop.croppie('bind', {
-        url: imgUrl
-      })
+      //This tracks some sort of data during zoom and pan
+      // $('.item-img').on('change', function () {
+      //   iId = $(this).data('id');
+      //   tempFilename = $(this).val();
+      //   $('#cancelCropBtn').data('id', iId)
+      // });
     };
 
-    $('.item-img').on('change', function () {
-      iId = $(this).data('id');
-      tempFilename = $(this).val();
-      $('#cancelCropBtn').data('id', iId)
-    });
-
-    $('#cropImageBtn').on('click', function (ev) {
-      $uploadCrop.croppie('result', {
-        type: 'base64',
-        format: 'jpeg',
-        size: { width: viewPortWidth, height: viewPortHeight }
-      }).then(function (resp, imageTargetId) {
-        $(imageTargetId).attr('src', resp);
-        $uploadCrop.croppie('destroy');
-        $('#cropImagePop').modal('hide');
-      });
-    });
-  </script>
-  
-  <script>
     function imageSize(element) {
       var width = element.naturalWidth;
       var height = element.naturalHeight;
       var resString = width + " x " + height;
-      return resString;
+      var dims = {"width" : width, "height" : height };
+      return dims;
     }
   </script>
-  
+
   <script>
     // Used to toggle the menu on small screens when clicking on the menu button
     function myFunction() {
@@ -202,6 +206,5 @@
       }
     }
   </script>
-  </body>
-  
-  </html>
+</body>
+</html>

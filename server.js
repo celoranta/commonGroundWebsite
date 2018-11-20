@@ -6,15 +6,18 @@ const express = require('express');
 const path = require('path');
 const bodyparser = require('body-parser');
 const nodemailer = require('nodemailer');
+database = require('dotenv').config();
 
-require('dotenv').config();
+//Include custom frameworks
+var dbMgr = require('./database-manager.js');
+var storMgr = require('./storage-manager.js');
+
+//Assign constants
+const hostname = "localhost";
 
 //Instantiate managers
 var app = express();
-
-//Assign variables
 var httpPort = process.env.PORT || 8000;
-var hostname = "localhost";
 
 //Create filepaths
 var publicFolder = path.join(__dirname + '/public');
@@ -26,6 +29,7 @@ var slideshowBackend = path.join(__dirname + '/views/slideshow-backend.html');
 
 //Static Routes
 app.use(express.static(publicFolder));
+
 //Tell express to use body parser and not parse extended bodies directly
 app.use(bodyparser.urlencoded({ extended: true }))
 
@@ -39,10 +43,35 @@ app.get('/backend', (req, res) => {
 app.get('/slideshow-backend', (req, res) => {
   res.sendFile(slideshowBackend);
 });
+// app.get('/imagesData', (req, res) => {
+//   let returnDbResponse = async function() {
+//     dbMgr.getImagesData()
+//     .then(function(value) {
+//       console.log(value);
+//       res.send(value);
+//     });
+//   }
+//   returnDbResponse();
+//   });
+
+//Just an example
+
+// async function getNumber() { // Async function statment
+//   return 42;
+// }
+// let logNumber = async function() { // Async function expression
+//   getNumber() // returns a promise
+//     .then(function(value) {
+//       console.log(value);
+//     });
+// }
+// logNumber(); 
+
 
 // POST route from contact form
 app.post('', function (req, res) {
 //ToDo: This routine does not validate email addresses yet.
+//Should try to migrate smtp routines to dedicated smtp manager script
   var smtpTrans = nodemailer.createTransport({
     service: "Outlook365", // no need to set host or port etc.
     auth: {
@@ -70,7 +99,6 @@ app.post('', function (req, res) {
     }
   });
 });
-
 
 // 404
 app.use(function(req, res, next) {
