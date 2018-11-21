@@ -72,7 +72,7 @@ const lorneBaron = {
     givenName: 'Lorne',
     surname: 'Baron',
     instruments: ['Guitar', 'Voice'],
-    headShots: ["/images/lorne_hat.PNG"],
+    headShots: ["/images/lorne_hat.jpg"],
     fullName: function() {return spaceCat(this)},
     instrList: function() {
         return commaCat(this.instruments);
