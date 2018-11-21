@@ -71,19 +71,21 @@ app.get('/images', (req, res) => {
 
 app.get('/images-data', (req, res, next) => {
   //res.setHeader('Content-Type', 'application/json');
-  //res.send(JSON.stringify({ a: 1 }));
+
   res.header("Access-Control-Allow-Origin", '*');
   res.header("Access-Control-Allow-Credentials", true);
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
   res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-    //res.json(["Tony","Lisa","Michael","Ginger","Food"]);
+   // res.json(["Tony","Lisa","Michael","Ginger","Food"]);
 
   async function postImageRecords() {
     console.log("images-data end point hit by get request");
     try {
       result = await dbMgr.getRecords(imageTable);
-      res.set('Content-Type', 'text/html');
-      res.send(JSON.stringify(result[0]));
+      // res.set('Content-Type', 'text/html');
+      // res.send(JSON.stringify(result[0]));
+      res.set('Content-Type', 'application/json');
+      res.send(result[0]);
     }
     catch (err) {
       res.send(err);
