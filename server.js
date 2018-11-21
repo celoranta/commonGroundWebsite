@@ -24,8 +24,10 @@ var httpPort = process.env.PORT || 8000;
 var api = express();
 var apiHttpPort = 8091;
 
-api.use(cors());
-api.options('*', cors())
+
+app.use(cors());
+
+app.options('*', cors())
 var corsOptions = {
   origin: 'http://localhost:8000',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
@@ -47,6 +49,12 @@ app.use(express.static(publicFolder));
 app.use(bodyparser.urlencoded({ extended: true }));
 api.use(bodyparser.urlencoded({ extended: true }));
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 //Standard Routes
 app.get('/', (req, res) => {
   res.sendFile(homePage);
@@ -60,31 +68,24 @@ app.get('/slideshow-backend', (req, res) => {
 app.get('/images', (req, res) => {
   res.sendFile(imagesPage);
 });
-api.all("/*", function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
-  res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
-  return next();
-});
-api.all("/*", function(req, res, next) {
-  if (req.method.toLowerCase() !== "options") {
-    return next();
-  }
-  return res.send(200);
-});
-api.get('/images-data', (req, res, next) => {
-  async function postImageRecords() {
-    console.log("images-data end point hit by get request");
-    try {
-      result = await dbMgr.getRecords(imageTable);
-      res.set('Content-Type', 'text/html');
-      res.send(JSON.stringify(result[0]));
-    }
-    catch (err) {
-      res.send(err);
-    }
-  }
-  postImageRecords();
+
+app.get('/images-data', (req, res, next) => {
+  //res.setHeader('Content-Type', 'application/json');
+  //res.send(JSON.stringify({ a: 1 }));
+    res.json(["Tony","Lisa","Michael","Ginger","Food"]);
+
+  // async function postImageRecords() {
+  //   console.log("images-data end point hit by get request");
+  //   try {
+  //     result = await dbMgr.getRecords(imageTable);
+  //     res.set('Content-Type', 'text/html');
+  //     res.send(JSON.stringify(result[0]));
+  //   }
+  //   catch (err) {
+  //     res.send(err);
+  //   }
+  // }
+  // postImageRecords();
 });
 
 // POST route from contact form
@@ -132,9 +133,9 @@ app.use(function (err, req, res, next) {
 app.listen(httpPort);
 //api.listen(apiHttpPort);
 
-api.listen(apiHttpPort, cors(corsOptions), function () {
-  console.log('CORS-enabled web server listening on port ' + apiHttpPort)
-})
+// api.listen(apiHttpPort, function () {
+//   console.log('CORS-enabled web server listening on port ' + apiHttpPort)
+// })
 
 
 

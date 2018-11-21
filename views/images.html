@@ -13,6 +13,8 @@
         var imagesRequest = new XMLHttpRequest();
         imagesRequest.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
+                console.log("Ready state: " + this.readyState)
+                console.log("Status: " + this.status)
                 var myArr = JSON.parse(this.responseText);
                 log(myArr);
                 // let responseContent = imagesRequest.responseText;
@@ -20,14 +22,14 @@
                 // testDiv.setAttribute('style', 'color: green')
             }
             else {
+                console.log("Status: " + this.status)
                 testDiv.innerHTML = "There was a problem."
                 testDiv.setAttribute('style', 'color: red')
             }
-            console.log("Ready State: " + readyState);
-            console.log("Status: " + this.status);
+
 
         };
-        imagesRequest.open("GET", "localhost:8091/images-data", true);
+        imagesRequest.open("GET", "localhost:8000/images-data", true);
         imagesRequest.send();
 
         function log(data) {
