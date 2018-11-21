@@ -6,6 +6,7 @@
   "dependencies": {
     "backblaze-b2": "^1.0.4",
     "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
     "croppie": "^2.6.2",
     "dateformat": "^3.0.3",
     "dotenv": "^6.1.0",

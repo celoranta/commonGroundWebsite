@@ -12,8 +12,9 @@ const tables =
 };
 
 var listImages = 'SELECT * FROM Images2';
+var images = 'Images2';
 var listTables = 'SHOW TABLES';
-var createTable = 'CREATE TABLE Images7 (imageId VARCHAR(1020), uploadDate DATETIME, PRIMARY KEY(imageId))'
+var createTable = 'CREATE TABLE Images8 (imageId VARCHAR(1020), uploadDate DATETIME, PRIMARY KEY(imageId))'
 
 async function logThis() {
     try {
@@ -25,7 +26,30 @@ console.log(err)
     console.log(result);
 }
 
-logThis();
+//logThis();
+
+const getRecords = async function getRecords(tableName) {
+    try {
+    var queryString = 'SELECT * FROM ' + tableName;
+    var result = await database.sqlQuery(queryString);
+    return result;
+    }
+    catch(err) {
+        console.log(err);
+    }
+}
+
+const dbmexports = {
+    getRecords: getRecords
+}
+
+module.exports = dbmexports
+
+async function log() {
+    result = await getRecords(images);
+    console.log(result);
+}
+
 
 // function createSchema(name) {
 //     database.pool.query("CREATE DATABASE " + name, function (err, result) {
