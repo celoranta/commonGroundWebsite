@@ -15,21 +15,19 @@
             if (this.readyState == 4 && this.status == 200) {
                 console.log("Ready state: " + this.readyState)
                 console.log("Status: " + this.status)
-                var myArr = JSON.parse(this.responseText);
+                var myArr = this.responseText;
                 log(myArr);
-                // let responseContent = imagesRequest.responseText;
-                // testDiv.innerHTML = responseContent;
-                // testDiv.setAttribute('style', 'color: green')
+                let responseContent = imagesRequest.responseText;
+                testDiv.innerHTML = responseContent;
+                testDiv.setAttribute('style', 'color: green')
             }
             else {
                 console.log("Status: " + this.status)
                 testDiv.innerHTML = "There was a problem."
                 testDiv.setAttribute('style', 'color: red')
             }
-
-
         };
-        imagesRequest.open("GET", "localhost:8000/images-data", true);
+        imagesRequest.open("GET", "/images-data", true);
         imagesRequest.send();
 
         function log(data) {
