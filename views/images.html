@@ -19,15 +19,16 @@
 
 <head>
 </head>
+
 <body>
     <div class="w3-content" style="max-width:2000px;margin-top:46px;overflow-x:auto">
         <table id="slide-photos" class="table">
             <tr>
                 <th>Photo</th>
-                <th>ImageId</th>
+                <!-- <th>ImageId</th> -->
                 <th>Upload Date</th>
                 <th>Resolution</th>
-                <th>Edit</th>
+                <!-- <th>Edit</th> -->
             </tr>
         </table>
     </div>
@@ -63,11 +64,15 @@
                     //Photo cell
                     var imageCellDiv = document.createElement('td');
                     imageCellDiv.className = "float-text-container"
+                    imageCellDiv.className += " " + imageId;
+                    imageCellDiv.className += " " + 'image-column';
                     var imageDiv = document.createElement('img');
                     var textDiv = document.createElement('div');
                     textDiv.className = 'centered w3-opacity';
+
                     textDiv.setAttribute('style', 'color: black');
                     textDiv.innerHTML = 'loading image'
+                    textDiv.className += " " + imageId + " image-loading-text"
                     imageDiv.setAttribute('class', "w3-image w3-opacity-max");
                     imageDiv.style.maxHeight = '100%'
                     imageDiv.style.maxWidth = '400px';
@@ -79,28 +84,29 @@
                     wrapperDiv.appendChild(imageCellDiv);
 
                     //ImageId cell
-                    var imageIdDiv = document.createElement('td');
-                    var idText = document.createElement('p');
-                    idText.innerHTML = imageId;
-                    imageIdDiv.appendChild(idText);
-                    wrapperDiv.appendChild(imageIdDiv);
+                    // var imageIdDiv = document.createElement('td');
+                    // var idText = document.createElement('p');
+                    // idText.innerHTML = imageId;
+                    // imageIdDiv.appendChild(idText);
+                    // wrapperDiv.appendChild(imageIdDiv);
 
                     //Date cell
                     var dateDiv = document.createElement('td');
+                    dateDiv.className += " " + imageId;
+                    dateDiv.className += " " + 'date-column';
                     var dateTextDiv = document.createElement('p');
                     dateTextDiv.innerHTML = uploadDate;
                     dateDiv.appendChild(dateTextDiv);
                     wrapperDiv.appendChild(dateDiv);
 
                     //Resolution cell
-                    const resolution = imageSize(imageDiv);
-                    const height = resolution.height;
-                    const width = resolution.width;
-                    const size = height * width;
-                    const resolutionStr = "" + (size / 1000000).toFixed(2) + "MP (" + width + " x " + height + ")";
                     const resDiv = document.createElement('td');
+                    resDiv.className += " " + imageId;
+                    resDiv.className += " " + 'resolution-column';
                     const resReport = document.createElement('div');
-                    resReport.innerHTML = resolutionStr;
+                    resReport.innerHTML = 'calculating...';
+                    resReport.className += " " + imageId;
+                    resReport.className += " " + ' resolution-report';
                     resDiv.appendChild(resReport);
                     wrapperDiv.appendChild(resDiv);
 
@@ -114,12 +120,13 @@
                     // editButton.className = "w3-button w3-green";
                     // editButtonDiv.appendChild(editButton);
                     // wrapperDiv.appendChild(editButtonDiv);
-                     var container_block = document.getElementById('slide-photos');
                     // function handleClick(cb) {
                     //     display("Clicked, new value = " + cb.checked);
                     // }
+
+                    var container_block = document.getElementById('slide-photos');
                     container_block.appendChild(wrapperDiv);
-                    resolveImage(imageDiv);
+                    resolveImage(imageDiv)
                 }
             }
             else {
@@ -158,6 +165,31 @@
                     imageDiv.style.maxHeight = '100%'
                     imageDiv.style.maxWidth = '400px';
                     imageDiv.style.verticalAlign = 'center';
+                    let thisImageId = imageId;
+
+                    //Update resolution once each image has loaded
+                    imageDiv.onload = function () {
+                        let width = (this.naturalWidth);
+                        let height = (this.naturalHeight);
+                        const size = height * width;
+                        const resolutionStr = "" + (size / 1000000).toFixed(2) + "MP (" + width + " x " + height + ")";
+                        const resTextDivs = document.getElementsByClassName(imageId + " resolution-report");
+                        const resTextDiv = resTextDivs[0];
+                        resTextDiv.innerHTML = resolutionStr;
+
+                        //Hide 'loading' div
+                        let loadingTextDivs = document.getElementsByClassName(imageId + " image-loading-text");
+                        for (i = 0; i < loadingTextDivs.length; i++) {
+                            let loadingTextDiv = loadingTextDivs[i];
+                            //window.alert(loadingTextDiv.innerHTML);
+                            loadingTextDiv.innerHTML = "";
+                            //window.alert(loadingTextDiv.innerHTML);
+                            //loadingTextDiv.setAttribute('visibility', 'hidden');
+                        }
+
+
+                    }
+
                 }
                 else {
                     console.log("Status: " + this.status)
@@ -167,14 +199,6 @@
             };
             imageRequest.open("GET", "/api/images/" + imageId, true);
             imageRequest.send();
-        }
-
-        function imageSize(element) {
-            var width = element.naturalWidth;
-            var height = element.naturalHeight;
-            var resString = width + " x " + height;
-            var dims = { "width": width, "height": height };
-            return dims;
         }
     </script>
 </body>
