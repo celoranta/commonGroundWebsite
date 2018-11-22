@@ -19,7 +19,6 @@
 
 <head>
 </head>
-
 <body>
     <div class="w3-content" style="max-width:2000px;margin-top:46px;overflow-x:auto">
         <table id="slide-photos" class="table">
@@ -47,13 +46,7 @@
             else if (this.readyState == 4 && this.status == 200) {
                 testDiv.setAttribute('style', 'color: blue')
                 testDiv.innerHTML = "";
-                // console.log("Ready state: " + this.readyState)
-                // console.log("Status: " + this.status)
-                //var myArr = this.responseText;
                 let responseContent = imagesRequest.responseText;
-
-                // testDiv.setAttribute('style', 'color: green')
-                // var responseContent = this.content;
                 var jsonObject = JSON.parse(responseContent);
                 for (let i = 0; i < jsonObject.length; i++) {
                     var wrapperDiv = document.createElement('tr');
@@ -83,13 +76,6 @@
                     imageCellDiv.appendChild(textDiv);
                     wrapperDiv.appendChild(imageCellDiv);
 
-                    //ImageId cell
-                    // var imageIdDiv = document.createElement('td');
-                    // var idText = document.createElement('p');
-                    // idText.innerHTML = imageId;
-                    // imageIdDiv.appendChild(idText);
-                    // wrapperDiv.appendChild(imageIdDiv);
-
                     //Date cell
                     var dateDiv = document.createElement('td');
                     dateDiv.className += " " + imageId;
@@ -109,21 +95,6 @@
                     resReport.className += " " + ' resolution-report';
                     resDiv.appendChild(resReport);
                     wrapperDiv.appendChild(resDiv);
-
-                    // //Edit button cell
-                    // const buttonName = "photoButton" + i;
-                    // var editButtonDiv = document.createElement('td');
-                    // var editButton = document.createElement('BUTTON');
-                    // editButton.innerHTML = "Edit";
-                    // editButton.setAttribute('id', buttonName)
-                    // editButton.onclick = function () { modalPop(imageUrl, imageId) };
-                    // editButton.className = "w3-button w3-green";
-                    // editButtonDiv.appendChild(editButton);
-                    // wrapperDiv.appendChild(editButtonDiv);
-                    // function handleClick(cb) {
-                    //     display("Clicked, new value = " + cb.checked);
-                    // }
-
                     var container_block = document.getElementById('slide-photos');
                     container_block.appendChild(wrapperDiv);
                     resolveImage(imageDiv)
@@ -186,10 +157,7 @@
                             //window.alert(loadingTextDiv.innerHTML);
                             //loadingTextDiv.setAttribute('visibility', 'hidden');
                         }
-
-
                     }
-
                 }
                 else {
                     console.log("Status: " + this.status)
@@ -202,6 +170,4 @@
         }
     </script>
 </body>
-
-
 </html>
