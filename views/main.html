@@ -53,14 +53,43 @@
     <!-- <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MERCH</a> -->
   </div>
 
-
-
   <!-- Page content -->
+
+
   <div class="w3-content" style="max-width:2000px;margin-top:46px">
+    <script src="controllers/audio-player.js" type="text/javascript"></script>
+
+    <script>
+      function startNewSong() {
+        var x = document.getElementById("myAudio");
+        var y = x.parentElement;
+        y.removeChild(x);
+        var z = document.createElement('audio');
+        z.setAttribute('id', 'myAudio');
+        z.setAttribute('onended', 'onSongEnd()');
+        z.setAttribute('src', getRandomRecording());
+        z.setAttribute('type', 'audio/mpeg');
+        y.appendChild(z);
+        z.play();
+      }
+    </script>
+
+    <script>
+      function playAudio() {
+        var x = document.getElementById("myAudio");
+        x.play();
+      }
+    </script>
+
+    <script>
+      function onSongEnd() {
+        startNewSong();
+      }
+    </script>
 
     <!-- Audio Player -->
-    <audio id="myAudio" autoplay>
-      <source src="audio/song_clips/20181021_summerOf69_clip_mstr.mp3" type="audio/mpeg">
+    <audio id="myAudio" autoplay onended="onSongEnd()">
+      <source src="audio/Long Train Running.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
     <div class="w3-bottom">
@@ -80,7 +109,7 @@
       <img id="brad-photo" src="/images/bandshots_16x9_bw/Brad3BW.jpg" style="width:100%">
       <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
         <!-- <h3>Chicago</h3>
-        <p><b>Ok, I admit this probably isn't us.</b></p>     --> 
+        <p><b>Ok, I admit this probably isn't us.</b></p>     -->
       </div>
     </div>
 
@@ -134,9 +163,7 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 -->
 
     <!-- The Songs Section -->
-
     <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="songs">
-
       <h2 id="songs-header" class="w3-wide">header</h2>
       <p id="songs-blurb" class="w3-justify">blurb</p>
       <div id="songs-lists" class="w3-row w3-padding-32">
@@ -152,24 +179,10 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
         <div class="w3-third 'slider'">
           <div class="song-swimlane"></div>
         </div>
-
       </div>
     </div>
 
-
-    <script>
-      var x = document.getElementById("myAudio");
-
-      function playAudio() {
-        x.play();
-      }
-
-      function pauseAudio() {
-        x.pause();
-      } 
-    </script>
     <script src="/controllers/songs.js"></script>
-
 
 
     <!-- The Press Kit Section -->
@@ -198,8 +211,6 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
           </div>
         </div>
       </div>
-
-
 
       <!-- The Contact Section -->
       <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
@@ -243,7 +254,6 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 
       <!-- End Page Content -->
     </div>
-
 
     <!-- Footer -->
     <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
@@ -291,7 +301,9 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
           modal.style.display = "none";
         }
       }
-// parseData(document.body);
+      // parseData(document.body);
+
+
     </script>
 </body>
 
