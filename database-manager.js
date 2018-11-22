@@ -30,7 +30,7 @@ console.log(err)
 
 const getRecords = async function getRecords(tableName) {
     try {
-    var queryString = 'SELECT * FROM ' + tableName;
+    var queryString = 'SELECT * FROM ' + tableName + " ORDER BY UPLOADDATE DESC";
     var result = await database.sqlQuery(queryString);
     return result;
     }
