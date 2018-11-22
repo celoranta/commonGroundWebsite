@@ -49,6 +49,15 @@ app.use(express.static(publicFolder));
 app.use(bodyparser.urlencoded({ extended: true }));
 api.use(bodyparser.urlencoded({ extended: true }));
 
+//Custom Routing functions
+function setCorsHeaders(res) {
+res.header("Access-Control-Allow-Origin", '*');
+res.header("Access-Control-Allow-Credentials", true);
+res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+return res;
+}
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -68,16 +77,26 @@ app.get('/slideshow-backend', (req, res) => {
 app.get('/images', (req, res) => {
   res.sendFile(imagesPage);
 });
+app.get('/api/images/:id', (req, res) => {
+  res = setCorsHeaders(res);
+  imageId = req.params.id;
+  console.log("images-id#" + imageId + " end point hit by get request");
+  res.set('Content-Type', 'text/html');
+  //res.send(urlString);
+  async function postImageUrl() {
+    try {
+    res.send(await storMgr.getFileUrl(imageId));
+      // res.send(JSON.stringify(result[0]));
+    }
+    catch (err) {
+      res.send(err);
+    }
+  }
+  postImageUrl();
+});
 
-app.get('/images-data', (req, res, next) => {
-  //res.setHeader('Content-Type', 'application/json');
-
-  res.header("Access-Control-Allow-Origin", '*');
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-   // res.json(["Tony","Lisa","Michael","Ginger","Food"]);
-
+app.get('/api/images-data', (req, res, next) => {
+  res = setCorsHeaders(res);
   async function postImageRecords() {
     console.log("images-data end point hit by get request");
     try {

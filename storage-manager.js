@@ -1,9 +1,11 @@
 const B2 = require('backblaze-b2');
 const dateformat = require('dateformat');
+const fs = require('fs')
 
-var sqlDateFormat = "yyyy-mm-dd HH:MM:ss";
-
-var b2 = new B2({
+const cGAudioBucketId = process.env.B2_CG_AUDIO_BUCKET_ID;
+const cGImagesBucketId = process.env.B2_CG_IMAGES_BUCKET_ID;
+const sqlDateFormat = "yyyy-mm-dd HH:MM:ss";
+const b2 = new B2({
     accountId: process.env.B2_ACCOUNT_ID,
     applicationKey: process.env.B2_APPLICATION_KEY
 });
@@ -33,12 +35,23 @@ async function getFiles(bucketName) {
             maxFileCount: 100,
             delimiter: '',
             prefix: ''
-        });
+        })
+        // .then(function (response) {
+        //     var data = response.data
+        //     credentials = {
+        //         accountId: accountId,
+        //         applicationKey: applicationKey,
+        //         apiUrl: data.apiUrl,
+        //         authorizationToken: data.authorizationToken,
+        //         downloadUrl: data.downloadUrl,
+        //         recommendedPartSize: data.recommendedPartSize
+        //     }
+        //     window.alert(credentials);
+        // });
         const fileObjects = response.data.files;
         console.log("File Count: " + fileObjects.length);
         var returnObjects = [];
         for (i = 0; i < fileObjects.length; i++) {
-
             const fileObject = fileObjects[i];
             //console.log(JSON.stringify(fileObject));
             returnObjects += fileObject;
@@ -55,9 +68,45 @@ async function getFiles(bucketName) {
     };
 };
 
+//This does not currently support private bucket downloads
+const getFileUrl = async function getFile(fileId) {
+    var fileName = "/images/" + fileId + '.jpg';
+    var fakeImage = '/images/brad_lebowsky.jpg';
+    var finalUrl;
+    try {
+        var authorization = await b2.authorize()
+        .then(function(res) {
+            // for(var property in res.data) {
+            //     console.log(property + "=" + res[property]);
+            // }
+
+            const downloadUrl = res.data.downloadUrl;
+            const token = res.data.authorizationToken;
+            //console.log('DownloadURL: ' + downloadUrl + '\n');
+            //console.log('Token: ' + token + "\n");
+
+
+
+            //USE b2_get_file_info to retrieve the name and bucket via ID
+            //Then use download file by name, which has more examples.
+            finalUrl = downloadUrl + "/b2api/v2/b2_download_file_by_id?fileId=" + fileId;
+            //finalUrl += "&Authorization=" + token;
+            console.log("Final Url: " + finalUrl);
+        })
+
+        // var file = (await b2.downloadFileById({
+        //     fileId: fileId,
+        //     onDownloadProgress: null // progress monitoring
+        // })
+        // )
+        }
+    catch (e) {
+        console.log('Error getting files: ', e)
+    };
+    return finalUrl;
+};
+
 //getBuckets();
-const cGAudioBucketId = process.env.B2_CG_AUDIO_BUCKET_ID;
-const cGImagesBucketId = process.env.B2_CG_IMAGES_BUCKET_ID;
 //getFiles(cGAudioBucketId);
 //var allImageBucketFiles = getFiles(cGImagesBucketId)
 
@@ -85,7 +134,17 @@ async function createValuesString(bucketId) {
     return imageDbValues;
 };
 
+const sMexports = {
+    getFileUrl: getFileUrl
+}
 
+module.exports = sMexports
+
+// function createDownloadUrl() {
+//     var urlString = "";
+//     https://f123.backblazeb2.com/b2api/v5/b2_download_file_by_id
+//     return urlString;
+// }
 // async function uploadImageObjects(bucketId) {
 //   try {
 //     const valuesString = await createValuesString(bucketId);

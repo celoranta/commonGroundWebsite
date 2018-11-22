@@ -3,15 +3,17 @@
 //import mysql from 'mysql2/promise';
 //const mysqlprom = require('mysql2-promise')
 const mysql = require('mysql2');
+const fs = require('fs')
 
 const databaseName = "mydb";
 
 const noPromisePool = mysql.createPool({
-    connectionLimit: 10,
+    connectionLimit: 50,
     host: process.env.AWS_SQL_HOSTNAME,
     user: process.env.AWS_SQL_USER,
     password: process.env.AWS_SQL_PASSWORD,
-    database: databaseName
+    database: databaseName,
+   // ssl: fs.readFileSync('./amazon-rds-ca-cert.pem')
 });
 
 // Ping database to check for common exception errors.

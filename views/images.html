@@ -1,37 +1,180 @@
 <!DOCTYPE html>
 <html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- TODO:Used temporary ../ to fix relative path. Should fix. -->
+<link rel="stylesheet" href="../css/w3.css">
+<link rel="stylesheet" href="../css/google-lato.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../css/custom-css.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.min.css" />
+<link rel="stylesheet" href="../css/modal-form.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../css/custom-table.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://foliotek.github.io/Croppie/croppie.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.5.1/croppie.min.js"></script>
 
 <head>
-
 </head>
-
 <body>
+    <div class="w3-content" style="max-width:2000px;margin-top:46px;overflow-x:auto">
+        <table id="slide-photos" class="table">
+            <tr>
+                <th>Photo</th>
+                <th>ImageId</th>
+                <th>Upload Date</th>
+                <th>Resolution</th>
+                <th>Edit</th>
+            </tr>
+        </table>
+    </div>
     <div id="test">Placeholder</div>
     <script>
+        var defaultImageUrl = '/images/rockHand.jpg';
         var testDiv = document.getElementById('test');
         testDiv.setAttribute('style', 'color: blue')
         var imagesRequest = new XMLHttpRequest();
         imagesRequest.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                console.log("Ready state: " + this.readyState)
+            if (this.readyState != 4) {
                 console.log("Status: " + this.status)
-                var myArr = this.responseText;
-                log(myArr);
-                let responseContent = imagesRequest.responseText;
-                testDiv.innerHTML = responseContent;
+                testDiv.innerHTML = "Pending..."
                 testDiv.setAttribute('style', 'color: green')
+            }
+            else if (this.readyState == 4 && this.status == 200) {
+                testDiv.setAttribute('style', 'color: blue')
+                testDiv.innerHTML = "";
+                // console.log("Ready state: " + this.readyState)
+                // console.log("Status: " + this.status)
+                //var myArr = this.responseText;
+                let responseContent = imagesRequest.responseText;
+
+                // testDiv.setAttribute('style', 'color: green')
+                // var responseContent = this.content;
+                var jsonObject = JSON.parse(responseContent);
+                for (let i = 0; i < jsonObject.length; i++) {
+                    var wrapperDiv = document.createElement('tr');
+                    var imageObject = jsonObject[i];
+                    const imageId = imageObject['imageId'];
+                    const uploadDate = imageObject['uploadDate'];
+
+                    //Photo cell
+                    var imageCellDiv = document.createElement('td');
+                    imageCellDiv.className = "float-text-container"
+                    var imageDiv = document.createElement('img');
+                    var textDiv = document.createElement('div');
+                    textDiv.className = 'centered w3-opacity';
+                    textDiv.setAttribute('style', 'color: black');
+                    textDiv.innerHTML = 'loading image'
+                    imageDiv.setAttribute('class', "w3-image w3-opacity-max");
+                    imageDiv.style.maxHeight = '100%'
+                    imageDiv.style.maxWidth = '400px';
+                    imageDiv.style.verticalAlign = 'center';
+                    imageDiv.setAttribute('id', imageId);
+                    imageDiv.setAttribute('src', defaultImageUrl);
+                    imageCellDiv.appendChild(imageDiv);
+                    imageCellDiv.appendChild(textDiv);
+                    wrapperDiv.appendChild(imageCellDiv);
+
+                    //ImageId cell
+                    var imageIdDiv = document.createElement('td');
+                    var idText = document.createElement('p');
+                    idText.innerHTML = imageId;
+                    imageIdDiv.appendChild(idText);
+                    wrapperDiv.appendChild(imageIdDiv);
+
+                    //Date cell
+                    var dateDiv = document.createElement('td');
+                    var dateTextDiv = document.createElement('p');
+                    dateTextDiv.innerHTML = uploadDate;
+                    dateDiv.appendChild(dateTextDiv);
+                    wrapperDiv.appendChild(dateDiv);
+
+                    //Resolution cell
+                    const resolution = imageSize(imageDiv);
+                    const height = resolution.height;
+                    const width = resolution.width;
+                    const size = height * width;
+                    const resolutionStr = "" + (size / 1000000).toFixed(2) + "MP (" + width + " x " + height + ")";
+                    const resDiv = document.createElement('td');
+                    const resReport = document.createElement('div');
+                    resReport.innerHTML = resolutionStr;
+                    resDiv.appendChild(resReport);
+                    wrapperDiv.appendChild(resDiv);
+
+                    // //Edit button cell
+                    // const buttonName = "photoButton" + i;
+                    // var editButtonDiv = document.createElement('td');
+                    // var editButton = document.createElement('BUTTON');
+                    // editButton.innerHTML = "Edit";
+                    // editButton.setAttribute('id', buttonName)
+                    // editButton.onclick = function () { modalPop(imageUrl, imageId) };
+                    // editButton.className = "w3-button w3-green";
+                    // editButtonDiv.appendChild(editButton);
+                    // wrapperDiv.appendChild(editButtonDiv);
+                     var container_block = document.getElementById('slide-photos');
+                    // function handleClick(cb) {
+                    //     display("Clicked, new value = " + cb.checked);
+                    // }
+                    container_block.appendChild(wrapperDiv);
+                    resolveImage(imageDiv);
+                }
             }
             else {
                 console.log("Status: " + this.status)
                 testDiv.innerHTML = "There was a problem."
-                testDiv.setAttribute('style', 'color: red')
+                testDiv.setAttribute('style', 'color: orange')
             }
         };
-        imagesRequest.open("GET", "/images-data", true);
+        imagesRequest.open("GET", "/api/images-data", true);
         imagesRequest.send();
 
-        function log(data) {
-            console.log(data);
+        async function resolveImage(imageDiv) {
+            var imageId = imageDiv.getAttribute('id');
+            var imageRequest = new XMLHttpRequest();
+            imageRequest.onreadystatechange = function () {
+                if (this.readyState != 4) {
+                    console.log("Status: " + this.status)
+                    imageDiv.innerHTML = "Pending..."
+                    imageDiv.setAttribute('style', 'color: green')
+                }
+                else if (this.readyState == 4 && this.status == 200) {
+                    imageDiv.setAttribute('style', 'color: blue')
+                    //imageDiv.innerHTML = "";
+                    // console.log("Ready state: " + this.readyState)
+                    // console.log("Status: " + this.status)
+                    //var myArr = this.responseText;
+                    let responseContent = imageRequest.responseText;
+                    console.log("Data returned to images.hml: " + responseContent)
+                    // testDiv.setAttribute('style', 'color: green')
+                    // var responseContent = this.content;
+                    //var jsonObject = JSON.parse(responseContent);
+                    //imageDiv.innerHTML = jsonObject;
+                    imageDiv.className -= " w3-opacity"
+                    imageDiv.setAttribute('src', responseContent)
+                    imageDiv.setAttribute('class', "w3-image");
+                    imageDiv.style.maxHeight = '100%'
+                    imageDiv.style.maxWidth = '400px';
+                    imageDiv.style.verticalAlign = 'center';
+                }
+                else {
+                    console.log("Status: " + this.status)
+                    imageDiv.innerHTML = "There was a problem."
+                    imageDiv.setAttribute('style', 'color: orange')
+                }
+            };
+            imageRequest.open("GET", "/api/images/" + imageId, true);
+            imageRequest.send();
+        }
+
+        function imageSize(element) {
+            var width = element.naturalWidth;
+            var height = element.naturalHeight;
+            var resString = width + " x " + height;
+            var dims = { "width": width, "height": height };
+            return dims;
         }
     </script>
 </body>
