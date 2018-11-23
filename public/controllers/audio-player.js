@@ -154,3 +154,4 @@ playButton.addEventListener("click", function(){playAudio()});
 var pauseButton = document.getElementById('pause-button');
 pauseButton.addEventListener("click", function(){pauseAudio()});
 
+stateModule.changeState(0);
