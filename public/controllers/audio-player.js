@@ -129,7 +129,3 @@ playButton.addEventListener("click", function(){playAudio()});
 var pauseButton = document.getElementById('pause-button');
 pauseButton.addEventListener("click", function(){pauseAudio()});
 
-shuffle recordings
-
-stateModule value = (stateModule value + 1) % (recordings.length - 1)
-let playlistIndex = i % (recordings.length - 1)
