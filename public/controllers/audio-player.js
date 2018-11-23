@@ -43,6 +43,7 @@ var stateModule = (function () {
 
     pub.changeState = function (newstate) {
         state = newstate;
+        console.log("State changed to: " + state);
     };
 
     pub.getState = function() {
@@ -53,15 +54,15 @@ var stateModule = (function () {
 }());
 
 function flipFlop() {
-    var state = stateModule.getState;
-    if (state == 0) {
-        stateModule.changeState(1)
+    var state = stateModule.getState();
+    if (state != 0) {
+        stateModule.changeState(0)
     }
     else (
-        stateModule.changeState(0)
+        stateModule.changeState(1)
     )
-    console.log("Flip Flop set state to: " + state);
-    return stateModule.getState();
+    const outputState = stateModule.getState();
+    return outputState;
 }
 
 
@@ -137,7 +138,7 @@ function playAudio() {
 
 //Set initial state
 ////
-stateModule.changeState(0);
+//stateModule.changeState(0);
 //var songPlaying = document.getElementById('song-playing');
 var audioPlayer = document.getElementById('myAudio');
 var randomRecording = getRandomRecording();
