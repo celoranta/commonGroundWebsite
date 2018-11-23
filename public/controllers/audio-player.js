@@ -1,3 +1,5 @@
+
+function getRecordings() {
 const recordings = [
     { "url": "/audio/song_clips/20181021_blueOnBlack_clip_mstr.mp3" },
     { "url": "/audio/song_clips/20181021_cakeByTheOcean_clip_mstr.mp3" },
@@ -15,7 +17,6 @@ const recordings = [
     { "url": "/audio/song_clips/20181021_MaryJanesLastDance_clip_mstr.mp3" },
     { "url": "/audio/song_clips/20181021_missYou_clip_mstr.mp3" },
     { "url": "/audio/song_clips/20181021_mustangSally_clip_mstr.mp3" },
-
     { "url": "/audio/song_clips/20181021_myKindOfNight_clip_mstr.mp3" },
     { "url": "/audio/song_clips/20181021_NewOrleansIsSinking_clip_mstr.mp3" },
     { "url": "/audio/song_clips/20181021_OceanPearl_clip-mstr.mp3" },
@@ -30,52 +31,29 @@ const recordings = [
     { "url": "/audio/song_clips/20181021_tellMeBabyMastered.mp3" },
     { "url": "/audio/song_clips/20181021_TheWeight_clip_mstr.mp3" }
 ];
-// <audio id="myAudio" autoplay onended="onSongEnd()">
-//   <source src="audio/song_clips/20181021_summerOf69_clip_mstr.mp3" type="audio/mpeg">
-//   Your browser does not support the audio element.
-// </audio>
-
+return recordings
+}
 
 var stateModule = (function () {
     var state; // Private Variable
-
     var pub = {};// public object - returned at end of module
-
     pub.changeState = function (newstate) {
         state = newstate;
         console.log("State changed to: " + state);
     };
-
     pub.getState = function() {
         return state;
     }
-
     return pub; // expose externally
 }());
 
-function flipFlop() {
-    var state = stateModule.getState();
-    if (state != 0) {
-        stateModule.changeState(0)
-    }
-    else (
-        stateModule.changeState(1)
-    )
-    const outputState = stateModule.getState();
-    return outputState;
-}
-
-
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
-
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
-
         // Pick a remaining element...
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
-
         // And swap it with the current element.
         temporaryValue = array[currentIndex];
         array[currentIndex] = array[randomIndex];
@@ -84,25 +62,18 @@ function shuffle(array) {
     return array;
 }
 
-function splitArray(arrayToSplit) {
-    var arrayA = arrayToSplit.slice(0, Math.floor(arrayToSplit.length / 2));
-    var arrayB = arrayToSplit.slice(Math.ceil(arrayToSplit.length / 2));
-    return [arrayA, arrayB];
-}
-
-function chooseAtRandom(arrayToChooseFrom) {
-    var index = Math.floor((Math.random() * arrayToChooseFrom.length));
-    return arrayToChooseFrom[index];
-}
-
-//Transport
-
-function getRandomRecording() {
-    const state = flipFlop();
-    const splitArrays = splitArray(recordings);
-    const halfArray = splitArrays[state];
-    const chosenRecording = chooseAtRandom(halfArray);
-    return chosenRecording.url
+function getNextRecording() {
+    var playlist = stateModule.getState();
+    console.log("Playlist Length: " + playlist.length);
+    var nextRecordingObject = playlist.shift();
+    var nextRecordingUrl = nextRecordingObject.url;
+    console.log("Next recording: " + nextRecordingUrl);
+    console.log("Shortened Playlist Length: " + playlist.length)
+    console.log("Recordings Array Length: " + getRecordings().length)
+    if (playlist.length == 0) {
+        createShuffledPlaylist();
+    }
+    return nextRecordingUrl;
 }
 
 function pauseAudio() {
@@ -129,22 +100,25 @@ function playAudio() {
     var z = document.createElement('audio');
     z.setAttribute('id', 'myAudio');
     z.setAttribute('onended', 'onSongEnd()');
-    url = getRandomRecording();
+    var url = getNextRecording();
     z.setAttribute('src', url);
     z.setAttribute('type', "audio/mpeg");
     y.appendChild(z);
     z.play();
   }
 
-//Set initial state
-////
-//stateModule.changeState(0);
-//var songPlaying = document.getElementById('song-playing');
-var audioPlayer = document.getElementById('myAudio');
-var randomRecording = getRandomRecording();
-audioPlayer.setAttribute("src", randomRecording);
-audioPlayer.setAttribute('type', "audio/mpeg");
+//load state module with shuffled recordings
+function createShuffledPlaylist(){
+    let recordings = getRecordings();
+    console.log("Creating Shuffled Playlist from Recordings.");
+stateModule.changeState(shuffle(recordings));
+};
 
+createShuffledPlaylist();
+
+var audioPlayer = document.getElementById('myAudio');
+audioPlayer.setAttribute("src", getNextRecording());
+audioPlayer.setAttribute('type', "audio/mpeg");
 
 audioPlayer.setAttribute('onended', "onSongEnd()");
 //audioPlayer.autoplay = false;
@@ -155,4 +129,7 @@ playButton.addEventListener("click", function(){playAudio()});
 var pauseButton = document.getElementById('pause-button');
 pauseButton.addEventListener("click", function(){pauseAudio()});
 
-stateModule.changeState(0);
+shuffle recordings
+
+stateModule value = (stateModule value + 1) % (recordings.length - 1)
+let playlistIndex = i % (recordings.length - 1)
