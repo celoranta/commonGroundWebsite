@@ -60,6 +60,7 @@ function flipFlop() {
     else (
         stateModule.changeState(0)
     )
+    console.log("Flip Flop set state to: " + state);
     return stateModule.getState();
 }
 
@@ -104,13 +105,16 @@ function getRandomRecording() {
 }
 
 function pauseAudio() {
-    var x = document.getElementById("myAudio");
-    x.pause();
+    var toPause = document.getElementById("myAudio");
+    toPause.pause();
 }
 
 function playAudio() {
-    var x = document.getElementById("myAudio");
-    x.play();
+    console.log("Play Audio Called");
+    var toPlay = document.getElementById("myAudio");
+    console.log("Audio Element: " + toPlay );
+    console.log(toPlay.outerHTML)
+    toPlay.play();
   }
 
   function onSongEnd() {
@@ -126,7 +130,7 @@ function playAudio() {
     z.setAttribute('onended', 'onSongEnd()');
     url = getRandomRecording();
     z.setAttribute('src', url);
-    z.setAttribute('type', 'audio/mpeg');
+    z.setAttribute('type', "audio/mpeg");
     y.appendChild(z);
     z.play();
   }
@@ -134,12 +138,13 @@ function playAudio() {
 //Set initial state
 ////
 stateModule.changeState(0);
-var songPlaying = document.getElementById('song-playing');
-var randomRecording = getRandomRecording();
-songPlaying.setAttribute('src', randomRecording);
-songPlaying.setAttribute('type', "audio/mpeg");
-
+//var songPlaying = document.getElementById('song-playing');
 var audioPlayer = document.getElementById('myAudio');
+var randomRecording = getRandomRecording();
+audioPlayer.setAttribute("src", randomRecording);
+audioPlayer.setAttribute('type', "audio/mpeg");
+
+
 audioPlayer.setAttribute('onended', "onSongEnd()");
 //audioPlayer.autoplay = false;
 
