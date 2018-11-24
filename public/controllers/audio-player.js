@@ -81,17 +81,10 @@ function getNextRecording() {
     return nextRecordingUrl;
 }
 
-  function startNewSong() {
-    var x = document.getElementById("myAudio");
-    var y = x.parentElement;
-    y.removeChild(x);
-    var z = document.createElement('audio');
-    z.setAttribute('id', 'myAudio');
-    z.setAttribute('onended', 'onSongEnd()');
-    var url = getNextRecording();
-    z.setAttribute('src', url);
-    z.setAttribute('type', "audio/mpeg");
-    y.appendChild(z);
+  function startNewSong(player) {
+    player.src = getNextRecording();
+    player.load();
+    player.play();
     z.play();
   }
 
@@ -118,7 +111,8 @@ function pauseAudio() {
 }
 
   function onSongEnd() {
-    startNewSong();
+    var audioPlayer = document.getElementById('myAudio');
+    startNewSong(audioPlayer);
   }
 
 saveShuffledArray(getRecordings());
