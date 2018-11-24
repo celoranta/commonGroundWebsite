@@ -1,0 +1,47 @@
+{
+  "name": "commonGroundWebsite",
+  "scripts": {
+  },
+  "env": {
+    "AWS_SQL_HOSTNAME": {
+      "required": true
+    },
+    "AWS_SQL_PASSWORD": {
+      "required": true
+    },
+    "AWS_SQL_USER": {
+      "required": true
+    },
+    "B2_ACCOUNT_ID": {
+      "required": true
+    },
+    "B2_APPLICATION_KEY": {
+      "required": true
+    },
+    "B2_CG_AUDIO_BUCKET_ID": {
+      "required": true
+    },
+    "B2_CG_IMAGES_BUCKET_ID": {
+      "required": true
+    },
+    "OUTLOOK_PASS": {
+      "required": true
+    },
+    "OUTLOOK_USER": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
