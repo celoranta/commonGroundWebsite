@@ -226,3 +226,37 @@ http://jsfiddle.net/etj74mnh/
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.custom-greyscale {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+.pulse-negative {
+    background-color: black;
+    color: white;
+    animation-name: pulse-negative;
+    animation-duration: 3s;
+    animation-iteration-count: 2;
+  }
+  
+  @keyframes pulse-negative {
+      50% {
+      background-color: white;
+      color: black;
+      opacity: 0.5;
+    }
+    100% {
+        background-color: black;
+        color: white;
+        opacity: 0.5;
+    }
+
+
+  }
+
+  .transport-button {
+    border-style: solid; 
+    border-color: white; 
+    border-width:thin
+  }
