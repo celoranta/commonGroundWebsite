@@ -81,6 +81,32 @@ function getNextRecording() {
     return nextRecordingUrl;
 }
 
+/* View in fullscreen */
+function openFullscreen(elem) {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+      elem.msRequestFullscreen();
+    }
+  }
+  
+  /* Close fullscreen */
+  function closeFullscreen() {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) { /* Firefox */
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE/Edge */
+      document.msExitFullscreen();
+    }
+  }
+
   function startNewSong(player) {
     player.src = getNextRecording();
     player.load();
@@ -114,6 +140,14 @@ function pauseAudio() {
     var audioPlayer = document.getElementById('myAudio');
     startNewSong(audioPlayer);
   }
+
+
+splashVideo = document.createElement('video');
+splashVideo.setAttribute('id', 'splash-video');
+splashVideo.classList.add('w3-top');
+splashVideo.setAttribute('style', "width: 100%; height: auto;z-index: 500");
+splashVideo.muted = true;
+openFullscreen(splashVideo)
 
 saveShuffledArray(getRecordings());
 var audioPlayer = document.getElementById('myAudio');
