@@ -95,11 +95,20 @@ function getNextRecording() {
     z.play();
   }
 
-function playAudio() {
+  function stopSizePulse(source){
+      var cssClassToRemove = 'pulse-size';
+    const isPulsing = source.classList.contains(cssClassToRemove);
+    if (isPulsing) {
+        source.classList.remove(cssClassToRemove);
+    }
+  }
+
+function playAudio(source) {
     console.log("Play Audio Called");
     var toPlay = document.getElementById("myAudio");
     console.log("Audio Element: " + toPlay );
     console.log(toPlay.outerHTML)
+    stopSizePulse(source);
     toPlay.play();
   }
 
@@ -112,14 +121,13 @@ function pauseAudio() {
     startNewSong();
   }
 
-
 saveShuffledArray(getRecordings());
 var audioPlayer = document.getElementById('myAudio');
 audioPlayer.setAttribute("src", getNextRecording());
 audioPlayer.setAttribute('type', "audio/mpeg");
 audioPlayer.setAttribute('onended', "onSongEnd()");
 var playButton = document.getElementById('play-button');
-playButton.addEventListener("click", function(){playAudio()});
+playButton.addEventListener("click", function(evt){playAudio(playButton)});
 var pauseButton = document.getElementById('pause-button');
 pauseButton.addEventListener("click", function(){pauseAudio()});
 
