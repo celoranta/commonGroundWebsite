@@ -62,6 +62,11 @@ function shuffle(array) {
     return array;
 }
 
+function saveShuffledArray(array){
+    console.log("Creating Shuffled Array");
+stateModule.changeState(shuffle(array));
+};
+
 function getNextRecording() {
     var playlist = stateModule.getState();
     console.log("Playlist Length: " + playlist.length);
@@ -71,27 +76,10 @@ function getNextRecording() {
     console.log("Shortened Playlist Length: " + playlist.length)
     console.log("Recordings Array Length: " + getRecordings().length)
     if (playlist.length == 0) {
-        createShuffledPlaylist();
+        saveShuffledArray();
     }
     return nextRecordingUrl;
 }
-
-function pauseAudio() {
-    var toPause = document.getElementById("myAudio");
-    toPause.pause();
-}
-
-function playAudio() {
-    console.log("Play Audio Called");
-    var toPlay = document.getElementById("myAudio");
-    console.log("Audio Element: " + toPlay );
-    console.log(toPlay.outerHTML)
-    toPlay.play();
-  }
-
-  function onSongEnd() {
-    startNewSong();
-  }
 
   function startNewSong() {
     var x = document.getElementById("myAudio");
@@ -107,25 +95,31 @@ function playAudio() {
     z.play();
   }
 
-//load state module with shuffled recordings
-function createShuffledPlaylist(){
-    let recordings = getRecordings();
-    console.log("Creating Shuffled Playlist from Recordings.");
-stateModule.changeState(shuffle(recordings));
-};
+function playAudio() {
+    console.log("Play Audio Called");
+    var toPlay = document.getElementById("myAudio");
+    console.log("Audio Element: " + toPlay );
+    console.log(toPlay.outerHTML)
+    toPlay.play();
+  }
 
-createShuffledPlaylist();
+function pauseAudio() {
+    var toPause = document.getElementById("myAudio");
+    toPause.pause();
+}
 
+  function onSongEnd() {
+    startNewSong();
+  }
+
+
+saveShuffledArray(getRecordings());
 var audioPlayer = document.getElementById('myAudio');
 audioPlayer.setAttribute("src", getNextRecording());
 audioPlayer.setAttribute('type', "audio/mpeg");
-
 audioPlayer.setAttribute('onended', "onSongEnd()");
-//audioPlayer.autoplay = false;
-
 var playButton = document.getElementById('play-button');
 playButton.addEventListener("click", function(){playAudio()});
-
 var pauseButton = document.getElementById('pause-button');
 pauseButton.addEventListener("click", function(){pauseAudio()});
 
