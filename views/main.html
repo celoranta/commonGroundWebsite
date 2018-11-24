@@ -71,20 +71,7 @@
     </div>
 
     <!-- Automatic Slideshow Images -->
-    <div class="mySlides w3-display-container w3-center">
-      <img id="lorne-photo" src="/images/bandshots_16x9_bw/Band1BW.jpg" style="width:100%">
-      <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-        <!-- <h3>New York</h3>
-        <p><b>Look how fast Lorne can play!</b></p>     -->
-      </div>
-    </div>
-    <div class="mySlides w3-display-container w3-center">
-      <img id="brad-photo" src="/images/bandshots_16x9_bw/Brad3BW.jpg" style="width:100%">
-      <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-        <!-- <h3>Chicago</h3>
-        <p><b>Ok, I admit this probably isn't us.</b></p>     -->
-      </div>
-    </div>
+    <div id= "slides-container"></div>
 
     <!-- The Band Section -->
     <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
@@ -240,22 +227,9 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
       <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
     </footer>
 
-    <script>
-      // Automatic Slideshow - change image every 4 seconds
-      var myIndex = 0;
-      carousel();
+    <script src="/controllers/slideshow.js" type="text/javascript"></script>
 
-      function carousel() {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";
-        }
-        myIndex++;
-        if (myIndex > x.length) { myIndex = 1 }
-        x[myIndex - 1].style.display = "block";
-        setTimeout(carousel, 4000);
-      }
+    <script>
 
       // Used to toggle the menu on small screens when clicking on the menu button
       function myFunction() {
