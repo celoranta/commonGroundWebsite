@@ -91,10 +91,10 @@ var songs = [
 {title: 'Pride and Joy', genreTags: ['blues' ]},
 {title: 'Tightrope', genreTags: ['blues']},
 {title: 'Dani California', genreTags: [ 'funk rock', 'alternative']},
-{title: 'The Weight', genreTags: ['roots rock']},
+{title: 'The Weight', genreTags: ['roots rock', 'southern rock']},
 {title: 'One Headlight', genreTags: ['alternative', '90\'s']},
-{title: 'Superstition', genreTags: ['soul', 'motown']},
-{title: 'Let Me Stand Next to Your Fire' , genreTags: ['roots rock']},
+{title: 'Superstition', genreTags: ['soul', 'motown', 'funk']},
+{title: '(Let Me Stand Next to Your) Fire' , genreTags: ['roots rock']},
 {title: 'Brown Eyed Girl', genreTags: [ 'oldies']},
 {title: 'Ocean Pearl', genreTags: [ 'canadiana', 'alternative']},
 {title: 'New Orleans is Sinking', genreTags: ['canadiana']},
@@ -110,10 +110,27 @@ var songs = [
 {title: 'Long Train Runnin\'', genreTags: ['roots rock']},
 {title: 'Miss You', genreTags: ['disco rock']},
 {title: 'All Summer Long', genreTags: ['southern rock']},
-{title: 'My Kind of Night', genreTags: ['country']}
+{title: 'My Kind of Night', genreTags: ['country']},
+{title: 'Boys Round Here', genreTags: ['country']},
+{title: 'Country Girl (Shake it for Me)', genreTags: ['country']},
+{title: 'Little Sister', genreTags: ['country']},
+{title: 'Folsom Prison Blues', genreTags: ['country']},
+{title: 'Play that Funky Music', genreTags: ['funk']},
+{title: 'Keep on Rocking in the Free World', genreTags: ['anthems']},
+{title: 'Another Brick in the Wall', genreTags: ['anthems']},
+{title: 'Mony Mony', genreTags: ['anthems']},
+{title: 'Sweet Caroline', genreTags: ['anthems']},
+{title: 'Cinnamon Girl', genreTags: ['anthems', 'roots rock']},
+{title: 'Keep your Hands to Yourself', genreTags: ['southern rock']},
+{title: 'Moves Like Jagger', genreTags: ['dance pop']},
+{title: 'Cosmic Girl', genreTags: ['dance pop', 'disco rock']},
+{title: 'Saw Her Standing There', genreTags: ['british invasion', 'Rock & Roll']},
+{title: 'Hey Ya', genreTags: 'dance pop'},
+{title: 'Sharp Dressed Man', genreTags: ['classic rock']},
+{title: 'Green River', genreTags: ['southern rock', 'classic rock']}
 ]
 
-const minimumSongQty = 0;
+const minimumSongQty = 2;
 const songsHeader = "SONGS";
 const songsBlurb = "Common Ground is not a genre band.  " +
 "If it moves your feet, Common Ground plays it. Wilson Pickett?  Luke Bryant?  Daft Punk?  " +
