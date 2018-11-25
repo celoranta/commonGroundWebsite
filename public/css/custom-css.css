@@ -253,7 +253,18 @@ http://jsfiddle.net/etj74mnh/
       transform: scale(1);
     }
   }
-
-  .splash-video {
-
+#top-container{
+    position: relative;
+}
+  #splash-video {
+    position: absolute;
+    z-index: 100
   }
+  #content-container{
+    position: absolute;
+    width: 100%
+  }
+
+  /* carousel */
+  body {font-family: "Lato", sans-serif}
+  .mySlides {display: none}
