@@ -258,9 +258,34 @@ http://jsfiddle.net/etj74mnh/
     75% {
         transform: none;
     }
-
-
 }
+
+@-webkit-keyframes attention {
+    5.5% { 
+    -webkit-transform: none; 
+    }
+    6% { 
+    -webkit-transform: scale(1.05);  
+    }
+    8% { 
+    -webkit-transform: scale(0.95);  
+    }
+    10% { 
+    -webkit-transform: scale(1.03); 
+    }
+    12% { 
+    -webkit-transform: scale(1); 
+    }
+    25% { 
+    -webkit-transform: rotate(-720deg); 
+    }
+    75% { 
+    -webkit-transform: none;
+    }
+  
+  }
+
+
 
 #top-container{
     position: relative;
