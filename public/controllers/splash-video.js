@@ -80,6 +80,9 @@ if (vidPromise !== undefined) {
       // Automatic playback started!
     }).catch(function(error) {
         console.log('Video autoplay failed and was skipped with error: ' + error)
+        splashVideoDi.style.display = 'none';
+        showDivs(divsToShowBeforeFade);
+        showDivs(divsToHide);
       // Automatic playback failed.
       // Show a UI element to let the user manually start playback.
     });
