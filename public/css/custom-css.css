@@ -233,26 +233,35 @@ http://jsfiddle.net/etj74mnh/
   }
 
   .pulse-size {
-    animation: attention 3s ease infinite;
+    animation: attention 5s ease infinite;
   }
   
   @keyframes attention {
-    9% {
+    5.5% {
       transform: none;
     }
-    12% {
+    6% {
       transform: scale(1.05);
     }
-    16% {
+    8% {
       transform: scale(0.95);
     }
-    20% {
+    10% {
       transform: scale(1.03);
     }
-    24% {
+    12% {
       transform: scale(1);
     }
-  }
+    25% {
+      transform: rotate(-720deg);
+    }
+    75% {
+        transform: none;
+    }
+
+
+}
+
 #top-container{
     position: relative;
 }
