@@ -65,5 +65,18 @@ splashVideoDiv.setAttribute('style', 'width:100%; height: auto');
 // splashVideoDiv.setAttribute('position', 'absolute');
 splashVideoDiv.muted = true;
 setOpacity(splashVideoDiv, 1);
-splashVideoDiv.play();
+
+const vidPromise = splashVideoDiv.play();
+
+// In browsers that don’t yet support this functionality,
+// playPromise won’t be defined.
+if (vidPromise !== undefined) {
+    vidPromise.then(function() {
+      // Automatic playback started!
+    }).catch(function(error) {
+        console.log('Video autoplay failed and was skipped with error: ' + error)
+      // Automatic playback failed.
+      // Show a UI element to let the user manually start playback.
+    });
+  }
 // splashVideoDiv.addEventListener(onended, function(){container.remove()})
