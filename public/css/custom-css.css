@@ -277,3 +277,11 @@ http://jsfiddle.net/etj74mnh/
   /* carousel */
   body {font-family: "Lato", sans-serif}
   .mySlides {display: none}
+
+  .hide-during-splash {
+      display: none
+  }
+
+  .hide-during-video {
+    display: none
+}

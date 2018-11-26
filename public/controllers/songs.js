@@ -249,25 +249,24 @@ for(i=0; i < genreCount; i++){
 };
 
 // polyfill --- Amimate Scrolling Lists
+function animateSongList(){
 window.requestAnimationFrame = (function(){
-  return  window.requestAnimationFrame       ||
-          window.webkitRequestAnimationFrame ||
-          window.mozRequestAnimationFrame    ||
-          function( callback ){
-            window.setTimeout(callback, 1000 / 60);
-          };
-})();
+    return  window.requestAnimationFrame       ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame    ||
+            function( callback ){
+              window.setTimeout(callback, 1000 / 60);
+            };
+  })();
+  
+  var speed = 2500;
+  (function songSlide(){
+      var listItemHeight = $('.slideItem:first-child').outerHeight();
+      $(".slideContainer").animate({marginTop:-listItemHeight},speed, 'linear', function(){
+                  $(this).css({marginTop:0}).find("li:last").after($(this).find("li:first"));
+          });
+          requestAnimationFrame(songSlide);
+  })();
+};
+  
 
-var speed = 2500;
-(function songSlide(){
-    var listItemHeight = $('.slideItem:first-child').outerHeight();
-    $(".slideContainer").animate({marginTop:-listItemHeight},speed, 'linear', function(){
-                $(this).css({marginTop:0}).find("li:last").after($(this).find("li:first"));
-        });
-        requestAnimationFrame(songSlide);
-})();
-
-
-
-//Look into FLEXBOX for evenly distributed dynamic columns?
-//https://codepen.io/klamping/pen/YXwgBY?editors=110
