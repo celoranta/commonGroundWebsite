@@ -42,14 +42,19 @@ for (i = 0; i < divsToHide.length; i++)
     divToHide.style.display = 'none';
 }
 var divsToShowBeforeFade = document.getElementsByClassName('hide-during-video');
-//console.log("Show before fade count: " + divsToShowBeforeFade.length);
-
-// var splashVideoDiv = document.getElementById('splash-video');
 splashVideoMediaObject = getVideo();
 splashVideoMedia = splashVideoMediaObject.source;
 
 splashVideoDiv = document.getElementById('splash-video')
-splashVideoDiv.setAttribute('src', splashVideoMedia);
+
+splashVideoDiv.setAttribute('playsinline', "");
+splashVideoDiv.muted = true;
+splashVideoDiv.controls = true;
+splashVideoDiv.autoplay = true;
+splashVideoDiv.src = splashVideoMedia;
+splashVideoDiv.setAttribute('poster', "/images/video_clips/poster.jpg");
+//splashVideoDiv.setAttribute( object-fit:fill);
+
 splashVideoDiv.addEventListener(
     'timeupdate', 
     function(){fadeAndHide(
