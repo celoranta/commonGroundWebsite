@@ -47,16 +47,22 @@ splashVideoMedia = splashVideoMediaObject.source;
 
 splashVideoDiv = document.getElementById('splash-video')
 
-// splashVideoDiv.setAttribute('playsinline', "");
-splashVideoDiv.src = splashVideoMedia;
+
+// splashVideoDiv.src = splashVideoMedia;
 splashVideoDiv.setAttribute('style', 'width:100%; height: auto');
 splashVideoDiv.controls = true;
 splashVideoDiv.autoplay = true;
 splashVideoDiv.muted = true;
-
-// splashVideoDiv.setAttribute('poster', "/images/video_clips/poster.jpg");
 setOpacity(splashVideoDiv, 1);
-//splashVideoDiv.setAttribute( object-fit:fill);
+splashVideoDiv.setAttribute('playsinline', "");
+splashVideoDiv.setAttribute('poster', "/images/video_clips/poster.jpg");
+// splashVideoDiv.setAttribute('object-fit:fill');
+
+splashVideoSource = document.createElement('source');
+splashVideoSource.src = splashVideoMedia;
+splashVideoSource.setAttribute('type', 'video/mp4');
+
+splashVideoDiv.appendChild(splashVideoSource);
 
 splashVideoDiv.addEventListener(
     'timeupdate', 
