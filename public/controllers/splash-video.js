@@ -51,7 +51,7 @@ splashVideoDiv = document.getElementById('splash-video')
 // splashVideoDiv.src = splashVideoMedia;
 splashVideoDiv.setAttribute('style', 'width:100%; height: auto');
 splashVideoDiv.controls = true;
-splashVideoDiv.autoplay = true;
+// splashVideoDiv.autoplay = true;
 splashVideoDiv.muted = true;
 // setOpacity(splashVideoDiv, 1);
 // splashVideoDiv.setAttribute('playsinline', "");

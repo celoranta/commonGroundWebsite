@@ -111,7 +111,6 @@ function openFullscreen(elem) {
     player.src = getNextRecording();
     player.load();
     player.play();
-    z.play();
   }
 
   function stopSizePulse(source){
