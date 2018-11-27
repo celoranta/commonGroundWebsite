@@ -51,11 +51,11 @@ splashVideoDiv = document.getElementById('splash-video')
 // splashVideoDiv.src = splashVideoMedia;
 splashVideoDiv.setAttribute('style', 'width:100%; height: auto');
 splashVideoDiv.controls = true;
-// splashVideoDiv.autoplay = true;
+splashVideoDiv.autoplay = true;
 splashVideoDiv.muted = true;
 // setOpacity(splashVideoDiv, 1);
 // splashVideoDiv.setAttribute('playsinline', "");
-// splashVideoDiv.setAttribute('poster', "/images/video_clips/poster.jpg");
+splashVideoDiv.setAttribute('poster', "/images/video_clips/poster.jpg");
 // splashVideoDiv.setAttribute('object-fit:fill');
 
 // splashVideoSource = document.createElement('source');
@@ -88,6 +88,7 @@ if (vidPromise !== undefined) {
         splashVideoDiv.style.display = 'none';
         showDivs(divsToShowBeforeFade);
         showDivs(divsToHide);
+        animateSongList();
       // Automatic playback failed.
       // Show a UI element to let the user manually start playback.
     });
