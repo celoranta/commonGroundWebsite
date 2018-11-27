@@ -48,13 +48,11 @@ var divsToShowBeforeFade = document.getElementsByClassName('hide-during-video');
 splashVideoDiv = document.getElementById('splash-video')
 
 
-// splashVideoDiv.src = splashVideoMedia;
 splashVideoDiv.setAttribute('style', 'width:100%; height: auto');
 splashVideoDiv.controls = true;
 splashVideoDiv.autoplay = true;
 splashVideoDiv.muted = true;
-// setOpacity(splashVideoDiv, 1);
-// splashVideoDiv.setAttribute('playsinline', "");
+splashVideoDiv.setAttribute('playsinline', "");
 splashVideoDiv.setAttribute('poster', "/images/video_clips/poster.jpg");
 // splashVideoDiv.setAttribute('object-fit:fill');
 
