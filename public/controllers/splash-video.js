@@ -47,12 +47,15 @@ splashVideoMedia = splashVideoMediaObject.source;
 
 splashVideoDiv = document.getElementById('splash-video')
 
-splashVideoDiv.setAttribute('playsinline', "");
-splashVideoDiv.muted = true;
+// splashVideoDiv.setAttribute('playsinline', "");
+splashVideoDiv.src = splashVideoMedia;
+splashVideoDiv.setAttribute('style', 'width:100%; height: auto');
 splashVideoDiv.controls = true;
 splashVideoDiv.autoplay = true;
-splashVideoDiv.src = splashVideoMedia;
-splashVideoDiv.setAttribute('poster', "/images/video_clips/poster.jpg");
+splashVideoDiv.muted = true;
+
+// splashVideoDiv.setAttribute('poster', "/images/video_clips/poster.jpg");
+setOpacity(splashVideoDiv, 1);
 //splashVideoDiv.setAttribute( object-fit:fill);
 
 splashVideoDiv.addEventListener(
@@ -66,10 +69,6 @@ splashVideoDiv.addEventListener(
         )}
     )}
 );
-splashVideoDiv.setAttribute('style', 'width:100%; height: auto');
-// splashVideoDiv.setAttribute('position', 'absolute');
-splashVideoDiv.muted = true;
-setOpacity(splashVideoDiv, 1);
 
 const vidPromise = splashVideoDiv.play();
 
