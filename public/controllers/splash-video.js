@@ -54,8 +54,8 @@ splashVideoDiv.controls = true;
 splashVideoDiv.autoplay = true;
 splashVideoDiv.muted = true;
 setOpacity(splashVideoDiv, 1);
-splashVideoDiv.setAttribute('playsinline', "");
-splashVideoDiv.setAttribute('poster', "/images/video_clips/poster.jpg");
+// splashVideoDiv.setAttribute('playsinline', "");
+// splashVideoDiv.setAttribute('poster', "/images/video_clips/poster.jpg");
 // splashVideoDiv.setAttribute('object-fit:fill');
 
 splashVideoSource = document.createElement('source');
