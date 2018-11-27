@@ -23,7 +23,12 @@
   <div id="top-container">
     <!-- Splash Video -->
 
-    <video id="splash-video-test" src='/images/video_clips/MyMovie2.mp4' type="video/mp4" controls></video>
+    <video id="splash-video-test" controls>
+      <source  src='/images/video_clips/MyMovie2.mp4' type="video/mp4" >
+      <source  src='/images/video_clips/MyMovie2-H264.mp4' type="video/mp4" >
+      <source  src='public/images/video_clips/MyMovie2-H265.mp4' type="video/mp4" >
+    </video>
+
     <video id="splash-video" src='/images/video_clips/MyMovie2.mp4'></video>
     <!-- Navbar -->
     <div class="w3-top hide-during-video">
