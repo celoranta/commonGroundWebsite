@@ -1,8 +1,8 @@
 
-function getVideo(){
-    video = {'source': '/images/video_clips/MyMovie2.mp4'}
-    return video;
-}
+// function getVideo(){
+//     video = {'source': '/images/video_clips/MyMovie2.mp4'}
+//     return video;
+// }
 
 function setOpacity(element, opacityValue) {
 element.style.opacity = opacityValue;
@@ -42,8 +42,8 @@ for (i = 0; i < divsToHide.length; i++)
     divToHide.style.display = 'none';
 }
 var divsToShowBeforeFade = document.getElementsByClassName('hide-during-video');
-splashVideoMediaObject = getVideo();
-splashVideoMedia = splashVideoMediaObject.source;
+// splashVideoMediaObject = getVideo();
+// splashVideoMedia = splashVideoMediaObject.source;
 
 splashVideoDiv = document.getElementById('splash-video')
 
@@ -53,16 +53,16 @@ splashVideoDiv.setAttribute('style', 'width:100%; height: auto');
 splashVideoDiv.controls = true;
 splashVideoDiv.autoplay = true;
 splashVideoDiv.muted = true;
-setOpacity(splashVideoDiv, 1);
+// setOpacity(splashVideoDiv, 1);
 // splashVideoDiv.setAttribute('playsinline', "");
 // splashVideoDiv.setAttribute('poster', "/images/video_clips/poster.jpg");
 // splashVideoDiv.setAttribute('object-fit:fill');
 
-splashVideoSource = document.createElement('source');
-splashVideoSource.src = splashVideoMedia;
-splashVideoSource.setAttribute('type', 'video/mp4');
+// splashVideoSource = document.createElement('source');
+// splashVideoSource.src = splashVideoMedia;
+// splashVideoSource.setAttribute('type', 'video/mp4');
 
-splashVideoDiv.appendChild(splashVideoSource);
+// splashVideoDiv.appendChild(splashVideoSource);
 
 splashVideoDiv.addEventListener(
     'timeupdate', 
