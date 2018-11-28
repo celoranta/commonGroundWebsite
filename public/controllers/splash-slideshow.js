@@ -103,13 +103,16 @@ function showDivs(divsToShow, callback) {
 //     divsToHide, 
 //     function(){animateSongList()}
 // )}
+function hideSlides(slideArray){
+for (i = 0; i < slideArray.length; i++) {
+    slideArray[i].style.display = "none";
+}
+}
 
 function splashCarousel() {
     var i = 0;
     var mySplashSlides = document.getElementsByClassName("mySplashSlides");
-    for (i = 0; i < mySplashSlides.length; i++) {
-        mySplashSlides[i].style.display = "none";
-    }
+    hideSlides(mySplashSlides);
     if (myIndex < mySplashSlides.length) {
         setTimeout(splashCarousel, 700);
         myIndex++;
@@ -121,7 +124,7 @@ function splashCarousel() {
         lastSlide.style.display = "block";
         setTimeout(function () {
             showDivs(divsToShowBeforeFade);
-            fade(lastSlide, function () { showDivs(divsToHide, function () { animateSongList() }) });
+            fade(lastSlide, function () { showDivs(divsToHide, function () { animateSongList() }); hideSlides(mySplashSlides) });
         }, 700)
 
     }
