@@ -117,7 +117,8 @@ function splashCarousel() {
         mySplashSlides[myIndex - 1].style.display = "block";
     }
     else {
-        var lastSlide = mySplashSlides[myIndex - 1];
+        const slideArrayLength = mySplashSlides.length;
+        var lastSlide = mySplashSlides[slideArrayLength - 1];
         lastSlide.style.display = "block";
         setTimeout(function () {
             showDivs(divsToShowBeforeFade);
