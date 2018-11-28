@@ -82,8 +82,8 @@ function fade(element, callback) {
         }
         element.style.opacity = op;
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op -= op * 0.05;
-    }, 1);
+        op -= op * 0.02;
+    }, 10);
 }
 
 function showDivs(divsToShow, callback) {
@@ -120,8 +120,10 @@ function splashCarousel() {
     else {
         var lastSlide = mySplashSlides[myIndex-1];
         lastSlide.style.display = "block";
+        setTimeout(function(){
         showDivs(divsToShowBeforeFade);
         fade(lastSlide, function(){showDivs(divsToHide, function(){animateSongList()})});
+        }, 700)
 
     }
 
