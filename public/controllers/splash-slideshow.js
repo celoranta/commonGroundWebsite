@@ -27,8 +27,7 @@ for (i = 0; i < slides.length; i++) {
     slideContainer.classList.add("mySplashSlides", "w3-display-container", "w3-center");
     var slideImage = document.createElement('img')
     slideImage.classList.add('slide-image', 'custom-greyscale')
-    slideImage.setAttribute('style', "width:100%");
-
+    slideImage.setAttribute('style', "width:100%; display:hidden");
     //Add slide image source
     const nextSlide = slides[i];
     const slideSource = nextSlide.source;
