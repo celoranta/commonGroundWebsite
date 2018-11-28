@@ -252,9 +252,9 @@ http://jsfiddle.net/etj74mnh/
     12% {
       transform: scale(1);
     }
-    25% {
+    /* 25% {
       transform: rotate(-720deg);
-    }
+    } */
     75% {
         transform: none;
     }
@@ -276,9 +276,9 @@ http://jsfiddle.net/etj74mnh/
     12% { 
     -webkit-transform: scale(1); 
     }
-    25% { 
+    /* 25% { 
     -webkit-transform: rotate(-720deg); 
-    }
+    } */
     75% { 
     -webkit-transform: none;
     }
