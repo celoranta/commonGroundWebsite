@@ -21,29 +21,29 @@ function fadeAndHide(fadingElement, fadingCallback, hiddenCallback){
     }
 }
 
-function showDivs(divsToShow, callback) {
-    var i=0;
-    for (i = 0; i < divsToShow.length; i++)
-{
-    const divToShow = divsToShow[i];
-    divToShow.style.display = 'block';
-}
-if (callback) {
-    callback();
-}
-}
+// function showDivs(divsToShow, callback) {
+//     var i=0;
+//     for (i = 0; i < divsToShow.length; i++)
+// {
+//     const divToShow = divsToShow[i];
+//     divToShow.style.display = 'block';
+// }
+// if (callback) {
+//     callback();
+// }
+// }
 
-var divsToHide = document.getElementsByClassName('hide-during-splash');
-console.log("Divs to hide qty: " + divsToHide.length);
-i = 0;
-for (i = 0; i < divsToHide.length; i++)
-{
-    const divToHide = divsToHide[i];
-    divToHide.style.display = 'none';
-}
-var divsToShowBeforeFade = document.getElementsByClassName('hide-during-video');
-// splashVideoMediaObject = getVideo();
-// splashVideoMedia = splashVideoMediaObject.source;
+// var divsToHide = document.getElementsByClassName('hide-during-splash');
+// console.log("Divs to hide qty: " + divsToHide.length);
+// i = 0;
+// for (i = 0; i < divsToHide.length; i++)
+// {
+//     const divToHide = divsToHide[i];
+//     divToHide.style.display = 'none';
+// }
+// var divsToShowBeforeFade = document.getElementsByClassName('hide-during-video');
+// // splashVideoMediaObject = getVideo();
+// // splashVideoMedia = splashVideoMediaObject.source;
 
 splashVideoDiv = document.getElementById('splash-video')
 
@@ -62,17 +62,17 @@ splashVideoDiv.setAttribute('poster', "/images/video_clips/poster.jpg");
 
 // splashVideoDiv.appendChild(splashVideoSource);
 
-splashVideoDiv.addEventListener(
-    'timeupdate', 
-    function(){fadeAndHide(
-        splashVideoDiv, 
-        function(){showDivs(divsToShowBeforeFade)},
-        function(){showDivs(
-            divsToHide, 
-            function(){animateSongList()}
-        )}
-    )}
-);
+// splashVideoDiv.addEventListener(
+//     'timeupdate', 
+//     function(){fadeAndHide(
+//         splashVideoDiv, 
+//         function(){showDivs(divsToShowBeforeFade)},
+//         function(){showDivs(
+//             divsToHide, 
+//             function(){animateSongList()}
+//         )}
+//     )}
+// );
 
 const vidPromise = splashVideoDiv.play();
 

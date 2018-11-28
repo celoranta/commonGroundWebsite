@@ -82,8 +82,8 @@ function fade(element, callback) {
         }
         element.style.opacity = op;
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op -= op * 0.01;
-    }, 0.25);
+        op -= op * 0.05;
+    }, 1);
 }
 
 function showDivs(divsToShow, callback) {
