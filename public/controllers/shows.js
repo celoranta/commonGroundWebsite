@@ -88,8 +88,8 @@ const showList = [
 }
 ,
 {
-    venue: 'Holland Park',
-    city: 'Surrey, BC',
+    venue: 'Labour Day Festival',
+    city: 'Holland Park - Surrey, BC',
     blurb: "Public Concert",
     venueImage: '/images/outdoorCrop2.jpg',
     date: 'Sept 2, 2019 20:00:00 PST',  //faked for daylight savings
