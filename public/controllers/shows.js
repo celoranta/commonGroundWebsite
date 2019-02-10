@@ -48,9 +48,9 @@ const showList = [
 //     confirmed: "true"
 // },
 {
-    venue: 'The 109 Legion',
+    venue: 'The 109 Legion Hall',
     city: 'Gibsons, BC',
-    blurb: "Common Ground covers",
+    blurb: "$10 Cover Charge",
     venueImage: '/images/legion3.jpg',
     date: 'Feb 16, 2019 20:00:00 PST',  //faked for daylight savings
     private: "false",
@@ -58,47 +58,44 @@ const showList = [
 }
 ,
 {
-    venue: 'Labour Day Bash',
-    city: 'To Be Determined, BC City',
-    blurb: "Private Party",
-    venueImage: '/images/privateParty.jpg',
-    date: 'Sept 2, 2019 20:00:00 PST',  //faked for daylight savings
+    venue: 'Edmonds Community School',
+    city: 'Burnaby, BC',
+    blurb: "Three Sets and Lunch",
+    venueImage: '/images/proteinproject.jpg',
+    date: 'Apr 13, 2019 12:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
-
 }
 ,
-
-    {
-        venue: 'Private Wedding',
-        city: 'Kelowna, BC',
-        blurb: "Private Wedding",
-        venueImage: '/images/wedding.jpg',
-        date: 'Aug 23, 2019 20:00:00 PST',  //faked for daylight savings
-        private: "false",
-        confirmed: "true"
-    }
+{
+    venue: 'Private Wedding Reception',
+    city: 'West Kelowna, BC',
+    blurb: "Private Wedding",
+    venueImage: '/images/wedding.jpg',
+    date: 'Aug 23, 2019 19:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+}
 ,
 {
     venue: 'Private Corporate Event',
-city: 'Vancouver, BC',
-blurb: "Corporate Event",
-venueImage: '/images/corporate2.jpg',
-date: 'Aug TBD, 2019 20:00:00 PST',  //faked for daylight savings
-private: "false",
-confirmed: "true"
+    city: 'Vancouver, BC',
+    blurb: "Corporate Event",
+    venueImage: '/images/corporate2.jpg',
+    date: 'Aug, 2019',  //faked for daylight savings
+    private: "true",
+    confirmed: "true"
 }
 ,
 {
-    venue: 'Union Protein Project',
-    city: 'Burnaby, BC',
-    blurb: "Charitable Fundraiser",
-    venueImage: '/images/proteinproject.jpg',
-    date: 'Apr 13, 2019 13:00:00 PST',  //faked for daylight savings
+    venue: 'Holland Park',
+    city: 'Surrey, BC',
+    blurb: "Public Concert",
+    venueImage: '/images/outdoorCrop2.jpg',
+    date: 'Sept 2, 2019 20:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
 }
-
 
 ];
 
