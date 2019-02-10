@@ -26,6 +26,9 @@ async function getBuckets() {
     }
 };
 
+
+
+
 async function getFiles(bucketName) {
     try {
         await b2.authorize();
@@ -36,24 +39,24 @@ async function getFiles(bucketName) {
             delimiter: '',
             prefix: ''
         })
-        // .then(function (response) {
-        //     var data = response.data
-        //     credentials = {
-        //         accountId: accountId,
-        //         applicationKey: applicationKey,
-        //         apiUrl: data.apiUrl,
-        //         authorizationToken: data.authorizationToken,
-        //         downloadUrl: data.downloadUrl,
-        //         recommendedPartSize: data.recommendedPartSize
-        //     }
-        //     window.alert(credentials);
-        // });
+        .then(function (response) {
+            var data = response.data
+            credentials = {
+                accountId: accountId,
+                applicationKey: applicationKey,
+                apiUrl: data.apiUrl,
+                authorizationToken: data.authorizationToken,
+                downloadUrl: data.downloadUrl,
+                recommendedPartSize: data.recommendedPartSize
+            }
+            window.alert(credentials);
+        });
         const fileObjects = response.data.files;
         console.log("File Count: " + fileObjects.length);
         var returnObjects = [];
         for (i = 0; i < fileObjects.length; i++) {
             const fileObject = fileObjects[i];
-            //console.log(JSON.stringify(fileObject));
+            console.log(JSON.stringify(fileObject));
             returnObjects += fileObject;
             console.log(fileObject.uploadTimestamp);
             var stampDate = dateformat(fileObject.uploadTimestamp, sqlDateFormat);
@@ -69,6 +72,7 @@ async function getFiles(bucketName) {
 };
 
 //This does not currently support private bucket downloads
+/* <downloadURL>/b2api/v2/b2_download_file_by_id?fileID=<fileId> */
 const getFileUrl = async function getFile(fileId) {
     var fileName = "/images/" + fileId + '.jpg';
     var fakeImage = '/images/brad_lebowsky.jpg';

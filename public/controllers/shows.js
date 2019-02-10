@@ -4,7 +4,7 @@ const weekdays = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 const showsHeader = "SHOW DATES";
 const showsBlurb = "Party with Common Ground Live!";
 const monthQtyToShow = 3;
-const maxShowsPerMonth = 2;
+const maxShowsPerMonth = 3;
 const showPromoRemovalDelayHours = 12;
 
 const showList = [
@@ -51,11 +51,12 @@ const showList = [
     venue: 'Private Wedding',
     city: 'Kelowna, BC',
     blurb: "Private Wedding Reception",
-    venueImage: '',
+    venueImage: '/images/wedding.jpg',
     date: 'Aug 24, 2019 20:00:00 PST',  //faked for daylight savings
-    private: "true",
+    private: "false",
     confirmed: "true"
 },
+
 ];
 
 
