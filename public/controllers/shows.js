@@ -57,14 +57,41 @@ const showList = [
     confirmed: "true"
 },
 {
+    venue: 'Union Protein Project',
+    city: 'Burnaby, BC',
+    blurb: "Charitable Fundraiser",
+    venueImage: '/images/proteinproject.png',
+    date: 'Apr 13, 2019 13:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+},
+{
+venue: 'Corporate Event',
+city: 'TBD, BC',
+blurb: "Private Event",
+venueImage: '/images/corporate.jpg',
+date: 'Aug TBD, 2019 20:00:00 PST',  //faked for daylight savings
+private: "false",
+confirmed: "false"
+},
+{
     venue: 'Private Wedding',
     city: 'Kelowna, BC',
     blurb: "Private Wedding Reception",
     venueImage: '/images/wedding.jpg',
-    date: 'Aug 24, 2019 20:00:00 PST',  //faked for daylight savings
+    date: 'Aug 23, 2019 20:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
 },
+{
+    venue: 'Labour Day Bash',
+    city: 'TBD, BC',
+    blurb: "Private Party",
+    venueImage: '/images/privateParty.png',
+    date: 'Sept 2, 2019 20:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+}
 
 
 ];
