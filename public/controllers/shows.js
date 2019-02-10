@@ -8,87 +8,93 @@ const maxShowsPerMonth = 3;
 const showPromoRemovalDelayHours = 12;
 
 const showList = [
-{
-    venue: 'The Admiral Pub',
-    city: 'Burnaby, BC',
-    blurb: "Jam Night, Hosted by Common Ground",
-    venueImage: '/images/admiral.jpg',
-    date: 'October 25, 2018 19:30:00 PDT', 
-    private: "false",
-    confirmed: "true"
-},
+// {
+//     venue: 'The Admiral Pub',
+//     city: 'Burnaby, BC',
+//     blurb: "Jam Night, Hosted by Common Ground",
+//     venueImage: '/images/admiral.jpg',
+//     date: 'October 25, 2018 19:30:00 PDT', 
+//     private: "false",
+//     confirmed: "true"
+// },
 
-{
-    venue: 'The Admiral Pub',
-    city: 'Burnaby, BC',
-    blurb: "Three sets of danceable Common Ground covers",
-    venueImage: '/images/admiral.jpg',
-    date: 'October 26, 2018 20:00:00 PDT', 
-    private: "false",
-    confirmed: "true"
-},
+// {
+//     venue: 'The Admiral Pub',
+//     city: 'Burnaby, BC',
+//     blurb: "Three sets of danceable Common Ground covers",
+//     venueImage: '/images/admiral.jpg',
+//     date: 'October 26, 2018 20:00:00 PDT', 
+//     private: "false",
+//     confirmed: "true"
+// },
 
-{
-    venue: 'The Admiral Pub',
-    city: 'Burnaby, BC',
-    blurb: "Three sets of danceable Common Ground covers",
-    venueImage: '/images/admiral.jpg',
-    date: 'Jan 04, 2019 20:00:00 PST',  
-    private: "false",
-    confirmed: "true"
-},
+// {
+//     venue: 'The Admiral Pub',
+//     city: 'Burnaby, BC',
+//     blurb: "Three sets of danceable Common Ground covers",
+//     venueImage: '/images/admiral.jpg',
+//     date: 'Jan 04, 2019 20:00:00 PST',  
+//     private: "false",
+//     confirmed: "true"
+// },
 
-{
-    venue: 'The Admiral Pub',
-    city: 'Burnaby, BC',
-    blurb: "Three sets of danceable Common Ground covers",
-    venueImage: '/images/admiral.jpg',
-    date: 'Jan 05, 2019 20:00:00 PST',  //faked for daylight savings
-    private: "false",
-    confirmed: "true"
-},
+// {
+//     venue: 'The Admiral Pub',
+//     city: 'Burnaby, BC',
+//     blurb: "Three sets of danceable Common Ground covers",
+//     venueImage: '/images/admiral.jpg',
+//     date: 'Jan 05, 2019 20:00:00 PST',  //faked for daylight savings
+//     private: "false",
+//     confirmed: "true"
+// },
 {
     venue: 'The 109 Legion',
     city: 'Gibsons, BC',
-    blurb: "Three sets of danceable Common Ground covers",
-    venueImage: '/images/legion.jpg',
+    blurb: "Common Ground covers",
+    venueImage: '/images/legion3.jpg',
     date: 'Feb 16, 2019 20:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
-},
+}
+,
+{
+    venue: 'Labour Day Bash',
+    city: 'To Be Determined, BC City',
+    blurb: "Private Party",
+    venueImage: '/images/privateParty.jpg',
+    date: 'Sept 2, 2019 20:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+
+}
+,
+
+    {
+        venue: 'Private Wedding',
+        city: 'Kelowna, BC',
+        blurb: "Private Wedding",
+        venueImage: '/images/wedding.jpg',
+        date: 'Aug 23, 2019 20:00:00 PST',  //faked for daylight savings
+        private: "false",
+        confirmed: "true"
+    }
+,
+{
+    venue: 'Private Corporate Event',
+city: 'Vancouver, BC',
+blurb: "Corporate Event",
+venueImage: '/images/corporate2.jpg',
+date: 'Aug TBD, 2019 20:00:00 PST',  //faked for daylight savings
+private: "false",
+confirmed: "true"
+}
+,
 {
     venue: 'Union Protein Project',
     city: 'Burnaby, BC',
     blurb: "Charitable Fundraiser",
-    venueImage: '/images/proteinproject.png',
+    venueImage: '/images/proteinproject.jpg',
     date: 'Apr 13, 2019 13:00:00 PST',  //faked for daylight savings
-    private: "false",
-    confirmed: "true"
-},
-{
-venue: 'Corporate Event',
-city: 'TBD, BC',
-blurb: "Private Event",
-venueImage: '/images/corporate.jpg',
-date: 'Aug TBD, 2019 20:00:00 PST',  //faked for daylight savings
-private: "false",
-confirmed: "false"
-},
-{
-    venue: 'Private Wedding',
-    city: 'Kelowna, BC',
-    blurb: "Private Wedding Reception",
-    venueImage: '/images/wedding.jpg',
-    date: 'Aug 23, 2019 20:00:00 PST',  //faked for daylight savings
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'Labour Day Bash',
-    city: 'TBD, BC',
-    blurb: "Private Party",
-    venueImage: '/images/privateParty.png',
-    date: 'Sept 2, 2019 20:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
 }
