@@ -48,6 +48,15 @@ const showList = [
     confirmed: "true"
 },
 {
+    venue: 'The 109 Legion',
+    city: 'Gibsons, BC',
+    blurb: "Three sets of danceable Common Ground covers",
+    venueImage: '/images/legion.jpg',
+    date: 'Feb 16, 2019 20:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+},
+{
     venue: 'Private Wedding',
     city: 'Kelowna, BC',
     blurb: "Private Wedding Reception",
@@ -56,6 +65,7 @@ const showList = [
     private: "false",
     confirmed: "true"
 },
+
 
 ];
 
