@@ -55,9 +55,7 @@ const showList = [
     date: 'Feb 16, 2019 20:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
-}
-
-,
+},
 {
     venue: 'Edmonds Community School',
     city: 'Burnaby, BC',
@@ -75,9 +73,7 @@ const showList = [
     date: 'Aug 23, 2019 19:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
-
-}
-,
+},
 {
     venue: 'Private Corporate Event',
     city: 'Vancouver, BC',
@@ -86,8 +82,7 @@ const showList = [
     date: 'Aug, 2019',  //faked for daylight savings
     private: "true",
     confirmed: "true"
-}
-,
+},
 {
     venue: 'Labour Day Festival',
     city: 'Holland Park - Surrey, BC',
@@ -97,15 +92,13 @@ const showList = [
     private: "false",
     confirmed: "true"
 }
-
 ];
-
 
 Number.prototype.pad = function(size) {
     var s = String(this);
     while (s.length < (size || 2)) {s = "0" + s;}
     return s;
-  }
+}
 
 function monthString() {
     var monthNum =  arguments[0];
@@ -191,14 +184,13 @@ function constructShowPromo() {
     mainWrapperDiv.setAttribute('class', 'w3-third');
     mainWrapperDiv.className += " w3-margin-bottom";
 
-    //create image div
+    //create image div {use image in a 300:230 aspect}
     var venueImageDiv = document.createElement('img');
     venueImageDiv.setAttribute('src', show.venueImage);
     venueImageDiv.setAttribute('class', "w3-hover-opacity"  );
     venueImageDiv.setAttribute('alt', show.venue);
     venueImageDiv.setAttribute('style', "width:100%; border-bottom: 1px solid silver");
     
-
     //create subwrapper div
     var subWrapperDiv = document.createElement( 'div' );
     subWrapperDiv.setAttribute('class', 'w3-container');
@@ -209,13 +201,10 @@ function constructShowPromo() {
     var venueString = show.venue + ", " + show.city;
     nameBlock.innerHTML = venueString.bold();
 
-
-
     //create showdate paragraph div
     var showDateUTC = new Date(show.date);
     //var showDate = prettyDateString(showDateUTC);
     var showDate = showDateUTC.toLocaleString('en-US', { timeZone: 'America/Vancouver' });
-
     var dateDiv = document.createElement('p');
     dateDiv.setAttribute('class' , 'w3-opacity')
     dateDiv.innerHTML = showDate;
@@ -239,7 +228,6 @@ function constructShowPromo() {
     subWrapperDiv.appendChild(blurbDiv);
     //subWrapperDiv.appendChild(buttonDiv);
     mainWrapperDiv.appendChild(subWrapperDiv);
-
     return mainWrapperDiv;
 };
 

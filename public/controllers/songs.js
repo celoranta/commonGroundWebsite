@@ -127,7 +127,8 @@ var songs = [
 {title: 'Saw Her Standing There', genreTags: ['british invasion', 'Rock & Roll']},
 {title: 'Hey Ya', genreTags: 'dance pop'},
 {title: 'Sharp Dressed Man', genreTags: ['classic rock']},
-{title: 'Green River', genreTags: ['southern rock', 'classic rock']}
+{title: 'Green River', genreTags: ['southern rock', 'classic rock']},
+{title: 'Gimme all your Lovin', genreTags: ['classic rock', 'southern rock']}
 ]
 
 const minimumSongQty = 2;

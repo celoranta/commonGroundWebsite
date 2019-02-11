@@ -7,7 +7,10 @@ const bandNameUppercase = bandName.toUpperCase();
 const bandShortDescription = "BC Cover Band";
 const bandShortestDescription = "Classic Covers";
 const mainPageTitleString = bandName + " | " + bandShortDescription;
-const bandBlurbString="Common Ground specializes in well-known danceable tunes from 1965 to 2018, performed with infectious groove and three-part harmony. Bringing to bear a century’s worth of combined gigging experience, we strive to make your guests’ time with you special... and to keep them on the dance floor all night."
+const someDate = new Date()
+const thisYear = someDate.getFullYear()
+
+var bandBlurbString="Common Ground specializes in well-known danceable tunes from 1965 to " + thisYear + ", performed with infectious groove and three-part harmony. Bringing to bear a century’s worth of combined gigging experience, we strive to make your guests’ time with you special... and to keep them on the dance floor all night."
 
 const mainPageTitle = document.getElementById("main-page-title");
 mainPageTitle.innerText = mainPageTitleString;
