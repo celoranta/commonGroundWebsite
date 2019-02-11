@@ -5,7 +5,7 @@ const showsHeader = "SHOW DATES";
 const showsBlurb = "Party with Common Ground Live!";
 const monthQtyToShow = 3;
 const maxShowsPerMonth = 3;
-const showPromoRemovalDelayHours = 12;
+const showPromoRemovalDelayHours = 140;
 
 const showList = [
 // {
@@ -56,6 +56,7 @@ const showList = [
     private: "false",
     confirmed: "true"
 }
+
 ,
 {
     venue: 'Edmonds Community School',
@@ -65,8 +66,7 @@ const showList = [
     date: 'Apr 13, 2019 12:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
-}
-,
+},
 {
     venue: 'Private Wedding Reception',
     city: 'West Kelowna, BC',
@@ -75,6 +75,7 @@ const showList = [
     date: 'Aug 23, 2019 19:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
+
 }
 ,
 {
@@ -195,8 +196,9 @@ function constructShowPromo() {
     venueImageDiv.setAttribute('src', show.venueImage);
     venueImageDiv.setAttribute('class', "w3-hover-opacity"  );
     venueImageDiv.setAttribute('alt', show.venue);
-    venueImageDiv.setAttribute('style', "width:100%");
-     
+    venueImageDiv.setAttribute('style', "width:100%; border-bottom: 1px solid silver");
+    
+
     //create subwrapper div
     var subWrapperDiv = document.createElement( 'div' );
     subWrapperDiv.setAttribute('class', 'w3-container');
@@ -299,6 +301,7 @@ for (i = 0; i < showList.length; i++) {
         showsToPromo.push(show);
     }
 }
+//showsToPromo.sort(function(a, b){return a.date - b.date});
 i = 0;
 for (i = 0; i < showsToPromo.length; i++) {
     console.log(i);
