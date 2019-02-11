@@ -92,25 +92,6 @@
         <script src="/controllers/shows.js"></script>
 
         <!-- Add Google Maps -->
-        <div id="googleMap" style="height:400px;" class="w3-grayscale-max hide-during-splash"></div>
-        <script>
-          function myMap() {
-            myCenter = new google.maps.LatLng(49.2812, -123.0235);
-            var mapOptions = {
-              center: myCenter,
-              zoom: 12, scrollwheel: false, draggable: false,
-              mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
-
-            // var marker = new google.maps.Marker({
-            //   position: myCenter,
-            //   label: "The Admiral Pub",
-            // });
-            // marker.setMap(map);
-          }
-        </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGyyEgiC9Y0o2L6ENWA1IqZaO2sxXmBUU&callback=myMap"></script>
 
         <!-- The Songs Section -->
         <div class="w3-container w3-content w3-center w3-padding-64 hide-during-splash" style="max-width:800px" id="songs">
