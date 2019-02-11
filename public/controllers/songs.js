@@ -248,7 +248,7 @@ for(i=0; i < genreCount; i++){
         marquee.appendChild(genreSongDiv);
     };
 };
-
+animateSongList()
 // polyfill --- Amimate Scrolling Lists
 function animateSongList(){
 window.requestAnimationFrame = (function(){

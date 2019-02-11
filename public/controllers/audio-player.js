@@ -142,13 +142,13 @@ function pauseAudio() {
   }
 
 
-splashVideo = document.createElement('video');
-splashVideo.setAttribute('id', 'splash-video');
+//splashVideo = document.createElement('video');
+//splashVideo.setAttribute('id', 'splash-video');
 //HEre
-splashVideo.classList.add('w3-top');
-splashVideo.setAttribute('style', "width: 100%; height: auto;z-index: 500");
-splashVideo.muted = true;
-openFullscreen(splashVideo)
+//splashVideo.classList.add('w3-top');
+//splashVideo.setAttribute('style', "width: 100%; height: auto;z-index: 500");
+//splashVideo.muted = true;
+//openFullscreen(splashVideo)
 
 saveShuffledArray(getRecordings());
 var audioPlayer = document.getElementById('myAudio');
