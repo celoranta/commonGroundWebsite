@@ -26,9 +26,6 @@ async function getBuckets() {
     }
 };
 
-
-
-
 async function getFiles(bucketName) {
     try {
         await b2.authorize();
@@ -73,6 +70,12 @@ async function getFiles(bucketName) {
 
 //This does not currently support private bucket downloads
 /* <downloadURL>/b2api/v2/b2_download_file_by_id?fileID=<fileId> */
+/*curl https://f002.backblazeb2.com/b2api/v2/b2_download_file_by_id?fileId=4_ze8e0f5abe02722d66d710411_f1107bac50797b5df_d20181119_m213733_c002_v0001111_t0056
+{
+  "code": "unauthorized",
+  "message": "",
+  "status": 401
+}*/
 const getFileUrl = async function getFile(fileId) {
     var fileName = "/images/" + fileId + '.jpg';
     var fakeImage = '/images/brad_lebowsky.jpg';

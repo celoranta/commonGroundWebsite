@@ -84,6 +84,7 @@ function getNextRecording() {
 /* View in fullscreen */
 function openFullscreen(elem) {
     if (elem.requestFullscreen) {
+      //HERE
       elem.requestFullscreen();
     } else if (elem.mozRequestFullScreen) { /* Firefox */
       elem.mozRequestFullScreen();
@@ -143,6 +144,7 @@ function pauseAudio() {
 
 splashVideo = document.createElement('video');
 splashVideo.setAttribute('id', 'splash-video');
+//HEre
 splashVideo.classList.add('w3-top');
 splashVideo.setAttribute('style', "width: 100%; height: auto;z-index: 500");
 splashVideo.muted = true;
