@@ -57,11 +57,38 @@ const showList = [
     confirmed: "true"
 },
 {
+    venue: 'The 140 Legion Hall',
+    city: 'Sechelt, BC',
+    blurb: "Four Sets and Dancing",
+    venueImage: '/images/legion.jpg',
+    date: 'March 2, 2019 20:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+},
+{
     venue: 'Edmonds Community School',
     city: 'Burnaby, BC',
     blurb: "Three Sets and Lunch",
     venueImage: '/images/proteinproject.jpg',
     date: 'Apr 13, 2019 12:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'The 109 Legion Hall',
+    city: 'Gibsons, BC',
+    blurb: "$10 Cover Charge",
+    venueImage: '/images/legion3.jpg',
+    date: 'June 1, 2019 20:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'Private Party',
+    city: 'Halfmoon Bay, BC',
+    blurb: "Happy Birthday, Graham!",
+    venueImage: '/images/privateParty.jpg',
+    date: 'July 27, 2019 7:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
 },
