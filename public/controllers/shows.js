@@ -87,7 +87,7 @@ const showList = [
     venue: 'Private Party',
     city: 'Halfmoon Bay, BC',
     blurb: "Happy Birthday, Graham!",
-    venueImage: '/images/privateParty.jpg',
+    venueImage: '/images/privateparty.jpg',
     date: 'July 27, 2019 7:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
