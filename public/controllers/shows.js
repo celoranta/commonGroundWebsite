@@ -63,7 +63,7 @@ const showList = [
     venueImage: '/images/legion.jpg',
     date: 'March 2, 2019 20:00:00 PST',  //faked for daylight savings
     private: "false",
-    confirmed: "true"
+    confirmed: "false"
 },
 {
     venue: 'Edmonds Community School',
@@ -77,7 +77,7 @@ const showList = [
 {
     venue: 'The 109 Legion Hall',
     city: 'Gibsons, BC',
-    blurb: "$10 Cover Charge",
+    blurb: "$10 Cover Charge / $5 For Legion Members",
     venueImage: '/images/legion3.jpg',
     date: 'June 1, 2019 20:00:00 PST',  //faked for daylight savings
     private: "false",
@@ -108,7 +108,7 @@ const showList = [
     venueImage: '/images/corporate2.jpg',
     date: 'Aug, 2019',  //faked for daylight savings
     private: "true",
-    confirmed: "true"
+    confirmed: "false"
 },
 {
     venue: 'Labour Day Festival',
