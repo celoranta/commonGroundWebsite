@@ -77,7 +77,7 @@ const showList = [
 {
     venue: 'The 109 Legion Hall',
     city: 'Gibsons, BC',
-    blurb: "$10 Cover Charge / $5 For Legion Members",
+    blurb: "$10 Cover / $5 For Members",
     venueImage: '/images/legion3.jpg',
     date: 'June 1, 2019 20:00:00 PST',  //faked for daylight savings
     private: "false",
@@ -225,8 +225,13 @@ function constructShowPromo() {
 
     //create venue name paragraph div
     var nameBlock = document.createElement('p');
-    var venueString = show.venue + ", " + show.city;
+    var venueString = show.venue 
     nameBlock.innerHTML = venueString.bold();
+
+    //create venue location paragraph div
+    var locationBlock = document.createElement('p');
+    var locationString = show.city;
+    locationBlock.innerHTML = locationString.bold();
 
     //create showdate paragraph div
     var showDateUTC = new Date(show.date);
@@ -251,6 +256,7 @@ function constructShowPromo() {
     //nest divs
     mainWrapperDiv.appendChild(venueImageDiv);
     subWrapperDiv.appendChild(nameBlock);
+    subWrapperDiv.appendChild(locationBlock);
     subWrapperDiv.appendChild(dateDiv);
     subWrapperDiv.appendChild(blurbDiv);
     //subWrapperDiv.appendChild(buttonDiv);
