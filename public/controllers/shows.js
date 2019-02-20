@@ -79,7 +79,7 @@ const showList = [
     city: 'Gibsons, BC',
     blurb: "$10 Cover / $5 For Members",
     venueImage: '/images/legion3.jpg',
-    date: 'June 1, 2019 20:00:00 PST',  //faked for daylight savings
+    date: 'June 1, 2019 19:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
 },
