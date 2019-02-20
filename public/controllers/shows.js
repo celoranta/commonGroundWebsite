@@ -59,11 +59,11 @@ const showList = [
 {
     venue: 'The 140 Legion Hall',
     city: 'Sechelt, BC',
-    blurb: "Four Sets and Dancing",
+    blurb: "$20 / $15 for Members",
     venueImage: '/images/legion.jpg',
     date: 'March 2, 2019 20:00:00 PST',  //faked for daylight savings
     private: "false",
-    confirmed: "false"
+    confirmed: "true"
 },
 {
     venue: 'Edmonds Community School',
