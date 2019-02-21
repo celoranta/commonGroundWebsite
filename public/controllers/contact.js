@@ -94,11 +94,13 @@ let nameDiv = document.createElement('div');
 nameDiv.classList.add('w3-half');
 fieldsDiv.appendChild(nameDiv);
 
+//NAME
 let nameInput = document.createElement('input');
 nameInput.classList.add('w3-input');
 nameInput.classList.add('w3-border');
 nameInput.type = "text";
 nameInput.placeholder = "Name";
+nameInput.name = "name";
 nameInput.required = "true";
 nameDiv.appendChild(nameInput);
 
@@ -106,19 +108,23 @@ let emailFieldDiv = document.createElement('div');
 emailFieldDiv.classList.add('w3-half');
 fieldsDiv.appendChild(emailFieldDiv);
 
+//EMAIL
 let emailInput = document.createElement('input');
 emailInput.classList.add('w3-input');
 emailInput.classList.add('w3-border');
 emailInput.type = "text";
 emailInput.placeholder = "Email";
+emailInput.name = "email";
 emailInput.required = "true";
 emailFieldDiv.appendChild(emailInput);
 
+//MESSAGE
 let messageInput = document.createElement('input');
 messageInput.classList.add('w3-input');
 messageInput.classList.add('w3-border');
 messageInput.type = "text";
 messageInput.placeholder = "Message";
+messageInput.name = "name";
 messageInput.required = "true";
 form.appendChild(messageInput);
 
