@@ -3,11 +3,14 @@
 
 let headerText = 'CONTACT';
 let blurbText = 'Fan? Drop a Note!';
+let phoneLabel = 'Phone: ';
+
 let city = 'Vancouver';
 let stateOrProvince = 'BC';
-let phoneNumber = 'Phone: +1 604-657-5677';
+let phoneDigits = '+1 604-657-5677';
 let emailAddress = 'info@commongroundband.ca';
 
+let phoneNumber = phoneLabel + phoneDigits;
 
 let mainDiv = document.getElementById("contact");
 
