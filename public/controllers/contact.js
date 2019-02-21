@@ -1,57 +1,129 @@
+
 //document.getElementById("contact-location").innerHTML = "Adelaide, AU";
 
 let headerText = 'CONTACT';
 let blurbText = 'Fan? Drop a Note!';
+let city = 'Vancouver';
+let stateOrProvince = 'BC';
+let phoneNumber = 'Phone: +1 604-657-5677';
+let emailAddress = 'info@commongroundband.ca';
+
+
+let mainDiv = document.getElementById("contact");
 
 let headerDiv = document.createElement('h2');
 headerDiv.classList.add('w3-wide');
 headerDiv.classList.add('w3-center');
 headerDiv.innerHTML = headerText;
+mainDiv.appendChild(headerDiv);
 
 let blurbDiv = document.createElement('p');
 blurbDiv.classList.add('w3-opacity');
 blurbDiv.classList.add('w3-center');
-blurbDiv.innerHTML = blubText;
+blurbDiv.innerHTML = blurbText;
+mainDiv.appendChild(blurbDiv);
 
 let contactBoxDiv = document.createElement('div');
 contactBoxDiv.classList.add('w3-row');
 contactBoxDiv.classList.add('w3-padding-32');
+mainDiv.appendChild(contactBoxDiv);
 
-// <!-- The Contact Section -->
-{/* <div class="w3-container w3-content w3-padding-64 w3-black" style="max-width:100%" id="contact"> */}
-  {/* <h2 class="w3-wide w3-center">CONTACT</h2> */}
-//   <p class="w3-opacity w3-center"><i>Fan? Drop a note!</i></p>
-//   <div class="w3-row w3-padding-32">
+let contactInfo = document.createElement('div');
+contactInfo.classList.add('w3-col');
+contactInfo.classList.add('m6');
+contactInfo.classList.add('w3-large');
+contactInfo.classList.add('w3-margin-bottom');
+contactBoxDiv.appendChild(contactInfo);
 
-    <div class="w3-col m6 w3-large w3-margin-bottom">
-      <i class="fa fa-map-marker" style="width:30px"></i> Vancouver, BC<br>
-      <i class="fa fa-phone" style="width:30px"></i> Phone: +1 604-657-5677<br>
-      <i class="fa fa-envelope" style="width:30px"></i> info@commongroundband.ca<br>
-    </div>
-    <div class="w3-col m6">
-      <form action="" target="_blank" method="post">
-        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Name" required name="name">
-          </div>
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Email" required name="email">
-          </div>
-        </div>
-        <input class="w3-input w3-border" type="text" placeholder="Message" required name="message">
-        <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
-      </form>
+let cityInfo = document.createElement('i');
+cityInfo.classList.add('fa');
+cityInfo.classList.add('fa-map-marker');
+cityInfo.setAttribute('style','width:30px');
+contactInfo.appendChild(cityInfo);
 
-      <!-- <form action="/contact" id="contact-form" method="post">
-      <fieldset>
-        <label for="name">Name &#42;</label>
-        <input id="name" name="name" type="text" placeholder="Your name" required="required">
-        <label for="email">Email &#42;</label>
-        <input id="email" name="email" type="text" placeholder="Your email" required="required">
-        <label for="message">Message &#42;</label>
-        <textarea id="message" name="message" placeholder="Enter your message here" rows="3" required="required"></textarea>
-        <button type="submit">Submit</button>
-      </fieldset>
-    </form> -->
-    </div>
+let cityText = document.createTextNode(city + ", " + stateOrProvince);
+contactInfo.appendChild(cityText)
+
+let cityLineBreak = document.createElement('br');
+contactInfo.appendChild(cityLineBreak);
+
+let phoneDiv = document.createElement('i');
+phoneDiv.classList.add('fa');
+phoneDiv.classList.add('fa-phone');
+phoneDiv.setAttribute('style','width:30px');
+contactInfo.appendChild(phoneDiv);
+
+let phoneText = document.createTextNode(phoneNumber);
+contactInfo.appendChild(phoneText);
+
+let phoneLineBreak = document.createElement('br');
+contactInfo.appendChild(phoneLineBreak);
+
+let emailDiv = document.createElement('i');
+emailDiv.classList.add('fa');
+emailDiv.classList.add('fa-envelope');
+emailDiv.setAttribute('style','width:30px');
+contactInfo.appendChild(emailDiv);
+
+let emailText = document.createTextNode(emailAddress);
+contactInfo.appendChild(emailText);
+
+let emailBreak = document.createElement('br');
+emailDiv.appendChild(emailBreak);
+
+let formDiv = document.createElement('div');
+formDiv.classList.add('w3-col');
+formDiv.classList.add('m6');
+contactBoxDiv.appendChild(formDiv);
+
+let form = document.createElement('form');
+form.action = "";
+form.target = "_blank";
+form.method = "post";
+formDiv.appendChild(form);
+
+let fieldsDiv = document.createElement('div');
+fieldsDiv.classList.add('w3-row-padding');
+fieldsDiv.setAttribute('style','margin:0 -16px 8px -16px');
+form.appendChild(fieldsDiv);
+
+let nameDiv = document.createElement('div');
+nameDiv.classList.add('w3-half');
+fieldsDiv.appendChild(nameDiv);
+
+let nameInput = document.createElement('input');
+nameInput.classList.add('w3-input');
+nameInput.classList.add('w3-border');
+nameInput.type = "text";
+nameInput.placeholder = "Name";
+nameInput.required = "true";
+nameDiv.appendChild(nameInput);
+
+let emailFieldDiv = document.createElement('div');
+emailFieldDiv.classList.add('w3-half');
+fieldsDiv.appendChild(emailFieldDiv);
+
+let emailInput = document.createElement('input');
+emailInput.classList.add('w3-input');
+emailInput.classList.add('w3-border');
+emailInput.type = "text";
+emailInput.placeholder = "Email";
+emailInput.required = "true";
+emailFieldDiv.appendChild(emailInput);
+
+let messageInput = document.createElement('input');
+messageInput.classList.add('w3-input');
+messageInput.classList.add('w3-border');
+messageInput.type = "text";
+messageInput.placeholder = "Message";
+messageInput.required = "true";
+form.appendChild(messageInput);
+
+let sendButton = document.createElement('button');
+sendButton.classList.add('w3-button','w3-black','w3-section','w3-right');
+sendButton.type = "submit";
+sendButton.innerHTML = 'SEND';
+form.appendChild(sendButton);
+
+
 
