@@ -124,7 +124,7 @@ messageInput.classList.add('w3-input');
 messageInput.classList.add('w3-border');
 messageInput.type = "text";
 messageInput.placeholder = "Message";
-messageInput.name = "name";
+messageInput.name = "message";
 messageInput.required = "true";
 form.appendChild(messageInput);
 
