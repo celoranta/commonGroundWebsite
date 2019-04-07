@@ -84,6 +84,15 @@ const showList = [
     confirmed: "true"
 },
 {
+    venue: 'The Admiral Pub',
+    city: 'Burnaby, BC',
+    blurb: "Jam Night, Hosted by Common Ground",
+    venueImage: '/images/admiral.jpg',
+    date: 'June 15, 2019 19:30:00 PDT', 
+    private: "false",
+    confirmed: "true"
+},
+{
     venue: 'Private Party',
     city: 'Halfmoon Bay, BC',
     blurb: "Happy Birthday, Graham!",
