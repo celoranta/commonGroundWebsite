@@ -65,9 +65,10 @@ const showList = [
     private: "false",
     confirmed: "true"
 },
+
 {
-    venue: 'Edmonds Community School',
-    city: 'Burnaby, BC',
+    venue: 'Lena Shaw Elementary School',
+    city: 'Surrey, BC',
     blurb: "Three Sets and Lunch",
     venueImage: '/images/proteinproject.jpg',
     date: 'Apr 13, 2019 12:00:00 PST',  //faked for daylight savings
