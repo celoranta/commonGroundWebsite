@@ -71,7 +71,7 @@ const showList = [
     city: 'Surrey, BC',
     blurb: "Three Sets and Lunch",
     venueImage: '/images/proteinproject.jpg',
-    date: 'Apr 13, 2019 12:00:00 PST',  //faked for daylight savings
+    date: 'Apr 13, 2019 10:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
 },
