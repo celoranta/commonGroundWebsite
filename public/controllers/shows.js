@@ -48,6 +48,15 @@ const showList = [
 //     confirmed: "true"
 // },
 {
+    venue: 'The 119 Legion Hall',
+    city: 'Port Moody, BC',
+    blurb: "New Hall Grand Opening Bash",
+    venueImage: '/images/Legion119Club.jpg',
+    date: 'May 3 & 4, 2019 20:00:00 PDT',  
+    private: "false",
+    confirmed: "true"
+},
+{
     venue: 'The 109 Legion Hall',
     city: 'Gibsons, BC',
     blurb: "$10 Cover Charge",
