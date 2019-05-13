@@ -1,3 +1,39 @@
+
+const bradRoss = {
+    givenName: 'Brad',
+    surname: 'Ross',
+    instruments: ['Drums', 'Voice'],
+    headShots: ['/images/bradHeadshot2.jpg'],
+    fullName: function() {return spaceCat(this)},
+    instrList: function() {
+        return commaCat(this.instruments);
+    }
+};
+
+const lorneBaron = {
+    givenName: 'Lorne',
+    surname: 'Baron',
+    instruments: ['Guitar', 'Voice'],
+    headShots: ["/images/lorne_hat.jpg"],
+    fullName: function() {return spaceCat(this)},
+    instrList: function() {
+        return commaCat(this.instruments);
+    }
+};
+
+const chrisEloranta = {
+    givenName: 'Chris',
+    surname: 'Eloranta',
+    instruments: ['Bass', 'Voice'],
+    headShots: ['/images/chris_grin.jpg'],
+    fullName: function() {return spaceCat(this)},
+    instrList: function() {
+        return commaCat(this.instruments);
+    }
+};
+
+const bandMembers = [lorneBaron, bradRoss, chrisEloranta];
+
 function spaceCat() {
     return arguments[0].givenName + " " + arguments[0].surname
 };
@@ -45,53 +81,6 @@ function constructMemberBio() {
     return wrapperDiv;
     };
     
-
-const chrisEloranta = {
-    givenName: 'Chris',
-    surname: 'Eloranta',
-    instruments: ['Bass', 'Voice'],
-    headShots: ['/images/chris_grin.jpg'],
-    fullName: function() {return spaceCat(this)},
-    instrList: function() {
-        return commaCat(this.instruments);
-    }
-};
-
-const bradRoss = {
-    givenName: 'Brad',
-    surname: 'Ross',
-    instruments: ['Drums', 'Voice'],
-    headShots: ['/images/bradHeadshot2.jpg'],
-    fullName: function() {return spaceCat(this)},
-    instrList: function() {
-        return commaCat(this.instruments);
-    }
-};
-
-const lorneBaron = {
-    givenName: 'Lorne',
-    surname: 'Baron',
-    instruments: ['Guitar', 'Voice'],
-    headShots: ["/images/lorne_hat.jpg"],
-    fullName: function() {return spaceCat(this)},
-    instrList: function() {
-        return commaCat(this.instruments);
-    }
-};
-
-// const cheekyMonkey = {
-//     givenName: 'Cheeky',
-//     surname: 'Monkey',
-//     instruments: ['Kazoo', 'Nose Flute'],
-//     headShots: ["/images/rockHand.png"],
-//     fullName: function() {return spaceCat(this)},
-//     instrList: function() {
-//         return commaCat(this.instruments);
-//     }
-// };
-
-const bandMembers = [lorneBaron, bradRoss, chrisEloranta];
-
 i = 0;
 for (i = 0; i < bandMembers.length; i++) {
     console.log(i);
