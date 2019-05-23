@@ -164,6 +164,15 @@ const showList = [
     date: 'Sept 2, 2019 20:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
+},
+{
+    venue: 'Frog and Nightgown Pub',
+    city: 'Port Moody, BC',
+    blurb: "A night of dancing and covers",
+    venueImage: '/images/liveatthefrog.jpg',
+    date: 'November 23, 2019 20:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
 }
 ];
 
