@@ -130,6 +130,16 @@ const showList = [
     confirmed: "true"
 },
 {
+    venue: 'The #8 Legion Hall',
+    city: 'White Rock, BC',
+    blurb: "Three sets of danceable Common Ground covers",
+    venueImage: '/images/legion.jpg',
+    date: 'Sun, July 21, 2019 15:00:00 PDT', 
+    private: "false",
+    confirmed: "true"
+},
+
+{
     venue: 'Private Party',
     city: 'Halfmoon Bay, BC',
     blurb: "Happy Birthday, Graham!",
