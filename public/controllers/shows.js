@@ -47,74 +47,74 @@ const showList = [
 //     private: "false",
 //     confirmed: "true"
 // },
-{
-    venue: 'The 119 Legion Hall',
-    city: 'Port Moody, BC',
-    blurb: "Four Sets of Common Ground",
-    venueImage: '/images/Legion119Club.jpg',
-    date: 'May 17, 2019 20:00:00 PDT',  
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The 119 Legion Hall',
-    city: 'Port Moody, BC',
-    blurb: "Four Sets of Common Ground",
-    venueImage: '/images/Legion119Club.jpg',
-    date: 'May 18, 2019 20:00:00 PDT',  
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The 119 Legion Hall',
-    city: 'Port Moody, BC',
-    blurb: "New Hall Grand Opening Bash",
-    venueImage: '/images/Legion119Club.jpg',
-    date: 'May 3, 2019 20:00:00 PDT',  
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The 119 Legion Hall',
-    city: 'Port Moody, BC',
-    blurb: "New Hall Grand Opening Bash",
-    venueImage: '/images/Legion119Club.jpg',
-    date: 'May 4, 2019 20:00:00 PDT',  
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The 109 Legion Hall',
-    city: 'Gibsons, BC',
-    blurb: "$10 Cover Charge",
-    venueImage: '/images/legion3.jpg',
-    date: 'Feb 16, 2019 20:00:00 PST',  //faked for daylight savings
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The 140 Legion Hall',
-    city: 'Sechelt, BC',
-    blurb: "$20 / $15 for Members",
-    venueImage: '/images/legion.jpg',
-    date: 'March 2, 2019 20:00:00 PST',  //faked for daylight savings
-    private: "false",
-    confirmed: "true"
-},
+// {
+//     venue: 'The 119 Legion Hall',
+//     city: 'Port Moody, BC',
+//     blurb: "Four Sets of Common Ground",
+//     venueImage: '/images/Legion119Club.jpg',
+//     date: 'May 17, 2019 20:00:00 PDT',  
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'The 119 Legion Hall',
+//     city: 'Port Moody, BC',
+//     blurb: "Four Sets of Common Ground",
+//     venueImage: '/images/Legion119Club.jpg',
+//     date: 'May 18, 2019 20:00:00 PDT',  
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'The 119 Legion Hall',
+//     city: 'Port Moody, BC',
+//     blurb: "New Hall Grand Opening Bash",
+//     venueImage: '/images/Legion119Club.jpg',
+//     date: 'May 3, 2019 20:00:00 PDT',  
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'The 119 Legion Hall',
+//     city: 'Port Moody, BC',
+//     blurb: "New Hall Grand Opening Bash",
+//     venueImage: '/images/Legion119Club.jpg',
+//     date: 'May 4, 2019 20:00:00 PDT',  
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'The 109 Legion Hall',
+//     city: 'Gibsons, BC',
+//     blurb: "$10 Cover Charge",
+//     venueImage: '/images/legion3.jpg',
+//     date: 'Feb 16, 2019 20:00:00 PST',  //faked for daylight savings
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'The 140 Legion Hall',
+//     city: 'Sechelt, BC',
+//     blurb: "$20 / $15 for Members",
+//     venueImage: '/images/legion.jpg',
+//     date: 'March 2, 2019 20:00:00 PST',  //faked for daylight savings
+//     private: "false",
+//     confirmed: "true"
+// },
 
-{
-    venue: 'Lena Shaw Elementary School',
-    city: 'Surrey, BC',
-    blurb: "Three Sets and Lunch",
-    venueImage: '/images/proteinproject.jpg',
-    date: 'Apr 13, 2019 10:00:00 PST',  //faked for daylight savings
-    private: "false",
-    confirmed: "true"
-},
+// {
+//     venue: 'Lena Shaw Elementary School',
+//     city: 'Surrey, BC',
+//     blurb: "Three Sets and Lunch",
+//     venueImage: '/images/proteinproject.jpg',
+//     date: 'Apr 13, 2019 10:00:00 PST',  //faked for daylight savings
+//     private: "false",
+//     confirmed: "true"
+// },
 {
     venue: 'The 109 Legion Hall',
     city: 'Gibsons, BC',
-    blurb: "$10 Cover / $5 For Members",
+    blurb: "",
     venueImage: '/images/legion3.jpg',
     date: 'June 1, 2019 19:00:00 PST',  //faked for daylight savings
     private: "false",
@@ -123,7 +123,7 @@ const showList = [
 {
     venue: 'The Admiral Pub',
     city: 'Burnaby, BC',
-    blurb: "Three sets of danceable Common Ground covers",
+    blurb: "",
     venueImage: '/images/admiral.jpg',
     date: 'June 15, 2019 19:30:00 PDT', 
     private: "false",
@@ -150,7 +150,7 @@ const showList = [
 {
     venue: 'The #8 Legion Hall',
     city: 'White Rock, BC',
-    blurb: "Three sets of danceable Common Ground covers",
+    blurb: "",
     venueImage: '/images/legion.jpg',
     date: 'Sun, July 21, 2019 15:00:00 PDT', 
     private: "false",
@@ -160,7 +160,7 @@ const showList = [
 {
     venue: 'Private Party',
     city: 'Halfmoon Bay, BC',
-    blurb: "Happy Birthday, Graham!",
+    blurb: "",
     venueImage: '/images/privateparty.jpg',
     date: 'July 27, 2019 7:00:00 PST',  //faked for daylight savings
     private: "false",
@@ -169,7 +169,7 @@ const showList = [
 {
     venue: 'Private Wedding Reception',
     city: 'West Kelowna, BC',
-    blurb: "Private Wedding",
+    blurb: "",
     venueImage: '/images/wedding.jpg',
     date: 'Aug 23, 2019 19:00:00 PST',  //faked for daylight savings
     private: "false",
@@ -196,7 +196,7 @@ const showList = [
 {
     venue: 'Private Corporate Event',
     city: 'Vancouver, BC',
-    blurb: "Corporate Event",
+    blurb: "",
     venueImage: '/images/corporate2.jpg',
     date: 'Aug, 2019',  //faked for daylight savings
     private: "true",
@@ -205,7 +205,7 @@ const showList = [
 {
     venue: 'Labour Day Festival',
     city: 'Holland Park - Surrey, BC',
-    blurb: "Public Concert",
+    blurb: "",
     venueImage: '/images/outdoorCrop2.jpg',
     date: 'Sept 2, 2019 20:00:00 PST',  //faked for daylight savings
     private: "false",
@@ -259,7 +259,7 @@ const showList = [
 {
     venue: 'Frog and Nightgown Pub',
     city: 'Port Moody, BC',
-    blurb: "A night of dancing and covers",
+    blurb: "",
     venueImage: '/images/liveatthefrog.jpg',
     date: 'November 23, 2019 20:00:00 PST',  //faked for daylight savings
     private: "false",
