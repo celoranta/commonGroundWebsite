@@ -254,7 +254,7 @@ const showList = [
     venueImage: '/images/legion.jpg',
     date: 'Nov 11, 2019 20:00:00 PDT',  
     private: "false",
-    confirmed: "false"
+    confirmed: "true"
 },
 {
     venue: 'Frog and Nightgown Pub',
@@ -264,7 +264,17 @@ const showList = [
     date: 'November 23, 2019 20:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
+},
+{
+    venue: 'New Years Eve @ #119',
+    city: 'Port Moody, BC',
+    blurb: "",
+    venueImage: '/images/legion.jpg',
+    date: 'Nov 11, 2019 20:00:00 PDT',  
+    private: "false",
+    confirmed: "true"
 }
+
 ];
 
 Number.prototype.pad = function(size) {
