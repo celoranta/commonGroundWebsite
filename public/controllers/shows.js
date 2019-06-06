@@ -130,6 +130,24 @@ const showList = [
     confirmed: "true"
 },
 {
+    venue: 'The 119 Legion Hall',
+    city: 'Port Moody, BC',
+    blurb: "",
+    venueImage: '/images/Legion119Club.jpg',
+    date: 'June 28, 2019 20:00:00 PDT',  
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'The 119 Legion Hall',
+    city: 'Port Moody, BC',
+    blurb: "",
+    venueImage: '/images/Legion119Club.jpg',
+    date: 'June 29, 2019 20:00:00 PDT',  
+    private: "false",
+    confirmed: "true"
+},
+{
     venue: 'The #8 Legion Hall',
     city: 'White Rock, BC',
     blurb: "Three sets of danceable Common Ground covers",
@@ -158,6 +176,24 @@ const showList = [
     confirmed: "true"
 },
 {
+    venue: 'The 119 Legion Hall',
+    city: 'Port Moody, BC',
+    blurb: "",
+    venueImage: '/images/Legion119Club.jpg',
+    date: 'August 30, 2019 20:00:00 PDT',  
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'The 119 Legion Hall',
+    city: 'Port Moody, BC',
+    blurb: "",
+    venueImage: '/images/Legion119Club.jpg',
+    date: 'August 31, 2019 20:00:00 PDT',  
+    private: "false",
+    confirmed: "true"
+},
+{
     venue: 'Private Corporate Event',
     city: 'Vancouver, BC',
     blurb: "Corporate Event",
@@ -174,6 +210,51 @@ const showList = [
     date: 'Sept 2, 2019 20:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
+},
+{
+    venue: 'The 119 Legion Hall',
+    city: 'Port Moody, BC',
+    blurb: "",
+    venueImage: '/images/Legion119Club.jpg',
+    date: 'October 18, 2019 20:00:00 PDT',  
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'The 119 Legion Hall',
+    city: 'Port Moody, BC',
+    blurb: "",
+    venueImage: '/images/Legion119Club.jpg',
+    date: 'October 19, 2019 20:00:00 PDT',  
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'The 119 Legion Hall',
+    city: 'Port Moody, BC',
+    blurb: "",
+    venueImage: '/images/Legion119Club.jpg',
+    date: 'November 8, 2019 20:00:00 PDT',  
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'The 119 Legion Hall',
+    city: 'Port Moody, BC',
+    blurb: "",
+    venueImage: '/images/Legion119Club.jpg',
+    date: 'Nov 9, 2019 20:00:00 PDT',  
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'The 119 Legion Hall',
+    city: 'Port Moody, BC',
+    blurb: "",
+    venueImage: '/images/Legion119Club.jpg',
+    date: 'Nov 11, 2019 20:00:00 PDT',  
+    private: "false",
+    confirmed: "false"
 },
 {
     venue: 'Frog and Nightgown Pub',
