@@ -133,7 +133,7 @@ const showList = [
     venue: 'The 119 Legion Hall',
     city: 'Port Moody, BC',
     blurb: "",
-    venueImage: '/images/Legion119Club.jpg',
+    venueImage: '/images/legion.jpg',
     date: 'June 28, 2019 20:00:00 PDT',  
     private: "false",
     confirmed: "true"
@@ -142,7 +142,7 @@ const showList = [
     venue: 'The 119 Legion Hall',
     city: 'Port Moody, BC',
     blurb: "",
-    venueImage: '/images/Legion119Club.jpg',
+    venueImage: '/images/legion.jpg',
     date: 'June 29, 2019 20:00:00 PDT',  
     private: "false",
     confirmed: "true"
@@ -179,7 +179,7 @@ const showList = [
     venue: 'The 119 Legion Hall',
     city: 'Port Moody, BC',
     blurb: "",
-    venueImage: '/images/Legion119Club.jpg',
+    venueImage: '/images/legion.jpg',
     date: 'August 30, 2019 20:00:00 PDT',  
     private: "false",
     confirmed: "true"
@@ -188,7 +188,7 @@ const showList = [
     venue: 'The 119 Legion Hall',
     city: 'Port Moody, BC',
     blurb: "",
-    venueImage: '/images/Legion119Club.jpg',
+    venueImage: '/images/legion.jpg',
     date: 'August 31, 2019 20:00:00 PDT',  
     private: "false",
     confirmed: "true"
@@ -215,7 +215,7 @@ const showList = [
     venue: 'The 119 Legion Hall',
     city: 'Port Moody, BC',
     blurb: "",
-    venueImage: '/images/Legion119Club.jpg',
+    venueImage: '/images/legion.jpg',
     date: 'October 18, 2019 20:00:00 PDT',  
     private: "false",
     confirmed: "true"
@@ -224,7 +224,7 @@ const showList = [
     venue: 'The 119 Legion Hall',
     city: 'Port Moody, BC',
     blurb: "",
-    venueImage: '/images/Legion119Club.jpg',
+    venueImage: '/images/legion.jpg',
     date: 'October 19, 2019 20:00:00 PDT',  
     private: "false",
     confirmed: "true"
@@ -233,7 +233,7 @@ const showList = [
     venue: 'The 119 Legion Hall',
     city: 'Port Moody, BC',
     blurb: "",
-    venueImage: '/images/Legion119Club.jpg',
+    venueImage: '/images/legion.jpg',
     date: 'November 8, 2019 20:00:00 PDT',  
     private: "false",
     confirmed: "true"
@@ -242,7 +242,7 @@ const showList = [
     venue: 'The 119 Legion Hall',
     city: 'Port Moody, BC',
     blurb: "",
-    venueImage: '/images/Legion119Club.jpg',
+    venueImage: '/images/legion.jpg',
     date: 'Nov 9, 2019 20:00:00 PDT',  
     private: "false",
     confirmed: "true"
@@ -251,7 +251,7 @@ const showList = [
     venue: 'The 119 Legion Hall',
     city: 'Port Moody, BC',
     blurb: "",
-    venueImage: '/images/Legion119Club.jpg',
+    venueImage: '/images/legion.jpg',
     date: 'Nov 11, 2019 20:00:00 PDT',  
     private: "false",
     confirmed: "false"
