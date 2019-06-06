@@ -3,9 +3,9 @@ const weekdays = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 
 const showsHeader = "SHOW DATES";
 const showsBlurb = "Party with Common Ground Live!";
-const monthQtyToShow = 3;
+const monthQtyToShow = 6;
 const maxShowsPerMonth = 3;
-const showPromoRemovalDelayHours = 140;
+const showPromoRemovalDelayHours = 48;
 
 const showList = [
 // {
