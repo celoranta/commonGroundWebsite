@@ -133,7 +133,7 @@ const showList = [
     venue: 'Newlands Golf & Country Club',
     city: 'Langley, BC',
     blurb: "",
-    venueImage: '/images/newlands.jpg',
+    venueImage: '/images/Newlands.jpg',
     date: 'June 22, 2019 20:00:00 PDT', 
     private: "false",
     confirmed: "true"
