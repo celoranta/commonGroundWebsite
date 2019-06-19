@@ -130,6 +130,15 @@ const showList = [
     confirmed: "true"
 },
 {
+    venue: 'Newlands Golf & Country Club',
+    city: 'Langley, BC',
+    blurb: "",
+    venueImage: '/images/newlands.jpg',
+    date: 'June 22, 2019 20:00:00 PDT', 
+    private: "false",
+    confirmed: "true"
+},
+{
     venue: 'The 119 Legion Hall',
     city: 'Port Moody, BC',
     blurb: "",
