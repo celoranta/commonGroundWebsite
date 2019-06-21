@@ -134,7 +134,7 @@ const showList = [
     city: 'Langley, BC',
     blurb: "",
     venueImage: '/images/Newlands.jpg',
-    date: 'June 22, 2019 20:00:00 PDT', 
+    date: 'June 22, 2019 20:30:00 PDT', 
     private: "false",
     confirmed: "true"
 },
