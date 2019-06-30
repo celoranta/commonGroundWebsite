@@ -189,7 +189,7 @@ const showList = [
     city: 'Port Moody, BC',
     blurb: "",
     venueImage: '/images/legion.jpg',
-    date: 'August 30, 2019 20:00:00 PDT',  
+    date: 'Sept 6, 2019 20:00:00 PDT',  
     private: "false",
     confirmed: "true"
 },
@@ -198,7 +198,7 @@ const showList = [
     city: 'Port Moody, BC',
     blurb: "",
     venueImage: '/images/legion.jpg',
-    date: 'August 31, 2019 20:00:00 PDT',  
+    date: 'Sept 7, 2019 20:00:00 PDT',  
     private: "false",
     confirmed: "true"
 },
