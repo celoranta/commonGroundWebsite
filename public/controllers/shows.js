@@ -185,6 +185,15 @@ const showList = [
     confirmed: "true"
 },
 {
+    venue: 'Holland Park',
+    city: 'Surrey, BC',
+    blurb: "",
+    venueImage: '/images/outdoorCrop2.jpg',
+    date: 'Sept 2, 2019 20:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+},
+{
     venue: 'The 119 Legion Hall',
     city: 'Port Moody, BC',
     blurb: "",
@@ -202,24 +211,15 @@ const showList = [
     private: "false",
     confirmed: "true"
 },
-{
-    venue: 'Private Corporate Event',
-    city: 'Vancouver, BC',
-    blurb: "",
-    venueImage: '/images/corporate2.jpg',
-    date: 'Aug, 2019',  //faked for daylight savings
-    private: "true",
-    confirmed: "false"
-},
-{
-    venue: 'Holland Park',
-    city: 'Surrey, BC',
-    blurb: "",
-    venueImage: '/images/outdoorCrop2.jpg',
-    date: 'Sept 2, 2019 20:00:00 PST',  //faked for daylight savings
-    private: "false",
-    confirmed: "true"
-},
+// {
+//     venue: 'Private Corporate Event',
+//     city: 'Vancouver, BC',
+//     blurb: "",
+//     venueImage: '/images/corporate2.jpg',
+//     date: 'Aug, 2019',  //faked for daylight savings
+//     private: "true",
+//     confirmed: "false"
+// },
 {
     venue: 'The 119 Legion Hall',
     city: 'Port Moody, BC',
@@ -252,7 +252,7 @@ const showList = [
     city: 'Port Moody, BC',
     blurb: "",
     venueImage: '/images/legion.jpg',
-    date: 'Nov 9, 2019 20:00:00 PDT',  
+    date: 'November 9, 2019 20:00:00 PDT',  
     private: "false",
     confirmed: "true"
 },
@@ -282,7 +282,17 @@ const showList = [
     date: 'Nov 11, 2019 20:00:00 PDT',  
     private: "false",
     confirmed: "true"
+},
+{
+    venue: 'Public Outdoor Concert',
+    city: 'Harrison, BC',
+    blurb: "",
+    venueImage: '/images/outdoorCrop2.jpg',
+    date: 'July 04, 2020',  
+    private: "false",
+    confirmed: "true"
 }
+
 
 ];
 
