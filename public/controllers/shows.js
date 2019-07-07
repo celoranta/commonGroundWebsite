@@ -279,7 +279,7 @@ const showList = [
     city: 'Port Moody, BC',
     blurb: "",
     venueImage: '/images/legion.jpg',
-    date: 'Nov 11, 2019 20:00:00 PDT',  
+    date: 'Dec 31, 2019 20:00:00 PDT',  
     private: "false",
     confirmed: "true"
 },
