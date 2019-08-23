@@ -199,7 +199,7 @@ const showList = [
     city: 'Port Moody, BC',
     blurb: "",
     venueImage: '/images/liveatthefrog.jpg',
-    date: 'November 23, 2019 19:30:00 PDT',  //faked for daylight savings
+    date: 'November 23, 2019 20:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
 },
@@ -217,7 +217,7 @@ const showList = [
     city: 'Burnaby, BC',
     blurb: "",
     venueImage: '/images/admiral.jpg',
-    date: 'October 12, 2019 20:00:00 PST',  //faked for daylight savings
+    date: 'October 12, 2019 19:30:00 PDT',  //faked for daylight savings
     private: "false",
     confirmed: "true"
 },
