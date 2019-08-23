@@ -203,7 +203,24 @@ const showList = [
     private: "false",
     confirmed: "true"
 },
-
+{
+    venue: 'The Admiral Pub',
+    city: 'Burnaby, BC',
+    blurb: "",
+    venueImage: '/images/admiral.jpg',
+    date: 'October 11, 2019 20:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'The Admiral Pub',
+    city: 'Burnaby, BC',
+    blurb: "",
+    venueImage: '/images/admiral.jpg',
+    date: 'October 12, 2019 20:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+},
 {
     venue: 'Public Outdoor Concert',
     city: 'Harrison, BC',
