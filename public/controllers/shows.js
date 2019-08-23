@@ -193,78 +193,7 @@ const showList = [
     private: "false",
     confirmed: "true"
 },
-{
-    venue: 'The 119 Legion Hall',
-    city: 'Port Moody, BC',
-    blurb: "",
-    venueImage: '/images/legion.jpg',
-    date: 'Sept 6, 2019 20:00:00 PDT',  
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The 119 Legion Hall',
-    city: 'Port Moody, BC',
-    blurb: "",
-    venueImage: '/images/legion.jpg',
-    date: 'Sept 7, 2019 20:00:00 PDT',  
-    private: "false",
-    confirmed: "true"
-},
-// {
-//     venue: 'Private Corporate Event',
-//     city: 'Vancouver, BC',
-//     blurb: "",
-//     venueImage: '/images/corporate2.jpg',
-//     date: 'Aug, 2019',  //faked for daylight savings
-//     private: "true",
-//     confirmed: "false"
-// },
-{
-    venue: 'The 119 Legion Hall',
-    city: 'Port Moody, BC',
-    blurb: "",
-    venueImage: '/images/legion.jpg',
-    date: 'October 18, 2019 20:00:00 PDT',  
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The 119 Legion Hall',
-    city: 'Port Moody, BC',
-    blurb: "",
-    venueImage: '/images/legion.jpg',
-    date: 'October 19, 2019 20:00:00 PDT',  
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The 119 Legion Hall',
-    city: 'Port Moody, BC',
-    blurb: "",
-    venueImage: '/images/legion.jpg',
-    date: 'November 8, 2019 20:00:00 PDT',  
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The 119 Legion Hall',
-    city: 'Port Moody, BC',
-    blurb: "",
-    venueImage: '/images/legion.jpg',
-    date: 'November 9, 2019 20:00:00 PDT',  
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The 119 Legion Hall',
-    city: 'Port Moody, BC',
-    blurb: "",
-    venueImage: '/images/legion.jpg',
-    date: 'Nov 11, 2019 20:00:00 PDT',  
-    private: "false",
-    confirmed: "true"
-},
+
 {
     venue: 'Frog and Nightgown Pub',
     city: 'Port Moody, BC',
@@ -274,15 +203,7 @@ const showList = [
     private: "false",
     confirmed: "true"
 },
-{
-    venue: 'New Years Eve @ #119',
-    city: 'Port Moody, BC',
-    blurb: "",
-    venueImage: '/images/legion.jpg',
-    date: 'Dec 31, 2019 20:00:00 PDT',  
-    private: "false",
-    confirmed: "true"
-},
+
 {
     venue: 'Public Outdoor Concert',
     city: 'Harrison, BC',
