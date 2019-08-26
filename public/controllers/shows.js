@@ -193,13 +193,12 @@ const showList = [
     private: "false",
     confirmed: "true"
 },
-
 {
-    venue: 'Frog and Nightgown Pub',
-    city: 'Port Moody, BC',
+    venue: 'The #8 Legion Hall',
+    city: 'White Rock, BC',
     blurb: "",
-    venueImage: '/images/liveatthefrog.jpg',
-    date: 'November 23, 2019 20:00:00 PST',  //faked for daylight savings
+    venueImage: '/images/legion.jpg',
+    date: 'September 15, 2019 15:00:00 PDT', 
     private: "false",
     confirmed: "true"
 },
@@ -221,6 +220,17 @@ const showList = [
     private: "false",
     confirmed: "true"
 },
+
+{
+    venue: 'Frog and Nightgown Pub',
+    city: 'Port Moody, BC',
+    blurb: "",
+    venueImage: '/images/liveatthefrog.jpg',
+    date: 'November 23, 2019 20:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+},
+
 {
     venue: 'Public Outdoor Concert',
     city: 'Harrison, BC',
