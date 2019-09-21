@@ -248,24 +248,24 @@ const showList = [
     private: "false",
     confirmed: "true"
 },
-{
-    venue: 'The #8 Legion Hall',
-    city: 'White Rock, BC',
-    blurb: "",
-    venueImage: '/images/legion.jpg',
-    date: 'December 6, 2019 19:00:00 PDT', 
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The #8 Legion Hall',
-    city: 'White Rock, BC',
-    blurb: "",
-    venueImage: '/images/legion.jpg',
-    date: 'December 7, 2019 19:00:00 PDT', 
-    private: "false",
-    confirmed: "true"
-},
+// {
+//     venue: 'The #8 Legion Hall',
+//     city: 'White Rock, BC',
+//     blurb: "",
+//     venueImage: '/images/legion.jpg',
+//     date: 'December 6, 2019 19:00:00 PDT', 
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'The #8 Legion Hall',
+//     city: 'White Rock, BC',
+//     blurb: "",
+//     venueImage: '/images/legion.jpg',
+//     date: 'December 7, 2019 19:00:00 PDT', 
+//     private: "false",
+//     confirmed: "true"
+// },
 {
     venue: 'Public Outdoor Concert',
     city: 'Harrison, BC',
