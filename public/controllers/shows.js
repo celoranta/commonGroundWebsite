@@ -220,24 +220,24 @@ const showList = [
     private: "false",
     confirmed: "true"
 },
-{
-    venue: 'The #8 Legion Hall',
-    city: 'White Rock, BC',
-    blurb: "",
-    venueImage: '/images/legion.jpg',
-    date: 'October 18, 2019 19:00:00 PDT', 
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The #8 Legion Hall',
-    city: 'White Rock, BC',
-    blurb: "",
-    venueImage: '/images/legion.jpg',
-    date: 'October 19, 2019 19:00:00 PDT', 
-    private: "false",
-    confirmed: "true"
-},
+// {
+//     venue: 'The #8 Legion Hall',
+//     city: 'White Rock, BC',
+//     blurb: "",
+//     venueImage: '/images/legion.jpg',
+//     date: 'October 18, 2019 19:00:00 PDT', 
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'The #8 Legion Hall',
+//     city: 'White Rock, BC',
+//     blurb: "",
+//     venueImage: '/images/legion.jpg',
+//     date: 'October 19, 2019 19:00:00 PDT', 
+//     private: "false",
+//     confirmed: "true"
+// },
 
 {
     venue: 'Frog and Nightgown Pub',
