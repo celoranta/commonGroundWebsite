@@ -253,7 +253,7 @@ const showList = [
     city: 'Langley, BC',
     blurb: "",
     venueImage: '/images/Newlands.jpg',
-    date: 'January 18, 2020 20:00:00 PDT', 
+    date: 'January 18, 2020 19:30:00 PST', 
     private: "false",
     confirmed: "true"
 },
@@ -298,7 +298,7 @@ const showList = [
     city: 'Langley, BC',
     blurb: "",
     venueImage: '/images/Newlands.jpg',
-    date: 'December 5, 2020 20:00:00 PDT', 
+    date: 'December 5, 2020 19:30:00 PST', 
     private: "false",
     confirmed: "true"
 }
