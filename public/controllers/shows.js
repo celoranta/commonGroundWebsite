@@ -270,7 +270,7 @@ const showList = [
     venue: 'Public Outdoor Concert',
     city: 'Harrison, BC',
     blurb: "",
-    venueImage: '/images/outdoorCrop2.jpg',
+    venueImage: '/images/outdoorCrop3.jpg',
     date: 'July 04, 2020',  
     private: "false",
     confirmed: "true"
