@@ -262,7 +262,7 @@ const showList = [
     city: 'Langley, BC',
     blurb: "",
     venueImage: '/images/Newlands.jpg',
-    date: 'April 4, 2020 20:00:00 PDT', 
+    date: 'April 4, 2020 19:30:00 PDT', 
     private: "false",
     confirmed: "true"
 },
@@ -280,7 +280,7 @@ const showList = [
     city: 'Langley, BC',
     blurb: "",
     venueImage: '/images/Newlands.jpg',
-    date: 'June 27, 2020 20:00:00 PDT', 
+    date: 'June 27, 2020 19:30:00 PDT', 
     private: "false",
     confirmed: "true"
 },
@@ -289,7 +289,7 @@ const showList = [
     city: 'Langley, BC',
     blurb: "",
     venueImage: '/images/Newlands.jpg',
-    date: 'September 12, 2020 20:00:00 PDT', 
+    date: 'September 12, 2020 19:30:00 PDT', 
     private: "false",
     confirmed: "true"
 },
