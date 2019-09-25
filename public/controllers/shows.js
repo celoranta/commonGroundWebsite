@@ -248,24 +248,24 @@ const showList = [
     private: "false",
     confirmed: "true"
 },
-// {
-//     venue: 'The #8 Legion Hall',
-//     city: 'White Rock, BC',
-//     blurb: "",
-//     venueImage: '/images/legion.jpg',
-//     date: 'December 6, 2019 19:00:00 PDT', 
-//     private: "false",
-//     confirmed: "true"
-// },
-// {
-//     venue: 'The #8 Legion Hall',
-//     city: 'White Rock, BC',
-//     blurb: "",
-//     venueImage: '/images/legion.jpg',
-//     date: 'December 7, 2019 19:00:00 PDT', 
-//     private: "false",
-//     confirmed: "true"
-// },
+{
+    venue: 'Newlands Golf & Country Club',
+    city: 'Langley, BC',
+    blurb: "",
+    venueImage: '/images/Newlands.jpg',
+    date: 'January 18, 2020 20:00:00 PDT', 
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'Newlands Golf & Country Club',
+    city: 'Langley, BC',
+    blurb: "",
+    venueImage: '/images/Newlands.jpg',
+    date: 'April 4, 2020 20:00:00 PDT', 
+    private: "false",
+    confirmed: "true"
+},
 {
     venue: 'Public Outdoor Concert',
     city: 'Harrison, BC',
@@ -274,8 +274,34 @@ const showList = [
     date: 'July 04, 2020',  
     private: "false",
     confirmed: "true"
+},
+{
+    venue: 'Newlands Golf & Country Club',
+    city: 'Langley, BC',
+    blurb: "",
+    venueImage: '/images/Newlands.jpg',
+    date: 'June 27, 2020 20:00:00 PDT', 
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'Newlands Golf & Country Club',
+    city: 'Langley, BC',
+    blurb: "",
+    venueImage: '/images/Newlands.jpg',
+    date: 'September 12, 2020 20:00:00 PDT', 
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'Newlands Golf & Country Club',
+    city: 'Langley, BC',
+    blurb: "",
+    venueImage: '/images/Newlands.jpg',
+    date: 'December 5, 2020 20:00:00 PDT', 
+    private: "false",
+    confirmed: "true"
 }
-
 
 ];
 
