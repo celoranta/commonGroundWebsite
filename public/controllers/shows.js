@@ -253,6 +253,15 @@ const showList = [
     city: 'Langley, BC',
     blurb: "",
     venueImage: '/images/Newlands.jpg',
+    date: 'December 31, 2019 19:00:00 PST', 
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'Newlands Golf & Country Club',
+    city: 'Langley, BC',
+    blurb: "",
+    venueImage: '/images/Newlands.jpg',
     date: 'January 18, 2020 19:30:00 PST', 
     private: "false",
     confirmed: "true"
