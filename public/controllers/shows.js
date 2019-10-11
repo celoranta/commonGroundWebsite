@@ -276,20 +276,20 @@ const showList = [
     confirmed: "true"
 },
 {
-    venue: 'Public Outdoor Concert',
-    city: 'Harrison, BC',
-    blurb: "",
-    venueImage: '/images/outdoorCrop3.jpg',
-    date: 'July 04, 2020',  
-    private: "false",
-    confirmed: "true"
-},
-{
     venue: 'Newlands Golf & Country Club',
     city: 'Langley, BC',
     blurb: "",
     venueImage: '/images/Newlands.jpg',
     date: 'June 27, 2020 19:30:00 PDT', 
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'Public Outdoor Concert',
+    city: 'Harrison, BC',
+    blurb: "",
+    venueImage: '/images/outdoorCrop3.jpg',
+    date: 'July 04, 2020',  
     private: "false",
     confirmed: "true"
 },
