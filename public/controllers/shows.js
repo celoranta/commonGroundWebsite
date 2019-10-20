@@ -267,6 +267,24 @@ const showList = [
     confirmed: "true"
 },
 {
+    venue: 'The Admiral Pub',
+    city: 'Burnaby, BC',
+    blurb: "",
+    venueImage: '/images/admiral.jpg',
+    date: 'February 14, 2020 20:00:00 PST',  
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'The Admiral Pub',
+    city: 'Burnaby, BC',
+    blurb: "",
+    venueImage: '/images/admiral.jpg',
+    date: 'February 15, 2020 20:00:00 PST', 
+    private: "false",
+    confirmed: "true"
+},
+{
     venue: 'Newlands Golf & Country Club',
     city: 'Langley, BC',
     blurb: "",
