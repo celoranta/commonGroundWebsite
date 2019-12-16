@@ -111,115 +111,115 @@ const showList = [
 //     private: "false",
 //     confirmed: "true"
 // },
-{
-    venue: 'The 109 Legion Hall',
-    city: 'Gibsons, BC',
-    blurb: "",
-    venueImage: '/images/legion3.jpg',
-    date: 'June 1, 2019 19:00:00 PST',  //faked for daylight savings
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The Admiral Pub',
-    city: 'Burnaby, BC',
-    blurb: "",
-    venueImage: '/images/admiral.jpg',
-    date: 'June 15, 2019 19:30:00 PDT', 
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'Newlands Golf & Country Club',
-    city: 'Langley, BC',
-    blurb: "",
-    venueImage: '/images/Newlands.jpg',
-    date: 'June 22, 2019 20:30:00 PDT', 
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The 119 Legion Hall',
-    city: 'Port Moody, BC',
-    blurb: "",
-    venueImage: '/images/legion.jpg',
-    date: 'June 28, 2019 20:00:00 PDT',  
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The 119 Legion Hall',
-    city: 'Port Moody, BC',
-    blurb: "",
-    venueImage: '/images/legion.jpg',
-    date: 'June 29, 2019 20:00:00 PDT',  
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The #8 Legion Hall',
-    city: 'White Rock, BC',
-    blurb: "",
-    venueImage: '/images/legion.jpg',
-    date: 'Sun, July 21, 2019 15:00:00 PDT', 
-    private: "false",
-    confirmed: "true"
-},
+// {
+//     venue: 'The 109 Legion Hall',
+//     city: 'Gibsons, BC',
+//     blurb: "",
+//     venueImage: '/images/legion3.jpg',
+//     date: 'June 1, 2019 19:00:00 PST',  //faked for daylight savings
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'The Admiral Pub',
+//     city: 'Burnaby, BC',
+//     blurb: "",
+//     venueImage: '/images/admiral.jpg',
+//     date: 'June 15, 2019 19:30:00 PDT', 
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'Newlands Golf & Country Club',
+//     city: 'Langley, BC',
+//     blurb: "",
+//     venueImage: '/images/Newlands.jpg',
+//     date: 'June 22, 2019 20:30:00 PDT', 
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'The 119 Legion Hall',
+//     city: 'Port Moody, BC',
+//     blurb: "",
+//     venueImage: '/images/legion.jpg',
+//     date: 'June 28, 2019 20:00:00 PDT',  
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'The 119 Legion Hall',
+//     city: 'Port Moody, BC',
+//     blurb: "",
+//     venueImage: '/images/legion.jpg',
+//     date: 'June 29, 2019 20:00:00 PDT',  
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'The #8 Legion Hall',
+//     city: 'White Rock, BC',
+//     blurb: "",
+//     venueImage: '/images/legion.jpg',
+//     date: 'Sun, July 21, 2019 15:00:00 PDT', 
+//     private: "false",
+//     confirmed: "true"
+// },
 
-{
-    venue: 'Private Party',
-    city: 'Halfmoon Bay, BC',
-    blurb: "",
-    venueImage: '/images/privateparty.jpg',
-    date: 'July 27, 2019 7:00:00 PST',  //faked for daylight savings
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'Private Wedding Reception',
-    city: 'West Kelowna, BC',
-    blurb: "",
-    venueImage: '/images/wedding.jpg',
-    date: 'Aug 23, 2019 19:00:00 PST',  //faked for daylight savings
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'Holland Park',
-    city: 'Surrey, BC',
-    blurb: "",
-    venueImage: '/images/outdoorCrop2.jpg',
-    date: 'Sept 2, 2019 20:00:00 PST',  //faked for daylight savings
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The #8 Legion Hall',
-    city: 'White Rock, BC',
-    blurb: "",
-    venueImage: '/images/legion.jpg',
-    date: 'September 15, 2019 15:00:00 PDT', 
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The Admiral Pub',
-    city: 'Burnaby, BC',
-    blurb: "",
-    venueImage: '/images/admiral.jpg',
-    date: 'October 11, 2019 19:30:00 PDT',  //faked for daylight savings
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The Admiral Pub',
-    city: 'Burnaby, BC',
-    blurb: "",
-    venueImage: '/images/admiral.jpg',
-    date: 'October 12, 2019 19:30:00 PDT',  //faked for daylight savings
-    private: "false",
-    confirmed: "true"
-},
+// {
+//     venue: 'Private Party',
+//     city: 'Halfmoon Bay, BC',
+//     blurb: "",
+//     venueImage: '/images/privateparty.jpg',
+//     date: 'July 27, 2019 7:00:00 PST',  //faked for daylight savings
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'Private Wedding Reception',
+//     city: 'West Kelowna, BC',
+//     blurb: "",
+//     venueImage: '/images/wedding.jpg',
+//     date: 'Aug 23, 2019 19:00:00 PST',  //faked for daylight savings
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'Holland Park',
+//     city: 'Surrey, BC',
+//     blurb: "",
+//     venueImage: '/images/outdoorCrop2.jpg',
+//     date: 'Sept 2, 2019 20:00:00 PST',  //faked for daylight savings
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'The #8 Legion Hall',
+//     city: 'White Rock, BC',
+//     blurb: "",
+//     venueImage: '/images/legion.jpg',
+//     date: 'September 15, 2019 15:00:00 PDT', 
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'The Admiral Pub',
+//     city: 'Burnaby, BC',
+//     blurb: "",
+//     venueImage: '/images/admiral.jpg',
+//     date: 'October 11, 2019 19:30:00 PDT',  //faked for daylight savings
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'The Admiral Pub',
+//     city: 'Burnaby, BC',
+//     blurb: "",
+//     venueImage: '/images/admiral.jpg',
+//     date: 'October 12, 2019 19:30:00 PDT',  //faked for daylight savings
+//     private: "false",
+//     confirmed: "true"
+// },
 // {
 //     venue: 'The #8 Legion Hall',
 //     city: 'White Rock, BC',
@@ -239,15 +239,15 @@ const showList = [
 //     confirmed: "true"
 // },
 
-{
-    venue: 'Frog and Nightgown Pub',
-    city: 'Port Moody, BC',
-    blurb: "",
-    venueImage: '/images/liveatthefrog.jpg',
-    date: 'November 23, 2019 20:00:00 PST',  //faked for daylight savings
-    private: "false",
-    confirmed: "true"
-},
+// {
+//     venue: 'Frog and Nightgown Pub',
+//     city: 'Port Moody, BC',
+//     blurb: "",
+//     venueImage: '/images/liveatthefrog.jpg',
+//     date: 'November 23, 2019 20:00:00 PST',  //faked for daylight savings
+//     private: "false",
+//     confirmed: "true"
+// },
 {
     venue: 'Newlands Golf & Country Club',
     city: 'Langley, BC',
@@ -303,6 +303,15 @@ const showList = [
     confirmed: "true"
 },
 {
+    venue: 'Union Protein Project',
+    city: 'TBD',
+    blurb: "Three Sets and Lunch",
+    venueImage: '/images/proteinproject.jpg',
+    date: 'Apr 18, 2020 10:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+},
+{
     venue: 'Frog and Nightgown Pub',
     city: 'Port Moody, BC',
     blurb: "",
@@ -326,6 +335,24 @@ const showList = [
     blurb: "",
     venueImage: '/images/outdoorCrop3.jpg',
     date: 'July 04, 2020',  
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'Private Wedding',
+    city: 'Lower Mainland',
+    blurb: "",
+    venueImage: '/images/wedding.jpg',
+    date: 'July 11, 2020',  
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'Labour Day Concert',
+    city: 'Surrey, BC',
+    blurb: "",
+    venueImage: '/images/outdoorCrop2.jpg',
+    date: 'Sept 7, 2020 14:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
 },
