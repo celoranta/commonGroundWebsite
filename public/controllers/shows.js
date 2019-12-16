@@ -285,11 +285,29 @@ const showList = [
     confirmed: "true"
 },
 {
+    venue: 'Frog and Nightgown Pub',
+    city: 'Port Moody, BC',
+    blurb: "",
+    venueImage: '/images/liveatthefrog.jpg',
+    date: 'February 29, 2020 20:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+},
+{
     venue: 'Newlands Golf & Country Club',
     city: 'Langley, BC',
     blurb: "",
     venueImage: '/images/Newlands.jpg',
     date: 'April 4, 2020 19:30:00 PDT', 
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'Frog and Nightgown Pub',
+    city: 'Port Moody, BC',
+    blurb: "",
+    venueImage: '/images/liveatthefrog.jpg',
+    date: 'May 2, 2020 20:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
 },
@@ -317,6 +335,24 @@ const showList = [
     blurb: "",
     venueImage: '/images/Newlands.jpg',
     date: 'September 12, 2020 19:30:00 PDT', 
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'Frog and Nightgown Pub',
+    city: 'Port Moody, BC',
+    blurb: "",
+    venueImage: '/images/liveatthefrog.jpg',
+    date: 'October 17, 2020 20:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'Frog and Nightgown Pub',
+    city: 'Port Moody, BC',
+    blurb: "",
+    venueImage: '/images/liveatthefrog.jpg',
+    date: 'November 21, 2020 20:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
 },
