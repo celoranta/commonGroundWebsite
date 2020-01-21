@@ -74,6 +74,8 @@
 //Data
 
 var songsJSON = tsvJSON('/public/objects/songs_20200121.txt');
+var songsJSONString = JSON.stringify(tsvJSON);
+console.log(songsJSONString);
 //var songsObject = JSON.parse(songsJSON);
 
 
