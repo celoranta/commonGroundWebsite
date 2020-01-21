@@ -73,10 +73,13 @@
 // }
 //Data
 
-var songsJSON = tsvJSON('/objects/songs_20200121.txt');
-var songsJSONString = JSON.stringify(tsvJSON);
-console.log(songsJSONString);
-//var songsObject = JSON.parse(songsJSON);
+
+// import { parse } from tsv-parser
+// parse('/objects/songs_20200121.txt')
+// var songsJSON = tsvJSON('/objects/songs_20200121.txt');
+// var songsJSONString = JSON.stringify(tsvJSON);
+// console.log(songsJSONString);
+// //var songsObject = JSON.parse(songsJSON);
 
 
 var songs = [
@@ -137,6 +140,15 @@ var songs = [
 {title: 'Counting Stars', genreTags: ['modern rock', 'dance rock']},
 {title: 'Love Runs Out', genreTags: ['modern rock', 'dance rock']},
 {title: 'Thinking Out Loud', genreTags: ['pop', 'ballads']},
+{title: 'Shape of You', genreTags: ['pop', 'dance pop']},
+{title: 'Sweet Child \'O Mine', genreTags: ['anthems', '80\'s rock', 'hair metal']},
+{title: 'Happy', genreTags: ['pop']},
+{title: 'Forget You', genreTags: ['pop']},
+{title: 'Get Lucky', genreTags: ['pop', 'dance pop', 'disco', 'funk']},
+{title: 'Wild Night', genreTags: ['classic rock']},
+{title: 'Rock\'n Me', genreTags: ['classic rock']},
+{title: 'White Wedding', genreTags: ['80\'s rock', 'anthems']},
+{title: 'Satisfaction', genreTags: ['classic rock']},
 {title: 'Shape of You', genreTags: ['pop', 'dance pop']}
 ];
 
