@@ -73,6 +73,8 @@
 // }
 //Data
 
+var songs2 = tsvJSON(public/objects/songs_20200121 (1).txt);
+
 
 var songs = [
 {title: 'Springsteen' , genreTags: ['country']},
