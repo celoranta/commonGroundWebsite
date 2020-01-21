@@ -73,7 +73,8 @@
 // }
 //Data
 
-var songs2 = tsvJSON('/public/objects/songs_20200121.txt');
+var songsJSON = tsvJSON('/public/objects/songs_20200121.txt');
+var songsObject = JSON.parse(songsJSON);
 
 
 var songs = [
@@ -179,15 +180,15 @@ function constructGenreSongDiv(genre, songs) {
 
 
     songList.className+=" song-container slideContainer";
-    if (Array.isArray(songs)){
+    if (Array.isArray(songsObject)){
         var i = 0;
         for (i=0; i <= 0; i++){
-    songs.forEach(function(song){
+    songsObject.forEach(function(song){
         var songItem = document.createElement('li');
         songItem.setAttribute('class', 'slider-list-item');
         songItem.className+=' slideItem';
         //songItem.setAttribute('class', 'slideItem')
-        songItem.innerHTML = song.title;
+        songItem.innerHTML = song.NAME;
         songList.appendChild(songItem);
      
         songListContainer.appendChild(songList);
