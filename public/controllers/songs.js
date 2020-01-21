@@ -180,15 +180,15 @@ function constructGenreSongDiv(genre, songs) {
 
 
     songList.className+=" song-container slideContainer";
-    if (Array.isArray(songsObject)){
+    if (Array.isArray(songs)){
         var i = 0;
         for (i=0; i <= 0; i++){
-    songsObject.forEach(function(song){
+    songs.forEach(function(song){
         var songItem = document.createElement('li');
         songItem.setAttribute('class', 'slider-list-item');
         songItem.className+=' slideItem';
         //songItem.setAttribute('class', 'slideItem')
-        songItem.innerHTML = song.NAME;
+        songItem.innerHTML = song.title;
         songList.appendChild(songItem);
      
         songListContainer.appendChild(songList);
