@@ -73,9 +73,9 @@
 // }
 //Data
 
-var songsJSON = tsvJSON('/public/objects/songs_20200121.txt');
+var songsJSON = tsvJSON('/objects/songs_20200121.txt');
 var songsJSONString = JSON.stringify(tsvJSON);
-console.log('/objects/songs_20200121.txt');
+console.log(songsJSONString);
 //var songsObject = JSON.parse(songsJSON);
 
 
