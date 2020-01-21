@@ -73,7 +73,7 @@
 // }
 //Data
 
-var songs2 = tsvJSON(public/objects/songs_20200121.txt);
+var songs2 = tsvJSON('/public/objects/songs_20200121.txt');
 
 
 var songs = [
