@@ -74,7 +74,7 @@
 //Data
 
 var songsJSON = tsvJSON('/public/objects/songs_20200121.txt');
-var songsObject = JSON.parse(songsJSON);
+//var songsObject = JSON.parse(songsJSON);
 
 
 var songs = [
@@ -136,7 +136,7 @@ var songs = [
 {title: 'Love Runs Out', genreTags: ['modern rock', 'dance rock']},
 {title: 'Thinking Out Loud', genreTags: ['pop', 'ballads']},
 {title: 'Shape of You', genreTags: ['pop', 'dance pop']}
-]
+];
 
 const minimumSongQty = 2;
 const songsHeader = "SONGS";
