@@ -393,6 +393,15 @@ const showList = [
     confirmed: "true"
 },
 {
+    venue: 'Sawbucks Pub',
+    city: 'Surrey, BC',
+    blurb: "",
+    venueImage: '/images/sawbucksCrop.jpg',
+    date: 'November 28, 2020 20:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+},
+{
     venue: 'Newlands Golf & Country Club',
     city: 'Langley, BC',
     blurb: "",
