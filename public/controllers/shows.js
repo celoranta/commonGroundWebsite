@@ -305,7 +305,7 @@ const showList = [
 {
     venue: 'Union Protein Project',
     city: 'TBD',
-    blurb: "Three Sets and Lunch",
+    //blurb: "Three Sets and Lunch",
     venueImage: '/images/proteinproject.jpg',
     date: 'Apr 18, 2020 14:00:00 PST',  //faked for daylight savings
     private: "false",
@@ -317,6 +317,15 @@ const showList = [
     blurb: "",
     venueImage: '/images/liveatthefrog.jpg',
     date: 'May 2, 2020 20:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+},
+{
+    venue: 'Sawbucks Pub',
+    city: 'Surrey, BC',
+    blurb: "",
+    venueImage: '/images/sawbucksCrop.png',
+    date: 'June 7, 2020 20:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
 },
