@@ -305,7 +305,7 @@ const showList = [
 {
     venue: 'Union Protein Project',
     city: 'TBD',
-    //blurb: "Three Sets and Lunch",
+    blurb: '',
     venueImage: '/images/proteinproject.jpg',
     date: 'Apr 18, 2020 14:00:00 PST',  //faked for daylight savings
     private: "false",
