@@ -324,7 +324,7 @@ const showList = [
     venue: 'Sawbucks Pub',
     city: 'Surrey, BC',
     blurb: "",
-    venueImage: '/images/sawbucksCrop.png',
+    venueImage: '/images/sawbucksCrop.jpg',
     date: 'June 7, 2020 20:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
