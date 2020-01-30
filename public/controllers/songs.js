@@ -149,10 +149,14 @@ var songs = [
 {title: 'Rock\'n Me', genreTags: ['classic rock']},
 {title: 'White Wedding', genreTags: ['80\'s rock', 'anthems']},
 {title: 'Satisfaction', genreTags: ['classic rock']},
-{title: 'Shape of You', genreTags: ['pop', 'dance pop']}
+{title: 'Sucker', genreTags: ['pop', 'dance pop']},
+{title: 'Only Human', genreTags: ['pop', 'dance pop']},
+{title: 'Super Freak', genreTags: ['funk']},
+{title: 'Mr. Brightside', genreTags: ['modern rock', 'dance rock']},
+{title: 'You Might Think', genreTags: ['New Wave', 'Classic Rock']}
 ];
 
-const minimumSongQty = 2;
+const minimumSongQty = 3;
 const songsHeader = "SONGS";
 const songsBlurb = "Common Ground is not a genre band.  " +
 "If it moves your feet, Common Ground plays it. Wilson Pickett?  Luke Bryant?  Daft Punk?  " +
