@@ -258,7 +258,7 @@ const showList = [
     confirmed: "true"
 },
 {
-    venue: 'Newlands Golf & Country Club',
+    venue: 'Newlands Country Club',
     city: 'Langley, BC',
     blurb: "",
     venueImage: '/images/Newlands.jpg',
@@ -294,7 +294,7 @@ const showList = [
     confirmed: "true"
 },
 {
-    venue: 'Newlands Golf & Country Club',
+    venue: 'Newlands Country Club',
     city: 'Langley, BC',
     blurb: "",
     venueImage: '/images/Newlands.jpg',
@@ -330,7 +330,7 @@ const showList = [
     confirmed: "true"
 },
 {
-    venue: 'Newlands Golf & Country Club',
+    venue: 'Newlands Country Club',
     city: 'Langley, BC',
     blurb: "",
     venueImage: '/images/Newlands.jpg',
@@ -366,7 +366,7 @@ const showList = [
     confirmed: "true"
 },
 {
-    venue: 'Newlands Golf & Country Club',
+    venue: 'Newlands Country Club',
     city: 'Langley, BC',
     blurb: "",
     venueImage: '/images/Newlands.jpg',
