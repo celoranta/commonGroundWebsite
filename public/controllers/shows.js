@@ -360,7 +360,7 @@ const showList = [
     venue: 'Labour Day Concert',
     city: 'Surrey, BC',
     blurb: "",
-    venueImage: '/images/outdoorCrop2.jpg',
+    venueImage: '/images/outdoorCrop3.jpg',
     date: 'Sept 7, 2020 14:00:00 PST',  //faked for daylight savings
     private: "false",
     confirmed: "true"
