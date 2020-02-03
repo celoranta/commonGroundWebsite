@@ -298,7 +298,7 @@ const showList = [
     city: 'Langley, BC',
     blurb: "",
     venueImage: '/images/Newlands.jpg',
-    date: 'April 4, 2020 19:30:00 PDT', 
+    date: 'March 7, 2020 19:30:00 PDT', 
     private: "false",
     confirmed: "true"
 },

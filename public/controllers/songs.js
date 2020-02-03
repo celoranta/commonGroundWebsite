@@ -245,7 +245,7 @@ for(var o in songs) {
 var genres = (genreArrays.flat([1])); 
 var uniqueGenres = genres.filter( onlyUnique );
 var genresWithSongs = [];
-var manyMore = [];
+//var manyMore = [];
 uniqueGenres.forEach(function(genre){
     var songsInGenre = [];
     songs.forEach(function(song){
@@ -255,9 +255,9 @@ uniqueGenres.forEach(function(genre){
         };
     });
    // if (genre.songs)
-    genresWithSongs.push({genre : genre , songs :  songsInGenre});
 
-    genresWithSongs.push({genre : "And Many More" , songs : manyMore});
+    genresWithSongs.push({genre : genre , songs :  songsInGenre});
+  //  genresWithSongs.push({genre : "And Many More" , songs : manyMore});
 });
 
 var marquees = document.getElementsByClassName("song-swimlane");
@@ -266,7 +266,7 @@ console.log("Song swimlanes: " + marquees.length)
 var genreCount = genresWithSongs.length;
 var i=0;
 var n=0;
-var andManyMore = new Array;
+//var andManyMore = new Array;
 for(i=0; i < genreCount; i++){
     const genreObject = genresWithSongs[i];
     const songCount = genreObject.songs.length;
