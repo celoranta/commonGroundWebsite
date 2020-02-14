@@ -169,14 +169,24 @@ app.post('', function (req, res) {
 
 //RETRIEVE AND SAVE SONG LIST
 
+
+
 //public/objects/songsList.json;
-fetch(songsUrl, settings)
+function updateSongsList(){
+  console.log('Updating Songs List to Server');
+  fetch(songsUrl, settings)
   .then(res => res.json())
   .then((json) => {
     let songData = JSON.stringify(json);
     fs.writeFileSync('public/objects/songsList.json', songData);
 
   });
+};
+
+updateSongsList();
+
+
+setInterval(updateSongsList, 60000);
 
 // 404
 app.use(function (req, res, next) {
