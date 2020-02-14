@@ -92,7 +92,7 @@ app.get('/slideshow-backend', (req, res) => {
 app.get('/images', (req, res) => {
   res.sendFile(imagesPage);
 });
-app.get('/favicon', (req, res) => {
+app.get('/favicon.ico', (req, res) => {
   res.sendFile(favicon);
 });
 app.get('/songsJSON', (req, res) => {
