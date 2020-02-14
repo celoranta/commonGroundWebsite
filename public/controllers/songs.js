@@ -6,8 +6,6 @@
     // Enable strict mode
     "use strict";
 
-
-
     // Form the style on the fly to result in smaller minified file
     var important = "!important;";
     var style = "position:absolute" + important + "visibility:hidden" + important + "width:1em" + important + "font-size:1em" + important + "padding:0" + important;
@@ -230,15 +228,13 @@ function constructGenreSongDiv(genre, songs) {
     //songList.appendChild(songList);
 
     // var listHeight = songs.length;
-    var listHeight = minimumSongQty+3;
+    var listHeight = minimumSongQty + 3;
     console.log("List Height:" + listHeight);
     songListContainer.setAttribute('style', "height:" + (listHeight) + "em");
     minorMarquee.appendChild(genreHeader);
     minorMarquee.appendChild(songListContainer);
     return minorMarquee;
 }
-
-
 
 // polyfill --- Amimate Scrolling Lists
 function animateSongList() {
@@ -281,70 +277,9 @@ function mappingFunction(element) {
     return songObject;
 };
 
-//Body
-
-fetch('/songsJSON')
-    //   .then(res => res.text())          // convert to plain text
-    //   .then(text => console.log(text))  // then log it out
-
-    .then(
-        function (response) {
-            if (response.status !== 200) {
-                console.log('Looks like there was a problem. Status Code: ' +
-                    response.status);
-                return;
-            }
-
-            // Examine the text in the response
-            response.json()
-                .then(function (songsJSArray) {
-                    // songsJSObject.forEach(song){
-
-                    // }
-                    //var songsObject = JSON.parse(songsJSON);
-                    //console.log(songsJSArray);
-
-                    const filteredArray = songsJSArray.filter(element => element.type == "song");
-                    console.log("Filtered Array" + filteredArray); // [{x:300}] 
-
-
-                    var songsResult = filteredArray.map(element => mappingFunction(element));
-                    console.log("New Songs Object:" + JSON.stringify(songs));
-                    console.log("Old Songs Object: " + JSON.stringify(oldSongs));
-                    // var newSongsArray = {};
-                    // function createSongsArray(item) {
-                    //     if item["type"]
-                    //     let title = item.sum += item;
-                    //     document.getElementById("demo").innerHTML = sum;
-                    //     };
-
-                    // numbers.forEach(createSongsArray);
-
-
-
-
-                    // var songsJSON = JSON.stringify(songsJSArray);
-                    // console.log(JSON.stringify(songsJSON));
-                    return songsResult;
-                }
-
-                )
-                .then(function (finalSongsResult) {
-                    createSongsDiv(finalSongsResult)
-                })
-
-                ;
-        }
-    )
-    //.then (createSongsDiv(songs))
-    .catch(function (err) {
-        console.log('Fetch Error :-S', err);
-    });
-
 function createSongsDiv(songs) {
     document.getElementById('songs-header').innerHTML = songsHeader;
     document.getElementById('songs-blurb').innerHTML = songsBlurb.italics();
-
     var genreArrays = new Array;
     for (var o in songs) {
         genreArrays.push(songs[o].genreTags);
@@ -352,28 +287,21 @@ function createSongsDiv(songs) {
     var genres = (genreArrays.flat([1]));
     var uniqueGenres = genres.filter(onlyUnique);
     var genresWithSongs = [];
-    //var manyMore = [];
     uniqueGenres.forEach(function (genre) {
         var songsInGenre = [];
         songs.forEach(function (song) {
             if (song.genreTags.includes(genre)) {
                 songsInGenre.push(song);
-                //console.log(song);
             };
         });
-        // if (genre.songs)
-
         genresWithSongs.push({ genre: genre, songs: songsInGenre });
-        //  genresWithSongs.push({genre : "And Many More" , songs : manyMore});
     });
 
     var marquees = document.getElementsByClassName("song-swimlane");
-    //var marquee = marquees[0];
     console.log("Song swimlanes: " + marquees.length)
     var genreCount = genresWithSongs.length;
     var i = 0;
     var n = 0;
-    //var andManyMore = new Array;
     for (i = 0; i < genreCount; i++) {
         const genreObject = genresWithSongs[i];
         const songCount = genreObject.songs.length;
@@ -381,19 +309,36 @@ function createSongsDiv(songs) {
             var marquee = marquees[n % 3];
             n++;
             var genreSongDiv = constructGenreSongDiv(genreObject.genre, genreObject.songs);
-            //genreSongDiv
             marquee.appendChild(genreSongDiv);
         };
-        //     else{
-        //         andManyMore.push(genreObject.songs);
-        //     };
     };
-    // const manyMoreCount = andManyMore.length;
-    // if (manyMoreCount >= minimumSongQty){
-    //     var marquee = marquees[n%3]
-    //     var genreSongDiv = constructGenreSongDiv("And Many More...", andManyMore);   
-    //     marquee.appendChild(genreSongDiv);          
-    // };  
     animateSongList();
-
 };
+
+//Body
+
+fetch('/songsJSON')
+    .then(
+        function (response) {
+            if (response.status !== 200) {
+                console.log('Looks like there was a problem. Status Code: ' +
+                    response.status);
+                return;
+            }
+            response.json()
+                .then(function (songsJSArray) {
+                    const filteredArray = songsJSArray.filter(element => element.type == "song");
+                    console.log("Filtered Array" + filteredArray); 
+                    var songsResult = filteredArray.map(element => mappingFunction(element));
+                    console.log("New Songs Object:" + JSON.stringify(songs));
+                    console.log("Old Songs Object: " + JSON.stringify(oldSongs));
+                    return songsResult;
+                })
+                .then(function (finalSongsResult) {
+                    createSongsDiv(finalSongsResult)
+                });
+        })
+    .catch(function (err) {
+        console.log('Fetch Error :-S', err);
+    });
+

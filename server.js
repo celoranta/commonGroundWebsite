@@ -166,12 +166,8 @@ app.post('', function (req, res) {
   });
 });
 
-
 //RETRIEVE AND SAVE SONG LIST
 
-
-
-//public/objects/songsList.json;
 function updateSongsList(){
   console.log('Updating Songs List to Server');
   fetch(songsUrl, settings)
@@ -183,10 +179,8 @@ function updateSongsList(){
   });
 };
 
-updateSongsList();
-
-
-setInterval(updateSongsList, 60000);
+updateSongsList(); //Once Now
+setInterval(updateSongsList, 60000); //And once every X milliseconds
 
 // 404
 app.use(function (req, res, next) {
