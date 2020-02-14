@@ -1,7 +1,12 @@
+
+
+
 /*! getEmPixels  | Author: Tyson Matanich (http://matanich.com), 2013 | License: MIT */
 (function (document, documentElement) {
     // Enable strict mode
     "use strict";
+
+
 
     // Form the style on the fly to result in smaller minified file
     var important = "!important;";
@@ -41,6 +46,7 @@
 }(document, document.documentElement));
 
 
+//let storageManager = require("/storage-manager.js");
 
 // const song = {
 //     title: 'default',
@@ -156,13 +162,16 @@ var songs = [
 {title: 'You Might Think', genreTags: ['New Wave', 'Classic Rock']}
 ];
 
-const minimumSongQty = 3;
+const minimumSongQty = 4;
 const songsHeader = "SONGS";
 const songsBlurb = "Common Ground is not a genre band.  " +
 "If it moves your feet, Common Ground plays it. Wilson Pickett?  Luke Bryant?  Daft Punk?  " +
 "Taylor Swift?  No problem."
 
 //Functions
+
+
+
 function onlyUnique(value, index, self) { 
     return self.indexOf(value) === index;
 }
@@ -214,7 +223,6 @@ function constructGenreSongDiv(genre, songs) {
         songListContainer.appendChild(bottomFader);
 
         //songListContainer.innerHTML = " "; //to allow for use of em sizing in css
-        
         // songList.innerHTML+=song.title + "<br>";
     });
     };
@@ -224,17 +232,76 @@ function constructGenreSongDiv(genre, songs) {
     var listHeight = songs.length;
     console.log("List Height:" + listHeight);
     songListContainer.setAttribute('style',"height:" + (listHeight) + "em");
-
     minorMarquee.appendChild(genreHeader);
-
     minorMarquee.appendChild(songListContainer);
-
-
     return minorMarquee;
 }
 
 
-//Body
+
+// polyfill --- Amimate Scrolling Lists
+function animateSongList(){
+    window.requestAnimationFrame = (function(){
+        return  window.requestAnimationFrame       ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame    ||
+                function( callback ){
+                  window.setTimeout(callback, 1000 / 60);
+                };
+      })();
+      
+      var speed = 2500;
+      (function songSlide(){
+          var listItemHeight = $('.slideItem:first-child').outerHeight();
+          $(".slideContainer").animate({marginTop:-listItemHeight},speed, 'linear', function(){
+                      $(this).css({marginTop:0}).find("li:last").after($(this).find("li:first"));
+              });
+              requestAnimationFrame(songSlide);
+      })();
+    };
+    
+    function tsvJSON(tsv) {
+        const lines = tsv.split('\n');
+        const headers = lines.slice(0, 1)[0].split('\t');
+        return lines.slice(1, lines.length).map(line => {
+          const data = line.split('\t');
+          return headers.reduce((obj, nextKey, index) => {
+            obj[nextKey] = data[index];
+            return obj;
+          }, {});
+        });
+      };
+
+  //Body
+
+  fetch('/songsJSON')
+//   .then(res => res.text())          // convert to plain text
+//   .then(text => console.log(text))  // then log it out
+
+  .then(
+    function(response) {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
+      }
+      
+      // Examine the text in the response
+      response.json().then(function(songsJSObject) {
+        // songsJSObject.forEach(song){
+            
+        // }
+        //var songsObject = JSON.parse(songsJSON);
+        console.log(songsJSObject);
+        var songsJSON = JSON.stringify(songsJSObject);
+        console.log(JSON.stringify(songsJSON));
+      });
+    }
+  )
+  .catch(function(err) {
+    console.log('Fetch Error :-S', err);
+  });
+
 document.getElementById('songs-header').innerHTML = songsHeader;
 document.getElementById('songs-blurb').innerHTML = songsBlurb.italics();
 
@@ -287,38 +354,5 @@ for(i=0; i < genreCount; i++){
 //     var genreSongDiv = constructGenreSongDiv("And Many More...", andManyMore);   
 //     marquee.appendChild(genreSongDiv);          
 // };  
-animateSongList()
-// polyfill --- Amimate Scrolling Lists
-function animateSongList(){
-window.requestAnimationFrame = (function(){
-    return  window.requestAnimationFrame       ||
-            window.webkitRequestAnimationFrame ||
-            window.mozRequestAnimationFrame    ||
-            function( callback ){
-              window.setTimeout(callback, 1000 / 60);
-            };
-  })();
-  
-  var speed = 2500;
-  (function songSlide(){
-      var listItemHeight = $('.slideItem:first-child').outerHeight();
-      $(".slideContainer").animate({marginTop:-listItemHeight},speed, 'linear', function(){
-                  $(this).css({marginTop:0}).find("li:last").after($(this).find("li:first"));
-          });
-          requestAnimationFrame(songSlide);
-  })();
-};
-
-function tsvJSON(tsv) {
-    const lines = tsv.split('\n');
-    const headers = lines.slice(0, 1)[0].split('\t');
-    return lines.slice(1, lines.length).map(line => {
-      const data = line.split('\t');
-      return headers.reduce((obj, nextKey, index) => {
-        obj[nextKey] = data[index];
-        return obj;
-      }, {});
-    });
-  };
-  
+animateSongList();
 

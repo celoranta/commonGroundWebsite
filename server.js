@@ -9,6 +9,11 @@ const nodemailer = require('nodemailer');
 var cors = require('cors');
 /*database = */require('dotenv').config();
 
+
+//FOR GETTING SONG LIST
+const fetch = require('node-fetch');
+
+
 //Include custom frameworks
 var dbMgr = require('./database-manager.js');
 var storMgr = require('./storage-manager.js');
@@ -16,6 +21,13 @@ var storMgr = require('./storage-manager.js');
 //Assign constants
 const hostname = "localhost";
 const imageTable = "Images2";
+
+
+//VARS FOR GETTING SONG LIST
+let songsUrl = "https://www.bandhelper.com/feed/smart_list/9PSR83/23856";
+let settings = {method: "Get"};
+
+
 
 //Instantiate managers
 var app = express();
@@ -41,6 +53,9 @@ var temperror = path.join(__dirname + '/views/temp-error.html');
 var tempsuccess = path.join(__dirname + '/views/temp-success.html');
 var slideshowBackend = path.join(__dirname + '/views/slideshow-backend.html');
 var imagesPage = path.join(__dirname + '/views/images.html');
+var songsJSON = path.join(__dirname + '/public/objects/songsList.json');
+var favicon = path.join(__dirname + '/public/images/rockHand.jpg');
+//var songsList = path.join(publicFolder + '/songsLists/songList.json');
 
 //Static Routes
 app.use(express.static(publicFolder));
@@ -76,6 +91,12 @@ app.get('/slideshow-backend', (req, res) => {
 });
 app.get('/images', (req, res) => {
   res.sendFile(imagesPage);
+});
+app.get('/favicon', (req, res) => {
+  res.sendFile(favicon);
+});
+app.get('/songsJSON', (req, res) => {
+  res.sendFile(songsJSON);
 });
 app.get('/api/images/:id', (req, res) => {
   res = setCorsHeaders(res);
@@ -144,6 +165,18 @@ app.post('', function (req, res) {
     }
   });
 });
+
+
+//RETRIEVE AND SAVE SONG LIST
+
+//public/objects/songsList.json;
+fetch(songsUrl, settings)
+  .then(res => res.json())
+  .then((json) => {
+    let songData = JSON.stringify(json);
+    fs.writeFileSync('public/objects/songsList.json', songData);
+
+  });
 
 // 404
 app.use(function (req, res, next) {

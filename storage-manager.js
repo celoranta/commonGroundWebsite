@@ -141,11 +141,18 @@ async function createValuesString(bucketId) {
     return imageDbValues;
 };
 
+function songsJSON() {
+    var content = fs.readFileSync("public/objects/songsList.json");
+    return content;
+};
+
 const sMexports = {
     getFileUrl: getFileUrl
 }
 
-module.exports = sMexports
+module.exports.something = sMexports;
+module.exports.songsJSON = songsJSON;
+
 
 // function createDownloadUrl() {
 //     var urlString = "";
