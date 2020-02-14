@@ -227,7 +227,6 @@ fetch('/songsJSON')
                     console.log("Filtered Array" + filteredArray); 
                     var songsResult = filteredArray.map(element => mappingFunction(element));
                     console.log("New Songs Object:" + JSON.stringify(songs));
-                    console.log("Old Songs Object: " + JSON.stringify(oldSongs));
                     return songsResult;
                 })
                 .then(function (finalSongsResult) {
