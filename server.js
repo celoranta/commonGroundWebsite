@@ -168,6 +168,10 @@ app.post('', function (req, res) {
 
 //RETRIEVE AND SAVE SONG LIST
 
+function minToMs(minutes){
+  return minutes*1000*60;
+};
+
 function updateSongsList(){
   console.log('Updating Songs List to Server');
   fetch(songsUrl, settings)
@@ -180,7 +184,7 @@ function updateSongsList(){
 };
 
 updateSongsList(); //Once Now
-setInterval(updateSongsList, 60000); //And once every X milliseconds
+setInterval(updateSongsList, minToMs(15)); //And once every X milliseconds
 
 // 404
 app.use(function (req, res, next) {
