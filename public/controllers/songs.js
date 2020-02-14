@@ -162,7 +162,7 @@ var oldSongs = [
     { title: 'You Might Think', genreTags: ['New Wave', 'Classic Rock'] }
 ];
 
-const minimumSongQty = 1;
+const minimumSongQty = 5;
 const songsHeader = "SONGS";
 const songsBlurb = "Common Ground is not a genre band.  " +
     "If it moves your feet, Common Ground plays it. Wilson Pickett?  Luke Bryant?  Daft Punk?  " +
@@ -229,7 +229,8 @@ function constructGenreSongDiv(genre, songs) {
     };
     //songList.appendChild(songList);
 
-    var listHeight = songs.length;
+    // var listHeight = songs.length;
+    var listHeight = minimumSongQty+3;
     console.log("List Height:" + listHeight);
     songListContainer.setAttribute('style', "height:" + (listHeight) + "em");
     minorMarquee.appendChild(genreHeader);
