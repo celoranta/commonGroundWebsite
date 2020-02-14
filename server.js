@@ -54,7 +54,7 @@ var tempsuccess = path.join(__dirname + '/views/temp-success.html');
 var slideshowBackend = path.join(__dirname + '/views/slideshow-backend.html');
 var imagesPage = path.join(__dirname + '/views/images.html');
 var songsJSON = path.join(__dirname + '/public/objects/songsList.json');
-var favicon = path.join(__dirname + '/public/images/rockHand.jpg');
+// var favicon = path.join(__dirname + '/public/images/rockHand.jpg');
 //var songsList = path.join(publicFolder + '/songsLists/songList.json');
 
 //Static Routes
@@ -92,9 +92,9 @@ app.get('/slideshow-backend', (req, res) => {
 app.get('/images', (req, res) => {
   res.sendFile(imagesPage);
 });
-app.get('/favicon.ico', (req, res) => {
-  res.sendFile(favicon);
-});
+// app.get('/favicon.ico', (req, res) => {
+//   res.sendFile(favicon);
+// });
 app.get('/songsJSON', (req, res) => {
   res.sendFile(songsJSON);
 });
