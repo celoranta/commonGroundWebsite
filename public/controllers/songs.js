@@ -87,104 +87,104 @@
 // console.log(songsJSONString);
 // //var songsObject = JSON.parse(songsJSON);
 
-
-var songs = [
-{title: 'Springsteen' , genreTags: ['country']},
-{title: 'Mustang Sally' , genreTags: ['motown']},
-{title: 'Cake by the Ocean',  genreTags: ['dance pop']},
-// {title: 'Locked out of Heaven',  genreTags : ['motown', 'dance pop']},
-{title: 'Tell me Baby',  genreTags : [ 'funk rock', 'alternative']},
-{title: 'Pump it Up',  genreTags : [ 'new wave']},
-{title: 'Summer of 69',  genreTags : [   'anthems', 'heartland rock']},
-{title: 'Listen to the Music',  genreTags : ['roots rock']},
-// {title: 'I Wish',  genreTags: ['soul', 'motown']},
-{title: 'Learn to Fly', genreTags: [ 'alternative']},
-{title: 'Cold Shot', genreTags: ['blues' ]},
-{title: 'Fast as You', genreTags: ['country']},
-{title: 'Blue On Black', genreTags: ['blues rock' ]},
-{title: 'Pride and Joy', genreTags: ['blues' ]},
-// {title: 'Tightrope', genreTags: ['blues']},
-{title: 'Dani California', genreTags: [ 'funk rock', 'alternative']},
-{title: 'The Weight', genreTags: ['roots rock', 'southern rock']},
-// {title: 'One Headlight', genreTags: ['alternative', '90\'s']},
-{title: 'Superstition', genreTags: ['soul', 'motown', 'funk']},
-{title: '(Let Me Stand Next to Your) Fire' , genreTags: ['roots rock']},
-{title: 'Brown Eyed Girl', genreTags: [ 'oldies']},
-{title: 'Ocean Pearl', genreTags: [ 'canadiana', 'alternative']},
-{title: 'New Orleans is Sinking', genreTags: ['canadiana']},
-{title: 'Poets', genreTags: [   'canadiana', 'alternative']},
-{title: 'Get Ready', genreTags: ['soul', 'oldies']},
-{title: 'Mary Jane\'s Last Dance', genreTags: ['heartland rock']},
-{title: 'Drink in my Hand', genreTags: ['country']},
-{title: 'Pink Cadillac', genreTags: [  'heartland rock']},
-// {title: 'Little Bones', genreTags: ['canadiana']},
-{title: 'Hard to Handle', genreTags: ['southern rock', 'jam band', 'blues rock']},
-{title: 'Lonely Boy', genreTags: ['garage rock', 'indie rock']},
-{title: 'Gold on the Ceiling', genreTags: ['garage rock', 'indie rock']},
-{title: 'Long Train Runnin\'', genreTags: ['roots rock']},
-{title: 'Miss You', genreTags: ['disco rock']},
-{title: 'All Summer Long', genreTags: ['southern rock']},
-{title: 'My Kind of Night', genreTags: ['country']},
-{title: 'Boys Round Here', genreTags: ['country']},
-{title: 'Country Girl (Shake it for Me)', genreTags: ['country']},
-// {title: 'Little Sister', genreTags: ['country']},
-{title: 'Folsom Prison Blues', genreTags: ['country']},
-{title: 'Play that Funky Music', genreTags: ['funk']},
-{title: 'Keep on Rocking in the Free World', genreTags: ['anthems']},
-{title: 'Another Brick in the Wall', genreTags: ['anthems']},
-// {title: 'Mony Mony', genreTags: ['anthems']},
-{title: 'Sweet Caroline', genreTags: ['anthems']},
-{title: 'Cinnamon Girl', genreTags: ['anthems', 'roots rock']},
-{title: 'Keep your Hands to Yourself', genreTags: ['southern rock']},
-{title: 'Moves Like Jagger', genreTags: ['dance pop']},
-// {title: 'Cosmic Girl', genreTags: ['dance pop', 'disco rock']},
-{title: 'Saw Her Standing There', genreTags: ['british invasion', 'Rock & Roll']},
-{title: 'Hey Ya', genreTags: 'dance pop'},
-{title: 'Sharp Dressed Man', genreTags: ['classic rock']},
-{title: 'Green River', genreTags: ['southern rock', 'classic rock']},
-{title: 'Gimme all your Lovin', genreTags: ['classic rock', 'southern rock']},
-{title: 'Counting Stars', genreTags: ['modern rock', 'dance rock']},
-{title: 'Love Runs Out', genreTags: ['modern rock', 'dance rock']},
-{title: 'Thinking Out Loud', genreTags: ['pop', 'ballads']},
-{title: 'Shape of You', genreTags: ['pop', 'dance pop']},
-{title: 'Sweet Child \'O Mine', genreTags: ['anthems', '80\'s rock', 'hair metal']},
-{title: 'Happy', genreTags: ['pop']},
-{title: 'Forget You', genreTags: ['pop']},
-{title: 'Get Lucky', genreTags: ['pop', 'dance pop', 'disco', 'funk']},
-{title: 'Wild Night', genreTags: ['classic rock']},
-{title: 'Rock\'n Me', genreTags: ['classic rock']},
-{title: 'White Wedding', genreTags: ['80\'s rock', 'anthems']},
-{title: 'Satisfaction', genreTags: ['classic rock']},
-{title: 'Sucker', genreTags: ['pop', 'dance pop']},
-{title: 'Only Human', genreTags: ['pop', 'dance pop']},
-{title: 'Super Freak', genreTags: ['funk']},
-{title: 'Mr. Brightside', genreTags: ['modern rock', 'dance rock']},
-{title: 'You Might Think', genreTags: ['New Wave', 'Classic Rock']}
+var songs = [{ title: 'Springsteen', genreTags: ['country'] }];
+var oldSongs = [
+    { title: 'Springsteen', genreTags: ['country'] },
+    { title: 'Mustang Sally', genreTags: ['motown'] },
+    { title: 'Cake by the Ocean', genreTags: ['dance pop'] },
+    // {title: 'Locked out of Heaven',  genreTags : ['motown', 'dance pop']},
+    { title: 'Tell me Baby', genreTags: ['funk rock', 'alternative'] },
+    { title: 'Pump it Up', genreTags: ['new wave'] },
+    { title: 'Summer of 69', genreTags: ['anthems', 'heartland rock'] },
+    { title: 'Listen to the Music', genreTags: ['roots rock'] },
+    // {title: 'I Wish',  genreTags: ['soul', 'motown']},
+    { title: 'Learn to Fly', genreTags: ['alternative'] },
+    { title: 'Cold Shot', genreTags: ['blues'] },
+    { title: 'Fast as You', genreTags: ['country'] },
+    { title: 'Blue On Black', genreTags: ['blues rock'] },
+    { title: 'Pride and Joy', genreTags: ['blues'] },
+    // {title: 'Tightrope', genreTags: ['blues']},
+    { title: 'Dani California', genreTags: ['funk rock', 'alternative'] },
+    { title: 'The Weight', genreTags: ['roots rock', 'southern rock'] },
+    // {title: 'One Headlight', genreTags: ['alternative', '90\'s']},
+    { title: 'Superstition', genreTags: ['soul', 'motown', 'funk'] },
+    { title: '(Let Me Stand Next to Your) Fire', genreTags: ['roots rock'] },
+    { title: 'Brown Eyed Girl', genreTags: ['oldies'] },
+    { title: 'Ocean Pearl', genreTags: ['canadiana', 'alternative'] },
+    { title: 'New Orleans is Sinking', genreTags: ['canadiana'] },
+    { title: 'Poets', genreTags: ['canadiana', 'alternative'] },
+    { title: 'Get Ready', genreTags: ['soul', 'oldies'] },
+    { title: 'Mary Jane\'s Last Dance', genreTags: ['heartland rock'] },
+    { title: 'Drink in my Hand', genreTags: ['country'] },
+    { title: 'Pink Cadillac', genreTags: ['heartland rock'] },
+    // {title: 'Little Bones', genreTags: ['canadiana']},
+    { title: 'Hard to Handle', genreTags: ['southern rock', 'jam band', 'blues rock'] },
+    { title: 'Lonely Boy', genreTags: ['garage rock', 'indie rock'] },
+    { title: 'Gold on the Ceiling', genreTags: ['garage rock', 'indie rock'] },
+    { title: 'Long Train Runnin\'', genreTags: ['roots rock'] },
+    { title: 'Miss You', genreTags: ['disco rock'] },
+    { title: 'All Summer Long', genreTags: ['southern rock'] },
+    { title: 'My Kind of Night', genreTags: ['country'] },
+    { title: 'Boys Round Here', genreTags: ['country'] },
+    { title: 'Country Girl (Shake it for Me)', genreTags: ['country'] },
+    // {title: 'Little Sister', genreTags: ['country']},
+    { title: 'Folsom Prison Blues', genreTags: ['country'] },
+    { title: 'Play that Funky Music', genreTags: ['funk'] },
+    { title: 'Keep on Rocking in the Free World', genreTags: ['anthems'] },
+    { title: 'Another Brick in the Wall', genreTags: ['anthems'] },
+    // {title: 'Mony Mony', genreTags: ['anthems']},
+    { title: 'Sweet Caroline', genreTags: ['anthems'] },
+    { title: 'Cinnamon Girl', genreTags: ['anthems', 'roots rock'] },
+    { title: 'Keep your Hands to Yourself', genreTags: ['southern rock'] },
+    { title: 'Moves Like Jagger', genreTags: ['dance pop'] },
+    // {title: 'Cosmic Girl', genreTags: ['dance pop', 'disco rock']},
+    { title: 'Saw Her Standing There', genreTags: ['british invasion', 'Rock & Roll'] },
+    { title: 'Hey Ya', genreTags: 'dance pop' },
+    { title: 'Sharp Dressed Man', genreTags: ['classic rock'] },
+    { title: 'Green River', genreTags: ['southern rock', 'classic rock'] },
+    { title: 'Gimme all your Lovin', genreTags: ['classic rock', 'southern rock'] },
+    { title: 'Counting Stars', genreTags: ['modern rock', 'dance rock'] },
+    { title: 'Love Runs Out', genreTags: ['modern rock', 'dance rock'] },
+    { title: 'Thinking Out Loud', genreTags: ['pop', 'ballads'] },
+    { title: 'Shape of You', genreTags: ['pop', 'dance pop'] },
+    { title: 'Sweet Child \'O Mine', genreTags: ['anthems', '80\'s rock', 'hair metal'] },
+    { title: 'Happy', genreTags: ['pop'] },
+    { title: 'Forget You', genreTags: ['pop'] },
+    { title: 'Get Lucky', genreTags: ['pop', 'dance pop', 'disco', 'funk'] },
+    { title: 'Wild Night', genreTags: ['classic rock'] },
+    { title: 'Rock\'n Me', genreTags: ['classic rock'] },
+    { title: 'White Wedding', genreTags: ['80\'s rock', 'anthems'] },
+    { title: 'Satisfaction', genreTags: ['classic rock'] },
+    { title: 'Sucker', genreTags: ['pop', 'dance pop'] },
+    { title: 'Only Human', genreTags: ['pop', 'dance pop'] },
+    { title: 'Super Freak', genreTags: ['funk'] },
+    { title: 'Mr. Brightside', genreTags: ['modern rock', 'dance rock'] },
+    { title: 'You Might Think', genreTags: ['New Wave', 'Classic Rock'] }
 ];
 
-const minimumSongQty = 4;
+const minimumSongQty = 1;
 const songsHeader = "SONGS";
 const songsBlurb = "Common Ground is not a genre band.  " +
-"If it moves your feet, Common Ground plays it. Wilson Pickett?  Luke Bryant?  Daft Punk?  " +
-"Taylor Swift?  No problem."
+    "If it moves your feet, Common Ground plays it. Wilson Pickett?  Luke Bryant?  Daft Punk?  " +
+    "Taylor Swift?  No problem."
 
 //Functions
 
 
 
-function onlyUnique(value, index, self) { 
+function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
 }
 
 function checkSongGenre(song) {
-  song.genre == 'motown';
+    song.genre == 'motown';
 }
 
 Object.defineProperty(Array.prototype, 'flat', {
-    value: function(depth = 1) {
-      return this.reduce(function (flat, toFlatten) {
-        return flat.concat((Array.isArray(toFlatten) && (depth-1)) ? toFlatten.flat(depth-1) : toFlatten);
-      }, []);
+    value: function (depth = 1) {
+        return this.reduce(function (flat, toFlatten) {
+            return flat.concat((Array.isArray(toFlatten) && (depth - 1)) ? toFlatten.flat(depth - 1) : toFlatten);
+        }, []);
     }
 });
 
@@ -206,32 +206,32 @@ function constructGenreSongDiv(genre, songs) {
     songList.setAttribute('class', 'slider-list');
 
 
-    songList.className+=" song-container slideContainer";
-    if (Array.isArray(songs)){
+    songList.className += " song-container slideContainer";
+    if (Array.isArray(songs)) {
         var i = 0;
-        for (i=0; i <= 0; i++){
-    songs.forEach(function(song){
-        var songItem = document.createElement('li');
-        songItem.setAttribute('class', 'slider-list-item');
-        songItem.className+=' slideItem';
-        //songItem.setAttribute('class', 'slideItem')
-        songItem.innerHTML = song.title;
-        songList.appendChild(songItem);
-     
-        songListContainer.appendChild(songList);
-        songListContainer.appendChild(topFader);
-        songListContainer.appendChild(bottomFader);
+        for (i = 0; i <= 0; i++) {
+            songs.forEach(function (song) {
+                var songItem = document.createElement('li');
+                songItem.setAttribute('class', 'slider-list-item');
+                songItem.className += ' slideItem';
+                //songItem.setAttribute('class', 'slideItem')
+                songItem.innerHTML = song.title;
+                songList.appendChild(songItem);
 
-        //songListContainer.innerHTML = " "; //to allow for use of em sizing in css
-        // songList.innerHTML+=song.title + "<br>";
-    });
-    };
+                songListContainer.appendChild(songList);
+                songListContainer.appendChild(topFader);
+                songListContainer.appendChild(bottomFader);
+
+                //songListContainer.innerHTML = " "; //to allow for use of em sizing in css
+                // songList.innerHTML+=song.title + "<br>";
+            });
+        };
     };
     //songList.appendChild(songList);
 
     var listHeight = songs.length;
     console.log("List Height:" + listHeight);
-    songListContainer.setAttribute('style',"height:" + (listHeight) + "em");
+    songListContainer.setAttribute('style', "height:" + (listHeight) + "em");
     minorMarquee.appendChild(genreHeader);
     minorMarquee.appendChild(songListContainer);
     return minorMarquee;
@@ -240,119 +240,159 @@ function constructGenreSongDiv(genre, songs) {
 
 
 // polyfill --- Amimate Scrolling Lists
-function animateSongList(){
-    window.requestAnimationFrame = (function(){
-        return  window.requestAnimationFrame       ||
-                window.webkitRequestAnimationFrame ||
-                window.mozRequestAnimationFrame    ||
-                function( callback ){
-                  window.setTimeout(callback, 1000 / 60);
-                };
-      })();
-      
-      var speed = 2500;
-      (function songSlide(){
-          var listItemHeight = $('.slideItem:first-child').outerHeight();
-          $(".slideContainer").animate({marginTop:-listItemHeight},speed, 'linear', function(){
-                      $(this).css({marginTop:0}).find("li:last").after($(this).find("li:first"));
-              });
-              requestAnimationFrame(songSlide);
-      })();
-    };
-    
-    function tsvJSON(tsv) {
-        const lines = tsv.split('\n');
-        const headers = lines.slice(0, 1)[0].split('\t');
-        return lines.slice(1, lines.length).map(line => {
-          const data = line.split('\t');
-          return headers.reduce((obj, nextKey, index) => {
+function animateSongList() {
+    window.requestAnimationFrame = (function () {
+        return window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            function (callback) {
+                window.setTimeout(callback, 1000 / 60);
+            };
+    })();
+
+    var speed = 2500;
+    (function songSlide() {
+        var listItemHeight = $('.slideItem:first-child').outerHeight();
+        $(".slideContainer").animate({ marginTop: -listItemHeight }, speed, 'linear', function () {
+            $(this).css({ marginTop: 0 }).find("li:last").after($(this).find("li:first"));
+        });
+        requestAnimationFrame(songSlide);
+    })();
+};
+
+function tsvJSON(tsv) {
+    const lines = tsv.split('\n');
+    const headers = lines.slice(0, 1)[0].split('\t');
+    return lines.slice(1, lines.length).map(line => {
+        const data = line.split('\t');
+        return headers.reduce((obj, nextKey, index) => {
             obj[nextKey] = data[index];
             return obj;
-          }, {});
-        });
-      };
-
-  //Body
-
-  fetch('/songsJSON')
-//   .then(res => res.text())          // convert to plain text
-//   .then(text => console.log(text))  // then log it out
-
-  .then(
-    function(response) {
-      if (response.status !== 200) {
-        console.log('Looks like there was a problem. Status Code: ' +
-          response.status);
-        return;
-      }
-      
-      // Examine the text in the response
-      response.json().then(function(songsJSObject) {
-        // songsJSObject.forEach(song){
-            
-        // }
-        //var songsObject = JSON.parse(songsJSON);
-        console.log(songsJSObject);
-        var songsJSON = JSON.stringify(songsJSObject);
-        console.log(JSON.stringify(songsJSON));
-      });
-    }
-  )
-  .catch(function(err) {
-    console.log('Fetch Error :-S', err);
-  });
-
-document.getElementById('songs-header').innerHTML = songsHeader;
-document.getElementById('songs-blurb').innerHTML = songsBlurb.italics();
-
-var genreArrays = new Array;
-for(var o in songs) {
-    genreArrays.push(songs[o].genreTags);
-};
-var genres = (genreArrays.flat([1])); 
-var uniqueGenres = genres.filter( onlyUnique );
-var genresWithSongs = [];
-//var manyMore = [];
-uniqueGenres.forEach(function(genre){
-    var songsInGenre = [];
-    songs.forEach(function(song){
-        if (song.genreTags.includes(genre)) {
-            songsInGenre.push(song);
-            //console.log(song);
-        };
+        }, {});
     });
-   // if (genre.songs)
+};
 
-    genresWithSongs.push({genre : genre , songs :  songsInGenre});
-  //  genresWithSongs.push({genre : "And Many More" , songs : manyMore});
-});
-
-var marquees = document.getElementsByClassName("song-swimlane");
-//var marquee = marquees[0];
-console.log("Song swimlanes: " + marquees.length)
-var genreCount = genresWithSongs.length;
-var i=0;
-var n=0;
-//var andManyMore = new Array;
-for(i=0; i < genreCount; i++){
-    const genreObject = genresWithSongs[i];
-    const songCount = genreObject.songs.length;
-    if (songCount >= minimumSongQty) {
-        var marquee = marquees[n%3];
-        n++;
-       var genreSongDiv = constructGenreSongDiv(genreObject.genre, genreObject.songs);
-        //genreSongDiv
-        marquee.appendChild(genreSongDiv);
+function mappingFunction(element) {
+    var songObject = {
+        title: element.name,
+        genreTags: element.custom_gqGyg9
     };
-//     else{
-//         andManyMore.push(genreObject.songs);
-//     };
- };
-// const manyMoreCount = andManyMore.length;
-// if (manyMoreCount >= minimumSongQty){
-//     var marquee = marquees[n%3]
-//     var genreSongDiv = constructGenreSongDiv("And Many More...", andManyMore);   
-//     marquee.appendChild(genreSongDiv);          
-// };  
-animateSongList();
+    return songObject;
+};
 
+//Body
+
+fetch('/songsJSON')
+    //   .then(res => res.text())          // convert to plain text
+    //   .then(text => console.log(text))  // then log it out
+
+    .then(
+        function (response) {
+            if (response.status !== 200) {
+                console.log('Looks like there was a problem. Status Code: ' +
+                    response.status);
+                return;
+            }
+
+            // Examine the text in the response
+            response.json()
+                .then(function (songsJSArray) {
+                    // songsJSObject.forEach(song){
+
+                    // }
+                    //var songsObject = JSON.parse(songsJSON);
+                    //console.log(songsJSArray);
+
+                    const filteredArray = songsJSArray.filter(element => element.type == "song");
+                    console.log("Filtered Array" + filteredArray); // [{x:300}] 
+
+
+                    var songsResult = filteredArray.map(element => mappingFunction(element));
+                    console.log("New Songs Object:" + JSON.stringify(songs));
+                    console.log("Old Songs Object: " + JSON.stringify(oldSongs));
+                    // var newSongsArray = {};
+                    // function createSongsArray(item) {
+                    //     if item["type"]
+                    //     let title = item.sum += item;
+                    //     document.getElementById("demo").innerHTML = sum;
+                    //     };
+
+                    // numbers.forEach(createSongsArray);
+
+
+
+
+                    // var songsJSON = JSON.stringify(songsJSArray);
+                    // console.log(JSON.stringify(songsJSON));
+                    return songsResult;
+                }
+
+                )
+                .then(function (finalSongsResult) {
+                    createSongsDiv(finalSongsResult)
+                })
+
+                ;
+        }
+    )
+    //.then (createSongsDiv(songs))
+    .catch(function (err) {
+        console.log('Fetch Error :-S', err);
+    });
+
+function createSongsDiv(songs) {
+    document.getElementById('songs-header').innerHTML = songsHeader;
+    document.getElementById('songs-blurb').innerHTML = songsBlurb.italics();
+
+    var genreArrays = new Array;
+    for (var o in songs) {
+        genreArrays.push(songs[o].genreTags);
+    };
+    var genres = (genreArrays.flat([1]));
+    var uniqueGenres = genres.filter(onlyUnique);
+    var genresWithSongs = [];
+    //var manyMore = [];
+    uniqueGenres.forEach(function (genre) {
+        var songsInGenre = [];
+        songs.forEach(function (song) {
+            if (song.genreTags.includes(genre)) {
+                songsInGenre.push(song);
+                //console.log(song);
+            };
+        });
+        // if (genre.songs)
+
+        genresWithSongs.push({ genre: genre, songs: songsInGenre });
+        //  genresWithSongs.push({genre : "And Many More" , songs : manyMore});
+    });
+
+    var marquees = document.getElementsByClassName("song-swimlane");
+    //var marquee = marquees[0];
+    console.log("Song swimlanes: " + marquees.length)
+    var genreCount = genresWithSongs.length;
+    var i = 0;
+    var n = 0;
+    //var andManyMore = new Array;
+    for (i = 0; i < genreCount; i++) {
+        const genreObject = genresWithSongs[i];
+        const songCount = genreObject.songs.length;
+        if (songCount >= minimumSongQty) {
+            var marquee = marquees[n % 3];
+            n++;
+            var genreSongDiv = constructGenreSongDiv(genreObject.genre, genreObject.songs);
+            //genreSongDiv
+            marquee.appendChild(genreSongDiv);
+        };
+        //     else{
+        //         andManyMore.push(genreObject.songs);
+        //     };
+    };
+    // const manyMoreCount = andManyMore.length;
+    // if (manyMoreCount >= minimumSongQty){
+    //     var marquee = marquees[n%3]
+    //     var genreSongDiv = constructGenreSongDiv("And Many More...", andManyMore);   
+    //     marquee.appendChild(genreSongDiv);          
+    // };  
+    animateSongList();
+
+};
