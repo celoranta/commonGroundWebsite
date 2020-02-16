@@ -250,42 +250,42 @@ const showList = [
 //     private: "false",
 //     confirmed: "true"
 // },
-{
-    venue: 'Newlands Golf & Country Club',
-    city: 'Langley, BC',
-    blurb: "",
-    venueImage: '/images/Newlands.jpg',
-    date: 'December 31, 2019 19:00:00 PST', 
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'Newlands Country Club',
-    city: 'Langley, BC',
-    blurb: "",
-    venueImage: '/images/Newlands.jpg',
-    date: 'January 18, 2020 19:30:00 PST', 
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The Admiral Pub',
-    city: 'Burnaby, BC',
-    blurb: "",
-    venueImage: '/images/admiral.jpg',
-    date: 'February 14, 2020 20:00:00 PST',  
-    private: "false",
-    confirmed: "true"
-},
-{
-    venue: 'The Admiral Pub',
-    city: 'Burnaby, BC',
-    blurb: "",
-    venueImage: '/images/admiral.jpg',
-    date: 'February 15, 2020 20:00:00 PST', 
-    private: "false",
-    confirmed: "true"
-},
+// {
+//     venue: 'Newlands Golf & Country Club',
+//     city: 'Langley, BC',
+//     blurb: "",
+//     venueImage: '/images/Newlands.jpg',
+//     date: 'December 31, 2019 19:00:00 PST', 
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'Newlands Country Club',
+//     city: 'Langley, BC',
+//     blurb: "",
+//     venueImage: '/images/Newlands.jpg',
+//     date: 'January 18, 2020 19:30:00 PST', 
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'The Admiral Pub',
+//     city: 'Burnaby, BC',
+//     blurb: "",
+//     venueImage: '/images/admiral.jpg',
+//     date: 'February 14, 2020 20:00:00 PST',  
+//     private: "false",
+//     confirmed: "true"
+// },
+// {
+//     venue: 'The Admiral Pub',
+//     city: 'Burnaby, BC',
+//     blurb: "",
+//     venueImage: '/images/admiral.jpg',
+//     date: 'February 15, 2020 20:00:00 PST', 
+//     private: "false",
+//     confirmed: "true"
+// },
 {
     venue: 'Frog and Nightgown Pub',
     city: 'Port Moody, BC',
@@ -468,14 +468,6 @@ bookUs.className += ' w3-button';
 if (status != 'Full Calendar'){
     bookUs.className+=' ' + buttonColor;
 }
-// itemSpan1.setAttribute('class', 'w3-tag');
-// itemSpan1.className += ' w3-margin-left';
-// itemSpan1.innerHTML = status;
-// itemSpan1.setAttribute('href', "#contact")
-// itemSpan1.className += ' w3-button';
-// if (status != 'Full Calendar'){
-//     itemSpan1.className+=' ' + buttonColor;
-// }
 
 var itemSpan2 = document.createElement('span');
 itemSpan2.setAttribute('class', 'w3-badge');
@@ -489,12 +481,6 @@ itemDiv.appendChild(itemSpan1);
 itemDiv.appendChild(itemSpan2);
 
 return itemDiv;
-{
-//List item examples from original template:    
-/* <li id="this-month" class="w3-padding">month <span class="w3-tag w3-margin-left">Full Calendar</span><span class="w3-badge w3-right w3-margin-right">2</span></li>
-<li id="next-month" class="w3-padding">month <span class="w3-tag w3-green w3-margin-left">Booking Now</span><span class="w3-badge w3-right w3-margin-right">0</span></li>
-<li id="two-months-hence" class="w3-padding">month <span class="w3-tag w3-green w3-margin-left">Booking Now</span><span class="w3-badge w3-right w3-margin-right">0</span></li>
-<!-- <li class="w3-padding">November <span class="w3-badge w3-right w3-margin-right">3</span></li> --> */}
 }
 
 function constructShowPromo() {
