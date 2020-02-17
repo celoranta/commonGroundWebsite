@@ -27,6 +27,11 @@ const imageTable = "Images2";
 let songsUrl = "https://www.bandhelper.com/feed/smart_list/9PSR83/23856";
 let settings = {method: "Get"};
 
+//VARS FOR GETTING SHOWS LIST
+let showsUrl = "https://www.bandhelper.com/feed/calendar/23856?range=6";
+
+
+
 
 
 //Instantiate managers
@@ -54,6 +59,7 @@ var tempsuccess = path.join(__dirname + '/views/temp-success.html');
 var slideshowBackend = path.join(__dirname + '/views/slideshow-backend.html');
 var imagesPage = path.join(__dirname + '/views/images.html');
 var songsJSON = path.join(__dirname + '/public/objects/songsList.json');
+var showsJSON = path.join(__dirname + '/public/objects/showsList.json');
 var favicon = path.join(__dirname + '/public/images/cgicon.ico');
 //var songsList = path.join(publicFolder + '/songsLists/songList.json');
 
@@ -97,6 +103,9 @@ app.get('/favicon.ico', (req, res) => {
 });
 app.get('/songsJSON', (req, res) => {
   res.sendFile(songsJSON);
+});
+app.get('/showsJSON', (req, res) => {
+  res.sendFile(showsJSON);
 });
 app.get('/api/images/:id', (req, res) => {
   res = setCorsHeaders(res);
@@ -183,8 +192,24 @@ function updateSongsList(){
   });
 };
 
+function updateShowsList(){
+  console.log('Updating Shows List to Server');
+  fetch(showsUrl, settings)
+  .then(res => res.json())
+  .then((json) => {
+    let showsData = JSON.stringify(json);
+    fs.writeFileSync('public/objects/showsList.json', showsData);
+
+  });
+};
+
+
+
+
 updateSongsList(); //Once Now
+updateShowsList();
 setInterval(updateSongsList, minToMs(15)); //And once every X milliseconds
+setInterval(updateShowsList, minToMs(15)); //And once every X milliseconds
 
 // 404
 app.use(function (req, res, next) {

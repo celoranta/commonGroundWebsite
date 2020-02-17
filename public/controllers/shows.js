@@ -539,7 +539,7 @@ function constructShowPromo() {
     subWrapperDiv.appendChild(locationBlock);
     subWrapperDiv.appendChild(dateDiv);
     subWrapperDiv.appendChild(blurbDiv);
-    //subWrapperDiv.appendChild(buttonDiv);
+    // subWrapperDiv.appendChild(buttonDiv);
     mainWrapperDiv.appendChild(subWrapperDiv);
     return mainWrapperDiv;
 };
