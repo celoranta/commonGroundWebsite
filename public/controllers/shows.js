@@ -610,4 +610,29 @@ for (i = 0; i < showsToPromo.length; i++) {
     var wrapperDiv = constructShowPromo(show);
     var container_block = document.getElementById('scheduled-shows');
     container_block.appendChild( wrapperDiv );
-}
+};
+
+fetch('/showsJSON')
+    .then(
+        function (response) {
+            if (response.status !== 200) {
+                console.log('Looks like there was a problem. Status Code: ' +
+                    response.status);
+                return;
+            }
+            response.json()
+                .then(function (showsJSArray) {
+                    //const filteredArray = showsJSArray.filter(element => element.type == "s");
+                    //console.log("Filtered Array" + filteredArray); 
+                    var showsResult = showsJSArray.map(element => mappingFunction(element));
+                    console.log("New Shows Object:" + JSON.stringify(showsResult));
+                    return showsResult;
+                })
+                // .then(function (finalSongsResult) {
+                //     createSongsDiv(finalSongsResult)
+                // });
+        })
+    .catch(function (err) {
+        console.log('Fetch Error :-S', err);
+    });
+
