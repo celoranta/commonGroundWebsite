@@ -309,7 +309,7 @@ const showList = [
     city: 'TBD',
     blurb: '',
     venueImage: '/images/proteinproject.jpg',
-    date: 'Apr 18, 2020 14:00:00 PST',  //faked for daylight savings
+    date: 'Apr 18, 2020 14:00:00 PDT',  //faked for daylight savings
     private: "false",
     confirmed: "true"
 },
@@ -318,7 +318,7 @@ const showList = [
     city: 'North Vancouver, BC',
     blurb: "",
     venueImage: '/images/Seymours.jpg',
-    date: 'Apr 24, 2020 20:00:00 PST',  //faked for daylight savings
+    date: 'Apr 24, 2020 20:00:00 PDT',  //faked for daylight savings
     private: "false",
     confirmed: "true"
 },
