@@ -314,6 +314,15 @@ const showList = [
     confirmed: "true"
 },
 {
+    venue: 'Seymour\'s Pub',
+    city: 'North Vancouver, BC',
+    blurb: "",
+    venueImage: '/images/Seymours.jpg',
+    date: 'Apr 24, 2020 20:00:00 PST',  //faked for daylight savings
+    private: "false",
+    confirmed: "true"
+},
+{
     venue: 'Frog and Nightgown Pub',
     city: 'Port Moody, BC',
     blurb: "",
