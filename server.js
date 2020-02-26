@@ -198,9 +198,6 @@ function updateShowsList(){
   });
 };
 
-
-
-
 updateSongsList(); //Once Now
 updateShowsList();
 setInterval(updateSongsList, minToMs(15)); //And once every X milliseconds
