@@ -25,7 +25,7 @@ const imageTable = "Images2";
 
 //VARS FOR GETTING SONG AND SHOW LIST
 let songsUrl = "https://www.bandhelper.com/feed/smart_list/9PSR83/23856";
-let eventsUrl = "https://www.bandhelper.com/feed/calendar/23856?range=12";
+let showsUrl = "https://www.bandhelper.com/feed/calendar/23856?range=12";
 let settings = {method: "Get"};
 
 
