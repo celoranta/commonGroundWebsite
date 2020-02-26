@@ -635,7 +635,7 @@ fetch('/showsJSON')
                     //console.log("Filtered Array" + filteredArray); 
                     //var showsResult = showsJSArray.map(element => mappingFunction(element));
                     console.log("New Shows Object:" + JSON.stringify(showsJSArray));
-                    return showsResult;
+                    return showsJSArray;
                 })
                 // .then(function (finalSongsResult) {
                 //     createSongsDiv(finalSongsResult)
