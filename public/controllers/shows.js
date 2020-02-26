@@ -633,8 +633,8 @@ fetch('/showsJSON')
                 .then(function (showsJSArray) {
                     //const filteredArray = showsJSArray.filter(element => element.type == "s");
                     //console.log("Filtered Array" + filteredArray); 
-                    var showsResult = showsJSArray.map(element => mappingFunction(element));
-                    console.log("New Shows Object:" + JSON.stringify(showsResult));
+                    //var showsResult = showsJSArray.map(element => mappingFunction(element));
+                    console.log("New Shows Object:" + JSON.stringify(showsJSArray));
                     return showsResult;
                 })
                 // .then(function (finalSongsResult) {
