@@ -10,7 +10,7 @@ var cors = require('cors');
 /*database = */require('dotenv').config();
 
 
-//FOR GETTING SONG LIST
+//FOR GETTING SONG / SHOW LISTS
 const fetch = require('node-fetch');
 
 
@@ -23,15 +23,10 @@ const hostname = "localhost";
 const imageTable = "Images2";
 
 
-//VARS FOR GETTING SONG LIST
+//VARS FOR GETTING SONG AND SHOW LIST
 let songsUrl = "https://www.bandhelper.com/feed/smart_list/9PSR83/23856";
+let eventsUrl = "https://www.bandhelper.com/feed/calendar/23856?range=12";
 let settings = {method: "Get"};
-
-//VARS FOR GETTING SHOWS LIST
-let showsUrl = "https://www.bandhelper.com/feed/calendar/23856?range=6";
-
-
-
 
 
 //Instantiate managers
