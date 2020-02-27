@@ -111,18 +111,18 @@ function constructShowPromo() {
     //create image div {use image in a 300:230 aspect}
     var venueImageDiv = document.createElement('img');
 
-    // imageExists(show.venueImage, function(exists) {
-    //     if (exists){
-    //         venueImageDiv.setAttribute('src', show.venueImage);
-    //         console.log("Show image exists");
-    //     }
-    //     else {
-    //         venueImageDiv.setAttribute('src', defaultShowImage);
-    //         console.log('Show does not exist')
-    //     }
-    // });
+    imageExists(show.venueImage, function(exists) {
+        if (exists){
+            venueImageDiv.setAttribute('src', show.venueImage);
+            console.log("Show image exists");
+        }
+        else {
+            venueImageDiv.setAttribute('src', defaultShowImage);
+            console.log('Show does not exist')
+        }
+    });
 
-    venueImageDiv.setAttribute('src', show.venueImage);
+   // venueImageDiv.setAttribute('src', show.venueImage);
 
     venueImageDiv.setAttribute('class', "w3-hover-opacity");
     venueImageDiv.setAttribute('alt', show.venue);
