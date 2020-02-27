@@ -39,7 +39,18 @@ function prettyDateString(dt) {
     var mi = mix.pad(2);
     var dateString = h + ":" + mi + amPm + " on " + weekdays[wd] + ", " + monthString(mo) + " " + d + ", " + y;
     return dateString;
-}
+};
+
+// The "callback" argument is called with either true or false
+// depending on whether the image at "url" exists or not.
+function imageExists(url, callback) {
+    var img = new Image();
+    img.onload = function() { callback(true); };
+    img.onerror = function() { callback(false); };
+    img.src = url;
+  }
+  
+
 
 function constructMonthlyShowListItemDiv(item, showQty) {
 
@@ -50,6 +61,8 @@ function constructMonthlyShowListItemDiv(item, showQty) {
         buttonColor = 'w3-black';
         // statusClass = "w3-badge w3-right w3-margin-right"
     }
+
+    
 
     var itemDiv = document.createElement('li');
     itemDiv.setAttribute('class', 'w3-padding');
@@ -90,9 +103,22 @@ function constructShowPromo() {
     mainWrapperDiv.setAttribute('class', 'w3-third');
     mainWrapperDiv.className += " w3-margin-bottom";
 
+    //check image div
+
+      // Sample usage
+
+
     //create image div {use image in a 300:230 aspect}
     var venueImageDiv = document.createElement('img');
-    venueImageDiv.setAttribute('src', show.venueImage);
+    imageExists(show.venueImage, function(exists) {
+        if(exists==true){
+            venueImageDiv.setAttribute('src', show.venueImage);
+        }
+        else {
+            venueImageDiv.setAttribute('src', defaultShowImage);
+        }
+    });
+
     venueImageDiv.setAttribute('class', "w3-hover-opacity");
     venueImageDiv.setAttribute('alt', show.venue);
     venueImageDiv.setAttribute('style', "width:100%; border-bottom: 1px solid silver");

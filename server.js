@@ -7,6 +7,7 @@ const path = require('path');
 const bodyparser = require('body-parser');
 const nodemailer = require('nodemailer');
 var cors = require('cors');
+var geoStreetAddressCanada = require('geo-streetaddress-Canada');
 /*database = */require('dotenv').config();
 
 
@@ -187,11 +188,23 @@ function updateSongsList(){
   });
 };
 
+// function parseAddress(text){
+//   return geoStreetAddressCanada.parseLocation(text)
+// }
+
 function updateShowsList(){
   console.log('Updating Shows List to Server');
   fetch(showsUrl, settings)
   .then(res => res.json())
   .then((json) => {
+    console.log("Here's the JSON: " + json);
+    for (i = 0; i < json.length; i++) {
+      let thisShowObject = json[i];
+      let thisShow = JSON.stringify(thisShowObject);
+      console.log("Here's the show: " + thisShow);
+      let thisAddress = thisShow["address"];
+      // console.log(geoStreetAddressCanada.parseInformalAddress(thisAddress));
+    }
     let showsData = JSON.stringify(json);
     fs.writeFileSync('public/objects/showsList.json', showsData);
 
