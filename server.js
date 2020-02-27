@@ -7,7 +7,7 @@ const path = require('path');
 const bodyparser = require('body-parser');
 const nodemailer = require('nodemailer');
 var cors = require('cors');
-var geoStreetAddressCanada = require('geo-streetaddress-Canada');
+//var geoStreetAddressCanada = require('geo-streetaddress-Canada');
 /*database = */require('dotenv').config();
 
 
