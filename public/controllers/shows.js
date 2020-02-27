@@ -110,12 +110,15 @@ function constructShowPromo() {
 
     //create image div {use image in a 300:230 aspect}
     var venueImageDiv = document.createElement('img');
+
     imageExists(show.venueImage, function(exists) {
         if(exists==true){
             venueImageDiv.setAttribute('src', show.venueImage);
+            console.log("Show image exists");
         }
         else {
             venueImageDiv.setAttribute('src', defaultShowImage);
+            console.log('Show does not exist')
         }
     });
 
