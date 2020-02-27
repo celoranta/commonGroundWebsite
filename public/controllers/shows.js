@@ -112,7 +112,7 @@ function constructShowPromo() {
     var venueImageDiv = document.createElement('img');
 
     imageExists(show.venueImage, function(exists) {
-        if(exists==true){
+        if (exists){
             venueImageDiv.setAttribute('src', show.venueImage);
             console.log("Show image exists");
         }
