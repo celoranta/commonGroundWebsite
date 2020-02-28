@@ -120,7 +120,7 @@ function constructShowPromo() {
 
     //create venue name paragraph div
     var nameBlock = document.createElement('p');
-    var venueString = show.venue;
+    var venueString = show.venue || "TBA";
     nameBlock.innerHTML = venueString.bold();
 
     //create venue location paragraph div
