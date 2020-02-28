@@ -26,7 +26,14 @@ function monthString() {
     return months[monthNum];
 };
 
+var is_date = function(input) {
+    if ( Object.prototype.toString.call(input) === "[object Date]" ) 
+      return true;
+    return false;   
+      };
+
 function prettyDateString(dt) {
+    if(is_date(dt)){
     // var dt = new Date("July 21, 1983 15:15:00 CST");
     var hm = dt.getHours(); // hours military
     var mix = dt.getMinutes();
@@ -34,12 +41,37 @@ function prettyDateString(dt) {
     var d = dt.getDate()
     var y = dt.getFullYear();
     var mo = dt.getMonth();
+
+    var dateString =  weekdays[wd] + " " + monthString(mo) + " " + d + ", " + y /* + timeString*/ ;
+    return dateString;
+    }
+    else{
+        return "TBA";
+    };
+};
+
+function prettyHourString(dt) {
+    if(dt.getHours()){
+    // var dt = new Date("July 21, 1983 15:15:00 CST");
+    var hm = dt.getHours(); // hours military
+    var mix = dt.getMinutes();
     var amPm = hm > 11 ? "pm" : "am";
     var h = hm % 11;
     var mi = mix.pad(2);
-    var dateString =  weekdays[wd] + " " + monthString(mo) + " " + d + ", " + y + " at " + h + ":" + mi + amPm ;
-    return dateString;
+
+    var timeString = " at " + h + ":" + mi + amPm;
+
+    //var dateString =  weekdays[wd] + " " + monthString(mo) + " " + d + ", " + y + timeString ;
+    return timeString;
+    }
+    else{
+        return " (time TBA)";
+    }
 };
+
+function prettyDateTimeString(d, t){
+return prettyDateString(d) + prettyHourString(t);
+}
 
 // The "callback" argument is called with either true or false
 // depending on whether the image at "url" exists or not.
@@ -92,6 +124,8 @@ function constructShowPromo() {
     var mainWrapperDiv = document.createElement('div');
     mainWrapperDiv.setAttribute('class', 'w3-third');
     mainWrapperDiv.className += " w3-margin-bottom";
+    //mainWrapperDiv.className += " w3-button";
+
 
     //create image div {scale images to 400:280 in GIMP}
     var venueImageDiv = document.createElement('img');
@@ -130,13 +164,23 @@ function constructShowPromo() {
     locationBlock.innerHTML = locationString.bold();
 
     //create showdate paragraph div
-    var showDateUTC = new Date(show.date_start);
-    console.log("Date: " + showDateUTC);
-    var showDate = prettyDateString(showDateUTC);
+    
+    //var showDateUTC = new Date(show.date_start + show.time_start);
+    showDateUTC = new Date(show.date_start.split("-")[0], show.date_start.split("-")[1]-1,show.date_start.split("-")[2], 12, 0, 0);
+    showTimeUTC = new Date(show.date_start.split("-")[0], show.date_start.split("-")[1]-1,show.date_start.split("-")[2], show.time_start.split(":")[0], show.time_start.split(":")[1], show.time_start.split(":")[2], 0)
+    showTimeUTC.setHours(showTimeUTC.getHours() - 1);
     //var showDate = showDateUTC.toLocaleString('en-US', { timeZone: 'America/Vancouver' });
+    //var showTime = showTimeUTC.toLocaleString('en-US', { timeZone: 'America/Vancouver' });
+    //console.log("Date: " + showDate);
+    var showDatePretty = prettyDateTimeString(showDateUTC, showTimeUTC);
+
     var dateDiv = document.createElement('p');
     dateDiv.setAttribute('class', 'w3-opacity')
-    dateDiv.innerHTML = showDate;
+
+    // if (!showDatePretty) {
+    //     timeString = "TBA";
+    //   }
+    dateDiv.innerHTML = showDatePretty;
     //dateDiv.innerHTML = show.date_start + " " + show.time_start;
     //dateDiv.innerHTML = weekdayString + " " + monthStr + " " + monthDay + " " + showYear;
 
