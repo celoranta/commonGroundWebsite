@@ -13,6 +13,9 @@ const eventDateWebKey = "date_start";
 const imagePrefix = "/images/";
 const defaultShowImage = "/images/outdoorCrop3.jpg";
 
+const venueNameOverrideWebKey = "custom_VFJn1h";
+const venueImageOverrideWebKey = "custom_wQdsyY";
+
 
 Number.prototype.pad = function (size) {
     var s = String(this);
@@ -119,17 +122,13 @@ function constructMonthlyShowListItemDiv(item, showQty) {
 
 function constructShowPromo() {
     var show = arguments[0];
-
-    //create wrapper div
     var mainWrapperDiv = document.createElement('div');
     mainWrapperDiv.setAttribute('class', 'w3-third');
     mainWrapperDiv.className += " w3-margin-bottom";
     //mainWrapperDiv.className += " w3-button";
 
-
     //create image div {scale images to 400:280 in GIMP}
     var venueImageDiv = document.createElement('img');
-    //dummy line add add
     imageExists(show.venueImage, function(exists) {
         if (exists){
             venueImageDiv.setAttribute('src', show.venueImage);
@@ -286,10 +285,20 @@ fetch('/showsJSON')
                     i = 0;
                     let newShowsArray = [];
                     for (i = 0; i < showsList.length; i++) {
-                        thisShowObject = showsList[i];
-                        thisShowObject["venue"] = thisShowObject[venueWebKey];
+                        var thisShowObject = showsList[i];
                         var imageFilePath = imagePrefix + thisShowObject[venueImageWebKey];
-                        thisShowObject["venueImage"] = imageFilePath || defaultShowImage;
+                        var overrideImageFilePath = imagePrefix + thisShowObject[venueImageOverrideWebKey];
+
+                        thisShowObject["venue"] = thisShowObject[venueWebKey];
+                        if (thisShowObject[venueImageOverrideWebKey] === ""){
+                            thisShowObject["venueImage"] = imageFilePath
+                        }
+                        else {
+                            thisShowObject["venueImage"] = overrideImageFilePath
+                        };
+
+                        //var correctImage =  imageFilePath;
+                        //thisShowObject["venueImage"] = (correctImage );
                         thisShowObject["blurb"] = thisShowObject[eventBlurbWebKey];
                         thisShowObject["date"] = thisShowObject[eventDateWebKey];
                         delete thisShowObject[venueImageWebKey];
