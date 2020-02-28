@@ -93,7 +93,7 @@ function constructShowPromo() {
     mainWrapperDiv.setAttribute('class', 'w3-third');
     mainWrapperDiv.className += " w3-margin-bottom";
 
-    //create image div {use an image in a 300:230 aspect}
+    //create image div {scale images to 400:280 in GIMP}
     var venueImageDiv = document.createElement('img');
     //dummy line add add
     imageExists(show.venueImage, function(exists) {
