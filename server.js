@@ -213,8 +213,8 @@ function updateShowsList(){
 
 updateSongsList(); //Once Now
 updateShowsList();
-setInterval(updateSongsList, minToMs(15)); //And once every X milliseconds
-setInterval(updateShowsList, minToMs(15)); //And once every X milliseconds
+setInterval(updateSongsList, minToMs(1)); //And once every X milliseconds
+setInterval(updateShowsList, minToMs(1)); //And once every X milliseconds
 
 // 404
 app.use(function (req, res, next) {
