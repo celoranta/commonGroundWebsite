@@ -37,7 +37,7 @@ function prettyDateString(dt) {
     var amPm = hm > 11 ? "pm" : "am";
     var h = hm % 11;
     var mi = mix.pad(2);
-    var dateString = h + ":" + mi + amPm + " on " + weekdays[wd] + ", " + monthString(mo) + " " + d + ", " + y;
+    var dateString =  weekdays[wd] + " " + monthString(mo) + " " + d + ", " + y + " at " + h + ":" + mi + amPm ;
     return dateString;
 };
 
@@ -50,10 +50,7 @@ function imageExists(url, callback) {
     img.src = url;
   }
   
-
-
 function constructMonthlyShowListItemDiv(item, showQty) {
-
     var status = "Book Common Ground";
     var buttonColor = 'w3-green';
     if (showQty >= maxShowsPerMonth) {
@@ -62,25 +59,19 @@ function constructMonthlyShowListItemDiv(item, showQty) {
         // statusClass = "w3-badge w3-right w3-margin-right"
     }
 
-    
-
     var itemDiv = document.createElement('li');
     itemDiv.setAttribute('class', 'w3-padding');
     itemDiv.innerHTML = monthString(item);
-
     var itemSpan1 = document.createElement('span');
-
     var bookUs = document.createElement('a');
     bookUs.setAttribute('class', 'w3-tag');
     bookUs.className += ' w3-margin-left';
     bookUs.innerHTML = status;
     bookUs.setAttribute('href', "#contact")
     bookUs.className += ' w3-button';
-
     if (status != 'Full Calendar') {
         bookUs.className += ' ' + buttonColor;
     }
-
     var itemSpan2 = document.createElement('span');
     itemSpan2.setAttribute('class', 'w3-badge');
     itemSpan2.className += ' w3-right';
@@ -91,7 +82,6 @@ function constructMonthlyShowListItemDiv(item, showQty) {
     itemSpan1.appendChild(bookUs);
     itemDiv.appendChild(itemSpan1);
     itemDiv.appendChild(itemSpan2);
-
     return itemDiv;
 }
 
@@ -103,34 +93,29 @@ function constructShowPromo() {
     mainWrapperDiv.setAttribute('class', 'w3-third');
     mainWrapperDiv.className += " w3-margin-bottom";
 
-    //check image div
-
-      // Sample usage
-
-
-    //create image div {use image in a 300:230 aspect}
+    //create image div {use an image in a 300:230 aspect}
     var venueImageDiv = document.createElement('img');
     //dummy line add add
     imageExists(show.venueImage, function(exists) {
         if (exists){
             venueImageDiv.setAttribute('src', show.venueImage);
-            console.log("Show image exists");
+           // console.log("Show image exists");
         }
         else {
             venueImageDiv.setAttribute('src', defaultShowImage);
-            console.log('Show does not exist')
+          //  console.log('Show does not exist')
         }
     });
 
    // venueImageDiv.setAttribute('src', show.venueImage);
-
-    venueImageDiv.setAttribute('class', "w3-hover-opacity");
     venueImageDiv.setAttribute('alt', show.venue);
     venueImageDiv.setAttribute('style', "width:100%; border-bottom: 1px solid silver");
+    // venueImageDiv.setAttribute('style', "width:100%; border-bottom: 1px solid silver; height:175px");
 
     //create subwrapper div
     var subWrapperDiv = document.createElement('div');
     subWrapperDiv.setAttribute('class', 'w3-container');
+    
     subWrapperDiv.className += ' w3-white';
 
     //create venue name paragraph div
@@ -145,14 +130,15 @@ function constructShowPromo() {
     locationBlock.innerHTML = locationString.bold();
 
     //create showdate paragraph div
-    //var showDateUTC = new Date(show.date);
-    //var showDate = prettyDateString(showDateUTC);
+    var showDateUTC = new Date(show.date_start);
+    console.log("Date: " + showDateUTC);
+    var showDate = prettyDateString(showDateUTC);
     //var showDate = showDateUTC.toLocaleString('en-US', { timeZone: 'America/Vancouver' });
     var dateDiv = document.createElement('p');
     dateDiv.setAttribute('class', 'w3-opacity')
-    //dateDiv.innerHTML = showDate;
-    dateDiv.innerHTML = show.date_start + " " + show.time_start;
-    // dateDiv.innerHTML = weekdayString + " " + monthStr + " " + monthDay + " " + showYear;
+    dateDiv.innerHTML = showDate;
+    //dateDiv.innerHTML = show.date_start + " " + show.time_start;
+    //dateDiv.innerHTML = weekdayString + " " + monthStr + " " + monthDay + " " + showYear;
 
     //create  blurb paragraph div
     var blurbDiv = document.createElement('p');
@@ -168,7 +154,7 @@ function constructShowPromo() {
     //nest divs
     mainWrapperDiv.appendChild(venueImageDiv);
     subWrapperDiv.appendChild(nameBlock);
-    subWrapperDiv.appendChild(locationBlock);
+    //subWrapperDiv.appendChild(locationBlock);
     subWrapperDiv.appendChild(dateDiv);
     // subWrapperDiv.appendChild(blurbDiv);
     // subWrapperDiv.appendChild(buttonDiv);
@@ -177,7 +163,6 @@ function constructShowPromo() {
 };
 
 function countShowsInMonth(monthInt, showList) {
-    //let showMonth = arguments[0];
     var i = 0;
     var n = 0;
     for (i = 0; i < showList.length; i++) {
@@ -226,17 +211,8 @@ var showsToPromo = [];
 i = 0;
 for (i = 0; i < showList.length; i++) {
     const show = showList[i];
-    // const showDate = new Date(show.date);
-    // const showEnd = showDate.setHours(showDate.getHours() + showPromoRemovalDelayHours);
-    // const today = new Date();
-    // const dateCompareResult = (showEnd > today);
-    //If show is public, confirmed, and not more than 'x' hours in the past, promo it.
-    // if (show.private == "false" && show.confirmed == "true" && dateCompareResult) {
-    //     showsToPromo.push(show);
-    // }
     showsToPromo.push(show);
 }
-//showsToPromo.sort(function(a, b){return a.date - b.date});
 i = 0;
 for (i = 0; i < showsToPromo.length; i++) {
     console.log(i);
@@ -270,7 +246,6 @@ fetch('/showsJSON')
                         thisShowObject["venue"] = thisShowObject[venueWebKey];
                         var imageFilePath = imagePrefix + thisShowObject[venueImageWebKey];
                         thisShowObject["venueImage"] = imageFilePath || defaultShowImage;
-            
                         thisShowObject["blurb"] = thisShowObject[eventBlurbWebKey];
                         thisShowObject["date"] = thisShowObject[eventDateWebKey];
                         delete thisShowObject[venueImageWebKey];

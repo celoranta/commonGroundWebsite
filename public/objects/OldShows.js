@@ -7,7 +7,7 @@
     date: 'October 25, 2018 19:30:00 PDT', 
     private: "false",
     confirmed: "true"
-
+},
 
 {
     venue: 'The Admiral Pub',
