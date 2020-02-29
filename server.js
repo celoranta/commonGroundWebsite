@@ -18,6 +18,7 @@ const fetch = require('node-fetch');
 //Include custom frameworks
 var dbMgr = require('./database-manager.js');
 var storMgr = require('./storage-manager.js');
+var geocoder = require('./geocoder.js');
 
 //Assign constants
 const hostname = "localhost";
@@ -27,7 +28,7 @@ const imageTable = "Images2";
 //VARS FOR GETTING SONG AND SHOW LIST
 let songsUrl = "https://www.bandhelper.com/feed/smart_list/9PSR83/23856";
 let showsUrl = "https://www.bandhelper.com/feed/calendar/23856?range=12";
-let settings = {method: "Get"};
+let settings = { method: "Get" };
 
 
 //Instantiate managers
@@ -68,14 +69,14 @@ api.use(bodyparser.urlencoded({ extended: true }));
 
 //Custom Routing functions
 function setCorsHeaders(res) {
-res.header("Access-Control-Allow-Origin", '*');
-res.header("Access-Control-Allow-Credentials", true);
-res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-return res;
+  res.header("Access-Control-Allow-Origin", '*');
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+  return res;
 }
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
@@ -111,7 +112,7 @@ app.get('/api/images/:id', (req, res) => {
   //res.send(urlString);
   async function postImageUrl() {
     try {
-    res.send(await storMgr.getFileUrl(imageId));
+      res.send(await storMgr.getFileUrl(imageId));
       // res.send(JSON.stringify(result[0]));
     }
     catch (err) {
@@ -173,48 +174,55 @@ app.post('', function (req, res) {
 
 //RETRIEVE AND SAVE SONG LIST
 
-function minToMs(minutes){
-  return minutes*1000*60;
+function minToMs(minutes) {
+  return minutes * 1000 * 60;
 };
 
-function updateSongsList(){
+function updateSongsList() {
   console.log('Updating Songs List to Server');
   fetch(songsUrl, settings)
-  .then(res => res.json())
-  .then((json) => {
-    let songData = JSON.stringify(json);
-    fs.writeFileSync('public/objects/songsList.json', songData);
+    .then(res => res.json())
+    .then((json) => {
+      let songData = JSON.stringify(json);
+      fs.writeFileSync('public/objects/songsList.json', songData);
 
-  });
+    });
 };
 
 // function parseAddress(text){
 //   return geoStreetAddressCanada.parseLocation(text)
 // }
 
-function updateShowsList(){
+function updateShowsList() {
   console.log('Updating Shows List to Server');
   fetch(showsUrl, settings)
-  .then(res => res.json())
-  .then((json) => {
-    console.log("Here's the JSON: " + json);
-    for (i = 0; i < json.length; i++) {
-      let thisShowObject = json[i];
-      let thisShow = JSON.stringify(thisShowObject);
-      console.log("Here's the show: " + thisShow);
-      let thisAddress = thisShow["address"];
-      // console.log(geoStreetAddressCanada.parseInformalAddress(thisAddress));
-    }
-    let showsData = JSON.stringify(json);
-    fs.writeFileSync('public/objects/showsList.json', showsData);
+    .then(res => res.json())
+    .then((json) => {
+      //console.log("Here's the JSON: " + json);
+      for (i = 0; i < json.length; i++) {
+        let thisShowObject = json[i];
+        let thisShow = JSON.stringify(thisShowObject);
+        //console.log("Here's the show: " + thisShow);
 
-  });
+      }
+      let showsData = JSON.stringify(json);
+      fs.writeFileSync('public/objects/showsList.json', showsData);
+
+    });
 };
+
+// function addressLookup() {
+//   let showfile = fs.readFileSync('public/objects/showsList.json');
+//   console.log('I Read the file! ' + JSON.stringify(showfile))
+// }
 
 updateSongsList(); //Once Now
 updateShowsList();
+//addressLookup();
 setInterval(updateSongsList, minToMs(1)); //And once every X milliseconds
 setInterval(updateShowsList, minToMs(1)); //And once every X milliseconds
+
+
 
 // 404
 app.use(function (req, res, next) {
