@@ -6,15 +6,29 @@ const showsBlurb = "Party with Common Ground Live!";
 const monthQtyToShow = 6;
 const maxShowsPerMonth = 3;
 const showPromoRemovalDelayHours = 48;
-const venueWebKey = "custom_4wjmF5";
+const venueNameWebKey = "custom_4wjmF5";
 const venueImageWebKey = "custom_DmBpPG";
 const eventBlurbWebKey = "custom_KKmJlb";
+const overrideContactLocationWebKey = "custom_S3Rzc6";
 const eventDateWebKey = "date_start";
 const imagePrefix = "/images/";
 const defaultShowImage = "/images/outdoorCrop3.jpg";
+const overrideContactNameWebKey = "custom_VFJn1h";
+const venueLocationWebKey = "custom_cnnQpT";
+const overrideContactImageWebKey = "custom_wQdsyY";
 
-const venueNameOverrideWebKey = "custom_VFJn1h";
-const venueImageOverrideWebKey = "custom_wQdsyY";
+/*  
+    "custom_4wjmF5": "VenueName",
+    "custom_DmBpPG": "VenueImage",
+    "custom_KKmJlb": "EventBlurb",
+    "custom_S3Rzc6": "OverrideContactLocation",
+    "custom_VFJn1h": "OverrideContactName",
+    "custom_cnnQpT": "VenueLocation",
+    "custom_wQdsyY": "OverrideContactImage"
+
+*/
+
+
 
 
 Number.prototype.pad = function (size) {
@@ -154,15 +168,11 @@ function constructShowPromo() {
     //create venue name paragraph div
     var nameBlock = document.createElement('p');
     //var venueString = show.venue || "TBA";
-    //console.log("AHHHH!: " + show[venueNameOverrideWebKey])
-    var venueString = show[venueNameOverrideWebKey] || show.venue || "TBA";
+    //console.log("AHHHH!: " + show[o])
+    var venueString = show[overrideContactNameWebKey] || show.venue || "TBA";
     nameBlock.innerHTML = venueString.bold();
 
-    //create venue location paragraph div
-    var locationBlock = document.createElement('p');
-    // var locationString = show.city;
-    var locationString = show.address;
-    locationBlock.innerHTML = locationString.bold();
+
 
     //create showdate paragraph div
     
@@ -185,6 +195,12 @@ function constructShowPromo() {
     //dateDiv.innerHTML = show.date_start + " " + show.time_start;
     //dateDiv.innerHTML = weekdayString + " " + monthStr + " " + monthDay + " " + showYear;
 
+        //create venue location paragraph div
+        var locationBlock = document.createElement('p');
+        //var locationString = show[overrideContactLocationWebKey]|| show.city;
+        var locationString = show[overrideContactLocationWebKey] || show[venueLocationWebKey] || "TBA";
+        locationBlock.innerHTML = locationString.fontcolor("Gray");
+
     //create  blurb paragraph div
     var blurbDiv = document.createElement('p');
     blurbDiv.innerHTML = show.blurb;
@@ -199,8 +215,8 @@ function constructShowPromo() {
     //nest divs
     mainWrapperDiv.appendChild(venueImageDiv);
     subWrapperDiv.appendChild(nameBlock);
-    //subWrapperDiv.appendChild(locationBlock);
     subWrapperDiv.appendChild(dateDiv);
+    subWrapperDiv.appendChild(locationBlock);
     // subWrapperDiv.appendChild(blurbDiv);
     // subWrapperDiv.appendChild(buttonDiv);
     mainWrapperDiv.appendChild(subWrapperDiv);
@@ -289,10 +305,10 @@ fetch('/showsJSON')
                     for (i = 0; i < showsList.length; i++) {
                         var thisShowObject = showsList[i];
                         var imageFilePath = imagePrefix + thisShowObject[venueImageWebKey];
-                        var overrideImageFilePath = imagePrefix + thisShowObject[venueImageOverrideWebKey];
+                        var overrideImageFilePath = imagePrefix + thisShowObject[overrideContactImageWebKey];
 
-                        thisShowObject["venue"] = thisShowObject[venueWebKey];
-                        if (thisShowObject[venueImageOverrideWebKey] === ""){
+                        thisShowObject["venue"] = thisShowObject[venueNameWebKey];
+                        if (thisShowObject[overrideContactImageWebKey] === ""){
                             thisShowObject["venueImage"] = imageFilePath
                         }
                         else {
@@ -304,7 +320,7 @@ fetch('/showsJSON')
                         thisShowObject["blurb"] = thisShowObject[eventBlurbWebKey];
                         thisShowObject["date"] = thisShowObject[eventDateWebKey];
                         delete thisShowObject[venueImageWebKey];
-                        delete thisShowObject[venueWebKey];
+                        delete thisShowObject[venueNameWebKey];
                         delete thisShowObject[eventBlurbWebKey];
                         // console.log("New Shows Object:" + JSON.stringify(showsList));
                         newShowsArray.push(thisShowObject);   
