@@ -19,6 +19,7 @@ const fetch = require('node-fetch');
 var dbMgr = require('./database-manager.js');
 var storMgr = require('./storage-manager.js');
 var geocoder = require('./geocoder.js');
+var addressList = require('./public/objects/addresses.json')
 
 //Assign constants
 const hostname = "localhost";
@@ -198,17 +199,27 @@ function updateShowsList() {
   fetch(showsUrl, settings)
     .then(res => res.json())
     .then((json) => {
-      //console.log("Here's the JSON: " + json);
-      for (i = 0; i < json.length; i++) {
-        let thisShowObject = json[i];
-        let thisShow = JSON.stringify(thisShowObject);
+      fs.writeFileSync('public/objects/showsListRaw.json', JSON.stringify(json))
+      // for (i = 0; i < json.length; i++) {
+      //   let thisShowObject = json[i];
+        // let thisShowAddress = thisShowObject.address;
+        // if (!addressList[thisShowAddress]){
+        //   console.log('No address present')
+        //    geocoder.geocode(thisShowAddress)
+        //    .then((res) => {
+        //      let o = res[0];
+        //      let addyObject = {"city" : o.city, "province" : o.stateCode, "lat" : o.latitude, "long" : o.longitude};
+        //      addressList[thisShowAddress] = addyObject
+        //      })
+        // }
+        //let thisShow = JSON.stringify(thisShowObject);
         //console.log("Here's the show: " + thisShow);
-
-      }
+      // }
       let showsData = JSON.stringify(json);
       fs.writeFileSync('public/objects/showsList.json', showsData);
-
-    });
+    })
+    //.then(console.log(addressList))
+    ;
 };
 
 // function addressLookup() {
