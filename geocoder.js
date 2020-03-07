@@ -1,6 +1,6 @@
 const fs = require('fs');
 var NodeGeocoder = require('node-geocoder');
-var fetch = require('node-fetch');
+//var fetch = require('node-fetch');
 var async = require('async');
 var addresses = './public/objects/addresses.json';
 var showsRaw = './public/objects/showsListRaw.json';
@@ -22,29 +22,63 @@ async function geocode(address) {
     }
 };
 
-var addressLib = {};
 
 function listAddress(addressListing) {
-    var addressesGeocodedJson = JSON.parse(fs.readFileSync(addresses));
-    let bhAddress = addressListing.origAddress;
-    console.log("BHAddress: " + bhAddress)
-    addressesGeocodedJson.bhAddress = addressListing.cleanAddress;
-    //addressListing.origAddress = addressListing.cleanAddress
-    let newAddressJSON = JSON.stringify(addressesGeocodedJson);
-    fs.writeFileSync(addresses, newAddressJSON);
+    console.log("\nAddress Listing: " + JSON.stringify(addressListing))
+     var addressesGeocodedJson = JSON.parse(fs.readFileSync(addresses)) 
+    console.log("\nAddressGeocodedJSON: " + JSON.stringify(addressesGeocodedJson))
+    // var postObject = {};
+    // var resultAddy = addressListing.resultAddy;
+    // var sourceAddy = addressListing.sourceAddy;
+    // console.log("SourceAddy: " + sourceAddy)
+    // console.log("ResultAddy: " + resultAddy)
+    // postObject[sourceAddy] = resultAddy;
+    let z = Object.assign(addressesGeocodedJson, addressListing)
+    console.log("Z: " + JSON.stringify(z))
+     fs.writeFileSync(addresses, JSON.stringify(z));
 }
 
 // create a queue object with concurrency 1
 var q = async.queue(function (addressObject, callback) {
-    listAddress(addressObject)
-    console.log("\nQueue has been run: " + (JSON.stringify(addressObject)))
-    callback();
+    var sourceAddress = addressObject.sourceAddy;
+    var resultAddress = addressObject.resultAddy;
+    var addressToList = {};
+    // console.log("\nSource Address: " + sourceAddress);
+    // console.log("\nResult Address: " + JSON.stringify(resultAddress));
+    addressToList[sourceAddress] = resultAddress
+    listAddress(addressToList)
+    //console.log("\nQueue has been run: " + (JSON.stringify(addressObject)))
+    callback()
 }, 1);
 
 // assign a callback
 q.drain = function () {
-    console.log('\nAll items have been processed.  Here is addressLib: ' + JSON.stringify(addressLib));
+    console.log('\nAll items have been processed.');
 };
+
+function something(d) {
+    var addressObject = {};
+    addressObject.sourceAddy = d;
+    geocoder.geocode(d)
+        .then(function (cleanAddress) {
+            addressObject.resultAddy = cleanAddress
+            console.log( "\n\n\n\n\nObject before post call: " + JSON.stringify(addressObject))
+            //var addressObjectWrapper = {addressObject.sourceAddy : addressObject.resultAddy}
+            //addressObject[d] = cleanAddress                     
+            q.push(addressObject, function (err) {
+                if (err) { "\nError: " + err }
+                //console.log('Finished processing foo');
+            });
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+
+}
+
+
+
+
 
 function testAddress(address) {
     if (address === "" || address == null || address === "TBA") {
@@ -78,8 +112,8 @@ fs.access(showsRaw, fs.F_OK, (err) => {
         let a_minus_b = new Set([...bhAddressSet].filter(x => !gcAddressSet.has(x)));
         let unlistedAddresses = Array.from(a_minus_b);
         var filteredAddresses = [];
-        for (i = 0; i < unlistedAddresses.length; i++){
-            if(testAddress(unlistedAddresses[i])){
+        for (i = 0; i < unlistedAddresses.length; i++) {
+            if (testAddress(unlistedAddresses[i])) {
                 filteredAddresses.push(unlistedAddresses[i])
             }
             else {
@@ -87,31 +121,29 @@ fs.access(showsRaw, fs.F_OK, (err) => {
             }
         }
         console.log("\nHere are the " + filteredAddresses.length + " filtered addresses:\n")
-        filteredAddresses.forEach((value)=>{console.log(value)})
+        filteredAddresses.forEach((value) => { console.log(value) })
 
         for (i = 0; i < filteredAddresses.length; i++) {
             if (testAddress(filteredAddresses[i])) {
-
-
-
-                geocoder.geocode(filteredAddresses[i], (err, cleanAddress) => {
-                    // add some items to the queue
-                    
-                    //LOGICAL ERROR: filtered addresses is not defined in the line below.
-                    console.log("Filtered Address: " + filteredAddresses[i])
-                    q.push({ cleanAddress: cleanAddress, origAddress: filteredAddresses[i] }, function (err) {
-                        if(err){"\nError: " + err}
-                        console.log('Finished processing foo');
-                    });
-                })
-
-
-
-
-
-            };
+                something(filteredAddresses[i])
+            }
+            else{
+                console.log("Address at position " + i + " is null")
+            }
         }
     });
 });
+
+/*
+function sendRequest(i) {
+    $.get('http://www.google.com/', function() {
+        alert(i);
+    });
+}
+
+for (var i = 0; i < 2; i++) {
+    sendRequest(i);
+}
+*/ 
 
 module.exports.geocode = geocode;
