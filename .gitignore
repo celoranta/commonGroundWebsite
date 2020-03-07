@@ -69,4 +69,4 @@ googleApiCredentials.json
 public/objects/showsList.json
 public/objects/songsList.json
 public/objects/showsListRaw.json
-public/objects/addresses.json
+#public/objects/addresses.json

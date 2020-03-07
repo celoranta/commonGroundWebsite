@@ -24,11 +24,37 @@ async function geocode(address) {
 
 function listAddress(addressListing) {
     console.log("\nAddress Listing: " + JSON.stringify(addressListing))
-     var addressesGeocodedJson = JSON.parse(fs.readFileSync(addresses)) 
+    var addressesGeocodedJson = JSON.parse(fs.readFileSync(addresses))
     console.log("\nAddressGeocodedJSON: " + JSON.stringify(addressesGeocodedJson))
     let z = Object.assign(addressesGeocodedJson, addressListing)
     console.log("Z: " + JSON.stringify(z))
-     fs.writeFileSync(addresses, JSON.stringify(z));
+    fs.writeFileSync(addresses, JSON.stringify(z));
+}
+
+function prepAndGeocode(d) {
+    var addressObject = {};
+    addressObject.sourceAddy = d;
+    geocoder.geocode(d)
+        .then(function (cleanAddress) {
+            addressObject.resultAddy = cleanAddress
+            q.push(addressObject, function (err) {
+                if (err) { "\nError: " + err }
+                //console.log('Finished processing foo');
+            });
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+}
+
+function testAddress(address, processPointString) {
+    if (address === "" || address == null || address === "TBA") {
+        console.log("\nFailed Address at " + processPointString + ":  " + address)
+        return false
+    }
+    else {
+        return true
+    }
 }
 
 var q = async.queue(function (addressObject, callback) {
@@ -41,36 +67,13 @@ var q = async.queue(function (addressObject, callback) {
 }, 1);
 
 q.drain = function () {
-    console.log('\nAll items have been processed.');
+    q.drain(() => {
+        console.log('all done')
+    })
 };
 
-function something(d) {
-    var addressObject = {};
-    addressObject.sourceAddy = d;
-    geocoder.geocode(d)
-        .then(function (cleanAddress) {
-            addressObject.resultAddy = cleanAddress                
-            q.push(addressObject, function (err) {
-                if (err) { "\nError: " + err }
-                //console.log('Finished processing foo');
-            });
-        })
-        .catch(function (err) {
-            console.log(err);
-        });
-}
-
-function testAddress(address) {
-    if (address === "" || address == null || address === "TBA") {
-        console.log("\nFailed Address: " + address)
-        return false
-    }
-    else {
-        return true
-    }
-}
-
-//Body
+async function updateAddresses() {
+    try {
 fs.access(showsRaw, fs.F_OK, (err) => {
     if (err) {
         console.error(err);
@@ -94,7 +97,7 @@ fs.access(showsRaw, fs.F_OK, (err) => {
         let unlistedAddresses = Array.from(a_minus_b);
         var filteredAddresses = [];
         for (i = 0; i < unlistedAddresses.length; i++) {
-            if (testAddress(unlistedAddresses[i])) {
+            if (testAddress(unlistedAddresses[i], "filtering")) {
                 filteredAddresses.push(unlistedAddresses[i])
             }
             else {
@@ -105,14 +108,24 @@ fs.access(showsRaw, fs.F_OK, (err) => {
         filteredAddresses.forEach((value) => { console.log(value) })
 
         for (i = 0; i < filteredAddresses.length; i++) {
-            if (testAddress(filteredAddresses[i])) {
-                something(filteredAddresses[i])
+            if (testAddress(filteredAddresses[i], "compose curated list")) {
+                prepAndGeocode(filteredAddresses[i])
             }
-            else{
+            else {
                 console.log("Address at position " + i + " is null")
             }
         }
     });
 });
+}
+catch (err)  {
+"Address Updated Failed: " + err
+}
+}
+
+//Body
+
+updateAddresses();
 
 module.exports.geocode = geocode;
+module.exports.updateAddresses = updateAddresses;

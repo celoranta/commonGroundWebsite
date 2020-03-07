@@ -18,6 +18,7 @@ const venueLocationWebKey = "custom_cnnQpT";
 const overrideContactImageWebKey = "custom_wQdsyY";
 
 /*  
+FOR REFERENCE:
     "custom_4wjmF5": "VenueName",
     "custom_DmBpPG": "VenueImage",
     "custom_KKmJlb": "EventBlurb",
@@ -25,11 +26,7 @@ const overrideContactImageWebKey = "custom_wQdsyY";
     "custom_VFJn1h": "OverrideContactName",
     "custom_cnnQpT": "VenueLocation",
     "custom_wQdsyY": "OverrideContactImage"
-
 */
-
-
-
 
 Number.prototype.pad = function (size) {
     var s = String(this);
@@ -157,49 +154,31 @@ function constructShowPromo() {
    // venueImageDiv.setAttribute('src', show.venueImage);
     venueImageDiv.setAttribute('alt', show.venue);
     venueImageDiv.setAttribute('style', "width:100%; border-bottom: 1px solid silver");
-    // venueImageDiv.setAttribute('style', "width:100%; border-bottom: 1px solid silver; height:175px");
 
     //create subwrapper div
     var subWrapperDiv = document.createElement('div');
     subWrapperDiv.setAttribute('class', 'w3-container');
-    
     subWrapperDiv.className += ' w3-white';
 
     //create venue name paragraph div
     var nameBlock = document.createElement('p');
-    //var venueString = show.venue || "TBA";
-    //console.log("AHHHH!: " + show[o])
     var venueString = show[overrideContactNameWebKey] || show.venue || "TBA";
     nameBlock.innerHTML = venueString.bold();
 
-
-
     //create showdate paragraph div
-    
-    //var showDateUTC = new Date(show.date_start + show.time_start);
     showDateUTC = new Date(show.date_start.split("-")[0], show.date_start.split("-")[1]-1,show.date_start.split("-")[2], 12, 0, 0);
     showTimeUTC = new Date(show.date_start.split("-")[0], show.date_start.split("-")[1]-1,show.date_start.split("-")[2], show.time_start.split(":")[0], show.time_start.split(":")[1], show.time_start.split(":")[2], 0)
     showTimeUTC.setHours(showTimeUTC.getHours() - 1);
-    //var showDate = showDateUTC.toLocaleString('en-US', { timeZone: 'America/Vancouver' });
-    //var showTime = showTimeUTC.toLocaleString('en-US', { timeZone: 'America/Vancouver' });
-    //console.log("Date: " + showDate);
     var showDatePretty = prettyDateTimeString(showDateUTC, showTimeUTC);
-
     var dateDiv = document.createElement('p');
     dateDiv.setAttribute('class', 'w3-opacity')
-
-    // if (!showDatePretty) {
-    //     timeString = "TBA";
-    //   }
     dateDiv.innerHTML = showDatePretty;
-    //dateDiv.innerHTML = show.date_start + " " + show.time_start;
-    //dateDiv.innerHTML = weekdayString + " " + monthStr + " " + monthDay + " " + showYear;
 
-        //create venue location paragraph div
-        var locationBlock = document.createElement('p');
-        //var locationString = show[overrideContactLocationWebKey]|| show.city;
-        var locationString = show[overrideContactLocationWebKey] || show[venueLocationWebKey] || "TBA";
-        locationBlock.innerHTML = locationString.fontcolor("Gray");
+    //create venue location paragraph div
+    var locationBlock = document.createElement('p');
+    //var locationString = show[overrideContactLocationWebKey]|| show.city;
+    var locationString = show[overrideContactLocationWebKey] || show[venueLocationWebKey] || "TBA";
+    locationBlock.innerHTML = locationString.fontcolor("Gray");
 
     //create  blurb paragraph div
     var blurbDiv = document.createElement('p');
@@ -266,9 +245,7 @@ for (i = 0; i < monthsShownList.length; i++) {
 }
 
 // Show promo panels
-//filter master showlist for advertized shows
 var showsToPromo = [];
-
 i = 0;
 for (i = 0; i < showList.length; i++) {
     const show = showList[i];
@@ -283,7 +260,6 @@ for (i = 0; i < showsToPromo.length; i++) {
     container_block.appendChild(wrapperDiv);
 };
 };
-
 fetch('/showsJSON')
     .then(
         function (response) {
@@ -294,9 +270,6 @@ fetch('/showsJSON')
             }
             response.json()
                 .then(function (showsJSArray) {
-                    //const filteredArray = showsJSArray.filter(element => element.type == "s");
-                    //console.log("Filtered Array" + filteredArray); 
-                    //var showsResult = showsJSArray.map(element => mappingFunction(element));
                     return showsJSArray;
                 })
                 .then((showsList) => {
@@ -314,7 +287,6 @@ fetch('/showsJSON')
                         else {
                             thisShowObject["venueImage"] = overrideImageFilePath
                         };
-
                         //var correctImage =  imageFilePath;
                         //thisShowObject["venueImage"] = (correctImage );
                         thisShowObject["blurb"] = thisShowObject[eventBlurbWebKey];
@@ -322,7 +294,6 @@ fetch('/showsJSON')
                         delete thisShowObject[venueImageWebKey];
                         delete thisShowObject[venueNameWebKey];
                         delete thisShowObject[eventBlurbWebKey];
-                        // console.log("New Shows Object:" + JSON.stringify(showsList));
                         newShowsArray.push(thisShowObject);   
                     }
                     console.log("New Shows Object:" + JSON.stringify(newShowsArray));
@@ -331,9 +302,6 @@ fetch('/showsJSON')
                 .then((showList) => {
                     postShows(showList);
                 })
-            // .then(function (finalSongsResult) {
-            //     createSongsDiv(finalSongsResult)
-            // });
         })
     .catch(function (err) {
         console.log('Fetch Error :-S', err);

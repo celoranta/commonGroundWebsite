@@ -8,7 +8,6 @@ const bodyparser = require('body-parser');
 const nodemailer = require('nodemailer');
 var cors = require('cors');
 require('./public/objects/addresses.json');
-//var geoStreetAddressCanada = require('geo-streetaddress-Canada');
 /*database = */require('dotenv').config();
 
 
@@ -21,6 +20,7 @@ var dbMgr = require('./database-manager.js');
 var storMgr = require('./storage-manager.js');
 var geocoder = require('./geocoder.js');
 var addressList = './public/objects/addresses.json'
+
 
 
 //Assign constants
@@ -189,13 +189,8 @@ function updateSongsList() {
     .then((json) => {
       let songData = JSON.stringify(json);
       fs.writeFileSync('public/objects/songsList.json', songData);
-
     });
 };
-
-// function parseAddress(text){
-//   return geoStreetAddressCanada.parseLocation(text)
-// }
 
 function updateShowsList() {
   console.log('Updating Shows List to Server');
@@ -203,40 +198,27 @@ function updateShowsList() {
     .then(res => res.json())
     .then((json) => {
       fs.writeFileSync('public/objects/showsListRaw.json', JSON.stringify(json))
-      // for (i = 0; i < json.length; i++) {
-      //   let thisShowObject = json[i];
-        // let thisShowAddress = thisShowObject.address;
-        // if (!addressList[thisShowAddress]){
-        //   console.log('No address present')
-        //    geocoder.geocode(thisShowAddress)
-        //    .then((res) => {
-        //      let o = res[0];
-        //      let addyObject = {"city" : o.city, "province" : o.stateCode, "lat" : o.latitude, "long" : o.longitude};
-        //      addressList[thisShowAddress] = addyObject
-        //      })
-        // }
-        //let thisShow = JSON.stringify(thisShowObject);
-        //console.log("Here's the show: " + thisShow);
-      // }
       let showsData = JSON.stringify(json);
       fs.writeFileSync('public/objects/showsList.json', showsData);
-    })
-    //.then(console.log(addressList))
-    ;
+    });
 };
 
-// function addressLookup() {
-//   let showfile = fs.readFileSync('public/objects/showsList.json');
-//   console.log('I Read the file! ' + JSON.stringify(showfile))
-// }
+function appendCuratedAddresses(addressesObject) {
+  for (i = 0; i < addressesObject.length; i++){
+    let address = addressesObject[i];
+    console.log("Address object: " + JSON.stringify(address))
+  }
+ // Object.assign(addressesObject)
+}
 
-
-updateSongsList(); //Once Now
+updateSongsList(); 
 updateShowsList();
-//addressLookup();
 setInterval(updateSongsList, minToMs(1)); //And once every X milliseconds
 setInterval(updateShowsList, minToMs(1)); //And once every X milliseconds
-
+setInterval(geocoder.updateAddresses, minToMs(1)); //And once every X milliseconds
+// let a = fs.readFileSync(addressList)
+// let b = JSON.parse(a)
+// appendCuratedAddresses(b);
 
 
 // 404
