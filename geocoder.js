@@ -1,6 +1,5 @@
 const fs = require('fs');
 var NodeGeocoder = require('node-geocoder');
-//var fetch = require('node-fetch');
 var async = require('async');
 var addresses = './public/objects/addresses.json';
 var showsRaw = './public/objects/showsListRaw.json';
@@ -22,36 +21,24 @@ async function geocode(address) {
     }
 };
 
-
 function listAddress(addressListing) {
     console.log("\nAddress Listing: " + JSON.stringify(addressListing))
      var addressesGeocodedJson = JSON.parse(fs.readFileSync(addresses)) 
     console.log("\nAddressGeocodedJSON: " + JSON.stringify(addressesGeocodedJson))
-    // var postObject = {};
-    // var resultAddy = addressListing.resultAddy;
-    // var sourceAddy = addressListing.sourceAddy;
-    // console.log("SourceAddy: " + sourceAddy)
-    // console.log("ResultAddy: " + resultAddy)
-    // postObject[sourceAddy] = resultAddy;
     let z = Object.assign(addressesGeocodedJson, addressListing)
     console.log("Z: " + JSON.stringify(z))
      fs.writeFileSync(addresses, JSON.stringify(z));
 }
 
-// create a queue object with concurrency 1
 var q = async.queue(function (addressObject, callback) {
     var sourceAddress = addressObject.sourceAddy;
     var resultAddress = addressObject.resultAddy;
     var addressToList = {};
-    // console.log("\nSource Address: " + sourceAddress);
-    // console.log("\nResult Address: " + JSON.stringify(resultAddress));
     addressToList[sourceAddress] = resultAddress
     listAddress(addressToList)
-    //console.log("\nQueue has been run: " + (JSON.stringify(addressObject)))
     callback()
 }, 1);
 
-// assign a callback
 q.drain = function () {
     console.log('\nAll items have been processed.');
 };
@@ -61,10 +48,7 @@ function something(d) {
     addressObject.sourceAddy = d;
     geocoder.geocode(d)
         .then(function (cleanAddress) {
-            addressObject.resultAddy = cleanAddress
-            console.log( "\n\n\n\n\nObject before post call: " + JSON.stringify(addressObject))
-            //var addressObjectWrapper = {addressObject.sourceAddy : addressObject.resultAddy}
-            //addressObject[d] = cleanAddress                     
+            addressObject.resultAddy = cleanAddress                
             q.push(addressObject, function (err) {
                 if (err) { "\nError: " + err }
                 //console.log('Finished processing foo');
@@ -73,12 +57,7 @@ function something(d) {
         .catch(function (err) {
             console.log(err);
         });
-
 }
-
-
-
-
 
 function testAddress(address) {
     if (address === "" || address == null || address === "TBA") {
@@ -90,6 +69,7 @@ function testAddress(address) {
     }
 }
 
+//Body
 fs.access(showsRaw, fs.F_OK, (err) => {
     if (err) {
         console.error(err);
@@ -133,17 +113,5 @@ fs.access(showsRaw, fs.F_OK, (err) => {
         }
     });
 });
-
-/*
-function sendRequest(i) {
-    $.get('http://www.google.com/', function() {
-        alert(i);
-    });
-}
-
-for (var i = 0; i < 2; i++) {
-    sendRequest(i);
-}
-*/ 
 
 module.exports.geocode = geocode;
