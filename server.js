@@ -7,6 +7,7 @@ const path = require('path');
 const bodyparser = require('body-parser');
 const nodemailer = require('nodemailer');
 var cors = require('cors');
+require('./public/objects/addresses.json');
 //var geoStreetAddressCanada = require('geo-streetaddress-Canada');
 /*database = */require('dotenv').config();
 
@@ -19,7 +20,7 @@ const fetch = require('node-fetch');
 var dbMgr = require('./database-manager.js');
 var storMgr = require('./storage-manager.js');
 var geocoder = require('./geocoder.js');
-var addressList = require('./public/objects/addresses.json')
+var addressList = './public/objects/addresses.json'
 
 
 //Assign constants
@@ -39,6 +40,7 @@ var httpPort = process.env.PORT || 8000;
 
 var api = express();
 var apiHttpPort = 8091;
+
 
 
 app.use(cors());
