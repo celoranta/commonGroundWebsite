@@ -1,5 +1,6 @@
 const fs = require('fs');
 var NodeGeocoder = require('node-geocoder');
+//var fetch = require('node-fetch');
 var async = require('async');
 var addresses = './public/objects/addresses.json';
 var showsRaw = './public/objects/showsListRaw.json';

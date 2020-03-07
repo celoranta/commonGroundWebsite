@@ -21,6 +21,7 @@ var storMgr = require('./storage-manager.js');
 var geocoder = require('./geocoder.js');
 var addressList = require('./public/objects/addresses.json')
 
+
 //Assign constants
 const hostname = "localhost";
 const imageTable = "Images2";
@@ -226,6 +227,7 @@ function updateShowsList() {
 //   let showfile = fs.readFileSync('public/objects/showsList.json');
 //   console.log('I Read the file! ' + JSON.stringify(showfile))
 // }
+
 
 updateSongsList(); //Once Now
 updateShowsList();
