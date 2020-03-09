@@ -61,6 +61,7 @@ var slideshowBackend = path.join(__dirname + '/views/slideshow-backend.html');
 var imagesPage = path.join(__dirname + '/views/images.html');
 var songsJSON = path.join(__dirname + '/public/objects/songsList.json');
 var showsJSON = path.join(__dirname + '/public/objects/showsList.json');
+var addressesJSON = path.join(__dirname + '/public/objects/addresses.json');
 var favicon = path.join(__dirname + '/public/images/cgicon.ico');
 //var songsList = path.join(publicFolder + '/songsLists/songList.json');
 
@@ -107,6 +108,9 @@ app.get('/songsJSON', (req, res) => {
 });
 app.get('/showsJSON', (req, res) => {
   res.sendFile(showsJSON);
+});
+app.get('/addressesJSON', (req, res) => {
+  res.sendFile(addressesJSON);
 });
 app.get('/api/images/:id', (req, res) => {
   res = setCorsHeaders(res);

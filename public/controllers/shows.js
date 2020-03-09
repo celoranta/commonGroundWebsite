@@ -5,7 +5,7 @@ const showsHeader = "SHOW DATES";
 const showsBlurb = "Party with Common Ground Live!";
 const monthQtyToShow = 6;
 const maxShowsPerMonth = 3;
-const showPromoRemovalDelayHours = 48;
+const showPromoRemovalDelayHours = 12;
 const venueNameWebKey = "custom_4wjmF5";
 const venueImageWebKey = "custom_DmBpPG";
 const eventBlurbWebKey = "custom_KKmJlb";
@@ -269,9 +269,6 @@ fetch('/showsJSON')
                 return;
             }
             response.json()
-                .then(function (showsJSArray) {
-                    return showsJSArray;
-                })
                 .then((showsList) => {
                     i = 0;
                     let newShowsArray = [];
