@@ -1,4 +1,6 @@
 
+
+
 const weekdays = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 
 const showsHeader = "SHOW DATES";
@@ -260,6 +262,8 @@ for (i = 0; i < showsToPromo.length; i++) {
     container_block.appendChild(wrapperDiv);
 };
 };
+
+
 fetch('/showsJSON')
     .then(
         function (response) {
@@ -274,6 +278,7 @@ fetch('/showsJSON')
                     let newShowsArray = [];
                     for (i = 0; i < showsList.length; i++) {
                         var thisShowObject = showsList[i];
+                        if (thisShowObject){
                         var imageFilePath = imagePrefix + thisShowObject[venueImageWebKey];
                         var overrideImageFilePath = imagePrefix + thisShowObject[overrideContactImageWebKey];
 
@@ -293,6 +298,7 @@ fetch('/showsJSON')
                         delete thisShowObject[eventBlurbWebKey];
                         newShowsArray.push(thisShowObject);   
                     }
+                }
                     console.log("New Shows Object:" + JSON.stringify(newShowsArray));
                     return newShowsArray
                 })

@@ -20,7 +20,9 @@
     "mysql2-promise": "^0.1.4",
     "node-fetch": "^2.6.0",
     "node-geocoder": "^3.25.0",
+    "node-google-timezone": "^0.1.1",
     "nodemailer": "^4.6.8",
+    "timezone": "^1.0.23",
     "util": "^0.11.1"
   },
   "devDependencies": {},

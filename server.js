@@ -7,7 +7,7 @@ const path = require('path');
 const bodyparser = require('body-parser');
 const nodemailer = require('nodemailer');
 var cors = require('cors');
-require('./public/objects/addresses.json');
+
 /*database = */require('dotenv').config();
 
 
@@ -20,6 +20,8 @@ var dbMgr = require('./database-manager.js');
 var storMgr = require('./storage-manager.js');
 var geocoder = require('./geocoder.js');
 var addressList = './public/objects/addresses.json'
+const tzHandler = require('./timezoneHandler');
+require('./public/objects/addresses.json');
 
 
 
