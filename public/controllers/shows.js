@@ -1,3 +1,4 @@
+//import fetch from "node-fetch";
 
 
 
@@ -211,7 +212,7 @@ function countShowsInMonth(monthInt, showList) {
         show = showList[i];
         showDate = new Date(show.date);
         console.log("Date: " + showDate);
-        if (monthInt == showDate.getMonth()) {
+        if (monthInt == showDate.getMonth() && show["cancelled"] === "0") {
             n++
         }
     }
@@ -279,6 +280,7 @@ fetch('/showsJSON')
                     for (i = 0; i < showsList.length; i++) {
                         var thisShowObject = showsList[i];
                         if (thisShowObject){
+                            if(thisShowObject["cancelled"] === "0"){
                         var imageFilePath = imagePrefix + thisShowObject[venueImageWebKey];
                         var overrideImageFilePath = imagePrefix + thisShowObject[overrideContactImageWebKey];
 
@@ -299,9 +301,36 @@ fetch('/showsJSON')
                         newShowsArray.push(thisShowObject);   
                     }
                 }
+                }
                     console.log("New Shows Object:" + JSON.stringify(newShowsArray));
                     return newShowsArray
                 })
+                // .then((showList) => {
+                //     fetch('/addressesJSON')
+                //     .then((response) => {
+                //         if (response.status !== 200) {
+                //             console.log('Looks like there was a problem. Status Code: ' +
+                //                 response.status);
+                //             return;
+                //         }
+                //         response.json()
+                //         .then((addressesObject) => {
+                //             let addresses = addressesObject)
+                //            // console.log('Addresses: ' + addresses)
+                //             for (i = 0; i < showList.length(); i++) {
+                //                 let show = showList[i];
+                //                 console.log("\n\n\n\nShow: " + show)
+                //                 let thisAddress = addresses[show.address]
+                //                 console.log("\n\n\n\nThisAddress: " + thisAddress)
+                //                 show.city = thisAddress.city;
+                //                 show.province = thisAddress.province;
+                //                 console.log("\n\n\n\n\ " + show.city + " " + show.province)
+                //             }
+                            
+                //         })
+                //     })
+
+                // })
                 .then((showList) => {
                     postShows(showList);
                 })
