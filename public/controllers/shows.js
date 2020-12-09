@@ -11,8 +11,8 @@ const venueImageWebKey = "custom_DmBpPG";
 const eventBlurbWebKey = "custom_KKmJlb";
 const overrideContactLocationWebKey = "custom_S3Rzc6";
 const eventDateWebKey = "date_start";
-const imagePrefix = "/images/venues/";
-const defaultShowImage = "/images/venues/outdoorCrop3.jpg";
+const imagePrefix = "/images/";
+const defaultShowImage = "/images/outdoorCrop3.jpg";
 const cancelledImage = "/images/cancelled.png";
 const overrideContactNameWebKey = "custom_VFJn1h";
 const venueLocationWebKey = "custom_cnnQpT";
@@ -156,7 +156,7 @@ function constructShowPromo() {
         }
         else {
             venueImageDiv.setAttribute('src', defaultShowImage);
-            //  console.log('Show image does not exist')
+            //  console.log('Show imagedoes not exist')
         }
     });
 
