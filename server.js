@@ -153,6 +153,11 @@ app.post('', function (req, res) {
   //Should try to migrate smtp routines to dedicated smtp manager script
 
   if(req.body.email && req.body.name && req.body.message){
+
+    if(req.body.email === undefined || req.body.message === undefined || req.body.name === undefined){
+      console.log('Contact Form Submission Failed: Undefined email, message, or header.')
+    }
+    else {
   var smtpTrans = nodemailer.createTransport({
     service: "Outlook365", // no need to set host or port etc.
     auth: {
@@ -179,6 +184,8 @@ app.post('', function (req, res) {
       res.sendFile(path.resolve(tempsuccess));
     }
   });
+
+    }
 }});
 
 //RETRIEVE AND SAVE SONG LIST
