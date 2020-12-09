@@ -66,7 +66,7 @@ nodemon.json
 googleApiCredentials.json
 
 #Dynamic lists
-#public/objects/showsList.json
-#public/objects/songsList.json
-#public/objects/showsListRaw.json
-#public/objects/addresses.json
+public/objects/showsList.json
+public/objects/songsList.json
+public/objects/showsListRaw.json
+public/objects/addresses.json
