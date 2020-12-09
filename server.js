@@ -151,6 +151,8 @@ app.get('/api/images-data', (req, res, next) => {
 app.post('', function (req, res) {
   //ToDo: This routine does not validate email addresses yet.
   //Should try to migrate smtp routines to dedicated smtp manager script
+
+  if(req.body.email && req.body.name && req.body.message){
   var smtpTrans = nodemailer.createTransport({
     service: "Outlook365", // no need to set host or port etc.
     auth: {
@@ -177,7 +179,7 @@ app.post('', function (req, res) {
       res.sendFile(path.resolve(tempsuccess));
     }
   });
-});
+}});
 
 //RETRIEVE AND SAVE SONG LIST
 
