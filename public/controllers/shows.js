@@ -156,7 +156,7 @@ function constructShowPromo() {
         }
         else {
             venueImageDiv.setAttribute('src', defaultShowImage);
-            //  console.log('Show does not exist')
+            //  console.log('Show image does not exist')
         }
     });
 
