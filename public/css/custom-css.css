@@ -310,3 +310,12 @@ http://jsfiddle.net/etj74mnh/
   .hide-during-video {
     display: none
 }
+
+.imageWrapper {
+    position: relative;
+  }
+  .overlayImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }

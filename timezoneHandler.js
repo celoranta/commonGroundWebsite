@@ -1,5 +1,8 @@
 const fetch = require('node-fetch');
-const tz = require('timezone')
+var tz = require('timezone/loaded'),
+    equal = require('assert').equal,
+    utc;
+ 
 var timezone = require('node-google-timezone');
  
 var timestamp = 1402629305; 
@@ -34,3 +37,16 @@ timezone.data(lat, lng, timestamp, function (err, tz) {
   // => Thu Jun 12 2014 - 20:15
  
 });
+
+console.log("Timezone: ")
+
+// Get POSIX time in UTC.
+utc = tz('2012-01-01');
+ 
+// Convert UTC time to local time in a localize language.
+equal(tz(utc, '%c', 'fr_FR', 'America/Montreal'),
+      'sam. 31 déc. 2011 19:00:00 EST');
+
+function parseLocationlessTime(timestring) {
+
+}

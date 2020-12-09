@@ -19,10 +19,7 @@ const fetch = require('node-fetch');
 var dbMgr = require('./database-manager.js');
 var storMgr = require('./storage-manager.js');
 var geocoder = require('./geocoder.js');
-var addressList = './public/objects/addresses.json'
-const tzHandler = require('./timezoneHandler');
 require('./public/objects/addresses.json');
-
 
 
 //Assign constants
@@ -33,7 +30,7 @@ const imageTable = "Images2";
 //VARS FOR GETTING SONG AND SHOW LIST
 let songsUrl = "https://www.bandhelper.com/feed/smart_list/9PSR83/23856";
 let showsUrl = "https://www.bandhelper.com/feed/calendar/23856?range=12";
-let settings = { method: "Get" };
+let showFetchSettings = { method: "Get" };
 
 
 //Instantiate managers
@@ -190,7 +187,7 @@ function minToMs(minutes) {
 
 function updateSongsList() {
   console.log('Updating Songs List to Server');
-  fetch(songsUrl, settings)
+  fetch(songsUrl, showFetchSettings)
     .then(res => res.json())
     .then((json) => {
       let songData = JSON.stringify(json);
@@ -200,7 +197,7 @@ function updateSongsList() {
 
 function updateShowsList() {
   console.log('Updating Shows List to Server');
-  fetch(showsUrl, settings)
+  fetch(showsUrl, showFetchSettings)
     .then(res => res.json())
     .then((json) => {
       fs.writeFileSync('public/objects/showsListRaw.json', JSON.stringify(json))
@@ -208,6 +205,10 @@ function updateShowsList() {
       fs.writeFileSync('public/objects/showsList.json', showsData);
     });
 };
+
+function createCuratedShowsList(){
+  
+}
 
 function appendCuratedAddresses(addressesObject) {
   for (i = 0; i < addressesObject.length; i++){

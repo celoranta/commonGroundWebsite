@@ -1,6 +1,3 @@
-//import fetch from "node-fetch";
-
-
 
 const weekdays = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 
@@ -16,6 +13,7 @@ const overrideContactLocationWebKey = "custom_S3Rzc6";
 const eventDateWebKey = "date_start";
 const imagePrefix = "/images/";
 const defaultShowImage = "/images/outdoorCrop3.jpg";
+const cancelledImage = "/images/cancelled.png";
 const overrideContactNameWebKey = "custom_VFJn1h";
 const venueLocationWebKey = "custom_cnnQpT";
 const overrideContactImageWebKey = "custom_wQdsyY";
@@ -43,62 +41,62 @@ function monthString() {
     return months[monthNum];
 };
 
-var is_date = function(input) {
-    if ( Object.prototype.toString.call(input) === "[object Date]" ) 
-      return true;
-    return false;   
-      };
+var is_date = function (input) {
+    if (Object.prototype.toString.call(input) === "[object Date]")
+        return true;
+    return false;
+};
 
 function prettyDateString(dt) {
-    if(is_date(dt)){
-    // var dt = new Date("July 21, 1983 15:15:00 CST");
-    var hm = dt.getHours(); // hours military
-    var mix = dt.getMinutes();
-    var wd = dt.getDay();
-    var d = dt.getDate()
-    var y = dt.getFullYear();
-    var mo = dt.getMonth();
+    if (is_date(dt)) {
+        // var dt = new Date("July 21, 1983 15:15:00 CST");
+        var hm = dt.getHours(); // hours military
+        var mix = dt.getMinutes();
+        var wd = dt.getDay();
+        var d = dt.getDate()
+        var y = dt.getFullYear();
+        var mo = dt.getMonth();
 
-    var dateString =  weekdays[wd] + " " + monthString(mo) + " " + d + ", " + y /* + timeString*/ ;
-    return dateString;
+        var dateString = weekdays[wd] + " " + monthString(mo) + " " + d + ", " + y /* + timeString*/;
+        return dateString;
     }
-    else{
+    else {
         return "TBA";
     };
 };
 
 function prettyHourString(dt) {
-    if(dt.getHours()){
-    // var dt = new Date("July 21, 1983 15:15:00 CST");
-    var hm = dt.getHours(); // hours military
-    var mix = dt.getMinutes();
-    var amPm = hm > 11 ? "pm" : "am";
-    var h = hm % 11;
-    var mi = mix.pad(2);
+    if (dt.getHours()) {
+        // var dt = new Date("July 21, 1983 15:15:00 CST");
+        var hm = dt.getHours(); // hours military
+        var mix = dt.getMinutes();
+        var amPm = hm > 11 ? "pm" : "am";
+        var h = hm % 11;
+        var mi = mix.pad(2);
 
-    var timeString = " at " + h + ":" + mi + amPm;
+        var timeString = " at " + h + ":" + mi + amPm;
 
-    //var dateString =  weekdays[wd] + " " + monthString(mo) + " " + d + ", " + y + timeString ;
-    return timeString;
+        //var dateString =  weekdays[wd] + " " + monthString(mo) + " " + d + ", " + y + timeString ;
+        return timeString;
     }
-    else{
+    else {
         return " (time TBA)";
     }
 };
 
-function prettyDateTimeString(d, t){
-return prettyDateString(d) + prettyHourString(t);
+function prettyDateTimeString(d, t) {
+    return prettyDateString(d) + prettyHourString(t);
 }
 
 // The "callback" argument is called with either true or false
 // depending on whether the image at "url" exists or not.
 function imageExists(url, callback) {
     var img = new Image();
-    img.onload = function() { callback(true); };
-    img.onerror = function() { callback(false); };
+    img.onload = function () { callback(true); };
+    img.onerror = function () { callback(false); };
     img.src = url;
-  }
-  
+}
+
 function constructMonthlyShowListItemDiv(item, showQty) {
     var status = "Book Common Ground";
     var buttonColor = 'w3-green';
@@ -138,23 +136,31 @@ function constructShowPromo() {
     var show = arguments[0];
     var mainWrapperDiv = document.createElement('div');
     mainWrapperDiv.setAttribute('class', 'w3-third');
+    //  <div class="imageWrapper">
+    //   <img class="overlayImage" src="cow.png">
+    //   <img class="overlayImage" src="clouds.png">
+    //   <img class="overlayImage" src="downpart.png">
+    // </div>
     mainWrapperDiv.className += " w3-margin-bottom";
     //mainWrapperDiv.className += " w3-button";
 
     //create image div {scale images to 400:280 in GIMP}
+    var cancelledOverlayDiv = document.createElement('div');
+    cancelledOverlayDiv.setAttribute('class', 'overlayImage');
+    cancelledOverlayDiv.setAttribute('src', cancelledImage);    
     var venueImageDiv = document.createElement('img');
-    imageExists(show.venueImage, function(exists) {
-        if (exists){
+    imageExists(show.venueImage, function (exists) {
+        if (exists) {
             venueImageDiv.setAttribute('src', show.venueImage);
-           // console.log("Show image exists");
+            // console.log("Show image exists");
         }
         else {
             venueImageDiv.setAttribute('src', defaultShowImage);
-          //  console.log('Show does not exist')
+            //  console.log('Show does not exist')
         }
     });
 
-   // venueImageDiv.setAttribute('src', show.venueImage);
+    // venueImageDiv.setAttribute('src', show.venueImage);
     venueImageDiv.setAttribute('alt', show.venue);
     venueImageDiv.setAttribute('style', "width:100%; border-bottom: 1px solid silver");
 
@@ -169,8 +175,8 @@ function constructShowPromo() {
     nameBlock.innerHTML = venueString.bold();
 
     //create showdate paragraph div
-    showDateUTC = new Date(show.date_start.split("-")[0], show.date_start.split("-")[1]-1,show.date_start.split("-")[2], 12, 0, 0);
-    showTimeUTC = new Date(show.date_start.split("-")[0], show.date_start.split("-")[1]-1,show.date_start.split("-")[2], show.time_start.split(":")[0], show.time_start.split(":")[1], show.time_start.split(":")[2], 0)
+    showDateUTC = new Date(show.date_start.split("-")[0], show.date_start.split("-")[1] - 1, show.date_start.split("-")[2], 12, 0, 0);
+    showTimeUTC = new Date(show.date_start.split("-")[0], show.date_start.split("-")[1] - 1, show.date_start.split("-")[2], show.time_start.split(":")[0], show.time_start.split(":")[1], show.time_start.split(":")[2], 0)
     showTimeUTC.setHours(showTimeUTC.getHours() - 1);
     var showDatePretty = prettyDateTimeString(showDateUTC, showTimeUTC);
     var dateDiv = document.createElement('p');
@@ -196,7 +202,9 @@ function constructShowPromo() {
 
     //nest divs
     mainWrapperDiv.appendChild(venueImageDiv);
+
     subWrapperDiv.appendChild(nameBlock);
+    //subWrapperDiv.appendChild(cancelledOverlayDiv);
     subWrapperDiv.appendChild(dateDiv);
     subWrapperDiv.appendChild(locationBlock);
     // subWrapperDiv.appendChild(blurbDiv);
@@ -220,48 +228,48 @@ function countShowsInMonth(monthInt, showList) {
 };
 
 //Header content
-function postShows(showList){
-document.getElementById('shows-header').innerHTML = showsHeader;
-document.getElementById('shows-blurb').innerHTML = showsBlurb.italics();
+function postShows(showList) {
+    document.getElementById('shows-header').innerHTML = showsHeader;
+    document.getElementById('shows-blurb').innerHTML = showsBlurb.italics();
 
-// Create a list of months to be presented
-var thisDate = new Date();
-var monthsShownList = [thisDate];
-i = 0;
-monthQtyMaxed = monthQtyToShow > 12 ? 12 : monthQtyToShow;
-for (i = 1; i < monthQtyMaxed; i++) {
-    var newMonthDate = new Date();
-    newMonthDate.setMonth(thisDate.getMonth() + i);
-    monthsShownList.push(newMonthDate);
-};
+    // Create a list of months to be presented
+    var thisDate = new Date();
+    var monthsShownList = [thisDate];
+    i = 0;
+    monthQtyMaxed = monthQtyToShow > 12 ? 12 : monthQtyToShow;
+    for (i = 1; i < monthQtyMaxed; i++) {
+        var newMonthDate = new Date();
+        newMonthDate.setMonth(thisDate.getMonth() + i);
+        monthsShownList.push(newMonthDate);
+    };
 
-// Present shows by month list
-var showsByMonthDiv = document.getElementById('shows-by-month');
-i = 0;
-for (i = 0; i < monthsShownList.length; i++) {
-    console.log("List item iteration");
-    const showMonthDate = monthsShownList[i];
-    const showMonth = showMonthDate.getMonth();
-    var monthlyShowCount = countShowsInMonth(showMonth, showList);
-    var listItemDiv = constructMonthlyShowListItemDiv(showMonth, monthlyShowCount);
-    showsByMonthDiv.appendChild(listItemDiv);
-}
+    // Present shows by month list
+    var showsByMonthDiv = document.getElementById('shows-by-month');
+    i = 0;
+    for (i = 0; i < monthsShownList.length; i++) {
+        console.log("List item iteration");
+        const showMonthDate = monthsShownList[i];
+        const showMonth = showMonthDate.getMonth();
+        var monthlyShowCount = countShowsInMonth(showMonth, showList);
+        var listItemDiv = constructMonthlyShowListItemDiv(showMonth, monthlyShowCount);
+        showsByMonthDiv.appendChild(listItemDiv);
+    }
 
-// Show promo panels
-var showsToPromo = [];
-i = 0;
-for (i = 0; i < showList.length; i++) {
-    const show = showList[i];
-    showsToPromo.push(show);
-}
-i = 0;
-for (i = 0; i < showsToPromo.length; i++) {
-    console.log(i);
-    var show = showsToPromo[i];
-    var wrapperDiv = constructShowPromo(show);
-    var container_block = document.getElementById('scheduled-shows');
-    container_block.appendChild(wrapperDiv);
-};
+    // Show promo panels
+    var showsToPromo = [];
+    i = 0;
+    for (i = 0; i < showList.length; i++) {
+        const show = showList[i];
+        showsToPromo.push(show);
+    }
+    i = 0;
+    for (i = 0; i < showsToPromo.length; i++) {
+        console.log(i);
+        var show = showsToPromo[i];
+        var wrapperDiv = constructShowPromo(show);
+        var container_block = document.getElementById('scheduled-shows');
+        container_block.appendChild(wrapperDiv);
+    };
 };
 
 
@@ -279,29 +287,31 @@ fetch('/showsJSON')
                     let newShowsArray = [];
                     for (i = 0; i < showsList.length; i++) {
                         var thisShowObject = showsList[i];
-                        if (thisShowObject){
-                            if(thisShowObject["cancelled"] === "0"){
-                        var imageFilePath = imagePrefix + thisShowObject[venueImageWebKey];
-                        var overrideImageFilePath = imagePrefix + thisShowObject[overrideContactImageWebKey];
+                        if (thisShowObject) {
+                            if (thisShowObject["cancelled"] === "0") {
 
-                        thisShowObject["venue"] = thisShowObject[venueNameWebKey];
-                        if (thisShowObject[overrideContactImageWebKey] === ""){
-                            thisShowObject["venueImage"] = imageFilePath
+
+                                var imageFilePath = imagePrefix + thisShowObject[venueImageWebKey];
+                                var overrideImageFilePath = imagePrefix + thisShowObject[overrideContactImageWebKey];
+
+                                thisShowObject["venue"] = thisShowObject[venueNameWebKey];
+                                if (thisShowObject[overrideContactImageWebKey] === "") {
+                                    thisShowObject["venueImage"] = imageFilePath
+                                }
+                                else {
+                                    thisShowObject["venueImage"] = overrideImageFilePath
+                                };
+                                //var correctImage =  imageFilePath;
+                                //thisShowObject["venueImage"] = (correctImage );
+                                thisShowObject["blurb"] = thisShowObject[eventBlurbWebKey];
+                                thisShowObject["date"] = thisShowObject[eventDateWebKey];
+                                delete thisShowObject[venueImageWebKey];
+                                delete thisShowObject[venueNameWebKey];
+                                delete thisShowObject[eventBlurbWebKey];
+                                newShowsArray.push(thisShowObject);
+                            }
                         }
-                        else {
-                            thisShowObject["venueImage"] = overrideImageFilePath
-                        };
-                        //var correctImage =  imageFilePath;
-                        //thisShowObject["venueImage"] = (correctImage );
-                        thisShowObject["blurb"] = thisShowObject[eventBlurbWebKey];
-                        thisShowObject["date"] = thisShowObject[eventDateWebKey];
-                        delete thisShowObject[venueImageWebKey];
-                        delete thisShowObject[venueNameWebKey];
-                        delete thisShowObject[eventBlurbWebKey];
-                        newShowsArray.push(thisShowObject);   
                     }
-                }
-                }
                     console.log("New Shows Object:" + JSON.stringify(newShowsArray));
                     return newShowsArray
                 })
@@ -326,7 +336,7 @@ fetch('/showsJSON')
                 //                 show.province = thisAddress.province;
                 //                 console.log("\n\n\n\n\ " + show.city + " " + show.province)
                 //             }
-                            
+
                 //         })
                 //     })
 
