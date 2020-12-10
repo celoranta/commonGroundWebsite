@@ -108,7 +108,7 @@ app.get('/slides', (req, res) => {
   fs.readdir(slidesDir,  
     { withFileTypes: true }, 
     (err, files) => { 
-    console.log("\nCurrent directory files:"); 
+    console.log("\nCurrent slides files:"); 
     if (err) 
       console.log(err); 
     else { 
