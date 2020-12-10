@@ -54,7 +54,7 @@ var songsJSON = path.join(__dirname + '/public/objects/songsList.json');
 var showsJSON = path.join(__dirname + '/public/objects/showsList.json');
 var addressesJSON = path.join(__dirname + '/public/objects/addresses.json');
 var favicon = path.join(__dirname + '/public/images/cgicon.ico');
-var imagesDir = path.join(__dirname + '/public/images/');
+var slidesDir = path.join(__dirname + '/public/images/slides/');
 //var songsList = path.join(publicFolder + '/songsLists/songList.json');
 
 //Static Routes
