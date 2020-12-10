@@ -52,7 +52,7 @@ function shuffle(array) {
 }
 
 function shuffle2(array) {
-    var newArray = newArray();
+    var newArray = new Array();
     var i = array.length;
     while (i > 0){
     randomIndex = Math.floor(Math.random() * i);
