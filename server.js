@@ -150,23 +150,19 @@ app.get('/api/images-data', (req, res, next) => {
 });
 
 // POST route from contact form
-app.post('/contact', function (req, res) {
-  //ToDo: This routine does not validate email addresses yet.
-  //Should try to migrate smtp routines to dedicated smtp manager script
 
+app.post('/contact', function (req, res) {
+  //Should try to migrate smtp routines to dedicated smtp manager script
   if (!req.body.name || !req.body.email || !req.body.message){
     res.send("Error: Blank form Fields");
     return false;
   }
-
   else if (!validator.isEmail(req.body.email)) {
     res.send("Error: Not a Valid Email");
     return false;
   }
-
   //else if (emailExistence.check('',function(error, response){}==="250")){}
   // The above would be async and wait upon a callback function.
-  
   var smtpTrans = nodemailer.createTransport({
     service: "Outlook365", // no need to set host or port etc.
     auth: {
@@ -174,9 +170,7 @@ app.post('/contact', function (req, res) {
       pass: process.env.OUTLOOK_PASS
     }
   });
-
   var requestText = req.body.name + " at " + req.body.email + " says:\n" + req.body.message;
-
   var mailOpts = {
     from: 'info@commongroundband.ca',
     to: 'info@commongroundband.ca',
@@ -192,12 +186,9 @@ app.post('/contact', function (req, res) {
       res.sendFile(path.resolve(tempsuccess));
     }
   });
-
-    
 });
 
 //RETRIEVE AND SAVE SONG LIST
-
 function minToMs(minutes) {
   return minutes * 1000 * 60;
 };
@@ -223,9 +214,8 @@ function updateShowsList() {
     });
 };
 
-function createCuratedShowsList(){
-  
-}
+// function createCuratedShowsList(){
+// }
 
 function appendCuratedAddresses(addressesObject) {
   for (i = 0; i < addressesObject.length; i++){
@@ -243,7 +233,6 @@ setInterval(geocoder.updateAddresses, minToMs(1)); //And once every X millisecon
 // let a = fs.readFileSync(addressList)
 // let b = JSON.parse(a)
 // appendCuratedAddresses(b);
-
 
 // 404
 app.use(function (req, res, next) {
