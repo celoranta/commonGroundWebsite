@@ -55,7 +55,7 @@ function shuffle2(array) {
     var newArray = new Array();
     var i = array.length;
     while (i > 0){
-    randomIndex = Math.floor(Math.random() * i);
+    randomIndex = Math.floor(Math.random() * i) - 1;
     newArray.push(array.splice(randomIndex,1));
     i -= 1;
     }
@@ -86,7 +86,7 @@ var slides = getSlides();
 // for (i = 0; i < slides.length; i++) {
 // }
 
-var shuffledSlides = shuffle(slideData);
+var shuffledSlides = shuffle2(slideData);
 var slidesContainer = document.getElementById('slides-container');
 
 console.log("Shuffled Slides Order: ")
