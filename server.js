@@ -54,6 +54,7 @@ var songsJSON = path.join(__dirname + '/public/objects/songsList.json');
 var showsJSON = path.join(__dirname + '/public/objects/showsList.json');
 var addressesJSON = path.join(__dirname + '/public/objects/addresses.json');
 var favicon = path.join(__dirname + '/public/images/cgicon.ico');
+var imagesDir = path.join(__dirname + '/public/images/');
 //var songsList = path.join(publicFolder + '/songsLists/songList.json');
 
 //Static Routes
@@ -102,6 +103,18 @@ app.get('/showsJSON', (req, res) => {
 });
 app.get('/addressesJSON', (req, res) => {
   res.sendFile(addressesJSON);
+});
+app.get('/slides', (req, res) => {
+  fs.readdir(imagesDir,  
+    { withFileTypes: true }, 
+    (err, files) => { 
+    console.log("\nCurrent directory files:"); 
+    if (err) 
+      console.log(err); 
+    else { 
+      res.send(files); 
+    } 
+  }) 
 });
 app.get('/api/images/:id', (req, res) => {
   res = setCorsHeaders(res);
