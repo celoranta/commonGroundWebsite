@@ -1,4 +1,4 @@
-const fetch = requre('node-fetch');
+const fetch = require('node-fetch');
 
 function getSlides() {
     
