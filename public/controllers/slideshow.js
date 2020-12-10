@@ -82,11 +82,11 @@ var slides = getSlides();
 
 fetch('/slides')
 .then(res => {
-    res.json()
-    const slideFiles = Object.values(res.json()).map(value => value.name)
+    
+    //const slideFiles = Object.values(res.json()).map(value => value.name)
 
 
-    var shuffledSlides = shuffle(slideFiles);
+    var shuffledSlides = shuffle(res.json());
     var slidesContainer = document.getElementById('slides-container');
     
     console.log("Shuffled Slides Order: ")
@@ -102,7 +102,7 @@ fetch('/slides')
         
         //Add slide image source
         const nextSlide = shuffledSlides[i];
-        const slideSource = nextSlide.source;
+        const slideSource = "/images/slides/" + nextSlide.name;
         console.log(slideSource);
         slideImage.setAttribute('src', slideSource);
         //Assemble and insert divs
