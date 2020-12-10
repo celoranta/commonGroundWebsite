@@ -1,23 +1,39 @@
 function getSlides() {
-    slideData = [
-        { "source": "/images/slides/band1-1.jpg" },
-        { "source": "/images/slides/band2-1.jpg" },
-        { "source": "/images/slides/band3-1.jpg" },
-        { "source": "/images/slides/brad1-1.jpg" },
-        { "source": "/images/slides/brad2-1.jpg" },
-        { "source": "/images/slides/brad3-1.jpg" },
-        { "source": "/images/slides/brad4-1.jpg" },
-        { "source": "/images/slides/bradchris1-1.jpg" },
-        { "source": "/images/slides/bradchris2-1.jpg" },
-        { "source": "/images/slides/bradchris3-1.jpg" },
-        { "source": "/images/slides/chris1-1.jpg" },
-        { "source": "/images/slides/chris2-1.jpg" },
-        { "source": "/images/slides/chris3-1.jpg" },
-        { "source": "/images/slides/lorne1-1.jpg" },
-        { "source": "/images/slides/lorne2-1.jpg" },
-        { "source": "/images/slides/lorne3-1.jpg" }
-    ]
-    return slideData;
+    fetch('/slides')
+    .then(
+        function (response) {
+            if (response.status !== 200) {
+                console.log('Looks like there was a problem. Status Code: ' +
+                    response.status);
+                return;
+            }
+            response.json()
+                .then((slidesList) => {
+                    return slidesList
+                })
+        })
+    .catch(function (err) {
+        console.log('Fetch Error :-S', err);
+    });
+    // slideData = [
+    //     { "source": "/images/slides/band1-1.jpg" },
+    //     { "source": "/images/slides/band2-1.jpg" },
+    //     { "source": "/images/slides/band3-1.jpg" },
+    //     { "source": "/images/slides/brad1-1.jpg" },
+    //     { "source": "/images/slides/brad2-1.jpg" },
+    //     { "source": "/images/slides/brad3-1.jpg" },
+    //     { "source": "/images/slides/brad4-1.jpg" },
+    //     { "source": "/images/slides/bradchris1-1.jpg" },
+    //     { "source": "/images/slides/bradchris2-1.jpg" },
+    //     { "source": "/images/slides/bradchris3-1.jpg" },
+    //     { "source": "/images/slides/chris1-1.jpg" },
+    //     { "source": "/images/slides/chris2-1.jpg" },
+    //     { "source": "/images/slides/chris3-1.jpg" },
+    //     { "source": "/images/slides/lorne1-1.jpg" },
+    //     { "source": "/images/slides/lorne2-1.jpg" },
+    //     { "source": "/images/slides/lorne3-1.jpg" }
+    // ]
+    // return slideData;
 }
 
 //Functions 'stateModule, shuffle(array), and saveShuffledArray(array) were all copied from the audio-player 
@@ -72,46 +88,51 @@ function shuffle(array) {
 
 //saveShuffledArray(getSlides());
 
-var slides = getSlides();
+//var slides = getSlides();
+
+fetch('/slides')
+.then(function(slides){
+    var shuffledSlides = shuffle(slideData);
+    var slidesContainer = document.getElementById('slides-container');
+    
+    console.log("Shuffled Slides Order: ")
+    i = 0;
+    for (i = 0; i < shuffledSlides.length; i++) {
+        //Create slide divs
+        var slideContainer = document.createElement('div');
+        slideContainer.className = "mySlides w3-display-container w3-center";
+        var slideImage = document.createElement('img')
+        slideImage.classList.add('slide-image', 'custom-greyscale')
+        slideImage.setAttribute('style', "width:100%");
+    
+        
+        //Add slide image source
+        const nextSlide = shuffledSlides[i];
+        const slideSource = nextSlide.source;
+        console.log(slideSource);
+        slideImage.setAttribute('src', slideSource);
+        //Assemble and insert divs
+        slideContainer.appendChild(slideImage);
+        slidesContainer.appendChild(slideContainer);
+    };
+    
+    // Automatic Slideshow - change image every 4 seconds
+    var myIndex = 0;
+    carousel();
+    function carousel() {
+        var i;
+        var mySlides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < mySlides.length; i++) {
+            mySlides[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > mySlides.length) { myIndex = 1 }
+        mySlides[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 4000);
+    }
+})
+.catch()
 //i = 0;
 // for (i = 0; i < slides.length; i++) {
 // }
 
-var shuffledSlides = shuffle(slideData);
-var slidesContainer = document.getElementById('slides-container');
-
-console.log("Shuffled Slides Order: ")
-i = 0;
-for (i = 0; i < shuffledSlides.length; i++) {
-    //Create slide divs
-    var slideContainer = document.createElement('div');
-    slideContainer.className = "mySlides w3-display-container w3-center";
-    var slideImage = document.createElement('img')
-    slideImage.classList.add('slide-image', 'custom-greyscale')
-    slideImage.setAttribute('style', "width:100%");
-
-    
-    //Add slide image source
-    const nextSlide = shuffledSlides[i];
-    const slideSource = nextSlide.source;
-    console.log(slideSource);
-    slideImage.setAttribute('src', slideSource);
-    //Assemble and insert divs
-    slideContainer.appendChild(slideImage);
-    slidesContainer.appendChild(slideContainer);
-};
-
-// Automatic Slideshow - change image every 4 seconds
-var myIndex = 0;
-carousel();
-function carousel() {
-    var i;
-    var mySlides = document.getElementsByClassName("mySlides");
-    for (i = 0; i < mySlides.length; i++) {
-        mySlides[i].style.display = "none";
-    }
-    myIndex++;
-    if (myIndex > mySlides.length) { myIndex = 1 }
-    mySlides[myIndex - 1].style.display = "block";
-    setTimeout(carousel, 4000);
-}
