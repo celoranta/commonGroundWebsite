@@ -51,6 +51,17 @@ function shuffle(array) {
     return array;
 }
 
+function shuffle2(array) {
+    var newArray = newArray();
+    var i = array.length;
+    while (i > 0){
+    randomIndex = Math.floor(Math.random() * i);
+    newArray.push(array.splice(randomIndex,1));
+    i -= 1;
+    }
+    return newArray;
+}
+
 // function saveShuffledArray(array){
 //     console.log("Creating Shuffled Array");
 // stateModule.changeState(shuffle(array));
@@ -71,11 +82,11 @@ function shuffle(array) {
 //saveShuffledArray(getSlides());
 
 var slides = getSlides();
-i = 0;
-for (i = 0; i < slides.length; i++) {
-}
+//i = 0;
+// for (i = 0; i < slides.length; i++) {
+// }
 
-var shuffledSlides = shuffle(slideData);
+var shuffledSlides = shuffle2(slides);
 var slidesContainer = document.getElementById('slides-container');
 
 console.log("Shuffled Slides Order: ")
