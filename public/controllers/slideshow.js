@@ -86,7 +86,7 @@ var slides = getSlides();
 // for (i = 0; i < slides.length; i++) {
 // }
 
-var shuffledSlides = shuffle2(slides);
+var shuffledSlides = shuffle2(slideData);
 var slidesContainer = document.getElementById('slides-container');
 
 console.log("Shuffled Slides Order: ")
