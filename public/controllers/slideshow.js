@@ -1,7 +1,4 @@
-//const fetch = require('node-fetch');
-
 function getSlides() {
-    
     slideData = [
         { "source": "/images/slides/band1-1.jpg" },
         { "source": "/images/slides/band2-1.jpg" },
@@ -54,7 +51,16 @@ function shuffle(array) {
     return array;
 }
 
-
+// function shuffle2(array) {
+//     var newArray = new Array();
+//     var i = array.length;
+//     while (i > 0){
+//     randomIndex = Math.floor(Math.random() * i) - 1;
+//     newArray.push(array.splice(randomIndex,1));
+//     i -= 1;
+//     }
+//     return newArray;
+// }
 
 // function saveShuffledArray(array){
 //     console.log("Creating Shuffled Array");
@@ -80,52 +86,41 @@ var slides = getSlides();
 // for (i = 0; i < slides.length; i++) {
 // }
 
-fetch('/slides')
-.then(res => {
-    
-    //const slideFiles = Object.values(res.json()).map(value => value.name)
+var shuffledSlides = shuffle(slideData);
+var slidesContainer = document.getElementById('slides-container');
 
+console.log("Shuffled Slides Order: ")
+i = 0;
+for (i = 0; i < shuffledSlides.length; i++) {
+    //Create slide divs
+    var slideContainer = document.createElement('div');
+    slideContainer.className = "mySlides w3-display-container w3-center";
+    var slideImage = document.createElement('img')
+    slideImage.classList.add('slide-image', 'custom-greyscale')
+    slideImage.setAttribute('style', "width:100%");
 
-    var shuffledSlides = shuffle(res.json());
-    var slidesContainer = document.getElementById('slides-container');
     
-    console.log("Shuffled Slides Order: ")
-    i = 0;
-    for (i = 0; i < shuffledSlides.length; i++) {
-        //Create slide divs
-        var slideContainer = document.createElement('div');
-        slideContainer.className = "mySlides w3-display-container w3-center";
-        var slideImage = document.createElement('img')
-        slideImage.classList.add('slide-image', 'custom-greyscale')
-        slideImage.setAttribute('style', "width:100%");
-    
-        
-        //Add slide image source
-        const nextSlide = shuffledSlides[i];
-        const slideSource = "/images/slides/" + nextSlide.name;
-        console.log(slideSource);
-        slideImage.setAttribute('src', slideSource);
-        //Assemble and insert divs
-        slideContainer.appendChild(slideImage);
-        slidesContainer.appendChild(slideContainer);
-    };
-    
-    // Automatic Slideshow - change image every 4 seconds
-    var myIndex = 0;
-    carousel();
-    function carousel() {
-        var i;
-        var mySlides = document.getElementsByClassName("mySlides");
-        for (i = 0; i < mySlides.length; i++) {
-            mySlides[i].style.display = "none";
-        }
-        myIndex++;
-        if (myIndex > mySlides.length) { myIndex = 1 }
-        mySlides[myIndex - 1].style.display = "block";
-        setTimeout(carousel, 4000);
+    //Add slide image source
+    const nextSlide = shuffledSlides[i];
+    const slideSource = nextSlide.source;
+    console.log(slideSource);
+    slideImage.setAttribute('src', slideSource);
+    //Assemble and insert divs
+    slideContainer.appendChild(slideImage);
+    slidesContainer.appendChild(slideContainer);
+};
+
+// Automatic Slideshow - change image every 4 seconds
+var myIndex = 0;
+carousel();
+function carousel() {
+    var i;
+    var mySlides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < mySlides.length; i++) {
+        mySlides[i].style.display = "none";
     }
-
-})
-//.then(body => console.log(body))
-.catch((err)=>{console.log(err)})
-
+    myIndex++;
+    if (myIndex > mySlides.length) { myIndex = 1 }
+    mySlides[myIndex - 1].style.display = "block";
+    setTimeout(carousel, 4000);
+}
