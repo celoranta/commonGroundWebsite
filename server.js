@@ -7,6 +7,8 @@ const path = require('path');
 const bodyparser = require('body-parser');
 const nodemailer = require('nodemailer');
 var cors = require('cors');
+var validator = require('validator');
+const emailExistence = require('email-existence');
 
 /*database = */require('dotenv').config();
 
@@ -152,6 +154,19 @@ app.post('/contact', function (req, res) {
   //ToDo: This routine does not validate email addresses yet.
   //Should try to migrate smtp routines to dedicated smtp manager script
 
+  if (!req.body.name || !req.body.email || !req.body.message){
+    res.send("Error: Blank form Fields");
+    return false;
+  }
+
+  else if (!validator.isEmail(req.body.email)) {
+    res.send("Error: Not a Valid Email");
+    return false;
+  }
+
+  //else if (emailExistence.check('',function(error, response){}==="250")){}
+  // The above would be async and wait upon a callback function.
+  
   var smtpTrans = nodemailer.createTransport({
     service: "Outlook365", // no need to set host or port etc.
     auth: {
@@ -159,11 +174,6 @@ app.post('/contact', function (req, res) {
       pass: process.env.OUTLOOK_PASS
     }
   });
-
-  if (!req.body.name || !req.body.email || !req.body.message){
-    res.send("Error: Blank form Fields");
-    return false;
-  }
 
   var requestText = req.body.name + " at " + req.body.email + " says:\n" + req.body.message;
 
