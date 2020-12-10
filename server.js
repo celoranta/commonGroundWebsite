@@ -8,14 +8,11 @@ const bodyparser = require('body-parser');
 const nodemailer = require('nodemailer');
 var cors = require('cors');
 var validator = require('validator');
-const emailExistence = require('email-existence');
-
+//const emailExistence = require('email-existence');
 /*database = */require('dotenv').config();
-
 
 //FOR GETTING SONG / SHOW LISTS
 const fetch = require('node-fetch');
-
 
 //Include custom frameworks
 var dbMgr = require('./database-manager.js');
@@ -23,34 +20,27 @@ var storMgr = require('./storage-manager.js');
 var geocoder = require('./geocoder.js');
 require('./public/objects/addresses.json');
 
-
 //Assign constants
-const hostname = "localhost";
+//const hostname = "localhost";
 const imageTable = "Images2";
-
 
 //VARS FOR GETTING SONG AND SHOW LIST
 let songsUrl = "https://www.bandhelper.com/feed/smart_list/9PSR83/23856";
 let showsUrl = "https://www.bandhelper.com/feed/calendar/23856?range=12";
 let showFetchSettings = { method: "Get" };
 
-
 //Instantiate managers
 var app = express();
 var httpPort = process.env.PORT || 8000;
-
 var api = express();
-var apiHttpPort = 8091;
-
-
+//var apiHttpPort = 8091;
 
 app.use(cors());
-
 app.options('*', cors())
-var corsOptions = {
-  origin: 'http://localhost:8000',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
+// var corsOptions = {
+//   origin: 'http://localhost:8000',
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// }
 
 //Create filepaths
 var publicFolder = path.join(__dirname + '/public');
@@ -150,7 +140,6 @@ app.get('/api/images-data', (req, res, next) => {
 });
 
 // POST route from contact form
-
 app.post('/contact', function (req, res) {
   //Should try to migrate smtp routines to dedicated smtp manager script
   if (!req.body.name || !req.body.email || !req.body.message){
@@ -177,7 +166,6 @@ app.post('/contact', function (req, res) {
     subject: 'New message from contact form at commongroundband.ca',
     text: requestText//`${req.body.name} (${req.body.email}) says:\n ${req.body.message}}`
   }
-
   smtpTrans.sendMail(mailOpts, function (error, response) {
     if (error) {
       res.sendFile(path.resolve(temperror));
@@ -217,13 +205,13 @@ function updateShowsList() {
 // function createCuratedShowsList(){
 // }
 
-function appendCuratedAddresses(addressesObject) {
-  for (i = 0; i < addressesObject.length; i++){
-    let address = addressesObject[i];
-    console.log("Address object: " + JSON.stringify(address))
-  }
+// function appendCuratedAddresses(addressesObject) {
+//   for (i = 0; i < addressesObject.length; i++){
+//     let address = addressesObject[i];
+//     console.log("Address object: " + JSON.stringify(address))
+//   }
  // Object.assign(addressesObject)
-}
+// }
 
 updateSongsList(); 
 updateShowsList();
