@@ -105,7 +105,7 @@ app.get('/addressesJSON', (req, res) => {
   res.sendFile(addressesJSON);
 });
 app.get('/slides', (req, res) => {
-  fs.readdir(imagesDir,  
+  fs.readdir(slidesDir,  
     { withFileTypes: true }, 
     (err, files) => { 
     console.log("\nCurrent directory files:"); 
