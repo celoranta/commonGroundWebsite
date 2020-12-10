@@ -80,7 +80,8 @@ formDiv.classList.add('m6');
 contactBoxDiv.appendChild(formDiv);
 
 let form = document.createElement('form');
-form.action = "";
+form.action = "/contact";
+form.role = "form";
 form.target = "_blank";
 form.method = "post";
 formDiv.appendChild(form);

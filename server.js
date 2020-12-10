@@ -148,16 +148,10 @@ app.get('/api/images-data', (req, res, next) => {
 });
 
 // POST route from contact form
-app.post('', function (req, res) {
+app.post('/contact', function (req, res) {
   //ToDo: This routine does not validate email addresses yet.
   //Should try to migrate smtp routines to dedicated smtp manager script
 
-  if(req.body.email && req.body.name && req.body.message){
-
-    if(req.body.email === undefined || req.body.message === undefined || req.body.name === undefined){
-      console.log('Contact Form Submission Failed: Undefined email, message, or header.')
-    }
-    else {
   var smtpTrans = nodemailer.createTransport({
     service: "Outlook365", // no need to set host or port etc.
     auth: {
@@ -165,16 +159,20 @@ app.post('', function (req, res) {
       pass: process.env.OUTLOOK_PASS
     }
   });
-  console.log('nodemailer creation routine ended');
+
+  if (!req.body.name || !req.body.email || !req.body.message){
+    res.send("Error: Blank form Fields");
+    return false;
+  }
+
   var requestText = req.body.name + " at " + req.body.email + " says:\n" + req.body.message;
-  var requestEmail = req.body.email;
+
   var mailOpts = {
     from: 'info@commongroundband.ca',
     to: 'info@commongroundband.ca',
     subject: 'New message from contact form at commongroundband.ca',
-    text: requestText
-  };
-  console.log('mailopts creation routine ended');
+    text: requestText//`${req.body.name} (${req.body.email}) says:\n ${req.body.message}}`
+  }
 
   smtpTrans.sendMail(mailOpts, function (error, response) {
     if (error) {
@@ -185,8 +183,8 @@ app.post('', function (req, res) {
     }
   });
 
-    }
-}});
+    
+});
 
 //RETRIEVE AND SAVE SONG LIST
 
